@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">DetailsActivity</string>
+    <string name="login">Login</string>
+    <string name="phone">Phone</string>
+   
+    <string name="user">UserName :</string>
+        <string name="pwd">Password :</string>
+        <string name="user_hint">Enter UserName</string>
+        <string name="phn">Phone Number</string>
+         <string name="pwd_hint">Enter Password</string>
+     <string name="phn_hint">Enter Password</string>
+       <string name="userdisplay">Entered UserNmae is :</string>
+    
+        
+    
+    
+</resources>

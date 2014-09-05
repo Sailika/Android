@@ -1,0 +1,19 @@
+<resources>
+
+    
+<string name="app_name">BackUpStringActivity</string>
+<string name="head">Welcome to Ecentric</string>
+<string name="and">Android</string>
+<string name="ios">iOS</string>
+<string name="uname">Developer Name</string>
+<string name="android_hint">Android Developer Name</string>
+<string name="submit">Subnit</string>
+    
+<string name="iname">Developer Name</string>
+<string name="ios_hint">Android Developer Name</string>
+    
+<string name="wname">Developer Name</string>
+<string name="web_hint">Android Developer Name</string>
+    
+
+</resources>
