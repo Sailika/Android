@@ -1,0 +1,28 @@
+package com.pcs.action;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.EditText;
+
+public class ActivityThree extends Activity{
+	private EditText third_edt;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_third);
+		
+		if((getText(R.id.three))!=null){
+      third_edt =(EditText)findViewById(R.id.third);
+		
+		
+		Intent return_third = new Intent();
+		return_third.putExtra("term_three", third_edt.getText().toString());
+		setResult(RESULT_OK,return_third);
+		finish();
+	}
+	
+	}
+
+}
+

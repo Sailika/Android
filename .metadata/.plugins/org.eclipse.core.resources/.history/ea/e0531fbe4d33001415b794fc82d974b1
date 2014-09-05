@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CricInfo</string>
+    <string name="head">Select Country To See The Flag !</string>
+    <string name="action_settings">Settings</string>
+    <string name="aus">Australia</string>
+    <string name="ind">India</string>
+    <string name="eng">England</string>
+    <string name="rsa">South Aftrica</string>
+    <string name="newz">Newzeland</string>
+    
+
+</resources>

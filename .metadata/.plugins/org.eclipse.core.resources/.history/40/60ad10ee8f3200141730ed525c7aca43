@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="app_name">LoginFormActivity</string>
+    <string name="credentials">Enter Your Credentials</string>
+    <string name="sign_here">Sign In</string>
+    <string name="txt_username">User Name</string>
+    <string name="txt_password">Password</string>
+    <string name="user_hint">Enter Your UserName</string>
+    <string name="pwd_hint">Enter Your Password</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="btn_signin">Sign In</string>
+    <string name="check_one">Remember Password?</string>
+    <string name="signin_username">User Name</string>
+    <string name="signin_password">Password</string>
+    <string name="signin_btn">Sign In</string>
+    <string name="signinuser_hint">Enter User Name</string>
+    <string name="signinpwd_hint">Enter Password</string>
+    <string name="signin_forgot">Forgot Password</string>
+    <string name="signin_remeber">Remember Me</string>
+    <string name="welcome_display">Welcome</string>
+     <string name="text_email">Welcome</string>
+    
+</resources>

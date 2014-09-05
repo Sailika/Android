@@ -1,0 +1,96 @@
+package com.pcs.action;
+
+import android.app.Activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class FirstActivity extends Activity {
+
+	public static final int RequestCode_one = 101;
+	public static final int RequestCode_two = 102;
+	public static final int RequestCode_three = 103;
+	private static final int LENGTH_LONG = 100;
+	private Button Screen_one;
+	private Button Screen_two;
+	private Button Screen_three;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+
+		Screen_one = (Button)findViewById(R.id.one);
+		Screen_two = (Button)findViewById(R.id.two);
+		Screen_three = (Button)findViewById(R.id.three); 
+		
+		
+		
+
+		Screen_one.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent_one = new Intent(FirstActivity.this,ActivityOne.class);
+				startActivityForResult(intent_one, RequestCode_one);
+				
+			}
+		});
+		Screen_two.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent_two = new Intent(FirstActivity.this,ActivityTwo.class);
+				startActivityForResult(intent_two, RequestCode_two);
+			}
+		});
+	Screen_three.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent_three = new Intent(FirstActivity.this,ActivityThree.class);
+				startActivityForResult(intent_three, RequestCode_three);
+				
+			}
+		}); 
+	}
+
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+		EditText first_edt =(EditText)findViewById(R.id.first);
+		EditText second_edt =(EditText)findViewById(R.id.second);
+		EditText third_edt =(EditText)findViewById(R.id.third); 
+		if(requestCode== RequestCode_one)
+		{
+			Toast.makeText(this,"You entered the term"+" "+"first_edt", LENGTH_LONG).show();
+			
+		}
+		
+		else if(requestCode== RequestCode_two)
+		{
+			Toast.makeText(this,"You entered the term"+" "+"second_edt", LENGTH_LONG).show();
+			
+		}
+		
+		   else if(requestCode== RequestCode_three)
+		{
+			Toast.makeText(this,"You entered the term"+" "+"third_edt", LENGTH_LONG).show();
+			
+		}
+		
+	}
+
+
+
+}

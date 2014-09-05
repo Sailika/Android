@@ -1,0 +1,16 @@
+package com.pcs.socialapp;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.app.activity;
+
+public class LoginActivity extends Activity {
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
+	}
+
+	
+	}
+

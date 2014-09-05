@@ -1,0 +1,7 @@
+package com.pcs.whatsapp;
+
+public class WelcomeActivity {
+	String username = getIntent().getStringExtra(Constants.LoginExtras.USER_NAME);
+	
+WelcomeNoteTxt =  (TextView)findViewById(R.id.welcome);
+}

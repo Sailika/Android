@@ -1,0 +1,27 @@
+package com.pcs.gallery;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View.OnClickListener.onClick;
+
+public class MainActivity extends Activity implements OnClickListener{
+    private Button Whatsapp;
+    private Button Line;
+    private Button Hike;
+    private Button Facebook;
+    
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+	Whatsapp = (Button)findViewById(R.id.what_btn);
+	Line = (Button)findViewById(R.id.line_btn);
+	Hike = (Button)findViewById(R.id.hike_btn);
+	Facebook = (Button)findViewById(R.id.fb_btn);
+	}
+
+	
+}
