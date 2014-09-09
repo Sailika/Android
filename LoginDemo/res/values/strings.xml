@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">LoginDemo</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_uname">User Name</string>
+    <string name="txt_pwd">Password</string>
+    <string name="button_login">Login</string>
+    <string name="txt_rememberme">Remember Me</string>
+    <string name="hint_un">Enter Your User Name</string>
+    <string name="hint_pwd">Input Password !!!</string>
+    <string name="button_fb">Click Here To Login With Facebook</string>
+
+</resources>

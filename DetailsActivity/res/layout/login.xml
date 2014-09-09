@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+   
+   <LinearLayout android:id="@+id/user_layout" 
+       android:layout_height="wrap_content"
+       android:layout_width="match_parent"
+       android:orientation="horizontal"
+       android:weightSum="3">
+    
+    
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/user_txtvew"
+        android:text="@string/user"
+        android:padding="10dp"
+        android:layout_weight="1"        />
+   
+    <EditText 
+        android:id="@+id/user_edttxt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/user_hint"
+         android:padding="10dp"
+         android:layout_weight="2"
+        />
+    </LinearLayout> 
+    
+    <LinearLayout android:id="@+id/pwd_layout" 
+       android:layout_height="wrap_content"
+       android:layout_width="match_parent"
+       android:orientation="horizontal"
+       android:weightSum="3">
+    
+    
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/pwd_txtvew"
+        android:text="@string/pwd"
+        android:padding="10dp"
+        android:layout_weight="1"        />
+   
+    <EditText 
+        android:id="@+id/pwd_edttxt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/pwd_hint"
+         android:padding="10dp"
+         android:layout_weight="2"
+        />
+    </LinearLayout> 
+    
+
+</LinearLayout>
