@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Whatsapp</string>
+    <string name="username">UserName :</string>
+     <string name="pwd">Enter PassWord ......</string>
+     <string name="login"> USER LOGIN</string>
+     <string name="password">Password  :</string>
+     <string name="submit">SUBMIT</string>
+     <string name="desc">Desc</string>
+     <string name="rmd">Remember password?</string>
+     <string name="forgot">Forgot Password?</string>
+    <string name="action_settings">Settings</string>
+     <string name="enterusername">Enter User name</string>
+    
+
+</resources>

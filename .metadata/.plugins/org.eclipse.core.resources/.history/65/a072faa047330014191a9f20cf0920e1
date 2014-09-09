@@ -1,0 +1,28 @@
+package com.example.cricinfo;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MainActivity extends Activity {
+	private static final LONG_LENGTH = 1000;
+	private button aus_btn;
+	private button ind_btn;
+	private button eng_btn;
+	private button rsa_btn;
+	private button newz_btn;
+	
+@Override
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+	
+}
+		
+
+	
+
+}
+
+	

@@ -1,0 +1,33 @@
+package com.pcs.whatsapp;
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class LoginActivity extends Activity {
+
+	public static final String TAG = "Android";
+
+	private  Button LoginBtn;
+	private EditText UserNameedt;
+	private EditText PassWordedt;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {        	
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_login);
+
+		Button LoginBtn = (Button)findViewById(R.id.loginbtn);
+		EditText uname_edt = (EditText)findViewById(R.id.username);
+		EditText pwd_edt = (EditText)findViewById(R.id.password);
+
+
+
+LoginBtn.setonClickListener
+
+
+
+}

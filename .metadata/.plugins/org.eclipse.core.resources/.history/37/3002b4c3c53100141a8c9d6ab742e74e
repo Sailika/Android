@@ -1,0 +1,36 @@
+package com.pcs.whatsapp;
+
+import java.security.PublicKey;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.widget.EditText;
+
+
+public class LoginActivity extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        
+    	public static final String TAG = "Android";
+    	
+    	super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        
+        EditText uname_edt = (EditText)findViewById(R.id.username);
+        EditText pwd_edt = (EditText)findViewById(R.id.password);
+        
+        String username = uname_edt.getText().toString();
+        String pwd = pwd_edt.getText().toString();
+        
+        Log.i(TAG,"Username="+username);
+        Log.i(TAG,"Password="+pwd);
+        
+    }	
+
+
+    
+
+   
+}

@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">Avocado</string>
+    <string name="txt_username">User Name</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_repassword">Re-Enter</string>
+    <string name="user_hint">Choose A User Name</string>
+    <string name="pwd_hint">Choose A Password</string>
+    <string name="repwd_hint">Re-Enter The Password</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="btn_signin">Sign In</string>
+    <string name="txt_alreadymember">Already a Member ?</string>
+    <string name="signin_username">User Name</string>
+    <string name="signin_password">Password</string>
+    <string name="signin_btn">Sign In</string>
+    <string name="signinuser_hint">Enter User Name</string>
+    <string name="signinpwd_hint">Enter Password</string>
+    <string name="signin_forgot">Forgot Password</string>
+    <string name="signin_remeber">Remember Me</string>
+    <string name="welcome">Welcome</string>
+
+</resources>

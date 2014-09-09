@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Action</string>
+    <string name="action_settings">Settings</string>
+    <string name="btn_one">Go to First Screen</string>
+    <string name="btn_two">Go to Second Screen</string>
+    <string name="btn_three">Go to Third Screen</string>
+    <string name="two">Welcome to Second Screen</string>
+    <string name="three">Welcome to Third Screen</string>
+    <string name="one">Welcome to First Screen</string>
+    <string name="term">Enter a term</string>
+      <string name="submit">Submit</string>
+
+</resources>

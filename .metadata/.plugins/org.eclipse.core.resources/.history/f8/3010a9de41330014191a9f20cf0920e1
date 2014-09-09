@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation= "vertical"
+    android:id="@+id/back"
+    tools:context="com.example.cricinfo.MainActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/head" />
+    
+    <Button  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/aus_flag"
+        android:text="@string/aus"
+       
+      />
+    
+    <Button  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ind_flag"
+        android:text="@string/ind"
+       
+      />
+    <Button  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/eng_flag"
+        android:text="@string/eng"
+       
+      />
+    
+    <Button  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rsa_flag"
+        android:text="@string/rsa"
+       
+      />
+    
+    <Button  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newz_flag"
+        android:text="@string/newz"
+       
+      />
+    
+
+</LinearLayout>

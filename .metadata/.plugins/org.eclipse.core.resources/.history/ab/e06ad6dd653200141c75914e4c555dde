@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Social App</string>
+    <string name="username_hint">Enter the Username</string>
+      <string name="password_hint">Enter the Password</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

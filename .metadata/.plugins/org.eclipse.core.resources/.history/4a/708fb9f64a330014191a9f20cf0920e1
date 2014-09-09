@@ -1,0 +1,85 @@
+package com.example.cricinfo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
+
+public class MainActivity extends Activity implements OnClickListener {
+	private static final LONG_LENGTH = 0;
+	private button aus_btn;
+	private button ind_btn;
+	private button eng_btn;
+	private button rsa_btn;
+	private button newz_btn;
+	
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+	
+	Australia = (Button)findViewById(R.id.aus_flag);
+	India = (Button)findViewById(R.id.ind_flag);
+	England = (Button)findViewById(R.id.eng_flag);
+	Southafrica = (Button)findViewById(R.id.rsa_flag);
+	Newzeland = (Button)findViewById(R.id.newz_flag);
+	
+	Australia.setOnClickListner(this);
+	India.setOnClickListner(this);
+	England.setOnClickListner(this);
+	Southafrica.setOnClickListner(this);
+	Newzeland.setOnClickListner(this);
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+@Override
+public void onClick(View v) {
+
+	 v.getId();
+	 
+	switch(v.getId())
+	{
+	case R.id.aus_flag :
+	 background.setBackgroundResources(R.drawable.aus);
+	 Toast.makeText(MainActivity.this, getResources().getString(R.string.a),LENGTH_LONG).show();
+	  break;
+	  
+	case R.id.ind_flag :
+		 background.setBackgroundResources(R.drawable.ind);
+		 Toast.makeText(MainActivity.this, getResources().getString(R.string.b),LENGTH_LONG).show();
+		  break;
+		  
+	case R.id.eng_flag :
+		 background.setBackgroundResources(R.drawable.eng);
+		 Toast.makeText(MainActivity.this, getResources().getString(R.string.c),LENGTH_LONG).show();
+		  break;
+	 
+	case R.id.rsa_flag :
+		 background.setBackgroundResources(R.drawable.rsa);
+		 Toast.makeText(MainActivity.this, getResources().getString(R.string.d),LENGTH_LONG).show();
+		  break;
+		  
+	case R.id.newz_flag :
+		 background.setBackgroundResources(R.drawable.newz);
+		 Toast.makeText(MainActivity.this, getResources().getString(R.string.e),LENGTH_LONG).show();
+		  break;
+	}
+	
+}
+		
+
+	
+
+}
+
+	

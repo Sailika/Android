@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Gallery</string>
+    <string name="head">Select image:</string>
+    <string name="action_settings">Settings</string>
+     <string name="icon">image icon</string>
+     <string name="whatsapp">WHATSAPP</string>
+     <string name="hike">HIKE</string>
+     <string name="line">LINE</string>
+     <string name="facebook">FACEBOOK</string>
+       <string name="msgw">You Clicked on Whatsapp</string>
+         <string name="msgh">You Clicked on Hike</string>
+           <string name="msgl">You Clicked on Line</string>
+             <string name="msgf">You Clicked on Facebook</string>
+</resources>

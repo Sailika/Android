@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    
+    
+    
+    tools:context="com.example.cricinfo.MainActivity" >
+<ScrollView >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/head"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/aus_flag"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/aus"
+        android:padding="30dp" />
+    
+    <Button  android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ind_flag"
+        android:text="@string/ind"
+       android:padding="30dp"
+      />
+    <Button  android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/eng_flag"
+        android:text="@string/eng"
+  android:padding="30dp"     
+      />
+    
+    <Button  android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rsa_flag"
+        android:text="@string/rsa"
+       android:padding="30dp"
+      />
+    
+    <Button  android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/newz_flag"
+        android:text="@string/newz"
+       android:padding="30dp"
+      />
+    
+</ScrollView>
+</LinearLayout>
