@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="app_name">Parcel</string>
+    <string name="name_hint">Enter Your Name</string>
+    <string name="phone_hint">Enter Your Phone Number</string>
+    <string name="lastnet_hint">Enter your present network</string>
+    <string name="prenet_hint">Enter the network you wish to enter</string>
+    <string name="label_txt">Vodafone Customer Details</string>
+    <string name="label_rec">Welcome To Vodafone</string>
+    <string name="button_txt">Submit</string>
+
+</resources>
