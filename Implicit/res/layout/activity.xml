@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/banner"
+        android:text="@string/wel"
+        android:gravity="center"
+        android:textSize="20sp"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@android:attr/buttonBarButtonStyle">
+        
+        <Button 
+            android:id="@+id/contacts"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/contacts"
+            />
+           <Button 
+               android:id="@+id/dialer"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/dialer"/>
+    </LinearLayout>
+    
+<LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        
+        <Button 
+            android:id="@+id/mail"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/mail"
+            />
+           <Button 
+               android:id="@+id/chrome"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/chrome"/>
+    </LinearLayout>
+    
+    
+</LinearLayout>
