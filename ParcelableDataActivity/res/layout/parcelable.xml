@@ -10,7 +10,7 @@
     android:text="@string/heading"
     android:padding="10dp"
     android:gravity="center"
-    android:background="#FF0000"
+    android:background="#028482"
     android:textColor="#FFFFFF"
     android:textSize="18sp"/>
 <Button 
@@ -20,5 +20,7 @@
     android:id="@+id/btn"
     android:layout_gravity="center"
     android:padding="10dp"
-    android:layout_marginTop="20dp"/>
+    android:layout_marginTop="50dp"
+    android:background="#A7A7A7"
+    android:textColor="#028482"/>
 </LinearLayout>
