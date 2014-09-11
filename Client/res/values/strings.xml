@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Client</string>
+    <string name="image">Click for image</string>
+    <string name="text">Click for Text</string>
+    <string name="web">Click for Browser</string>
+<string name="txt">LaunchPad</string>
+</resources>
