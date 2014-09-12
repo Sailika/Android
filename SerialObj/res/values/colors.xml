@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="label">#dd191d</color>
+    <color name="bg">#e8eaf6</color>
+    <color name="button">#00897b</color>
+    <color name="txt">#000000</color>
+    <color name="msg">#3949ab</color>
+    <color name="banner">#e84e40</color>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+ 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/label"
+        android:gravity="center"
+        android:text="@string/label_txt"
+        android:textColor="@color/bg"
+        android:drawableLeft="@drawable/logov"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/name_edt"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/name_hint"
+        android:textColorHint="@color/txt" />
+
+    <EditText
+        android:id="@+id/phn_edt"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/phone_hint"
+        android:textColorHint="@color/txt" />
+
+    <EditText
+        android:id="@+id/lastnet_edt"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/lastnet_hint"
+        android:textColorHint="@color/txt" />
+
+    <EditText
+        android:id="@+id/prenet_edt"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/prenet_hint"
+        android:textColorHint="@color/txt" />
+    
+    <Button android:id="@+id/submit_btn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_txt"
+        android:textColor="@color/bg"
+        android:background="@color/button"/>
+
+</LinearLayout>
