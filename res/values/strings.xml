@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">Contact Manager</string>
+    <string name="contacts">Contacts</string>
+    <string name="name_txt">Name</string>
+    <string name="name_hint">Enter Name</string>
+    <string name="phone_txt">Phone</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="email_txt">Email</string>
+    <string name="email_hint">Email id</string>
+    <string name="add_txt">Add To Contacts</string>
+    <string name="contact_add_txt">Create Contact</string>
+    
+
+</resources>
