@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#ffffff</color>
+    <color name="grey">#bdbdbd</color>
     <color name="teal">#009688</color>
-    <color name="bluebg">#424242</color>
+    <color name="lightpink">#f8bbd0</color>
     <color name="lightblue">#0277bd</color>
+    <color name="pink">#e91e63</color>
+    <color name="purple">#4527a0</color>
+        <color name="black">#000000</color>
+        <color name="back">#ec407a</color>
     
 </resources>

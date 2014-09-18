@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.pcs.adapters.CustomAdapter;
 import com.pcs.constants.Constants;
@@ -22,7 +21,10 @@ public class ContactsActivity extends Activity {
 	private Button addBtn;
 	private static final int REQ_A = 107;
 	private ArrayList<Contacts> contactslist;
+	private CustomAdapter adapter;
 	private ListView ls;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,26 +32,21 @@ public class ContactsActivity extends Activity {
 		setContentView(R.layout.contacts);
 
 		addBtn = (Button) findViewById(R.id.add_btn);
-		contactslist =   new ArrayList<Contacts>();
 		ls = (ListView) findViewById(R.id.listview);
+		
+		/**Creating new Arraylist to hold contact details **/
+		
+		contactslist =   new ArrayList<Contacts>();
+		
+		
 
-
-		CustomAdapter adapter = new CustomAdapter(ContactsActivity.this, contactslist);
+		 adapter = new CustomAdapter(ContactsActivity.this, contactslist);
 		ls.setAdapter(adapter);
-		ls.setOnItemClickListener(new OnItemClickListener() {
+		
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				String call = "tel:"+contactslist.get(position).getPhone();
-				Intent intent = new Intent(Intent.ACTION_CALL);
-				intent.setData(Uri.parse(call));
-				startActivity(intent);
-
-			}
-		});
-
-		addBtn.setOnClickListener(new OnClickListener() {
+		
+		/**Setting OnCLick Listener for Add ContactButton **/
+		addBtn.setOnClickListener(new android.view.View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -59,15 +56,15 @@ public class ContactsActivity extends Activity {
 			}
 
 		});
-
-
-
-
-
-
+	
+		
 
 	}
+	
+	
+	
 
+/* Receiving data from CreateContact Activity and setting the data to list View**/
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -84,16 +81,24 @@ public class ContactsActivity extends Activity {
 			contact.setName(name);
 			contact.setEmail(email);
 			contact.setPhone(phone);
-			contactslist.add(contact);
+			
+			adapter.addUser(contact);
 
-			CustomAdapter adapter = new CustomAdapter(ContactsActivity.this,
-					contactslist);
 			ls.setAdapter(adapter);
+			ls.setOnItemClickListener(new OnItemClickListener() {
+
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+					Toast.makeText(ContactsActivity.this, "hell", Toast.LENGTH_LONG).show();
+				}
+			});
+			
 
 		}
 
 	}
 
-
+	
 
 }

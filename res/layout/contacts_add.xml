@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/teal"
+        android:background="@color/pink"
         android:gravity="center"
         android:text="@string/add_txt"
         android:textColor="@color/white"
@@ -78,7 +78,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:background="@color/teal"
+        android:background="@color/pink"
         android:text="@string/add_txt"
         android:textColor="@color/white"
         android:textSize="20sp" />
