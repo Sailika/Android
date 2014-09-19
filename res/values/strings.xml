@@ -1,0 +1,35 @@
+<resources>
+
+        <string name="app_name">Forms</string>
+        <string name="name">Name:</string>
+         <string name="head">Fill The Form</string>
+        <string name="name_hint">Enter Your Name</string>
+        <string name="email">Email Id:</string>
+        <string name="email_hint">Enter Your Email Address</string>
+        <string name="phone">Phone:</string>
+        <string name="phone_hint">Enter Your Phone Number</string>
+        <string name="occupation">Occupation</string>
+        <string name="occupation_hint">Enter Your Occupation</string>
+        <string name="date">Date:</string>
+        <string name="date_hint">Enter Date of Appintment</string>
+        <string name="time">Time:</string>
+        <string name="time_hint">Enter the Time Of Appointment</string>
+        <string name="purpose">Purpose of Visit:</string>
+        <string name="purpose_hint">Enter Your Purpose of Visit</string>
+        <string name="Message">Message:</string>
+         <string name="submit">Submit</string>
+         <string name="pcs_name">Name: Paradigm Creatives</string>
+        <string name="set_appointment">Set Appointment</string>       
+           <string name="dialog_title">Confirmation:</string>
+             <string name="ok_btn">OK</string>
+            <string name="cancel_btn">Cancel</string>
+           <string name="dialog_msg">Do you want to set an appointment ???</string>
+                       <string name="loading_dialog">Loading Form</string>
+           
+                           
+                  
+         
+        
+    
+
+</resources>
