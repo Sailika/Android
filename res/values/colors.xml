@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="yellow">#ffeb3b</color>
     <color name="white">#fafafa</color>
     <color name="black">#000000</color>
+=======
+    <color name="white">#ffffff</color>
+    <color name="grey">#bdbdbd</color>
+    <color name="teal">#009688</color>
+    <color name="lightpink">#f8bbd0</color>
+    <color name="lightblue">#0277bd</color>
+    <color name="pink">#e91e63</color>
+    <color name="purple">#4527a0</color>
+        <color name="black">#000000</color>
+        <color name="back">#ec407a</color>
+    
+>>>>>>> 5b2d1fa86894c6e17e45c86bf5ab192de30a9cf1
 </resources>

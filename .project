@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>DialogExample</name>
+=======
+	<name>People</name>
+>>>>>>> 5b2d1fa86894c6e17e45c86bf5ab192de30a9cf1
 	<comment></comment>
 	<projects>
 	</projects>

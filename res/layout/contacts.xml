@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lightpink"
+    android:orientation="vertical" >
+    
+     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/pink"
+        android:gravity="center"
+        android:text="@string/contacts"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+     
+     
+     <LinearLayout  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+    
+      <Button
+        android:id="@+id/add_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@color/pink"
+        android:text="@string/contact_add_txt"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+      
+      <Button
+        android:id="@+id/delete_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@color/pink"
+        android:text="@string/delete_txt"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+      
+      </LinearLayout>
+ 
+  <ListView
+         android:id="@+id/listview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+        android:divider="@color/black"
+         android:dividerHeight="2dp">
+     </ListView>
+     
+  
+
+   
+</LinearLayout>
