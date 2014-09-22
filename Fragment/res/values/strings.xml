@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Fragment</string>
+    <string name="home">Home</string>
+    <string name="contact">Contacts</string>
+    <string name="messenger">Chats</string>
+
+</resources>
