@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Sleep</string>
+  <string name="btn_title">Download</string>
+    <string name="txt">Your Text Comes Here:</string>
+  
+</resources>
