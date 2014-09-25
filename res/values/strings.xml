@@ -1,8 +1,13 @@
 <resources>
 
     <string name="app_name">BroadcastExample</string>
-    <string name="notify_btn">Notify</string>
-        <string name="notification_text">This is the content in notification!</string>
-    
+    <string name="main_btn">Check Updates</string>
+    <string name="notification_text">You have Updates!Click to update.</string>
+    <string name="txt">Click here to update:</string>
+    <string name="update">Update</string>
+    <string name="update_msg">App Updated</string>
+    <string name="notification">Downloading Updates</string>
+    <string name="notify_content">In Progress......</string>
+    <string name="hint">Enter your Status</string>
 
 </resources>

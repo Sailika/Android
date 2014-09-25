@@ -18,12 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.pcs.broadcastexample.Message"></activity>
         
-        <receiver android:name="com.pcs.broadcastexample.Broadcast">
-            <intent-filter >
-                <action android:name="com.pcs.BROADCAST_EXAMPLE"/>
-            </intent-filter>
-        </receiver>
+      <receiver android:name="com.pcs.broadcastexample.Broadcast">
+          <intent-filter >
+              <action android:name="com.pcs.BROADCAST_EXAMPLE"/>
+          </intent-filter>
+      </receiver> 
     </application>
 
 </manifest>
