@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">BroadcastExample</string>
+    <string name="notify_btn">Notify</string>
+        <string name="notification_text">This is the content in notification!</string>
+    
+
+</resources>
