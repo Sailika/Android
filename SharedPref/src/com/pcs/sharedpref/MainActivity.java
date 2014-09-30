@@ -30,16 +30,20 @@ public class MainActivity extends Activity {
 		login=(Button)findViewById(R.id.login);
 		question= (Button)findViewById(R.id.question);
 		email =(EditText)findViewById(R.id.email);
+		
+		
 		login.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				
+				//Get Data from EditTExt and store it to SharedPreference
 				MESSAGE = username.getText().toString();
 				pref = getPreferences(MODE_PRIVATE);
 
 				SharedPreferences.Editor editor = pref.edit();
 				editor.putString(VALUE,MESSAGE );
-				editor.commit();
+				editor.commit(); //Commit your Changes
 				Toast.makeText(MainActivity.this,getResources().getString(R.string.login_msg),Toast.LENGTH_LONG).show();
 				
 			}
@@ -53,12 +57,15 @@ public class MainActivity extends Activity {
 				String name= pref.getString(VALUE,"no Value");
 				Toast.makeText(MainActivity.this,getResources().getString(R.string.ques_msg),
 						Toast.LENGTH_LONG).show();
+				//If Token is Present then move to new screen
 				if(name!= null ){
 
 				Intent intent = new Intent(MainActivity.this,WelcomeActivity.class);
 				intent.putExtra(Constants.Extras.uname, name);
 				startActivity(intent);
-				}else{
+				}
+				//else show Toast Message
+				else{
 					Toast.makeText(MainActivity.this,getResources().getString(R.string.toast),
 							Toast.LENGTH_LONG).show();
 				}

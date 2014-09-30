@@ -13,8 +13,10 @@ public class WelcomeActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome);
 		welcomeMsg = (TextView)findViewById(R.id.msg);
+		//get shared Prefernce token value from intent
 		String message= getIntent().getStringExtra(Constants.Extras.uname).toString();
-		welcomeMsg.setText("Welcome" +message);
+		//Display on Screen
+		welcomeMsg.setText("Welcome,  " +message);
 		
 	}
 }
