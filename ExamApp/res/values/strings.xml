@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ExamApp</string>
+    <string name="username_txt">Username</string>
+    <string name="username_hint">Email</string>
+    <string name="password_txt">Password</string>
+    <string name="password_hint">Password</string>
+    <string name="login_btn">Log in</string>
+    <string name="login_msg">Fields Shoulod not be Empty</string>
+    <string name="action_settings">Settings</string>
+    <string name="city_hint">Enter City Name</string>
+    <string name="get_btn">Get Data</string>
+    <string name="forgot_pwd">Forgot Password?</string>
+    <string name="title">Paradigm Creatives</string>
+    <string name="login">Log in to Paradigm Creatives</string>
+
+</resources>
