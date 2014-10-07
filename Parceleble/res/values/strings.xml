@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Parceleble</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="name_hint">Enter Name</string>
+    <string name="id_hint">Enter Id</string>
+    <string name="designation_hint">Enter Designation</string>
+    <string name="action_settings">Settings</string>
+    <string name="submit_btn">Submit</string>
+    <string name="msg">No data is parceleble</string>
+
+</resources>
