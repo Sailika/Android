@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Server</string>
+    <string name="id">Enter Id</string>
+    <string name="name_hint">Enter Name</string>
+    <string name="phone_hint"> PhoneNumber</string>
+    <string name="email_hint">Email</string>
+    <string name="address">Address</string>
+    <string name="add_btn">Add Contact</string>
+    <string name="show">Show Data</string>
+    <string name="title">Create Contact</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
