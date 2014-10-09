@@ -160,18 +160,18 @@ public class CityActivity extends Activity{
 
 
 				if((obj).has("name")){
-					data.setCity("City :  "+obj.getString("name"));
+					data.setCity("City :           "+obj.getString("name"));
 				}
 
 				JSONObject object = obj.getJSONObject("main");
 				if((object).has("temp")){
 
-					data.setTemp("Temp:  "+object.getString("temp"));
+					data.setTemp("Temp   :         "+object.getString("temp"));
 
 				}
 				if((object).has("humidity")){
 
-					data.setHumidity("humidity :  "+object.getString("humidity"));
+					data.setHumidity("humidity :   "+object.getString("humidity"));
 				}
 				if((object).has("temp_min")){
 
