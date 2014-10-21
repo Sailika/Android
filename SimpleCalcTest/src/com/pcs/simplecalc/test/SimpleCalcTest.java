@@ -1,10 +1,8 @@
 package com.pcs.simplecalc.test;
 
-import android.content.IntentSender.SendIntentException;
+import junit.framework.TestCase;
 
 import com.pcs.simplecalc.Math;
-
-import junit.framework.TestCase;
 
 public class SimpleCalcTest extends TestCase{
 	private int value1;

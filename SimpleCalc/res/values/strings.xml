@@ -6,5 +6,10 @@
     <string name="sub">-</string>
     <string name="mul">*</string>
     <string name="div">/</string>
+    <string name="addMsg">Addition Successful</string>
+    <string name="subMsg">Subtraction Successful</string>
+    <string name="mulMsg">Multiplication Successful</string>
+    <string name="divMsg">Division Successful</string>
+    <string name="clrMsg">Fields Cleared</string>
     <string name="action_settings">Settings</string>
 </resources>

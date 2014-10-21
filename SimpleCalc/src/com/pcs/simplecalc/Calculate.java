@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Calculate extends Activity implements OnClickListener {
 
@@ -21,7 +22,6 @@ public class Calculate extends Activity implements OnClickListener {
 	public Button sub;
 	public Button mul;
 	public Button div;
-	public Math math;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,30 +55,37 @@ public class Calculate extends Activity implements OnClickListener {
 			result.setText("");
 			value1.setText("");
 			value2.setText("");
+			Toast.makeText(Calculate.this,getResources().getString(R.string.clrMsg), Toast.LENGTH_LONG).show();
 			break;
 		case R.id.add:
 			op1 = Integer.parseInt(value1.getText().toString());
 			op2 = Integer.parseInt(value2.getText().toString());
 			temp = Math.add(op1, op2);
 			result.setText(Integer.toString(temp));
+			Toast.makeText(Calculate.this,getResources().getString(R.string.addMsg), Toast.LENGTH_LONG).show();
 			break;
 		case R.id.sub:
 			op1 = Integer.parseInt(value1.getText().toString());
 			op2 = Integer.parseInt(value2.getText().toString());
-			temp = math.sub(op1, op2);
+			temp = Math.subtract(op1, op2);
 			result.setText(Integer.toString(temp));
+			Toast.makeText(Calculate.this,getResources().getString(R.string.subMsg), Toast.LENGTH_LONG).show();
 			break;
+			
 		case R.id.multiply:
 			op1 = Integer.parseInt(value1.getText().toString());
 			op2 = Integer.parseInt(value2.getText().toString());
-			temp = math.mul(op1, op2);
+			temp = Math.mul(op1, op2);
 			result.setText(Integer.toString(temp));
+			Toast.makeText(Calculate.this,getResources().getString(R.string.mulMsg), Toast.LENGTH_LONG).show();
 			break;
+			
 		case R.id.divide:
 			op1 = Integer.parseInt(value1.getText().toString());
 			op2 = Integer.parseInt(value2.getText().toString());
-			temp = math.div(op1, op2);
+			temp = Math.div(op1, op2);
 			result.setText(Integer.toString(temp));
+			Toast.makeText(Calculate.this,getResources().getString(R.string.divMsg), Toast.LENGTH_LONG).show();
 			break;
 
 		default:
