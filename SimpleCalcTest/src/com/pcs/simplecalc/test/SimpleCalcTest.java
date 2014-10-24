@@ -34,7 +34,7 @@ public class SimpleCalcTest extends TestCase{
 
 	public void testSub() {
 		int total = 0;
-		int sub = Math.sub(4, 4);
+		int sub = Math.subtract(4, 4);
 		assertEquals(sub, total);
 	}
 public void testMul(){
@@ -48,4 +48,5 @@ public void testDiv(){
 	int mul=Math.div(14, 7);
 	assertEquals(mul, total);
 }
+
 }

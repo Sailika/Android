@@ -55,21 +55,21 @@ public class Calculate extends Activity implements OnClickListener {
 			result.setText("");
 			value1.setText("");
 			value2.setText("");
-			Toast.makeText(Calculate.this,getResources().getString(R.string.clrMsg), Toast.LENGTH_LONG).show();
+			Toast.makeText(Calculate.this,getResources().getString(R.string.clrMsg), Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.add:
 			op1 = Integer.parseInt(value1.getText().toString());
 			op2 = Integer.parseInt(value2.getText().toString());
 			temp = Math.add(op1, op2);
 			result.setText(Integer.toString(temp));
-			Toast.makeText(Calculate.this,getResources().getString(R.string.addMsg), Toast.LENGTH_LONG).show();
+			Toast.makeText(Calculate.this,getResources().getString(R.string.addMsg), Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.sub:
 			op1 = Integer.parseInt(value1.getText().toString());
 			op2 = Integer.parseInt(value2.getText().toString());
 			temp = Math.subtract(op1, op2);
 			result.setText(Integer.toString(temp));
-			Toast.makeText(Calculate.this,getResources().getString(R.string.subMsg), Toast.LENGTH_LONG).show();
+			Toast.makeText(Calculate.this,getResources().getString(R.string.subMsg), Toast.LENGTH_SHORT).show();
 			break;
 			
 		case R.id.multiply:
@@ -77,7 +77,7 @@ public class Calculate extends Activity implements OnClickListener {
 			op2 = Integer.parseInt(value2.getText().toString());
 			temp = Math.mul(op1, op2);
 			result.setText(Integer.toString(temp));
-			Toast.makeText(Calculate.this,getResources().getString(R.string.mulMsg), Toast.LENGTH_LONG).show();
+			Toast.makeText(Calculate.this,getResources().getString(R.string.mulMsg), Toast.LENGTH_SHORT).show();
 			break;
 			
 		case R.id.divide:

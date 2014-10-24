@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AdsExample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="topAd_id">ca-app-pub-6994537841691352/8255349622  </string>
+    <string name="title">AdMob Demo App,Displaying banner Ad at bottom</string>
+    <string name="unmae">Username</string>
+    <string name="pwd">Password</string>
+    <string name="banner">Login Credentials</string>
+    <string name="login">Login</string>
+</resources>
