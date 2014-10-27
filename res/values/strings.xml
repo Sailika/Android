@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ImageGallery</string>
+    <string name="btnDownload">Download</string>
+    <string name="start">SlideShow</string>
+    <string name="stop">Stop</string>
+    <string name="rotate">Rotate Image</string>
+    <string name="fade">Fading Effect</string>
+    <string name="zoom">Zoom in/out</string>
+</resources>
