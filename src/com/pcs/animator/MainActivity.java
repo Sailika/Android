@@ -41,16 +41,21 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.firstImage:
-			
+			//Inflate Zoom out animation for first image
 			zoom=(Animator)AnimatorInflater.loadAnimator(getApplicationContext(), R.anim.zoom_in_out);
 			zoom.setTarget(first);
+			//inflate slide down animation for middle and last images
 			dropdown = (Animator)AnimatorInflater.loadAnimator(getApplicationContext(), R.anim.dropdown);
 			dropdown.setTarget(middle);
 			dropside=(Animator)AnimatorInflater.loadAnimator(getApplicationContext(), R.anim.dropside);
 			dropside.setTarget(last);
+			//create Animator set
 			set= new AnimatorSet();
+			//Add the animations to animator set
 			((AnimatorSet)set).playTogether(zoom,dropdown,dropside);
+			//Start the animation View
 			set.start();
+			
 
 			
 			break;
@@ -59,6 +64,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			zoom.setTarget(middle);
 			dropdown = (Animator)AnimatorInflater.loadAnimator(getApplicationContext(), R.anim.dropdown);
 			dropdown.setTarget(last);
+			//inflate the slide up animation
 			moveup=(Animator)AnimatorInflater.loadAnimator(getApplicationContext(), R.anim.moveup);
 			moveup.setTarget(first);
 			set= new AnimatorSet();
