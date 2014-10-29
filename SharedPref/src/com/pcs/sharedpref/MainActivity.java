@@ -55,19 +55,19 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				String name= pref.getString(VALUE,"no Value");
-				Toast.makeText(MainActivity.this,getResources().getString(R.string.ques_msg),
-						Toast.LENGTH_LONG).show();
+			
 				//If Token is Present then move to new screen
-				if(name!= null ){
-
-				Intent intent = new Intent(MainActivity.this,WelcomeActivity.class);
-				intent.putExtra(Constants.Extras.uname, name);
-				startActivity(intent);
+				if(name== "" ){
+					Toast.makeText(MainActivity.this,getResources().getString(R.string.toast),
+							Toast.LENGTH_LONG).show();
+				
 				}
 				//else show Toast Message
 				else{
-					Toast.makeText(MainActivity.this,getResources().getString(R.string.toast),
-							Toast.LENGTH_LONG).show();
+					Intent intent = new Intent(MainActivity.this,WelcomeActivity.class);
+					intent.putExtra(Constants.Extras.uname, name);
+					startActivity(intent);
+					
 				}
 				
 
