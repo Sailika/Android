@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <string name="app_name">ExpandingCells</string>
+    <string name="item_txt">This Contains the items in your fridge</string>
+    <string name="list_item_txt">"This Contains list of items:
+        1:---------
+        2:----------
+        3:-----------
+        4:----------
+        5:---------"</string>
+    <string name="settings_txt">This contains Settings</string>
+    <string name="fridge">Fridge</string>
+    <string name="oven">Oven</string>
+    <string name="fast_Settings">Fast Settings</string>
+    <string name="settings">Settings</string>
+
+
+</resources>
