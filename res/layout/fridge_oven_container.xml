@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/warnings_fragment"
+        android:name="com.example.fragments.fridgeoroven.FridgeOrOvenWarningStatusFragement"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="0.8" />
+
+    <fragment
+        android:id="@+id/status_fragment"
+        android:name="com.example.fragments.fridgeoroven.FridgeOrOvenStatusFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="2.4" />
+
+    <fragment
+        android:id="@+id/timer_status_fragment"
+        android:name="com.example.fragments.fridgeoroven.FridgeOrOvenTimerStatusFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="0.8" />
+
+</LinearLayout>
