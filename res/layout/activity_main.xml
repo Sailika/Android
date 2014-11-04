@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pink"
+        android:text="@string/title"
+        android:textSize="30sp"
+        android:gravity="center" />
+
+    <ListView
+        android:id="@+id/list"
+        android:background="@color/light_cyan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/cyan"
+        android:dividerHeight="2dp" >
+    </ListView>
+
+</LinearLayout>
