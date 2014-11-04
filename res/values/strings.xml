@@ -4,5 +4,7 @@
     <string name="app_name">SwipeDelete</string>
     <string name="title">Inbox</string>
     <string name="action_settings">Settings</string>
+    <string name="delete">Deleted</string>
+    <string name="undo">Undo</string>
 
 </resources>
