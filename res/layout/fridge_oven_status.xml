@@ -2,13 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@drawable/fragment_border"
+=======
+    android:background="@drawable/button"
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
     android:orientation="vertical" >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
         android:text="@string/settings"
         android:gravity="center" />
+=======
+        android:text="@string/settings" />
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
 
 </LinearLayout>

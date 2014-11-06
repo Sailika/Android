@@ -13,6 +13,7 @@
     <string name="oven">Oven</string>
     <string name="fast_settings">Fast Settings</string>
     <string name="settings">Settings</string>
+<<<<<<< HEAD
     <string name="shopping_list">Shopping List</string>
     <string name="smart_cook">Smart Cook</string>
 	<string name="nearby_supermarkets">Near By SuperMarkets</string>
@@ -24,4 +25,7 @@
 	<string name="oven_status_fragment">Oven Status</string>
 	<string name="oven_warning_status_fragment">Oven Warning Status</string>
 	<string name="oven_timer_status_fragment">Oven Timer Status</string>
+=======
+
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
 </resources>

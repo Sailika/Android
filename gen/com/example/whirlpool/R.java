@@ -8,6 +8,7 @@
 package com.example.whirlpool;
 
 public final class R {
+<<<<<<< HEAD
     public static final class anim {
         public static final int abc_fade_in=0x7f040000;
         public static final int abc_fade_out=0x7f040001;
@@ -204,6 +205,9 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int activityChooserViewStyle=0x7f01006c;
+=======
+    public static final class attr {
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         /** 
      Indicates whether the drawer can be opened/closed by a single tap
          on the handle.  (If false, the user must drag or fling, or click
@@ -216,7 +220,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+<<<<<<< HEAD
         public static final int allowSingleTap=0x7f01006e;
+=======
+        public static final int allowSingleTap=0x7f010000;
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         /**  Indicates whether the drawer should be opened/closed with an animation when the user clicks the handle. Default is true. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -225,6 +233,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+<<<<<<< HEAD
         public static final int animateOnClick=0x7f010074;
         /**  Specifies a background drawable for the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -245,6 +254,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static final int backgroundStacked=0x7f010030;
+=======
+        public static final int animateOnClick=0x7f010006;
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         /**  Extra offset for the handle at the bottom of the SlidingDrawer. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -255,6 +267,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+<<<<<<< HEAD
         public static final int bottomOffset=0x7f010072;
         /**  A style that may be applied to Buttons placed within a
          LinearLayout with the style buttonBarStyle to form a button bar. 
@@ -268,10 +281,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int buttonBarStyle=0x7f010017;
+=======
+        public static final int bottomOffset=0x7f010004;
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         /**  Identifier for the child that represents the drawer's content. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
+<<<<<<< HEAD
         public static final int content=0x7f010070;
         /**  Specifies a layout for custom navigation. Overrides navigationMode. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -356,10 +373,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int expandActivityOverflowButtonDrawable=0x7f01006b;
+=======
+        public static final int content=0x7f010002;
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         /**  Identifier for the child that represents the drawer's handle. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
+<<<<<<< HEAD
         public static final int handle=0x7f01006f;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -455,14 +476,24 @@ containing a value of this type.
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
+=======
+        public static final int handle=0x7f010001;
+        /**  Orientation of the SlidingDrawer. 
+         <p>Must be an integer value, such as "<code>100</code>".
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+<<<<<<< HEAD
         public static final int listPreferredItemHeightLarge=0x7f01001e;
         /**  A smaller, sleeker list item height. 
+=======
+        public static final int orientation=0x7f010003;
+        /**  Extra offset for the handle at the top of the SlidingDrawer. 
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -472,6 +503,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
+<<<<<<< HEAD
         public static final int listPreferredItemHeightSmall=0x7f01001d;
         /**  The preferred padding along the left edge of list items. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -2845,6 +2877,118 @@ containing a value of this type.
           @attr name android:windowAnimationStyle
         */
         public static final int MenuView_android_windowAnimationStyle = 0;
+=======
+        public static final int topOffset=0x7f010005;
+    }
+    public static final class color {
+        public static final int black=0x7f040004;
+        public static final int cyan=0x7f040001;
+        public static final int deep_purple=0x7f040002;
+        public static final int gray=0x7f040006;
+        public static final int light_blue=0x7f040000;
+        public static final int light_gray=0x7f040007;
+        public static final int lime=0x7f040003;
+        public static final int red=0x7f040008;
+        public static final int white=0x7f040005;
+    }
+    public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
+         */
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
+        /** 
+         Per the design guidelines, navigation drawers should be between 240dp and 320dp:
+         https://developer.android.com/design/patterns/navigation-drawer.html
+    
+         */
+        public static final int navigation_drawer_width=0x7f050002;
+    }
+    public static final class drawable {
+        public static final int borderless=0x7f020000;
+        public static final int button=0x7f020001;
+        public static final int drawer_shadow=0x7f020002;
+        public static final int ic_drawer=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int removeborder=0x7f020005;
+    }
+    public static final class id {
+        public static final int action_example=0x7f090015;
+        public static final int action_settings=0x7f090014;
+        public static final int container=0x7f090001;
+        public static final int content=0x7f090004;
+        public static final int content_c=0x7f090011;
+        public static final int drawer=0x7f090010;
+        public static final int drawer_layout=0x7f090000;
+        public static final int handle=0x7f090005;
+        public static final int handle_c=0x7f090012;
+        public static final int home_fast_settings_menu_btn=0x7f090008;
+        public static final int home_fridge_menu_btn=0x7f090006;
+        public static final int home_menu_container=0x7f09000a;
+        public static final int home_oven_menu_btn=0x7f090007;
+        public static final int home_settings_menu_btn=0x7f090009;
+        public static final int listview_credits=0x7f090013;
+        public static final int navigation_drawer=0x7f090002;
+        public static final int section_label=0x7f09000b;
+        public static final int slider=0x7f090003;
+        public static final int sliding_drawer_root=0x7f09000f;
+        public static final int status_fragment=0x7f09000d;
+        public static final int timer_status_fragment=0x7f09000e;
+        public static final int warnings_fragment=0x7f09000c;
+    }
+    public static final class layout {
+        public static final int activity_main=0x7f030000;
+        public static final int custom_drawer=0x7f030001;
+        public static final int fragment_main=0x7f030002;
+        public static final int fragment_navigation_drawer=0x7f030003;
+        public static final int fridge_oven_container=0x7f030004;
+        public static final int fridge_oven_status=0x7f030005;
+        public static final int fridge_oven_timer_status=0x7f030006;
+        public static final int fridge_oven_warning_status=0x7f030007;
+        public static final int test_layout=0x7f030008;
+    }
+    public static final class menu {
+        public static final int global=0x7f080000;
+        public static final int main=0x7f080001;
+    }
+    public static final class string {
+        public static final int action_example=0x7f060006;
+        public static final int action_settings=0x7f060007;
+        public static final int app_name=0x7f060000;
+        public static final int fast_settings=0x7f06000a;
+        public static final int fridge=0x7f060008;
+        public static final int navigation_drawer_close=0x7f060005;
+        public static final int navigation_drawer_open=0x7f060004;
+        public static final int oven=0x7f060009;
+        public static final int settings=0x7f06000b;
+        public static final int title_section1=0x7f060001;
+        public static final int title_section2=0x7f060002;
+        public static final int title_section3=0x7f060003;
+    }
+    public static final class style {
+        /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+         */
+        public static final int AppBaseTheme=0x7f070000;
+        /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+         */
+        public static final int AppTheme=0x7f070001;
+        public static final int HomeSlideItem=0x7f070002;
+    }
+    public static final class styleable {
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         /** Attributes that can be used with a MySlidingDrawer.
            <p>Includes the following attributes:</p>
            <table>
@@ -2870,8 +3014,13 @@ containing a value of this type.
            @see #MySlidingDrawer_topOffset
          */
         public static final int[] MySlidingDrawer = {
+<<<<<<< HEAD
             0x7f01006e, 0x7f01006f, 0x7f010070, 0x7f010071,
             0x7f010072, 0x7f010073, 0x7f010074
+=======
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         };
         /**
           <p>
@@ -2985,6 +3134,7 @@ containing a value of this type.
           @attr name com.example.whirlpool:topOffset
         */
         public static final int MySlidingDrawer_topOffset = 5;
+<<<<<<< HEAD
         /** Attributes that can be used with a SearchView.
            <p>Includes the following attributes:</p>
            <table>
@@ -3398,5 +3548,7 @@ containing a value of this type.
           @attr name com.example.whirlpool:paddingStart
         */
         public static final int View_paddingStart = 1;
+=======
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
     };
 }

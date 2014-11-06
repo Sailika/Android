@@ -14,7 +14,11 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
+<<<<<<< HEAD
             android:name=".MainActivity"
+=======
+            android:name=".HomeActivity"
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>

@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 <resources>
+=======
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
+<<<<<<< HEAD
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+=======
+    <style name="AppBaseTheme" >
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -20,10 +28,18 @@
     <style name="HomeSlideItem" parent="AppTheme">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+<<<<<<< HEAD
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">bottom|center</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
+=======
+        <item name="android:background">@color/black</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">bottom|center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+>>>>>>> e76f9011d941de35e168e0f07070516546ad0e3d
     </style>
   
 
