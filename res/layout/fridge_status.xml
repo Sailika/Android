@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/listLayout"
+    android:background="@drawable/dashboard_fragment_border"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="@string/fridge_status_fragment" />
+
+    <ListView
+        android:id="@+id/fridge_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/grey"
+        android:dividerHeight="8dp"
+        android:layout_margin="10dp"
+         >
+    </ListView>
+
+</LinearLayout>

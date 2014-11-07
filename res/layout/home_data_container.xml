@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/smartCook_Fragment"
+        android:name="com.example.fragments.homedata.SmartCook"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1" 
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" 
+        android:layout_weight="1"
+        android:baselineAligned="false">
+
+        <fragment
+            android:id="@+id/shoppingList_Fragment"
+            android:name="com.example.fragments.homedata.ShoppingList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+           
+          />
+
+        <fragment
+            android:id="@+id/inventory_Fragment"
+            android:name="com.example.fragments.homedata.Inventory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" 
+        android:layout_weight="1"
+        android:baselineAligned="false">
+
+        <fragment
+            android:id="@+id/nearBy_SuperMarkets_Fragment"
+            android:name="com.example.fragments.homedata.NearBySuperMarkets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+          />
+
+        <fragment
+            android:id="@+id/barCode_Scanner_Fragment"
+            android:name="com.example.fragments.homedata.BarCodeScanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+           />
+    </LinearLayout>
+
+
+        <fragment
+            android:id="@+id/converter_Fragment"
+            android:name="com.example.fragments.homedata.Converter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+          />
+
+     
+</LinearLayout>

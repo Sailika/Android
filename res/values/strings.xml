@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WhirlPool</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="fridge">Fridge</string>
+    <string name="oven">Oven</string>
+    <string name="fast_settings">Fast Settings</string>
+    <string name="settings">Settings</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="smart_cook">Smart Cook</string>
+	<string name="nearby_supermarkets">Near By SuperMarkets</string>
+	<string name="inventory">Inventory</string>
+	<string name="barcode_scanner">BarCode Scanner</string>
+	<string name="fridge_status_fragment">Fridge Status</string>
+	<string name="fridge_warning_status_fragment"> Warning Status</string>
+		<string name="fridge_warning_status_state">No Warnings</string>
+	
+	<string name="fridge_timer_status_fragment">Timer Status</string>
+	<string name="fridge_timer_status_state">No Timer is On</string>
+	<string name="oven_status_fragment">Oven Status</string>
+	<string name="oven_warning_status_fragment">Oven Warning Status</string>
+	<string name="oven_timer_status_fragment">Oven Timer Status</string>
+	<string name="timer_status_minutes">+N</string>
+	<string-array name="headings">
+	    <item >Ice Maker</item>
+	    <item >Smart Bar</item>
+	    <item >Modes</item>
+	    <item >Temperature</item>
+	</string-array>
+	
+	
+	<string-array name="states">
+	    <item >Producing Ice</item>
+	    <item >Can Mode</item>
+	    <item >Party Mode</item>
+	    <item >Freezer: max / Refri: min</item>
+	</string-array>
+	 <string-array name="ice_maker_states">
+	    <item >Producing Ice</item>
+	    <item >Ice Ready</item>
+	    <item >Fill Water</item>
+	    <item >Ice Bin Open</item>
+	</string-array>
+	
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sliding_drawer_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.whirlpool.MultipleOrientationSlidingDrawer
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        custom:content="@+id/content_c"
+        custom:handle="@+id/handle_c" >
+
+        <RelativeLayout
+            android:id="@id/handle_c"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#333333" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:gravity="left|center_vertical"
+                android:text="Handle Text" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@id/content_c"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#555555" >
+
+            <ListView
+                android:id="@+id/listview_credits"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </com.example.whirlpool.MultipleOrientationSlidingDrawer>
+
+</FrameLayout>
