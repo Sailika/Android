@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AP Govt</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+     <string name="share">share</string>
+    <string name="feedback">Feedback</string>
+    <string name="ideas">Ideas</string>
+
+    <string-array name="drawables">
+        <item>@drawable/flyover</item>
+        <item>@drawable/cleanliness</item>
+        <item>@drawable/corruption</item>
+        <item>@drawable/water_problem</item>
+        <item>@drawable/power_cut</item>
+        <item>@drawable/pollution</item>
+    </string-array>
+
+    <string name="myIdeas">My Ideas</string>
+    <string name="allIdeas">All Ideas</string>
+    <string name="share_edt">Share Update</string>
+    <string name="share_btn">Share</string>
+    <string name="update_hint">Enter Message</string>
+    <string name="update">Update</string>
+        <string name="share_txt">Share Button</string>
+    
+
+</resources>
