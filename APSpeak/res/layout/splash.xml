@@ -3,13 +3,27 @@
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/red"
+    android:background="@drawable/splash_screen_bg"
      >
 
-    <!--     <ImageView
+         <ImageView
+             android:contentDescription="@string/app_name"
             android:id="@+id/animationImage"
+            android:src="@drawable/ap_speak_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
             android:layout_centerInParent="true" />
- -->
+         
+         <ImageView
+             android:contentDescription="@string/app_name"
+            android:id="@+id/ap_logo"
+            android:src="@drawable/ap_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/animationImage"/>
+ 
 </RelativeLayout>
