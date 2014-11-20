@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white" >
+    
+  <com.paradigmcreatives.apspeak.app.util.customcontrols.FullWidthImageView
+        android:id="@+id/cue_thumbnail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp" />
+  
+	<ImageView
+	    android:id="@+id/rounded_rectangle_frame"
+	         android:src="@drawable/rounded_rectangle"
+	         android:layout_width="match_parent"
+	         android:layout_height="match_parent"
+	         android:visibility="invisible" />
+  
+    <GridView
+        android:id="@+id/cues_grid_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:listSelector="@color/transparent"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:scrollbars="none" />
+    
+</FrameLayout>

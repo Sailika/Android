@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clear_dialog_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#77777777" >
+
+    <LinearLayout
+        android:id="@+id/empty_doodle_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dip"
+        android:background="@drawable/popup"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/empty_doodle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/logout_text"
+            android:textColor="@color/title"
+            android:textSize="16sp"
+            tools:ignore="SelectableText" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@color/separator" />
+
+        <LinearLayout
+            android:id="@+id/clear_dialog_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dip"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/yes_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@drawable/registration_button"
+                android:paddingBottom="10dip"
+                android:paddingLeft="25dip"
+                android:paddingRight="25dip"
+                android:paddingTop="10dip"
+                android:text="@string/yes" />
+
+            <Button
+                android:id="@+id/no_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@drawable/registration_button"
+                android:paddingBottom="10dip"
+                android:paddingLeft="25dip"
+                android:paddingRight="25dip"
+                android:paddingTop="10dip"
+                android:text="@string/no" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

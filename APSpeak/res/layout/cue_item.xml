@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.paradigmcreatives.apspeak.app.util.customcontrols.SquaredItemsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white" >
+    
+  <ImageView
+        android:id="@+id/cue_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"
+        android:padding="2dp"
+        android:src="@drawable/sticker10" />
+  
+	<ImageView 
+	    android:id="@+id/rounded_rectangle_frame"
+	         android:src="@drawable/rounded_rectangle"
+	         android:layout_width="match_parent"
+	         android:layout_height="match_parent"
+	         android:visibility="invisible" />
+  
+    <TextView
+        android:id="@+id/cue_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+</com.paradigmcreatives.apspeak.app.util.customcontrols.SquaredItemsFrameLayout>

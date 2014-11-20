@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">APSpeak</string>
+    <string name="profile_name">My Profile</string>
+    <string name="facebook_app_id">865329090157392</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="log_folder">whatsay-logs</string>
+    <string name="log_file">WhatsayLogFile</string>
+    <string name="log_extension">txt</string>
+    <string name="profile_pic_folder">Profile Picture</string>
+    <string name="profile_picture_image_name">WhatsayProfileImage.png</string>
+    <string name="okay">Okay</string>
+    <string name="tags">Tags</string>
+    <string name="eula">EULA</string>
+    <string name="help_love">Double tap to love</string>
+    <string name="help_share">Share with others via social media</string>
+     <string name="help_text_color">Change text color</string>
+      <string name="help_text_font">Change text font style</string>
+    <string name="search_friends">Search Friends</string>
+    <string name="delete">Delete</string>
+    <string name="save_image">Save Image</string>
+    <string name="user_inappropriate">User Inappropriate</string>
+    <string name="flag_inappropriate">Flag Inappropriate</string>
+    <string name="delete_success">Deleted successfully</string>
+    <string name="send">Send</string>
+    <string name="invite_success">Sent successfully</string>
+    <string name="college_update_success">Your college name is updated to</string>
+    <string name="invite_failure">"Failed to invite because of some network problems. Please try again"</string>
+    <string name="server_call_success">"Thank you for helping the Whatsay community"</string>
+    <string name="server_failure">"Failed to note the feedback because of some network problems. Please try again"</string>
+    <string name="delete_failure">"Failed to delete because of some network problems. Please try again"</string>
+    <string name="exit_title">Whatsay is not compatible with your device. Press OK to exit</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="welcomemsg">Welcome to Whatsay.. Find out the way to express emotions</string>
+    <string name="NoNetworkmsg">You Need a network connection, Please check your connectivity.</string>
+    <string name="friends">Friends</string>
+    <string name="discover">Discover</string>
+    <string name="next">Next</string>
+    <string name="done">DONE</string>
+    <string name="invite">Invite Friends</string>
+    <string name="select_friend_invite">Please select atleast one friend</string>
+    <string name="ok">Ok</string>
+    <string name="eula_ok">OK</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="camera">Camera</string>
+    <string name="background">Background</string>
+    <string name="gallery">Gallery</string>
+    <string name="add_text">Add Text</string>
+    <string name="by_signing_up">By Signing up, I accept the </string>
+    <string name="terms_conditions">Terms and Conditions</string>
+    <string name="follow">Follow</string>
+    <string name="whatsay_user">Whatsay User</string>
+    <string name="handle">handle</string>
+    <string name="logout_text">Do you really want to logout ?</string>
+    <string name="friend_details">Name | Country</string>
+    <string name="settings_title">Settings</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="notify_text">Notify Me When Someone</string>
+    <string name="prompt_text">Prompt Me</string>
+    <string name="comments">Comments</string>
+    <string name="starts_following">Starts following</string>
+    <string name="joins_whatsay">Joins Whatsay</string>
+    <string name="once_day">Once in a day</string>
+    <string name="trending">Trending</string>
+    <string name="everything">Everything</string>
+    <string name="nothing">Nothing</string>
+    <string name="who_can_follow">Who can follow me</string>
+    <string name="anyone">Anyone</string>
+    <string name="only_after_approval">Only after my approval</string>
+    <string name="more">More</string>
+    <string name="save_creation">Save my creation</string>
+    <string name="blocked_users">Blocked users</string>
+    <string name="help">Help</string>
+    <string name="flagged_items">Flagged items</string>
+    <string name="about_us">About Us</string>
+    <string name="change_college">Change your College</string>
+    <string name="inappropriate">inappropriate</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="feedback">Give us Feedback</string>
+    <string name="logout">Logout</string>
+
+    <!--
+    <string name="text_style_1">Bangers</string>
+    <string name="text_style_2">Bebas</string>
+    <string name="text_style_3">Comic</string>
+    <string name="text_style_4">Liberate</string>
+    <string name="text_style_5">Lobster</string>
+    <string name="text_style_6">Metal</string>
+    <string name="text_style_7">Niconne</string>
+    <string name="text_style_8">Pacifico</string>
+    <string name="text_style_9">Parisienne</string>
+    <string name="text_style_10">Rounds</string>
+    <string name="text_style_11">Rounded</string>
+    <string name="text_style_12">Elegant</string>
+    <string name="text_style_13">Tangerine</string>
+    -->
+
+    <string-array name="text_style_items">
+        <item>Bangers</item>
+        <item>Bebas</item>
+        <item>Comic</item>
+        <item>Liberate</item>
+        <item>Lobster</item>
+        <item>Metal</item>
+        <item>Niconne</item>
+        <item>Pacifico</item>
+        <item>Parisienne</item>
+        <item>Ring</item>
+        <item>Calio</item>
+        <item>Elegant</item>
+        <item>Tangerine</item>
+        <item>Impact</item>
+        <item>Snell</item>
+    </string-array>
+    <string-array name="text_style_ttf">
+        <item>bangers.ttf</item>
+        <item>bebas.ttf</item>
+        <item>comic.ttf</item>
+        <item>liberation.ttf</item>
+        <item>lobster.ttf</item>
+        <item>metal.ttf</item>
+        <item>niconne.ttf</item>
+        <item>pacifico.ttf</item>
+        <item>parisienne.ttf</item>
+        <item>rounds.ttf</item>
+        <item>simplerounded.ttf</item>
+        <item>smooth.ttf</item>
+        <item>tangerine.ttf</item>
+        <item>impact.ttf</item>
+        <item>snell.ttf</item>
+    </string-array>
+    <string-array name="color_items">
+        <item>#ed3636</item>
+        <item>#f5b0cc</item>
+        <item>#a17aab</item>
+        <item>#0000ff</item>
+        <item>#7fffd4</item>
+        <item>#fa2ba8</item>
+        <item>#40e0d0</item>
+        <item>#fced21</item>
+        <item>#f0fff0</item>
+        <item>#1254a3</item>
+        <item>#d2691e</item>
+        <item>#a52a2a</item>
+        <item>#1ab0d4</item>
+        <item>#30cf99</item>
+        <item>#4a8f05</item>
+        <item>#add8e6</item>
+        <item>#2f4f4f</item>
+    </string-array>
+    <string-array name="navigation_items">
+        <item>Me</item>
+        <item>Stream<item><item>Find Friends</item><item>Invite Friends</item><item>My Feed</item><item>Settings</item></item></item>
+    </string-array>
+
+    <!--
+    <array name="navigation_items_drawables">
+        <item>@drawable/me</item>
+        <item>@drawable/home</item>
+        <item>@drawable/findfriends</item>
+        <item>@drawable/nd_fb</item>
+        <item>@drawable/myfeed</item>
+        <item>@drawable/settings_general</item>
+    </array>
+    <array name="navigation_selected_items_drawables">
+        <item>@drawable/meselected</item>
+        <item>@drawable/homeselected</item>
+        <item>@drawable/findfriendsselected</item>
+        <item>@drawable/nd_fb_selected</item>
+        <item>@drawable/myfeed_selected</item>
+        <item>@drawable/settings_tapped</item>
+    </array>
+    -->
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="stream_listView">List</string>
+    <string name="stream_gridView">Grid</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="loves">Loves</string>
+    <string name="love">Love</string>
+    <string name="reposts">Reposts</string>
+    <string name="comment">Comment</string>
+    <string name="repost">Repost</string>
+    <string name="stream_load_errormessage">Failed to load stream.  Please try again after sometime.</string>
+    <string name="cues_load_errormessage">Failed to load cues.  Please try again after sometime.</string>
+    <string name="empty_stream">Empty stream..</string>
+    <string name="fbInvite">Invite Facebook friends</string>
+    <string name="user_location">Location</string>
+    <string name="originally_tagged_in">ORIGINALLY TAGGED IN</string>
+    <string name="asset_hash_tag">#TAG</string>
+    <string name="asset_description">Description</string>
+    <string name="people_who_loved_it">PEOPLE WHO LOVED IT</string>
+    <string name="see_all">-see all-</string>
+    <string name="tags_added_by_users">TAGS ADDED BY USERS</string>
+    <string name="share_doodle_image">Share doodle image</string>
+    <string name="whatsay_folder">whatsay/</string>
+    <string name="temp_file_name">temp.zip</string>
+    <string name="temp_image_name">tempImage.jpeg</string>
+    <string name="doodle_file_prefix">Doodly</string>
+    <string name="doodle_points_file_name">doodle.txt</string>
+    <string name="doodle_settings_file_name">settings.txt</string>
+    <string name="doodle_thumbnail_file_name">thumbnail.txt</string>
+    <string name="no_memory_card">Memory card is not ready or attached. Please try again with after inserting a memory card.</string>
+    <string name="doodle_background_file_name">bgimage.txt</string>
+    <string name="doodle_downloads">downloads/</string>
+    <string name="temp_folder">temp</string>
+    <string name="temp_thumbnail_bitmap">.thumbnail_bitmap.jpeg</string>
+    <string name="delete_addon_message">Do you want to delete the selected add-on?</string>
+    <string name="request_background_launch_title">Do you want to change the current background image?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="err_max_text_size">Max font size reached</string>
+    <string name="feed_back">Feedback</string>
+    <string name="ideas">Ideas</string>
+    <string name="awesome">Awesome</string>
+    <string name="average">Average</string>
+    <string name="bad">Bad</string>
+     <string name="create_idea">Create your idea</string>
+    <string name="about_us_text">Whatsay is brought to you by Neuv LLC.\n\n
+  
+At Neuv, our focus is on solving the problem of content creation and consumption on smart and connected devices.\n\n
+  
+With whatsay our aim was to create an easy to use app that lets college students express their day to day emotions, frustrations, ideas, thoughts and opinions, visually and instantly.\n\n  
+  
+We sincerely hope this app helps you express yourself instantly and visually.\n\n
+
+We would love to hear your feedback on what you like and on how we can make whatsay even better.</string>
+
+    <string-array name="font_names">
+        <item>Roboto</item>
+        <item>Roboto-BoldItalic</item>
+    </string-array>
+    <string-array name="font_ttf_names">
+        <item>Roboto-Bold.ttf</item>
+        <item>Roboto-Bold.ttf</item>
+    </string-array>
+
+    <string name="no_greetings_found">More greetings coming soon!!</string>
+    <string name="no_rage_face_found">More Rage Faces coming soon!!</string>
+    <string name="no_emoji_found">More emojis coming soon!!</string>
+    <string name="no_doodleworld_found">More doodles in DoodleWorld coming soon!!</string>
+    <string name="wait_playing">Please wait for the play to finish&#8230;</string>
+    <string name="proceed_with_stream">Proceed</string>
+    <string name="submit_stream">Submit</string>
+    <string name="get_started">Create your profile handle</string>
+    <string name="usernametxt">Username</string>
+    <string name="continuetxt">CONTINUE</string>
+    <string name="handleExit"> Username is already taken.</string>
+    <string name="handleexceedsizemsg">Username is too long (5-50 characters).</string>
+    <string name="handleminsizemsg">Username is too short (5-50 characters).</string>
+    <string name="handleemptymsg">Please enter your prefered username.</string>
+    <string name="invalidusernamemsg">Please enter a vaild username (Only alphanumerics allowed).</string>
+    <string name="assetdetails_share">Share</string>
+    <string name="zero">0</string>
+    <string name="new_friend_joined">New friend joined</string>
+    <string name="joined">joined</string>
+    <string name="friend_following">Friend following you</string>
+    <string name="following">following you</string>
+    <string name="loved_your_asset">LOVED your expression</string>
+    <string name="friend_loved_your_asset">Friend LOVED your expression</string>
+    <string name="commented_your_asset">COMMENTED on your expression</string>
+    <string name="friend_commented_your_asset">Friend COMMENTED on your expression</string>
+    <string name="new_expression_posted">posted a new EXPRESSION</string>
+    <string name="friend_new_expression_posted">Friend posted a new EXPRESSION</string>
+    <string name="notification_ticker_text">Message from</string>
+    <string name="no_image_search_result">No search results found</string>
+    <string name="enter_search_string">Search</string>
+    <string name="google_search">Google images search</string>
+    <string name="temp_filtered_image_snap">temp_filtered_image_snap.jpeg</string>
+    <string name="temp_google_image_snap">temp_google_image_snap.jpeg</string>
+    <string name="no_internet">"No Internet connection! Enable Internet and try again."</string>
+    <string name="failed_to_save_temp_image">Failed to save image. Please try again</string>
+    <string name="postsWithHyphen">-- Posts</string>
+    <string name="followingsWithHyphen">-- Following</string>
+    <string name="followersWithHyphen">-- Followers</string>
+    <string name="cues">CUES</string>
+    <string name="cuemessage">"Hey Honey, Did you like the new car?  Lets go for a drive -- Whatsay?"</string>
+    <string name="college">My College</string>
+    <string name="no_network_pull_refresh">No Internet connection! Enable Internet and pull down to refresh.</string>
+    <string name="allcolleges">All Colleges</string>
+    <string name="no_network">"No Internet connection! Enable Internet and try again."</string>
+    <string name="enter_collegeName">Enter College name</string>
+    <string name="make_post">Make a Post</string>
+    <string name="home">Home</string>
+    <string name="featured">Featured</string>
+    <string name="profile">Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="app_email">info@neuv.in</string>
+    <string name="email_subject">Please add my college to your list of colleges</string>
+    <string name="email_body">Dear Whatsay Team,\n\n Please add my college name as soon as possible to your list!! Inform me once added.\n\nCollege Name:  \'YOUR COLLEGE NAME\' \n\n Thank You,\n \'YOUR NAME\'</string>
+    <string name="request_college">Request your college.</string>
+    <string name="chooseCollege">Choose Your City</string>
+    <string name="searchCollege">Search City</string>
+    <string name="connectWithFacebook">Connect with Facebook</string>
+    <string name="queuedExpressions">Queued Expressions</string>
+
+    <!-- Error messages when no asset is found in stream -->
+    <string name="all_colleges_empty">No posts yet</string>
+    <string name="my_college_empty">Be the first in your college to post</string>
+    <string name="friends_empty">No posts yet from your friends</string>
+    <string name="default_empty">No posts yet</string>
+
+    <!-- Asset details page -->
+    <string name="asset_details_progress_title"></string>
+    <string name="asset_details_progress_text">Just a moment..</string>
+
+    <!-- Share -->
+    <string name="share_title_text">Share Post</string>
+    <string name="retry_send_message">Unable to post due to a poor Internet connection</string>
+    <string name="retry_send">Tap to retry</string>
+    <string name="queued_expressions_count_message">&#160;expression(s) in Queue</string>
+	<string name="failed_expressions_count_message">&#160;failed expression(s) in Queue</string>
+	<string name="pending">Pending to submit</string>
+	<string name="failed">Failed to post</string>
+	<string name="deleted">Deleted Successfully</string>
+	<string name="posted">Posted Successfully</string>
+</resources>

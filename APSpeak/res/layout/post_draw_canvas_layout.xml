@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:weightSum="1" >
+
+        <ImageView
+            android:id="@+id/post_draw_bitmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.40"
+            android:src="@drawable/whatsay_launcher_icon" />
+
+        <FrameLayout
+            android:id="@+id/post_draw_tags_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.60" >
+
+            <TextView
+                android:id="@+id/post_canvas_primary_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:drawableLeft="@drawable/tag"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/secondary_tag_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:hint="Tag it"
+                android:textColor="#FA6900" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/post_canvas_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:hint="Add Description" />
+
+</LinearLayout>

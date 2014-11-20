@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/global_streams_up_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/red"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#989898" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/tab_color" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="@color/tab_color" />
+
+            <LinearLayout
+                android:id="@+id/college_button_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5" >
+
+                <TextView
+                    android:id="@+id/feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/feed_back"
+                    android:textColor="@color/red" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="@color/tab_color" />
+
+            <LinearLayout
+                android:id="@+id/allcolleges_button_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5" >
+
+                <TextView
+                    android:id="@+id/ideas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/ideas"
+                    android:textColor="@color/tab_color" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="fill_parent"
+                android:background="@color/tab_color" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/tab_color" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/global_streams_cuedetails_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/global_streams_up_layout"
+        android:background="@color/grey_light" >
+
+        <com.paradigmcreatives.apspeak.app.util.customcontrols.FullWidthImageView
+            android:id="@+id/global_streams_wideimage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:background="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/makepost_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/customborder"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/global_stream_make_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#77000000"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingBottom="3dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="3dp"
+                android:text="@string/make_post"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="#989898" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/global_streams_bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/feedback_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/ll_icon_awesome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/img_btn_awesome"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/feedback"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/awesome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_btn_awesome"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/awesome"
+                    android:textColor="@color/tab_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_icon_average"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/img_btn_average"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/feedback"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/average"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_btn_average"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/average"
+                    android:textColor="@color/tab_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/ll_icon_bad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/img_btn_bad"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/feedback"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/bad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_btn_bad"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/bad"
+                    android:textColor="@color/tab_color" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/create_idea_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@color/green" >
+
+            <RelativeLayout
+                android:id="@+id/create_idea_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.33"
+                android:orientation="vertical" >
+
+                <ImageButton
+                    android:id="@+id/create_idea_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/feedback"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/create_idea_image"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:text="@string/create_idea"
+                    android:textColor="@color/tab_color" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/global_streams_queue_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/global_streams_cuedetails_layout"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/global_streams_queue_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/invite" />
+
+        <TextView
+            android:id="@+id/global_streams_queue_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="5 expressions in queue"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/global_streams_content_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/global_streams_bottom_layout"
+        android:layout_below="@id/global_streams_queue_layout" >
+
+        <!-- The PullToRefreshGridView replaces a standard GridView widget. -->
+
+        <com.handmark.pulltorefresh.library.PullToRefreshGridView
+            android:id="@+id/globalstreams_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:background="@color/white"
+            android:horizontalSpacing="2dp"
+            android:listSelector="@color/transparent"
+            android:numColumns="2"
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="2dp" />
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/globalstreams_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:listSelector="@color/grey"
+            android:stretchMode="columnWidth" />
+
+        <ProgressBar
+            android:id="@+id/global_streams_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/global_streams_errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+</RelativeLayout>

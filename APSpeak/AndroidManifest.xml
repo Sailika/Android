@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.paradigmcreatives.apspeak"
+    android:versionCode="19"
+    android:versionName="2.6.1" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <!-- Features -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <!--
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash"/>
+    -->
+
+
+    <!-- Permission Required by GCM -->
+    <permission
+        android:name="com.paradigmcreatives.apspeak.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+<!--     <permission
+        android:name="android.permission.FLASHLIGHT"
+        android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
+        android:protectionLevel="normal" /> -->
+
+    <uses-permission android:name="com.paradigmcreatives.apspeak.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Permission Required by GCM Ends Here -->
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.paradigmcreatives.apspeak.WhatsayApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/whatsay_launcher_icon"
+        android:label="@string/app_name"
+        android:logo="@drawable/logo"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.paradigmcreatives.apspeak.SplashScreenActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.registration.LoginActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name=".navdrawer.AppHomeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.home.AppNewHomeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.stream.AppChildActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.globalstream.AppNewChildActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.user.UserProfileActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paradigmcreatives.apspeak.navdrawer.AppHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.doodleboard.DoodlyDooCameraActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paradigmcreatives.apspeak.stream.AppHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paradigmcreatives.apspeak.stream.AppHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.doodleboard.FullScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paradigmcreatives.apspeak.stream.AppHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.doodleboard.CameraActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paradigmcreatives.apspeak.stream.AppHomeActivity" />
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.doodleboard.CanvasFragmentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.paradigmcreatives.apspeak.stream.AppHomeActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <!--
+              <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        -->
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.paradigmcreatives.apspeak.settings.AboutUsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.settings.HelpActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.settings.PrivacyPolicyActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.settings.FeedbackActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.doodleboard.background.googleimages.GoogleImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+
+        <service android:name="com.paradigmcreatives.apspeak.GCMIntentService" />
+
+        <!-- GCM receiver -->
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.paradigmcreatives.apspeak" />
+            </intent-filter>
+        </receiver>
+        <!-- GCM receiver ends here -->
+
+        <receiver android:name="com.paradigmcreatives.apspeak.registration.receivers.GCMRegistrationReceiver" />
+        <receiver android:name="com.paradigmcreatives.apspeak.notification.IncomingNotificationReceiver" />
+        <receiver android:name="com.paradigmcreatives.apspeak.app.alert.AlertReceiver" />
+        
+        <receiver android:name="com.paradigmcreatives.apspeak.app.util.connectivity.ConnectivityChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        
+    </application>
+
+</manifest>

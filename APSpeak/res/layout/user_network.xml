@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/network_friends_text"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/header_footer_bgcolor"
+        android:gravity="center"
+        android:text="@string/friends"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/home_header_logo_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp" >
+
+        <TextView
+            android:id="@+id/header_texr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/invite"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/network_invite_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:text="@string/send"
+            android:textSize="14sp"
+            android:textStyle="bold" >
+        </TextView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/search_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="5dip"
+        android:visibility="gone" >
+
+        <EditText
+            android:id="@+id/search_field"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_field"
+            android:hint="@string/search_friends"
+            android:inputType="textNoSuggestions"
+            android:paddingLeft="35dp"
+            android:paddingRight="5dp"
+            android:singleLine="true" >
+        </EditText>
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_margin="5dp"
+            android:background="@drawable/search_icon" />
+    </RelativeLayout>
+    <!--
+    <ListView
+        android:id="@+id/network_friends_list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/white"
+        android:fastScrollEnabled="true"
+        android:smoothScrollbar="true" />
+    -->
+
+    <ListView
+        android:id="@+id/network_friends_list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.8"
+        android:background="@color/white"
+        android:listSelector="@color/grey"
+        android:smoothScrollbar="true"
+        android:stretchMode="columnWidth" />
+
+    <FrameLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/network_next_text"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/header_footer_bgcolor"
+            android:gravity="center"
+            android:text="@string/next"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/network_done_text"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/header_footer_bgcolor"
+            android:gravity="center"
+            android:text="@string/done"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@color/header_footer_bgcolor"
+            android:gravity="center"
+            android:text="@string/invite"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

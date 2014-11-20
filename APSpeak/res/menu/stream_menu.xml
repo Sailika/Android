@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+	<!-- Switch to ListView should appear as action button -->
+	<item android:id="@+id/show_listview"
+	    android:icon="@drawable/list_stream"
+	    android:title="@string/stream_listView"
+	    android:showAsAction="ifRoom" />
+	
+	<!-- Switch to GridView should appear as action button -->
+	<item android:id="@+id/show_gridview"
+	    android:icon="@drawable/grid_stream"
+	    android:title="@string/stream_gridView"
+	    android:showAsAction="ifRoom" />
+</menu>
