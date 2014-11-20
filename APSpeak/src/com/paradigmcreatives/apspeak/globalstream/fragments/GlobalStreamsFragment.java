@@ -318,7 +318,7 @@ public class GlobalStreamsFragment extends Fragment implements
 						}
 					});
 			mListView = mPullToRefreshListView.getRefreshableView();
-			mPullToRefreshListView.setVisibility(View.INVISIBLE);
+			mPullToRefreshListView.setVisibility(View.GONE);
 
 			// Initialize GridView
 			mPullToRefreshGridView = (PullToRefreshGridView) rootView
@@ -329,7 +329,7 @@ public class GlobalStreamsFragment extends Fragment implements
 					.setMode(mPullToRefreshGridView.getMode() == Mode.BOTH ? Mode.PULL_FROM_START
 							: Mode.BOTH);
 			mGridView = mPullToRefreshGridView.getRefreshableView();
-			mPullToRefreshGridView.setVisibility(View.VISIBLE);
+			mPullToRefreshGridView.setVisibility(View.GONE);
 
 			mProgressBar = (ProgressBar) rootView
 					.findViewById(R.id.global_streams_progressBar);
@@ -493,7 +493,7 @@ public class GlobalStreamsFragment extends Fragment implements
 			if (!isPullToRefresh) {
 				if (mProgressBar != null
 						&& mProgressBar.getVisibility() != View.VISIBLE) {
-					mProgressBar.setVisibility(View.VISIBLE);
+					mProgressBar.setVisibility(View.GONE);
 				}
 				if (mErrorMessageView != null
 						&& mErrorMessageView.getVisibility() != View.INVISIBLE) {
@@ -503,7 +503,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		} else {
 			if (mProgressBar != null
 					&& mProgressBar.getVisibility() == View.VISIBLE) {
-				mProgressBar.setVisibility(View.INVISIBLE);
+				mProgressBar.setVisibility(View.GONE);
 			}
 			if (mErrorMessageView != null
 					&& mErrorMessageView.getVisibility() == View.VISIBLE) {
@@ -1098,10 +1098,10 @@ public class GlobalStreamsFragment extends Fragment implements
 	 */
 	public void showListView() {
 		if (mPullToRefreshGridView != null) {
-			mPullToRefreshGridView.setVisibility(View.INVISIBLE);
+			mPullToRefreshGridView.setVisibility(View.GONE);
 		}
 		if (mPullToRefreshListView != null) {
-			mPullToRefreshListView.setVisibility(View.VISIBLE);
+			mPullToRefreshListView.setVisibility(View.GONE);
 		}
 		/*
 		 * if (mListView != null) { mListView.setVisibility(View.VISIBLE); } if
@@ -1119,10 +1119,10 @@ public class GlobalStreamsFragment extends Fragment implements
 	 */
 	public void showGridView() {
 		if (mPullToRefreshListView != null) {
-			mPullToRefreshListView.setVisibility(View.INVISIBLE);
+			mPullToRefreshListView.setVisibility(View.GONE);
 		}
 		if (mPullToRefreshGridView != null) {
-			mPullToRefreshGridView.setVisibility(View.VISIBLE);
+			mPullToRefreshGridView.setVisibility(View.GONE);
 		}
 		/*
 		 * if (mGridView != null) { mGridView.setVisibility(View.VISIBLE); } if

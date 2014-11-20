@@ -191,10 +191,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 				fragmentTransaction.commit();
 				currentFragment = mCuesFragment;
 			}
-			mCuesIcon.setImageResource(R.drawable.homeselected);
+			mCuesIcon.setImageResource(R.drawable.dashboard_icon_selected);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.me);
-			mNotificationsIcon.setImageResource(R.drawable.myfeed);
+			mProfileIcon.setImageResource(R.drawable.my_profile_icon);
+			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
 			showHideNotificationsCount();
 
 			mInviteIcon.setVisibility(View.VISIBLE);
@@ -205,8 +205,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
-			mProfileName.setVisibility(View.INVISIBLE);
-			mHeaderLogo.setVisibility(View.VISIBLE);
+			mProfileName.setVisibility(View.VISIBLE);
+			mHeaderLogo.setVisibility(View.GONE);
 			break;
 
 		case R.id.home_featured_icon_layout:
@@ -219,7 +219,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 				fragmentTransaction.commit();
 				currentFragment = mFeaturedFragment;
 			}
-			mCuesIcon.setImageResource(R.drawable.home);
+			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured_select);
 			mProfileIcon.setImageResource(R.drawable.me);
 			mNotificationsIcon.setImageResource(R.drawable.myfeed);
@@ -234,7 +234,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
 			mProfileName.setVisibility(View.INVISIBLE);
-			mHeaderLogo.setVisibility(View.VISIBLE);
+			mHeaderLogo.setVisibility(View.GONE);
 			break;
 
 		case R.id.home_profile_icon_layout:
@@ -248,10 +248,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 				currentFragment = mProfileFragment;
 			}
-			mCuesIcon.setImageResource(R.drawable.home);
+			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.meselected);
-			mNotificationsIcon.setImageResource(R.drawable.myfeed);
+			mProfileIcon.setImageResource(R.drawable.my_profile_icon_selected);
+			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
 			showHideNotificationsCount();
 
 			mInviteIcon.setVisibility(View.INVISIBLE);
@@ -261,10 +261,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.VISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
-			mHeaderLogo.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.GONE);
 			mHeaderOptionsBack.setVisibility(View.VISIBLE);
 			mProfileName.setVisibility(View.VISIBLE);
-			mHeaderLogo.setVisibility(View.INVISIBLE);
 
 			break;
 
@@ -281,10 +280,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 			} else {
 				mMyFeedFragment.reloadFeed();
 			}
-			mCuesIcon.setImageResource(R.drawable.home);
+			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.me);
-			mNotificationsIcon.setImageResource(R.drawable.myfeed_selected);
+			mProfileIcon.setImageResource(R.drawable.my_profile_icon);
+			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon_selected);
 			// Reset notifications count value
 			AppPropertiesUtil.setNotificationsCount(AppNewHomeActivity.this, 0);
 			showHideNotificationsCount();
@@ -303,7 +302,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsLayout.setVisibility(View.VISIBLE);
 			mHeaderOptionsBack.setVisibility(View.VISIBLE);
 			mProfileName.setVisibility(View.INVISIBLE);
-			mHeaderLogo.setVisibility(View.VISIBLE);
+			mHeaderLogo.setVisibility(View.GONE);
 			mFeedbackIcon.setVisibility(View.INVISIBLE);
 			break;
 		case R.id.header_option_feedback:

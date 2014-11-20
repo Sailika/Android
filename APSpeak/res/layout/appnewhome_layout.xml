@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:orientation="vertical" >
 
         <FrameLayout
@@ -27,6 +26,7 @@
                     android:id="@+id/header_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_centerInParent="true"
                     android:src="@drawable/whatsay_header_logo" />
                 
@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="@string/profile_name"
+                    android:text="@string/campaigns"
                     android:textColor="@color/apspeak_dark_yellow" 
                     android:textSize="18sp"
                     android:textStyle="bold"/>
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:padding="10dp"
-                    android:src="@drawable/invite" />
+                    android:src="@drawable/notification_icon" />
 
                 <ImageView
                     android:id="@+id/header_option_feedback"
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:padding="10dp"
-                    android:src="@drawable/feedback" />
+                    android:src="@drawable/menu_icon" />
                 <ImageView
                     android:id="@+id/header_option_back"
                     android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
             android:id="@+id/home_bottom_layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/home_bottom_background"
+            android:background="@color/apspeak_green"
             android:orientation="horizontal" >
 
             <LinearLayout
@@ -129,15 +129,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
                     android:layout_marginTop="5dp"
-                    android:src="@drawable/homeselected" />
+                    android:src="@drawable/dashboard_icon_selected" />
 
                 <TextView
                     android:id="@+id/home_cues_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/home"
-                    android:textColor="@color/home_bottom_text" />
+                    android:text="@string/dashboard"
+                    android:textColor="@android:color/background_light" />
             </LinearLayout>
 
             <LinearLayout
@@ -179,15 +179,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
                     android:layout_marginTop="5dp"
-                    android:src="@drawable/me" />
+                    android:src="@drawable/my_profile_icon" />
 
                 <TextView
                     android:id="@+id/home_profile_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/profile"
-                    android:textColor="@color/home_bottom_text" />
+                    android:text="@string/profile_name"
+                    android:textColor="@android:color/background_light" />
             </LinearLayout>
 
             <LinearLayout
@@ -208,21 +208,17 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/myfeed" />
+                        android:src="@drawable/invite_friends_icon" />
 
                     <TextView
                         android:id="@+id/home_notifications_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:layout_marginLeft="12dp"
                         android:layout_marginTop="1dp"
-                        android:background="@drawable/red_glossy_circle_medium"
                         android:gravity="center"
                         android:padding="7dp"
-                        android:text="10"
                         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small.Inverse"
-                        android:textColor="@color/white"
+                        android:textColor="@android:color/background_light"
                         android:visibility="gone" />
                 </FrameLayout>
 
@@ -233,8 +229,8 @@
                     android:layout_marginBottom="5dp"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="@string/notifications"
-                    android:textColor="@color/home_bottom_text" />
+                    android:text="@string/invite"
+                    android:textColor="@android:color/background_light" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -244,7 +240,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/welcome"
-        android:visibility="visible" >
+        android:visibility="gone" >
 
         <ImageView
             android:id="@+id/welcome_close_view"

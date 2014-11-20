@@ -319,5 +319,7 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="posted">Posted Successfully</string>
     <string name="poll_your_opinion">Poll your opinion</string>
     <string name="please_poll_your_opinion">please poll your opinion</string>
-
+    <string name="campaigns">Campaigns</string>
+    <string name="dashboard">Dashboard</string>
+    
 </resources>
