@@ -29,7 +29,7 @@ public class ImageSelectionOnClickListener implements OnClickListener {
 			}
 			break;
 
-		case R.id.background_button_layout:
+		case R.id.write_button_layout:
 			if (fragment != null) {
 				fragment.showBackgroundFragment();
 			}

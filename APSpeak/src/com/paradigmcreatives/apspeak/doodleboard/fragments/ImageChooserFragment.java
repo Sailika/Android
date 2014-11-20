@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,37 +19,45 @@ public class ImageChooserFragment extends Fragment {
 	private Fragment fragment;
 	private LinearLayout mCameraLayout;
 	private LinearLayout mGalleryLayout;
-	private LinearLayout mBackgroundsLayout;
+	private LinearLayout mWriteLayout;
 	private TextView mCameraText;
 	private TextView mGalleryText;
 	private TextView mBackgroundText;
 	private FrameLayout childFrame;
+	private ImageButton textIcon_camera,textIcon_gallery,imageIcon;
 	private ImageSelectionFragmentActivity activity;
 	private String cueID;
 
-	
 	public ImageChooserFragment() {
 		super();
 	}
-	
-	public ImageChooserFragment(ImageSelectionFragmentActivity activity, String cueID) {
+
+	public ImageChooserFragment(ImageSelectionFragmentActivity activity,
+			String cueID) {
 		this.activity = activity;
 		this.cueID = cueID;
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.image_selection_layout, container, false);
-		mCameraLayout = (LinearLayout) view.findViewById(R.id.camera_button_layout);
+		View view = inflater.inflate(R.layout.image_selection_layout,
+				container, false);
+		mCameraLayout = (LinearLayout) view
+				.findViewById(R.id.camera_button_layout);
 
-		mGalleryLayout = (LinearLayout) view.findViewById(R.id.gallery_button_layout);
-		mBackgroundsLayout = (LinearLayout) view.findViewById(R.id.background_button_layout);
+		mGalleryLayout = (LinearLayout) view
+				.findViewById(R.id.gallery_button_layout);
+		mWriteLayout = (LinearLayout) view
+				.findViewById(R.id.write_button_layout);
 		mCameraText = (TextView) view.findViewById(R.id.camera_text);
 		mGalleryText = (TextView) view.findViewById(R.id.gallery_text);
-		mBackgroundText = (TextView) view.findViewById(R.id.background_text);
+		mBackgroundText = (TextView) view.findViewById(R.id.write_text);
 		childFrame = (FrameLayout) view.findViewById(R.id.child_frame);
-
+		
+		textIcon_camera=(ImageButton)view.findViewById(R.id.img_selection_text_icon1);
+		textIcon_gallery=(ImageButton)view.findViewById(R.id.img_selection_text_icon2);
+		imageIcon=(ImageButton)view.findViewById(R.id.img_selection_camera_icon1);
 
 		/*
 		 * mMainChildFrameLayout = (FrameLayout) findViewById(R.id.child_frame);
@@ -62,60 +71,73 @@ public class ImageChooserFragment extends Fragment {
 				this);
 		mCameraLayout.setOnClickListener(listener);
 		mGalleryLayout.setOnClickListener(listener);
-		mBackgroundsLayout.setOnClickListener(listener);
+		mWriteLayout.setOnClickListener(listener);
 		showCameraFragment();
-		
+
 		return view;
 
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();
 		showCameraFragment();
 	}
-	
+
 	/**
 	 * Show the camera fragment and start the camera
 	 */
 	public void showCameraFragment() {
 		mCameraText.setTextColor(getResources().getColor(R.color.white));
 		mCameraLayout.setBackgroundColor(getResources().getColor(
-				R.color.tab_color));
-		mGalleryText.setTextColor(getResources().getColor(R.color.tab_color));
+				R.color.apspeak_green));
+		mGalleryText.setTextColor(getResources()
+				.getColor(R.color.apspeak_green));
 		mGalleryLayout.setBackgroundColor(getResources()
 				.getColor(R.color.white));
 		mBackgroundText
-				.setTextColor(getResources().getColor(R.color.tab_color));
-		mBackgroundsLayout.setBackgroundColor(getResources().getColor(
+				.setTextColor(getResources().getColor(R.color.apspeak_green));
+		mWriteLayout.setBackgroundColor(getResources().getColor(
 				R.color.white));
+		textIcon_camera.setVisibility(View.VISIBLE);
+		imageIcon.setVisibility(View.VISIBLE);
+		textIcon_gallery.setVisibility(View.GONE);
 		fragment = new CameraFragment(activity);
-		FragmentTransaction transaction = getActivity().getSupportFragmentManager()
-				.beginTransaction();
+		FragmentTransaction transaction = getActivity()
+				.getSupportFragmentManager().beginTransaction();
 		if (fragment != null && transaction != null) {
-			transaction.replace(R.id.child_frame, fragment, ImageSelectionFragmentActivity.CAMERA_TAG);
-			transaction.addToBackStack(ImageSelectionFragmentActivity.CAMERA_TAG);
+			transaction.replace(R.id.child_frame, fragment,
+					ImageSelectionFragmentActivity.CAMERA_TAG);
+			transaction
+					.addToBackStack(ImageSelectionFragmentActivity.CAMERA_TAG);
 			transaction.commit();
 		}
 	}
-	
+
 	public void showGallery() {
 		mGalleryText.setTextColor(getResources().getColor(R.color.white));
 		mGalleryLayout.setBackgroundColor(getResources().getColor(
-				R.color.tab_color));
+				R.color.apspeak_green));
 		mCameraText.setTextColor(getResources().getColor(R.color.tab_color));
-		mCameraLayout
-				.setBackgroundColor(getResources().getColor(R.color.white));
+		mCameraLayout.setBackgroundColor(getResources().getColor(
+				R.color.white));
 		mBackgroundText
 				.setTextColor(getResources().getColor(R.color.tab_color));
-		mBackgroundsLayout.setBackgroundColor(getResources().getColor(
+		mWriteLayout.setBackgroundColor(getResources().getColor(
 				R.color.white));
+		
+		textIcon_camera.setVisibility(View.GONE);
+		imageIcon.setVisibility(View.GONE);
+		textIcon_gallery.setVisibility(View.VISIBLE);
+
 		fragment = new GalleryFragment(activity);
-		FragmentTransaction transaction = getActivity().getSupportFragmentManager()
-				.beginTransaction();
+		FragmentTransaction transaction = getActivity()
+				.getSupportFragmentManager().beginTransaction();
 		if (fragment != null && transaction != null) {
-			transaction.replace(R.id.child_frame, fragment, ImageSelectionFragmentActivity.GALLERY_TAG);
-			transaction.addToBackStack(ImageSelectionFragmentActivity.GALLERY_TAG);
+			transaction.replace(R.id.child_frame, fragment,
+					ImageSelectionFragmentActivity.GALLERY_TAG);
+			transaction
+					.addToBackStack(ImageSelectionFragmentActivity.GALLERY_TAG);
 			transaction.commit();
 
 		}
@@ -124,24 +146,28 @@ public class ImageChooserFragment extends Fragment {
 
 	public void showBackgroundFragment() {
 		mBackgroundText.setTextColor(getResources().getColor(R.color.white));
-		mBackgroundsLayout.setBackgroundColor(getResources().getColor(
-				R.color.tab_color));
+		mWriteLayout.setBackgroundColor(getResources().getColor(
+				R.color.apspeak_green));
 		mCameraText.setTextColor(getResources().getColor(R.color.tab_color));
-		mCameraLayout
-				.setBackgroundColor(getResources().getColor(R.color.white));
+		mCameraLayout.setBackgroundColor(getResources().getColor(
+				R.color.white));
 		mGalleryText.setTextColor(getResources().getColor(R.color.tab_color));
-		mGalleryLayout.setBackgroundColor(getResources()
-				.getColor(R.color.white));
+		mGalleryLayout.setBackgroundColor(getResources().getColor(
+				R.color.white));
+		textIcon_camera.setVisibility(View.GONE);
+		imageIcon.setVisibility(View.GONE);
+		textIcon_gallery.setVisibility(View.VISIBLE);
 		fragment = new BackgroundFragment(activity, cueID);
-		FragmentTransaction transaction = getActivity().getSupportFragmentManager()
-				.beginTransaction();
+		FragmentTransaction transaction = getActivity()
+				.getSupportFragmentManager().beginTransaction();
 		if (fragment != null && transaction != null) {
-			transaction.replace(R.id.child_frame, fragment, ImageSelectionFragmentActivity.BACKGROUND_TAG);
-			transaction.addToBackStack(ImageSelectionFragmentActivity.BACKGROUND_TAG);
+			transaction.replace(R.id.child_frame, fragment,
+					ImageSelectionFragmentActivity.BACKGROUND_TAG);
+			transaction
+					.addToBackStack(ImageSelectionFragmentActivity.BACKGROUND_TAG);
 			transaction.commit();
 
 		}
 	}
-
 
 }

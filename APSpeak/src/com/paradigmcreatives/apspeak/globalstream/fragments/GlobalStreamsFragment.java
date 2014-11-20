@@ -14,6 +14,7 @@ import retrofit.client.Response;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -73,10 +74,12 @@ import com.paradigmcreatives.apspeak.assets.tasks.AssetDeleteThread;
 import com.paradigmcreatives.apspeak.assets.tasks.AssetInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.UserInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.WhatsayAssetDownloadThread;
+import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
 import com.paradigmcreatives.apspeak.feedback.FeedBack;
 import com.paradigmcreatives.apspeak.feedback.FeedBackResponse;
 import com.paradigmcreatives.apspeak.feedback.FeedBackType;
 import com.paradigmcreatives.apspeak.feedback.StreamRequest;
+import com.paradigmcreatives.apspeak.globalstream.AppNewChildActivity;
 import com.paradigmcreatives.apspeak.globalstream.adapters.QueuedExpressionsAdapter;
 import com.paradigmcreatives.apspeak.globalstream.listeners.GlobalStreamsAdapter;
 import com.paradigmcreatives.apspeak.globalstream.listeners.GlobalStreamsOnClickListeners;
@@ -97,10 +100,15 @@ import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
  * 
  */
 public class GlobalStreamsFragment extends Fragment implements
+
+	
+
+
 		NextBatchFetchListener, OnClickListener {
 
 	public static final String TAG = GlobalStreamsFragment.class
 			.getSimpleName();
+
 	private View rootView;
 	private FrameLayout mCueDetailsView;
 	private FullWidthImageView mCueDetailsBackgroundWideImage;
@@ -149,6 +157,7 @@ public class GlobalStreamsFragment extends Fragment implements
 	private LinearLayout feedbackOptsLayout;
 	private LinearLayout ideasMainLayout;
 	private RelativeLayout ideasClickLayout;
+
 
 	// for feedback click events
 	private ImageView awesomeFeedBackImg;
@@ -200,14 +209,14 @@ public class GlobalStreamsFragment extends Fragment implements
 		initUI(rootView);
 		final StreamRequest request = new StreamRequest();
 		request.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
-		// RestClient.getInstance().getRestClient(getActivity())
-		// .getStream(request, new StreamCallBack(getActivity(), request));
-		// // refreshQueueLayout();
+		// refreshQueueLayout();
 		// setAdapter();
 		// Fetch list from server
-		fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
+		// fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 		return rootView;
 	}
+
+
 
 	public static class FeedBackCallBack implements Callback<Response> {
 		private int retryCount = 0;
@@ -392,6 +401,7 @@ public class GlobalStreamsFragment extends Fragment implements
 					.findViewById(R.id.create_idea_main_layout);
 			ideasClickLayout = (RelativeLayout) rootView
 					.findViewById(R.id.create_idea_layout);
+
 			awesomeFeedBackImg = (ImageView) rootView
 					.findViewById(R.id.img_btn_awesome);
 			avgFeedBackImg = (ImageView) rootView
@@ -406,6 +416,7 @@ public class GlobalStreamsFragment extends Fragment implements
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
+
 			TextView headerText = (TextView)rootView.findViewById(R.id.globel_header_text);
 			headerText.setText(getResources().getString(R.string.poll_your_opinion));
 			showGridView();
@@ -721,33 +732,18 @@ public class GlobalStreamsFragment extends Fragment implements
 						}
 
 						public void onAnimationEnd(Animation animation) {
-							Toast.makeText(
-									getActivity(),
-									getResources().getString(R.string.app_name),
-									Toast.LENGTH_LONG).show();/*
-															 * Intent intent =
-															 * new
-															 * Intent(getActivity
-															 * (),
-															 * ImageSelectionFragmentActivity
-															 * .class); if (mCue
-															 * != null &&
-															 * !TextUtils
-															 * .isEmpty
-															 * (mCue.getCueId
-															 * ())) {
-															 * intent.putExtra
-															 * (Constants
-															 * .CUE_ID,
-															 * mCue.getCueId());
-															 * } getActivity().
-															 * startActivityForResult
-															 * (intent,
-															 * AppNewChildActivity
-															 * .
-															 * SUBMIT_EXPRESSION
-															 * );
-															 */
+
+							Intent intent = new Intent(getActivity(),
+									ImageSelectionFragmentActivity.class);
+							if (mCue != null
+									&& !TextUtils.isEmpty(mCue.getCueId())) {
+								intent.putExtra(Constants.CUE_ID,
+										mCue.getCueId());
+							}
+							getActivity().startActivityForResult(intent,
+									AppNewChildActivity.SUBMIT_EXPRESSION);
+
+
 						}
 					});
 				}
@@ -1377,6 +1373,7 @@ public class GlobalStreamsFragment extends Fragment implements
 			mQueuedExpressionsDialog.show();
 		}
 	}
+
 
 	@Override
 	public void onClick(View v) {
