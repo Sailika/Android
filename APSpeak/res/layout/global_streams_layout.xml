@@ -161,7 +161,7 @@
             android:orientation="horizontal" >
 
             <RelativeLayout
-                android:id="@+id/ll_icon_awesome"
+                android:id="@+id/icon_awesome_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
@@ -171,8 +171,9 @@
                     android:id="@+id/img_btn_awesome"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:alpha="0.5"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/feedback"
+                    android:background="@drawable/awesome_expression"
                     android:gravity="center" />
 
                 <TextView
@@ -187,7 +188,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/ll_icon_average"
+                android:id="@+id/icon_average_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
@@ -198,7 +199,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/feedback"
+                    android:background="@drawable/good_expression"
                     android:gravity="center" />
 
                 <TextView
@@ -213,7 +214,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/ll_icon_bad"
+                android:id="@+id/icon_bad_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
@@ -224,7 +225,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/feedback"
+                    android:background="@drawable/bad_expression"
                     android:gravity="center" />
 
                 <TextView
@@ -243,8 +244,8 @@
             android:id="@+id/create_idea_main_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@color/green" >
+            android:background="@color/green"
+            android:visibility="gone" >
 
             <RelativeLayout
                 android:id="@+id/create_idea_layout"
@@ -326,6 +327,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
+            android:visibility="gone"
             android:listSelector="@color/grey"
             android:stretchMode="columnWidth" />
 
