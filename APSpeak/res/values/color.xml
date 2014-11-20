@@ -68,7 +68,7 @@
     <color name="choosecollege_button_background">#58ADDC</color>
     <!-- APSpeak color codes -->
     <color name="apspeak_red">#d4151c</color>
-    <color name="apspeak_gree">#029755</color>
+    <color name="apspeak_green">#029755</color>
     <color name="apspeak_light_yellow">#ffbd21</color>
     <color name="apspeak_dark_yellow">#ffe401</color>
 
