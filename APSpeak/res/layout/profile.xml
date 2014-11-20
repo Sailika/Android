@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@color/apspeak_red"
                 android:textSize="@dimen/font_size_high" />
 

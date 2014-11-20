@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">APSpeak</string>
+    <string name="name">Name</string>
     <string name="profile_name">My Profile</string>
     <string name="facebook_app_id">865329090157392</string>
     <string name="hello_world">Hello world!</string>

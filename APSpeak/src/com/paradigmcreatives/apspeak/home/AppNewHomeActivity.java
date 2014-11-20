@@ -20,7 +20,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
@@ -305,6 +304,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mHeaderOptionsBack.setVisibility(View.VISIBLE);
 			mProfileName.setVisibility(View.INVISIBLE);
 			mHeaderLogo.setVisibility(View.VISIBLE);
+			mFeedbackIcon.setVisibility(View.INVISIBLE);
 			break;
 		case R.id.header_option_feedback:
 			feedbackAction();
