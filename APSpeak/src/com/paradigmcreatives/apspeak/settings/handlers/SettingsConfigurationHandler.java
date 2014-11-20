@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 
+import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.logging.Logger;
 
 /**
@@ -18,8 +19,10 @@ public class SettingsConfigurationHandler extends Handler {
     private static final int PRE_EXECUTE = 1;
     private static final int SUCCESS = 2;
     private static final int FAILURE = 3;
+    
 
     private Fragment fragment;
+    
 
     public SettingsConfigurationHandler(Fragment fragment) {
 	super();

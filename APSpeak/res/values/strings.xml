@@ -315,4 +315,7 @@ We would love to hear your feedback on what you like and on how we can make what
 	<string name="failed">Failed to post</string>
 	<string name="deleted">Deleted Successfully</string>
 	<string name="posted">Posted Successfully</string>
+	<string name="post">Post</string>
+	<string name="create_own_idea">Creating own idea</string>
+	<string name="write">Write</string>
 </resources>

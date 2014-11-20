@@ -6,23 +6,49 @@
     android:background="@color/white"
     android:orientation="vertical" >
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/image_chooser_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@color/whatsay_bgcolor"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="@string/choose_image"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:background="@color/red"
+        android:orientation="horizontal" >
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dip"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@color/tab_color" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center||left"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:text="@string/create_own_idea"
+            android:textColor="@color/apspeak_light_yellow"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center||right"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:src="@drawable/notification_icon" />
+    </LinearLayout>
+    <!--
+             <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/tab_color" />
+    -->
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -35,7 +61,28 @@
         <View
             android:layout_width="1dip"
             android:layout_height="fill_parent"
-            android:background="@color/tab_color" />
+            android:background="@color/green" />
+
+        <LinearLayout
+            android:id="@+id/write_button_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33" >
+
+            <TextView
+                android:id="@+id/write_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/write"
+                android:textColor="@color/tab_color" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="fill_parent"
+            android:background="@color/green" />
 
         <LinearLayout
             android:id="@+id/camera_button_layout"
@@ -56,7 +103,7 @@
         <View
             android:layout_width="1dip"
             android:layout_height="fill_parent"
-            android:background="@color/tab_color" />
+            android:background="@color/green" />
 
         <LinearLayout
             android:id="@+id/gallery_button_layout"
@@ -77,28 +124,7 @@
         <View
             android:layout_width="1dip"
             android:layout_height="fill_parent"
-            android:background="@color/tab_color" />
-
-        <LinearLayout
-            android:id="@+id/background_button_layout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.33" >
-
-            <TextView
-                android:id="@+id/background_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="@string/background"
-                android:textColor="@color/tab_color" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dip"
-            android:layout_height="fill_parent"
-            android:background="@color/tab_color" />
+            android:background="@color/green" />
     </LinearLayout>
 
     <View
@@ -107,7 +133,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/tab_color" />
+        android:background="@color/green" />
 
     <!-- The main content view -->
     <!--
@@ -127,7 +153,8 @@
     <FrameLayout
         android:id="@+id/child_frame"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -138,6 +165,76 @@
             android:visibility="gone" />
     </FrameLayout>
 
+    <LinearLayout
+        android:id="@+id/ll_img_selection_text"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/apspeak_light_yellow"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/img_selection_text_icon1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/text_icon" />
+
+        <ImageButton
+            android:id="@+id/img_selection_text_icon2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/text_icon"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/img_selection_camera_icon1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/capture_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_img_selection_post"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="@color/apspeak_green"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/create_post_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:orientation="vertical"
+            android:paddingTop="5dp" >
+
+            <ImageButton
+                android:id="@+id/ib_image_selection_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/post_icon"
+                android:gravity="center"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ib_image_selection_post"
+                android:gravity="center"
+                android:paddingTop="2dp"
+                android:text="@string/post"
+                android:textColor="@color/tab_color" />
+        </RelativeLayout>
+    </LinearLayout>
     <!--
              <FrameLayout
             android:id="@+id/camera_frame"
