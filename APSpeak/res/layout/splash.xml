@@ -12,4 +12,28 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true" />
  -->
+    android:background="@drawable/splash_screen_bg"
+     >
+
+         <ImageView
+             android:contentDescription="@string/app_name"
+            android:id="@+id/animationImage"
+            android:src="@drawable/ap_speak_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            android:layout_centerInParent="true" />
+         
+         <ImageView
+             android:contentDescription="@string/app_name"
+            android:id="@+id/ap_logo"
+            android:src="@drawable/ap_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/animationImage"/>
+ 
+>>>>>>> ab458d5f718e3e6ad01db479d8c88651d31ea08d
 </RelativeLayout>

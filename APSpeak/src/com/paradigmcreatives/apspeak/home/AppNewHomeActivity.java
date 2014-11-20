@@ -152,7 +152,6 @@ public class AppNewHomeActivity extends FragmentActivity {
 		AppNewHomeOnClickListener listener = new AppNewHomeOnClickListener(this);
 		mInviteIcon.setOnClickListener(listener);
 		mSettingsIcon.setOnClickListener(listener);
-		
 		mCuesIconLayout.setOnClickListener(listener);
 		mFeaturedIconLayout.setOnClickListener(listener);
 		mProfileIconLayout.setOnClickListener(listener);
@@ -176,7 +175,6 @@ public class AppNewHomeActivity extends FragmentActivity {
 			
 			onBackPressed();
 			break;
-		
 		case R.id.header_option_invite:
 			launchInviteFBFriendsFragment();
 			break;
@@ -209,6 +207,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
 			mProfileName.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.VISIBLE);
 			break;
 
 		case R.id.home_featured_icon_layout:
@@ -236,6 +235,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
 			mProfileName.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.VISIBLE);
 			break;
 
 		case R.id.home_profile_icon_layout:
@@ -265,6 +265,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mHeaderLogo.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.VISIBLE);
 			mProfileName.setVisibility(View.VISIBLE);
+			mHeaderLogo.setVisibility(View.INVISIBLE);
+
 			break;
 
 		case R.id.home_notifications_icon_layout:
@@ -300,7 +302,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.VISIBLE);
-			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
+			mHeaderOptionsBack.setVisibility(View.VISIBLE);
+			mProfileName.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.VISIBLE);
 			break;
 		case R.id.header_option_feedback:
 			feedbackAction();
