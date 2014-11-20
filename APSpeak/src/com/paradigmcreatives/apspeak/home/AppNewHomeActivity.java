@@ -63,7 +63,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private ImageView mFeaturedIcon;
 	private ImageView mProfileIcon;
 	private ImageView mNotificationsIcon;
+	private ImageView mHeaderOptionsBack;
+	private ImageView mHeaderLogo;
 	private TextView mNotificationsCount;
+	private TextView mProfileName;
 
 	private FragmentManager mFragmentManager;
 	private CuesFragment mCuesFragment;
@@ -108,6 +111,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mNotificationsIconLayout = (LinearLayout) findViewById(R.id.home_notifications_icon_layout);
 
 		mInviteIcon = (ImageView) findViewById(R.id.header_option_invite);
+		mHeaderLogo = (ImageView) findViewById(R.id.header_logo);
+		mHeaderOptionsBack = (ImageView) findViewById(R.id.header_option_back);
 		mFeedbackIcon = (ImageView) findViewById(R.id.header_option_feedback);
 		mSettingsIcon = (ImageView) findViewById(R.id.header_option_settings);
 		mCuesIcon = (ImageView) findViewById(R.id.home_cues_icon);
@@ -115,6 +120,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mProfileIcon = (ImageView) findViewById(R.id.home_profile_icon);
 		mNotificationsIcon = (ImageView) findViewById(R.id.home_notifications_icon);
 		mNotificationsCount = (TextView) findViewById(R.id.home_notifications_count);
+		mProfileName = (TextView) findViewById(R.id.header_txt_profile);
 		showHideNotificationsCount();
 		final FrameLayout welcomeFrame = (FrameLayout) findViewById(R.id.welcome_screen);
 		ImageView welcomeClose = (ImageView) findViewById(R.id.welcome_close_view);
@@ -150,6 +156,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mProfileIconLayout.setOnClickListener(listener);
 		mFeedbackIcon.setOnClickListener(listener);
 		mNotificationsIconLayout.setOnClickListener(listener);
+		mHeaderOptionsBack.setOnClickListener(listener);
 	}
 
 	/**
@@ -162,6 +169,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFragmentManager = getSupportFragmentManager();
 		}
 		switch (viewId) {
+		
+		case R.id.header_option_back:
+			
+			onBackPressed();
+			break;
 		case R.id.header_option_invite:
 			launchInviteFBFriendsFragment();
 			break;
@@ -192,6 +204,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
+			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
+			mProfileName.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.VISIBLE);
 			break;
 
 		case R.id.home_featured_icon_layout:
@@ -217,6 +232,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFeaturedLayout.setVisibility(View.VISIBLE);
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
+			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
+			mProfileName.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.VISIBLE);
 			break;
 
 		case R.id.home_profile_icon_layout:
@@ -243,6 +261,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.VISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.INVISIBLE);
+			mHeaderOptionsBack.setVisibility(View.VISIBLE);
+			mProfileName.setVisibility(View.VISIBLE);
+			mHeaderLogo.setVisibility(View.INVISIBLE);
+
 			break;
 
 		case R.id.home_notifications_icon_layout:
@@ -278,6 +301,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.VISIBLE);
+			mHeaderOptionsBack.setVisibility(View.VISIBLE);
+			mProfileName.setVisibility(View.INVISIBLE);
+			mHeaderLogo.setVisibility(View.VISIBLE);
+			mFeedbackIcon.setVisibility(View.INVISIBLE);
 			break;
 		case R.id.header_option_feedback:
 			feedbackAction();

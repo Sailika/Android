@@ -3,6 +3,15 @@
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/red"
+     >
+
+    <!--     <ImageView
+            android:id="@+id/animationImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+ -->
     android:background="@drawable/splash_screen_bg"
      >
 
@@ -26,4 +35,5 @@
             android:layout_alignParentBottom="true"
             android:layout_below="@id/animationImage"/>
  
+>>>>>>> ab458d5f718e3e6ad01db479d8c88651d31ea08d
 </RelativeLayout>

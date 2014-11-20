@@ -82,11 +82,13 @@ public class SplashScreenActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
+		if ((splashScreenHandler != null) && (inboxScreenRunnable != null)) {
 		if ((splashScreenHandler != null) && (inboxScreenRunnable != null))
 		{
 			splashScreenHandler.removeCallbacks(inboxScreenRunnable);
 		}
 		super.onBackPressed();
+		}
 	}
 
 	@Override
