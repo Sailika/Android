@@ -1,9 +1,16 @@
 package com.paradigmcreatives.apspeak.globalstream.fragments;
 
+import java.io.EOFException;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.apache.http.HttpStatus;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,6 +25,7 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -35,14 +43,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.paradigmcreatives.apspeak.globalstream.fragments.GlobalStreamsFragment;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.paradigmcreatives.apspeak.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -50,6 +56,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
+import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.database.expressionsdb.ExpressionsSubmitQueueDAO;
 import com.paradigmcreatives.apspeak.app.model.Campaigns;
 import com.paradigmcreatives.apspeak.app.model.ExpressionSubmitQueueBean;
@@ -59,7 +66,6 @@ import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.Util;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants;
 import com.paradigmcreatives.apspeak.app.util.customcontrols.FullWidthImageView;
-import com.paradigmcreatives.apspeak.app.util.customcontrols.SquaredItemsFrameLayout;
 import com.paradigmcreatives.apspeak.app.util.dialogs.ProgressWheel;
 import com.paradigmcreatives.apspeak.assets.handlers.AssetDeleteHandler;
 import com.paradigmcreatives.apspeak.assets.handlers.InappropriateFlagHandler;
@@ -68,14 +74,19 @@ import com.paradigmcreatives.apspeak.assets.tasks.AssetDeleteThread;
 import com.paradigmcreatives.apspeak.assets.tasks.AssetInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.UserInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.WhatsayAssetDownloadThread;
-import com.paradigmcreatives.apspeak.autosend.AutoSendManager;
 import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
+import com.paradigmcreatives.apspeak.feedback.FeedBack;
+import com.paradigmcreatives.apspeak.feedback.FeedBackResponse;
+import com.paradigmcreatives.apspeak.feedback.FeedBackType;
+import com.paradigmcreatives.apspeak.feedback.StreamRequest;
 import com.paradigmcreatives.apspeak.globalstream.AppNewChildActivity;
 import com.paradigmcreatives.apspeak.globalstream.adapters.QueuedExpressionsAdapter;
 import com.paradigmcreatives.apspeak.globalstream.listeners.GlobalStreamsAdapter;
 import com.paradigmcreatives.apspeak.globalstream.listeners.GlobalStreamsOnClickListeners;
 import com.paradigmcreatives.apspeak.globalstream.tasks.FetchGlobalStreamsTask;
 import com.paradigmcreatives.apspeak.logging.Logger;
+import com.paradigmcreatives.apspeak.network.ResponseParser;
+import com.paradigmcreatives.apspeak.network.RestClient;
 import com.paradigmcreatives.apspeak.stream.adapters.UserStreamAdapter;
 import com.paradigmcreatives.apspeak.stream.handlers.GetStreamHandler;
 import com.paradigmcreatives.apspeak.stream.listeners.ListOnScrollListenerImpl;
@@ -89,7 +100,14 @@ import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
  * 
  */
 public class GlobalStreamsFragment extends Fragment implements
-		NextBatchFetchListener {
+
+	
+
+
+		NextBatchFetchListener, OnClickListener {
+
+	public static final String TAG = GlobalStreamsFragment.class
+			.getSimpleName();
 
 	private View rootView;
 	private FrameLayout mCueDetailsView;
@@ -140,6 +158,12 @@ public class GlobalStreamsFragment extends Fragment implements
 	private LinearLayout ideasMainLayout;
 	private RelativeLayout ideasClickLayout;
 
+
+	// for feedback click events
+	private ImageView awesomeFeedBackImg;
+	private ImageView avgFeedBackImg;
+	private ImageView badFeedBackImg;
+
 	/**
 	 * Default Constructor
 	 */
@@ -183,11 +207,79 @@ public class GlobalStreamsFragment extends Fragment implements
 				.build();
 
 		initUI(rootView);
+		final StreamRequest request = new StreamRequest();
+		request.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
 		// refreshQueueLayout();
 		// setAdapter();
 		// Fetch list from server
 		// fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 		return rootView;
+	}
+
+
+
+	public static class FeedBackCallBack implements Callback<Response> {
+		private int retryCount = 0;
+		private static final int MAX_RETRY_COUNT = 3;
+		private FeedBack request;
+		private Context mContext;
+
+		public FeedBackCallBack(final Context context, final int retryCount,
+				final FeedBack request) {
+			this(context, request);
+			this.retryCount = retryCount;
+			this.mContext = context;
+		}
+
+		public FeedBackCallBack(final Context context, final FeedBack request) {
+			this.request = request;
+			this.mContext = context;
+		}
+
+		@Override
+		public void failure(RetrofitError arg0) {
+			if (arg0.getCause() instanceof EOFException) {
+				if (retryCount <= MAX_RETRY_COUNT) {
+					retryCount++;
+					RestClient.getInstance().getRestClient(mContext)
+							.postFeedBack(request, this);
+				} else {
+					Toast.makeText(
+							mContext,
+							mContext.getResources().getString(
+									R.string.server_failure), Toast.LENGTH_LONG)
+							.show();
+				}
+			} else {
+				Toast.makeText(
+						mContext,
+						mContext.getResources().getString(
+								R.string.server_failure)
+								+ arg0.getCause(), Toast.LENGTH_LONG).show();
+			}
+		}
+
+		@Override
+		public void success(Response arg0, Response arg1) {
+			try {
+				FeedBackResponse response = ResponseParser.parseResponse(arg1,
+						FeedBackResponse.class);
+				if (response.getErrorCode() == HttpStatus.SC_OK) {
+					Toast.makeText(mContext,
+							mContext.getResources().getString(R.string.okay),
+							Toast.LENGTH_LONG).show();
+					// TODO: Feed back success fully posted need to navigate to
+					// another screen.
+				}
+			} catch (IOException e) {
+				Toast.makeText(
+						mContext,
+						mContext.getResources().getString(
+								R.string.server_failure), Toast.LENGTH_LONG)
+						.show();
+			}
+		}
+
 	}
 
 	private void initUI(View rootView) {
@@ -309,10 +401,24 @@ public class GlobalStreamsFragment extends Fragment implements
 					.findViewById(R.id.create_idea_main_layout);
 			ideasClickLayout = (RelativeLayout) rootView
 					.findViewById(R.id.create_idea_layout);
+
+			awesomeFeedBackImg = (ImageView) rootView
+					.findViewById(R.id.img_btn_awesome);
+			avgFeedBackImg = (ImageView) rootView
+					.findViewById(R.id.img_btn_average);
+			badFeedBackImg = (ImageView) rootView
+					.findViewById(R.id.img_btn_bad);
+			awesomeFeedBackImg.setOnClickListener(this);
+			avgFeedBackImg.setOnClickListener(this);
+			badFeedBackImg.setOnClickListener(this);
+
 			mIsGridviewInUse = true;
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
+
+			TextView headerText = (TextView)rootView.findViewById(R.id.globel_header_text);
+			headerText.setText(getResources().getString(R.string.poll_your_opinion));
 			showGridView();
 		}
 	}
@@ -626,11 +732,7 @@ public class GlobalStreamsFragment extends Fragment implements
 						}
 
 						public void onAnimationEnd(Animation animation) {
-							/*Toast.makeText(
-									getActivity(),
-									getResources().getString(R.string.app_name),
-									Toast.LENGTH_LONG).show();
-*/
+
 							Intent intent = new Intent(getActivity(),
 									ImageSelectionFragmentActivity.class);
 							if (mCue != null
@@ -640,6 +742,7 @@ public class GlobalStreamsFragment extends Fragment implements
 							}
 							getActivity().startActivityForResult(intent,
 									AppNewChildActivity.SUBMIT_EXPRESSION);
+
 
 						}
 					});
@@ -1271,36 +1374,37 @@ public class GlobalStreamsFragment extends Fragment implements
 		}
 	}
 
-	/*
-	 * public void performLongPress() { if (!isLongPressViewVisible) { final int
-	 * numVisibleChildren = mGridView.getChildCount(); for (int i = 0; i <
-	 * numVisibleChildren; i++) { View gridChild = mGridView.getChildAt(i); if
-	 * (gridChild != null) { if (gridChild instanceof SquaredItemsFrameLayout) {
-	 * SquaredItemsFrameLayout parentLayout = ((SquaredItemsFrameLayout)
-	 * gridChild); int childSize = parentLayout.getChildCount(); if (childSize >
-	 * 0) { for (int j = 0; j < childSize; j++) { if (parentLayout.getChildAt(j)
-	 * instanceof RelativeLayout) { RelativeLayout longPressLayout =
-	 * ((RelativeLayout) parentLayout .getChildAt(j)); if (longPressLayout !=
-	 * null) { longPressLayout .setVisibility(View.VISIBLE);
-	 * isLongPressViewVisible = true; int longPressLayoutChildCount =
-	 * longPressLayout .getChildCount(); if (longPressLayoutChildCount > 0) {
-	 * for (int k = 0; k < longPressLayoutChildCount; k++) { if (longPressLayout
-	 * .getChildAt(k) instanceof ImageView) { } } } } } } if
-	 * (isLongPressViewVisible) { mPullToRefreshGridView.setMode(Mode.DISABLED);
-	 * mGridView = mPullToRefreshGridView .getRefreshableView(); } } } } } } }
-	 * public void removeLongPressView() { if (isLongPressViewVisible) { final
-	 * int numVisibleChildren = mGridView.getChildCount(); for (int i = 0; i <
-	 * numVisibleChildren; i++) { View gridChild = mGridView.getChildAt(i); if
-	 * (gridChild != null) { if (gridChild instanceof SquaredItemsFrameLayout) {
-	 * SquaredItemsFrameLayout parentLayout = ((SquaredItemsFrameLayout)
-	 * gridChild); int childSize = parentLayout.getChildCount(); if (childSize >
-	 * 0) { for (int j = 0; j < childSize; j++) { if (parentLayout.getChildAt(j)
-	 * instanceof RelativeLayout) { RelativeLayout longPressLayout =
-	 * ((RelativeLayout) parentLayout .getChildAt(j)); if (longPressLayout !=
-	 * null) { longPressLayout .setVisibility(View.GONE); isLongPressViewVisible
-	 * = false; } } } if (!isLongPressViewVisible) { mPullToRefreshGridView
-	 * .setMode(mPullToRefreshGridView .getMode() == Mode.BOTH ?
-	 * Mode.PULL_FROM_START : Mode.BOTH); mGridView = mPullToRefreshGridView
-	 * .getRefreshableView(); } } } } } } else { // do nothing } }
-	 */
+
+	@Override
+	public void onClick(View v) {
+
+		FeedBackType feedBackType = FeedBackType.GOOD;
+		switch (v.getId()) {
+		case R.id.icon_awesome_layout:
+			feedBackType = FeedBackType.GOOD;
+			break;
+		case R.id.icon_average_layout:
+			feedBackType = FeedBackType.AVERAGE;
+			break;
+		case R.id.icon_bad_layout:
+			feedBackType = FeedBackType.BAD;
+			break;
+		default:
+			break;
+		}
+		FeedBack feedBack = new FeedBack();
+		if (mAllCollegesList != null && mAllCollegesList.size() > 0) {
+			feedBack.setAsset_id(mAllCollegesList.get(0).getAssetId());
+		}
+		feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
+		feedBack.setFeedback(feedBackType);
+
+		RestClient
+				.getInstance()
+				.getRestClient(getActivity())
+				.postFeedBack(feedBack,
+						new FeedBackCallBack(getActivity(), feedBack));
+
+	}
+
 }

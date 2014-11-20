@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
-    android:orientation="vertical" >
-
-    <LinearLayout
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout android:id="@+id/header"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+    <include layout="@layout/header_layout"/>
+    </LinearLayout>
+    <LinearLayout 
+       android:paddingTop="10dp"
         android:id="@+id/global_streams_up_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:background="@color/red"
         android:orientation="vertical" >
+        
 
         <View
             android:layout_width="fill_parent"
@@ -27,6 +33,7 @@
             android:background="@color/tab_color" />
 
         <LinearLayout
+            
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -94,7 +101,7 @@
         android:id="@+id/global_streams_cuedetails_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/global_streams_up_layout"
+       
         android:background="@color/grey_light" >
 
         <com.paradigmcreatives.apspeak.app.util.customcontrols.FullWidthImageView
@@ -144,11 +151,104 @@
             android:background="#989898" />
     </FrameLayout>
 
+      <LinearLayout
+        android:id="@+id/global_streams_queue_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/global_streams_cuedetails_layout"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/global_streams_queue_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/invite" />
+
+        <TextView
+            android:id="@+id/global_streams_queue_message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="5 expressions in queue"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/global_streams_content_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2" >
+
+        <!-- The PullToRefreshGridView replaces a standard GridView widget. -->
+
+        <com.handmark.pulltorefresh.library.PullToRefreshGridView
+            android:id="@+id/globalstreams_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:background="@color/white"
+            android:horizontalSpacing="2dp"
+            android:listSelector="@color/transparent"
+            android:numColumns="2"
+            android:visibility="gone"            
+            android:scrollbars="none"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="2dp" />
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/globalstreams_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:listSelector="@color/grey"
+            android:stretchMode="columnWidth" />
+
+        <ProgressBar
+            android:id="@+id/global_streams_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/global_streams_errorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:visibility="invisible" />
+          <TextView
+            android:id="@+id/feedback_message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:visibility="visible" />
+          <TextView
+            android:id="@+id/your_opinion_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:gravity="center"
+            android:text="@string/please_poll_your_opinion"
+            android:textColor="@color/apspeak_red"
+            android:visibility="visible" />
+    </LinearLayout>
+  <LinearLayout
         android:id="@+id/global_streams_bottom_layout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@color/white"
         android:orientation="vertical" >
 
@@ -161,7 +261,7 @@
             android:orientation="horizontal" >
 
             <RelativeLayout
-                android:id="@+id/ll_icon_awesome"
+                android:id="@+id/icon_awesome_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
@@ -171,8 +271,9 @@
                     android:id="@+id/img_btn_awesome"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:alpha="0.5"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/feedback"
+                    android:background="@drawable/awesome_expression"
                     android:gravity="center" />
 
                 <TextView
@@ -187,7 +288,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/ll_icon_average"
+                android:id="@+id/icon_average_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
@@ -198,7 +299,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/feedback"
+                    android:background="@drawable/good_expression"
                     android:gravity="center" />
 
                 <TextView
@@ -213,7 +314,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/ll_icon_bad"
+                android:id="@+id/icon_bad_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
@@ -224,7 +325,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/feedback"
+                    android:background="@drawable/bad_expression"
                     android:gravity="center" />
 
                 <TextView
@@ -243,8 +344,8 @@
             android:id="@+id/create_idea_main_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:background="@color/green" >
+            android:background="@color/green"
+            android:visibility="gone" >
 
             <RelativeLayout
                 android:id="@+id/create_idea_layout"
@@ -273,77 +374,5 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/global_streams_queue_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/global_streams_cuedetails_layout"
-        android:orientation="horizontal"
-        android:visibility="gone" >
-
-        <ImageView
-            android:id="@+id/global_streams_queue_icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:src="@drawable/invite" />
-
-        <TextView
-            android:id="@+id/global_streams_queue_message"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:text="5 expressions in queue"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/global_streams_content_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@id/global_streams_bottom_layout"
-        android:layout_below="@id/global_streams_queue_layout" >
-
-        <!-- The PullToRefreshGridView replaces a standard GridView widget. -->
-
-        <com.handmark.pulltorefresh.library.PullToRefreshGridView
-            android:id="@+id/globalstreams_grid_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="2dp"
-            android:background="@color/white"
-            android:horizontalSpacing="2dp"
-            android:listSelector="@color/transparent"
-            android:numColumns="2"
-            android:scrollbars="none"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="2dp" />
-
-        <com.handmark.pulltorefresh.library.PullToRefreshListView
-            android:id="@+id/globalstreams_list_view"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_gravity="center"
-            android:listSelector="@color/grey"
-            android:stretchMode="columnWidth" />
-
-        <ProgressBar
-            android:id="@+id/global_streams_progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/global_streams_errorMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:visibility="invisible" />
-    </FrameLayout>
-
-</RelativeLayout>
+    
+</LinearLayout>

@@ -14,6 +14,16 @@
             android:layout_height="wrap_content"
             android:paddingBottom="100dp"
             android:layout_centerInParent="true" />
+
+
+         <ImageView
+             android:contentDescription="@string/app_name"
+            android:id="@+id/animationImages"
+            android:src="@drawable/ap_speak_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp"
+            android:layout_centerInParent="true" />
          
          <ImageView
              android:contentDescription="@string/app_name"

@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">APSpeak</string>
+    <string name="name">Name</string>
+    <string name="profile_name">My Profile</string>
     <string name="facebook_app_id">865329090157392</string>
     <string name="hello_world">Hello world!</string>
     <string name="log_folder">whatsay-logs</string>
@@ -14,8 +16,8 @@
     <string name="eula">EULA</string>
     <string name="help_love">Double tap to love</string>
     <string name="help_share">Share with others via social media</string>
-     <string name="help_text_color">Change text color</string>
-      <string name="help_text_font">Change text font style</string>
+    <string name="help_text_color">Change text color</string>
+    <string name="help_text_font">Change text font style</string>
     <string name="search_friends">Search Friends</string>
     <string name="delete">Delete</string>
     <string name="save_image">Save Image</string>
@@ -216,7 +218,7 @@
     <string name="awesome">Awesome</string>
     <string name="average">Average</string>
     <string name="bad">Bad</string>
-     <string name="create_idea">Create your idea</string>
+    <string name="create_idea">Create your idea</string>
     <string name="about_us_text">Whatsay is brought to you by Neuv LLC.\n\n
   
 At Neuv, our focus is on solving the problem of content creation and consumption on smart and connected devices.\n\n
@@ -310,12 +312,17 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="retry_send_message">Unable to post due to a poor Internet connection</string>
     <string name="retry_send">Tap to retry</string>
     <string name="queued_expressions_count_message">&#160;expression(s) in Queue</string>
-	<string name="failed_expressions_count_message">&#160;failed expression(s) in Queue</string>
-	<string name="pending">Pending to submit</string>
-	<string name="failed">Failed to post</string>
-	<string name="deleted">Deleted Successfully</string>
-	<string name="posted">Posted Successfully</string>
-	<string name="post">Post</string>
+
+    <string name="failed_expressions_count_message">&#160;failed expression(s) in Queue</string>
+    <string name="pending">Pending to submit</string>
+    <string name="failed">Failed to post</string>
+    <string name="deleted">Deleted Successfully</string>
+    <string name="posted">Posted Successfully</string>
+    <string name="post">Post</string>
 	<string name="create_own_idea">Creating own idea</string>
 	<string name="write">Write</string>
+    <string name="poll_your_opinion">Poll your opinion</string>
+    <string name="please_poll_your_opinion">please poll your opinion</string>
+
+
 </resources>
