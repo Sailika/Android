@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Stream -->
+    <dimen name="asset_owner_pic_dimension">30px</dimen>
+    <dimen name="asset_owner_pic_left_margin">10dp</dimen>
+    <dimen name="asset_owner_text_size">12sp</dimen>
+    <dimen name="asset_other_details_text_size">8sp</dimen>
+    <dimen name="asset_owner_name_topmargin">6dp</dimen>
+    <dimen name="asset_header_layout_height">39dp</dimen>
+    <dimen name="asset_bottom_layout_height">25dp</dimen>
+    <dimen name="usernametextsize">11dp</dimen>
+    <dimen name="continueimagesize">44dp</dimen>
+    
+</resources>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/assetdetails_otherchilds_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:weightSum="1" >
+
+    <!-- 1. Actual comment content -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_weight="0.90"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/asset_header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/asset_header_layout_height" >
+
+            <ImageView
+                android:id="@+id/asset_owner_pic"
+                android:layout_width="@dimen/asset_owner_pic_dimension"
+                android:layout_height="@dimen/asset_owner_pic_dimension"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/asset_owner_pic_left_margin"
+                android:src="@drawable/userpic" />
+
+            <TextView
+                android:id="@+id/asset_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/asset_owner_pic"
+                android:text="@string/anonymous"
+                android:textColor="@color/black"
+                android:textSize="@dimen/asset_owner_text_size" />
+
+            <TextView
+                android:id="@+id/asset_created_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:text="@string/anonymous"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/asset_image_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/asset_image"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_margin="5dp" />
+
+            <ImageView
+                android:id="@+id/asset_love_animation_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/loveani"
+                android:visibility="invisible" />
+
+            <com.paradigmcreatives.apspeak.app.util.dialogs.ProgressWheel
+                android:id="@+id/progressBarwheelone"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                ProgressWheel:barColor="#339BB9"
+                ProgressWheel:barLength="40dp"
+                ProgressWheel:barWidth="3dp"
+                ProgressWheel:rimColor="#44000000"
+                ProgressWheel:rimWidth="1dp"
+                ProgressWheel:textColor="#222222"
+                ProgressWheel:textSize="14sp"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/asset_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/asset_bottom_layout_height" >
+
+            <ImageView
+                android:id="@+id/comment_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/asset_owner_pic_left_margin" />
+
+            <ImageView
+                android:id="@+id/asset_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/asset_owner_pic_left_margin"
+                android:background="@drawable/options" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 2. Right vertical Line content -->
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.10"
+        android:orientation="horizontal" >
+
+        <View
+            android:id="@+id/comment_right_Separator"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
+
+</LinearLayout>

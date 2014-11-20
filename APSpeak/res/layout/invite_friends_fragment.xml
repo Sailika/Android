@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <Button
+        android:id="@+id/fbinvitefriends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@drawable/fbtab"
+        android:clickable="false"
+        android:paddingLeft="50dp"
+        android:paddingRight="15dp"
+        android:text="@string/fbInvite"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <!--
+<Button
+        android:id="@+id/fbinvite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:clickable="false"
+        android:text="@string/fbInvite"
+        android:textColor="@color/white"
+        android:textSize="@dimen/fbconnect"
+        android:textStyle="bold"
+        android:paddingLeft="50dp"
+        android:paddingRight="15dp"
+        class = "com.neuv.whatsay.discovery.fragments.InviteFriendsFragment"/>
+    -->
+
+</RelativeLayout>

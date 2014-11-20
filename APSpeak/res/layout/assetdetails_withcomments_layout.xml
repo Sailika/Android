@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <!-- 
+    <RelativeLayout
+        android:id="@+id/header_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:background="@color/home_header_background" >
+
+        <ImageView
+            android:id="@+id/header_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/whatsay_header_logo" />
+
+        <ImageView
+            android:id="@+id/share_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@drawable/share" />
+    </RelativeLayout>
+     -->
+
+    <ListView
+        android:id="@+id/assetdetails_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/header_layout"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:listSelector="@color/grey"
+        android:stretchMode="columnWidth" />
+
+    <ProgressBar
+        android:id="@+id/assetdetails_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/assetdetails_errorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/assetdetails_withcomments_bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="1" >
+
+        <ImageView
+            android:id="@+id/assetbottom_action_love"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.5"
+            android:clickable="true"
+            android:src="@drawable/like" />
+
+        <ImageView
+            android:id="@+id/assetbottom_action_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.5"
+            android:clickable="true"
+            android:src="@drawable/comment" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white" >
+
+    <ScrollView
+        android:id="@+id/stream_itemdetails_layout_v2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" >
+
+        <LinearLayout
+            android:id="@+id/stream_itemdetails_linearlayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 1. Layout that represents main asset -->
+
+            <RelativeLayout
+                android:id="@+id/stream_doodle_asset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RelativeLayout
+                    android:id="@+id/asset_header_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/asset_header_layout_height" >
+
+                    <ImageView
+                        android:id="@+id/asset_owner_pic"
+                        android:layout_width="@dimen/asset_owner_pic_dimension"
+                        android:layout_height="@dimen/asset_owner_pic_dimension"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/asset_owner_pic_left_margin"
+                        android:src="@drawable/userpic" />
+
+                    <TextView
+                        android:id="@+id/asset_owner_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@id/asset_owner_pic"
+                        android:text="@string/anonymous"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/asset_owner_text_size" />
+
+                    <TextView
+                        android:id="@+id/asset_created_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:text="@string/anonymous"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/asset_header_Separator"
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/asset_owner_pic"
+                        android:layout_marginTop="4dp"
+                        android:background="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/asset_image_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/asset_header_layout" >
+
+                    <!--
+                <com.neuv.doodlydoo.doodleboard.DoodleView
+                    android:id="@+id/asset_doodleview"
+                    android:layout_width="fill_parent"
+                    android:layout_gravity="center"
+                    
+                    android:layout_height="@dimen/asset_pic_dimension"
+                    android:layout_below="@id/asset_owner_pic"
+                    android:visibility="invisible" />
+                    -->
+
+                    <ImageView
+                        android:id="@+id/asset_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/asset_pic_dimension"
+                        android:layout_below="@id/asset_owner_pic" />
+
+                    <ImageView
+                        android:id="@+id/asset_love_animation_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/asset_owner_pic"
+                        android:layout_gravity="center"
+                        android:src="@drawable/loveani"
+                        android:visibility="invisible" />
+
+                    <com.paradigmcreatives.apspeak.app.util.dialogs.ProgressWheel
+                        android:id="@+id/progressBarwheelone"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        ProgressWheel:barColor="#339BB9"
+                        ProgressWheel:barLength="40dp"
+                        ProgressWheel:barWidth="3dp"
+                        ProgressWheel:rimColor="#44000000"
+                        ProgressWheel:rimWidth="1dp"
+                        ProgressWheel:textColor="#222222"
+                        ProgressWheel:textSize="14sp"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/asset_bottom_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/asset_bottom_layout_height"
+                    android:layout_below="@id/asset_image_layout" >
+
+                    <TextView
+                        android:id="@+id/asset_loves"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/asset_owner_pic_left_margin"
+                        android:drawableLeft="@drawable/likes"
+                        android:text="@string/loves"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/asset_other_details_text_size" />
+
+                    <TextView
+                        android:id="@+id/asset_reposts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:drawableLeft="@drawable/reposts"
+                        android:text="@string/reposts"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/asset_other_details_text_size"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/streamItemSeparator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/asset_bottom_layout"
+                    android:background="@android:color/darker_gray" />
+            </RelativeLayout>
+
+            <!-- 2. Layout that represents asset original TAG and description -->
+
+            <RelativeLayout
+                android:id="@+id/asset_tag_description_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/asset_originally_tagged"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/asset_margin_left"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:text="@string/originally_tagged_in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/asset_details_header_text_size" />
+
+                <TextView
+                    android:id="@+id/asset_original_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:layout_toRightOf="@id/asset_originally_tagged"
+                    android:text="@string/asset_hash_tag"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/asset_details_header_text_size" />
+
+                <TextView
+                    android:id="@+id/asset_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/asset_originally_tagged"
+                    android:layout_marginBottom="@dimen/asset_description_margin_bottom"
+                    android:layout_marginLeft="@dimen/asset_margin_left"
+                    android:layout_marginRight="@dimen/asset_margin_right"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/asset_description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/asset_details_header_text_size" />
+
+                <View
+                    android:id="@+id/asset_description_Separator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/asset_description"
+                    android:background="@android:color/darker_gray" />
+            </RelativeLayout>
+
+            <!-- 3. Layout that represents people who all liked the asset -->
+
+            <RelativeLayout
+                android:id="@+id/asset_people_liked_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/asset_people_liked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/asset_margin_left"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:text="@string/people_who_loved_it"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/asset_details_header_text_size" />
+
+                <GridView
+                    android:id="@+id/asset_people_liked_grid_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@id/asset_people_liked"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/asset_details_likedusers_grid_margin_bottom"
+                    android:layout_marginLeft="@dimen/asset_margin_left"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:listSelector="@color/grey"
+                    android:numColumns="5"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dp" />
+
+                <TextView
+                    android:id="@+id/asset_see_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/asset_people_liked_grid_view"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:text="@string/see_all"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/asset_details_header_text_size"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/asset_people_liked_Separator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/asset_see_all"
+                    android:background="@android:color/darker_gray" />
+            </RelativeLayout>
+
+            <!-- 4. Layout that displays all tags of an asset -->
+
+            <RelativeLayout
+                android:id="@+id/asset_tags_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/asset_tags_added"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="@dimen/asset_margin_top"
+                    android:layout_marginLeft="@dimen/asset_margin_left"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:text="@string/tags_added_by_users"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/asset_details_header_text_size" />
+
+                <GridView
+                    android:id="@+id/asset_added_tags_grid_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@id/asset_tags_added"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/asset_margin_left"
+                    android:layout_marginTop="@dimen/asset_margin_top"
+                    android:listSelector="@color/grey"
+                    android:numColumns="2"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/asset_details_bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <ImageView
+            android:id="@+id/assetbottom_action_love"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.5"
+            android:clickable="true"
+            android:src="@drawable/like" />
+
+        <ImageView
+            android:id="@+id/assetbottom_action_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.5"
+            android:clickable="true"
+            android:src="@drawable/like" />
+    </LinearLayout>
+
+</FrameLayout>

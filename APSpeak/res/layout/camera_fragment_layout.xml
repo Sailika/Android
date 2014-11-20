@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/camera_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleSmallInverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <com.paradigmcreatives.apspeak.app.util.customcontrols.SquaredItemsFrameLayout
+        android:id="@+id/camera_preview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/asset_options"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/translucent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/options_top"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:weightSum="1" >
+
+            <ImageView
+                android:id="@+id/grid_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.33"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/grid_disabled" />
+
+            <ImageView
+                android:id="@+id/flip_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.34"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/camera" />
+
+            <ImageView
+                android:id="@+id/camera_flash"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.33"
+                android:src="@drawable/flash_auto_icon" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/options_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/camera_background"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:weightSum="1" >
+
+            <ImageView
+                android:id="@+id/gallery_launch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/gallery"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/camera_capture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/camera_capture" />
+
+            <ImageView
+                android:id="@+id/explore_launch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/explore"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

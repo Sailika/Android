@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/signup_mainlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/whatsay_bgcolor"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.2"
+            android:visibility="visible" />
+
+        <com.viewpagerindicator.LinePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whatsay_bgcolor"
+            android:padding="5dip" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_weight="0.3"
+        android:gravity="bottom|center_horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/grouplogin_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="bottom|center_horizontal"
+            android:visibility="invisible" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whatsay_bgcolor"
+                android:orientation="vertical"
+                android:padding="15dp" >
+
+                <include
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/facebookbtn" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:gravity="center_horizontal"
+                    android:text="@string/by_signing_up"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/terms_conditions_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:gravity="center_horizontal"
+                    android:text="@string/terms_conditions"
+                    android:textColor="@color/blue" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/groupselection_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical" >
+
+
+            <RelativeLayout
+                android:id="@+id/grouppicker_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="10dip"
+                android:onClick="true" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/group_flag"
+                        android:layout_width="40dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginBottom="6dip" />
+
+                    <TextView
+                        android:id="@+id/group_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dip"
+                        android:layout_toRightOf="@id/group_flag"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="Select college"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/group_flag_picker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:background="@drawable/drop_down" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:background="@color/separator" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/registration_button"
+                android:text="@string/next" />
+
+            <!--
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dip" >
+
+            <LinearLayout
+                android:id="@+id/country_code_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/country_code"
+                    android:layout_width="60dip"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dip"
+                    android:background="@color/separator" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dip"
+                android:layout_toRightOf="@+id/country_code_layout"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/phone_number"
+                    android:layout_width="140dip"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:hint="@string/enter_collegeName"
+                    android:inputType="phone"
+                    android:maxLength="16"
+                    android:numeric="decimal"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" >
+                </EditText>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dip"
+                    android:background="@color/separator" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/registration_button"
+                android:text="@string/ok" />
+        </RelativeLayout>
+            -->
+
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

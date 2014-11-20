@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="background_icon_dimension">64dip</dimen>
+
+    <!-- splash screen -->
+    <dimen name="doodlydootextsize">54dip</dimen>
+    <dimen name="doodlydoocaptiontextsize">21dp</dimen>
+    <dimen name="seewhatsinside">17dp</dimen>
+    <dimen name="signup">35dp</dimen>
+    <dimen name="devidrheith">60dp</dimen>
+    <dimen name="deviderwidth">2dp</dimen>
+
+    <!-- home facebook registration -->
+    <dimen name="seeitvisually">37dp</dimen>
+    <dimen name="fbconnect">24dp</dimen>
+    <dimen name="signupwithscocialnetwork">18dp</dimen>
+    <dimen name="description">18dp</dimen>
+
+    <!-- username scrreen -->
+    <dimen name="usernametextsize">24dp</dimen>
+    <dimen name="letsgetstarted">27dp</dimen>
+    <dimen name="continueimagesize">65dp</dimen>
+    <dimen name="priofilpicw">154dp</dimen>
+    <dimen name="priofilpich">130dp</dimen>
+    <dimen name="padtop">0dp</dimen>
+    <dimen name="padright">14dp</dimen>
+
+    <!-- emailregistration screen -->
+    <dimen name="temrsconditos">18dp</dimen>
+    <dimen name="passwordtxt">21dp</dimen>
+
+    <!-- Find friends screen -->
+    <dimen name="findfrndstitle">30dp</dimen>
+    <dimen name="findfrndsmsg">18dp</dimen>
+    <dimen name="skiptxtsize">18dp</dimen>
+    <dimen name="friendsgroupimgw">113dp</dimen>
+    <dimen name="friendsgroupimgh">115dp</dimen>
+
+    <!-- Followers screen -->
+    <dimen name="followertxt">15sp</dimen>
+    <dimen name="handletxtsize">24sp</dimen>
+    <dimen name="followernametxtsize">18sp</dimen>
+    
+</resources>
