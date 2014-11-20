@@ -406,6 +406,8 @@ public class GlobalStreamsFragment extends Fragment implements
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
+			TextView headerText = (TextView)rootView.findViewById(R.id.globel_header_text);
+			headerText.setText(getResources().getString(R.string.poll_your_opinion));
 			showGridView();
 		}
 	}

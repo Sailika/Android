@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
-    android:orientation="vertical" >
-
-    <LinearLayout
+    android:orientation="vertical"
+    android:background="@color/white">
+    <LinearLayout android:id="@+id/header"
+         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+    <include layout="@layout/header_layout"/>
+    </LinearLayout>
+    <LinearLayout android:below="@id/header"
+       android:paddingTop="10dp"
         android:id="@+id/global_streams_up_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:background="@color/red"
         android:orientation="vertical" >
+        
 
         <View
             android:layout_width="fill_parent"
@@ -27,6 +33,7 @@
             android:background="@color/tab_color" />
 
         <LinearLayout
+            
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -94,7 +101,7 @@
         android:id="@+id/global_streams_cuedetails_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/global_streams_up_layout"
+       
         android:background="@color/grey_light" >
 
         <com.paradigmcreatives.apspeak.app.util.customcontrols.FullWidthImageView
@@ -147,8 +154,8 @@
     <LinearLayout
         android:id="@+id/global_streams_bottom_layout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@color/white"
         android:orientation="vertical" >
 
@@ -303,6 +310,7 @@
         android:id="@+id/global_streams_content_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_weight="1"
         android:layout_above="@id/global_streams_bottom_layout"
         android:layout_below="@id/global_streams_queue_layout" >
 
@@ -318,6 +326,8 @@
             android:horizontalSpacing="2dp"
             android:listSelector="@color/transparent"
             android:numColumns="2"
+            android:visibility="gone"
+            
             android:scrollbars="none"
             android:stretchMode="columnWidth"
             android:verticalSpacing="2dp" />
@@ -346,6 +356,15 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:visibility="invisible" />
+          <TextView
+            android:id="@+id/feedback_message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:visibility="visible" />
     </FrameLayout>
 
-</RelativeLayout>
+</LinearLayout>
