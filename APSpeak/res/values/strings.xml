@@ -2,6 +2,8 @@
 <resources>
 
     <string name="app_name">APSpeak</string>
+    <string name="name">Name</string>
+    <string name="profile_name">My Profile</string>
     <string name="facebook_app_id">865329090157392</string>
     <string name="hello_world">Hello world!</string>
     <string name="log_folder">whatsay-logs</string>
@@ -316,5 +318,6 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="deleted">Deleted Successfully</string>
     <string name="posted">Posted Successfully</string>
     <string name="poll_your_opinion">Poll your opinion</string>
+    <string name="please_poll_your_opinion">please poll your opinion</string>
 
 </resources>
