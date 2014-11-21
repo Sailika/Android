@@ -1,4 +1,4 @@
-!SESSION 2011-01-01 05:51:20.780 -----------------------------------------------
+!SESSION 2014-11-21 18:07:53.092 -----------------------------------------------
 eclipse.buildId=M20130204-1200
 java.version=1.7.0_65
 java.vendor=Oracle Corporation
@@ -6,26 +6,119 @@ BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
 Framework arguments:  -product com.android.ide.eclipse.adt.package.adtproduct
 Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.adtproduct
 
-This is a continuation of log file /home/pcs02/Desktop/APSpeak/.metadata/.bak_0.log
-Created Time: 2011-01-01 05:51:41.115
+This is a continuation of log file /home/pcs-09/APS/.metadata/.bak_0.log
+Created Time: 2014-11-21 18:08:33.727
 
-!ENTRY org.eclipse.ui.workbench 4 2 2011-01-01 05:51:41.115
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!ENTRY org.eclipse.ui 4 4 2014-11-21 18:08:33.727
+!MESSAGE Error creating editor management policy for editor id com.android.ide.eclipse.editors.CommonXmlEditor
+
+!ENTRY org.eclipse.ui 4 4 2014-11-21 18:08:33.727
+!MESSAGE Error creating editor management policy for editor id com.android.ide.eclipse.editors.CommonXmlEditor
+!STACK 0
+org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	... 28 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
+	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
+	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
+	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
+	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
+	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 34 more
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2014-11-21 18:08:37.085
+!MESSAGE Internal Error
 !STACK 1
-org.eclipse.core.runtime.CoreException: Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.welcome.AdtStartup.
+org.eclipse.core.runtime.CoreException: Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.build.ConvertSwitchQuickFixProcessor.
 	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
 	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
 	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
 	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
 	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:273)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
-	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:269)
-	at org.eclipse.ui.internal.EarlyStartupRunnable.getExecutableExtension(EarlyStartupRunnable.java:117)
-	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:66)
+	at org.eclipse.jdt.internal.ui.text.correction.ContributedProcessorDescriptor.getProcessor(ContributedProcessorDescriptor.java:133)
+	at org.eclipse.jdt.internal.ui.text.correction.JavaCorrectionProcessor$SafeHasCorrections.safeRun(JavaCorrectionProcessor.java:452)
+	at org.eclipse.jdt.internal.ui.text.correction.JavaCorrectionProcessor$SafeCorrectionProcessorAccess.run(JavaCorrectionProcessor.java:339)
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.Workbench$54.run(Workbench.java:2412)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+	at org.eclipse.jdt.internal.ui.text.correction.JavaCorrectionProcessor$SafeCorrectionProcessorAccess.process(JavaCorrectionProcessor.java:335)
+	at org.eclipse.jdt.internal.ui.text.correction.JavaCorrectionProcessor.hasCorrections(JavaCorrectionProcessor.java:110)
+	at org.eclipse.jdt.internal.ui.text.correction.JavaCorrectionProcessor.hasCorrections(JavaCorrectionProcessor.java:131)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitDocumentProvider$ProblemAnnotation.initializeImage(CompilationUnitDocumentProvider.java:235)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitDocumentProvider$ProblemAnnotation.paint(CompilationUnitDocumentProvider.java:280)
+	at org.eclipse.ui.texteditor.DefaultMarkerAnnotationAccess.paint(DefaultMarkerAnnotationAccess.java:256)
+	at org.eclipse.jface.text.source.AnnotationRulerColumn.doPaint1(AnnotationRulerColumn.java:790)
+	at org.eclipse.jface.text.source.AnnotationRulerColumn.doubleBufferPaint(AnnotationRulerColumn.java:541)
+	at org.eclipse.jface.text.source.AnnotationRulerColumn.redraw(AnnotationRulerColumn.java:824)
+	at org.eclipse.jface.text.source.AnnotationRulerColumn$6.run(AnnotationRulerColumn.java:807)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3537)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3189)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
 Caused by: org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
 	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
 	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
@@ -55,63 +148,6 @@ Caused by: org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$Terminat
 	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	... 1 more
-Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
-	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
-	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
-	... 28 more
-Caused by: java.lang.NullPointerException
-	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
-	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
-	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
-	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
-	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
-	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
-	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
-	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
-	... 34 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2011-01-01 05:51:41.116
-!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.welcome.AdtStartup.
-!STACK 0
-org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
-	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
-	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
-	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
-	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
-	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
-	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
 Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
 	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
@@ -137,8 +173,8 @@ Caused by: java.lang.NullPointerException
 	at java.security.AccessController.doPrivileged(Native Method)
 	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
 	... 34 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2011-01-01 05:51:41.116
-!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.welcome.AdtStartup.
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2014-11-21 18:08:37.085
+!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.build.ConvertSwitchQuickFixProcessor.
 !STACK 0
 org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
 	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
@@ -195,351 +231,187 @@ Caused by: java.lang.NullPointerException
 	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
 	... 34 more
 
-!ENTRY org.eclipse.ui 4 4 2011-01-01 05:51:41.119
-!MESSAGE Unhandled Exception
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:51:41.120
-!MESSAGE Unable to execute early startup code for an extension
-!STACK 1
-org.eclipse.core.runtime.CoreException: Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.welcome.AdtStartup.
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
-	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
-	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
-	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.ui.internal.WorkbenchPlugin$1.run(WorkbenchPlugin.java:273)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:52)
-	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:269)
-	at org.eclipse.ui.internal.EarlyStartupRunnable.getExecutableExtension(EarlyStartupRunnable.java:117)
-	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:66)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.Workbench$54.run(Workbench.java:2412)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-Caused by: org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
-	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
-	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
-	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
-	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
-	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
-	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	... 1 more
-Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
-	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
-	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
-	... 28 more
-Caused by: java.lang.NullPointerException
-	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
-	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
-	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
-	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
-	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
-	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
-	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
-	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
-	... 34 more
-!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2011-01-01 05:51:41.120
-!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.welcome.AdtStartup.
-!STACK 0
-org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
-	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
-	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
-	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
-	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
-	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
-	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
-	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
-	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
-	... 28 more
-Caused by: java.lang.NullPointerException
-	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
-	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
-	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
-	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
-	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
-	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
-	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
-	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
-	... 34 more
-
-!ENTRY org.eclipse.ui 4 4 2011-01-01 05:51:41.916
-!MESSAGE Could not create action delegate for id: com.android.ide.eclipse.adt.ui.lintrunner
-
-!ENTRY org.eclipse.equinox.registry 4 1 2011-01-01 05:51:41.916
-!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.lint.RunLintAction.
-!STACK 0
-org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
-	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
-	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
-	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
-	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
-	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
-	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
-	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
-	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
-	... 28 more
-Caused by: java.lang.NullPointerException
-	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
-	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
-	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
-	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
-	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
-	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
-	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
-	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
-	... 34 more
-
-!ENTRY org.eclipse.equinox.registry 4 1 2011-01-01 05:51:42.123
-!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.ToolsLocator.
-!STACK 0
-org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
-	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
-	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
-	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
-	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
-	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
-	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
-	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
-	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
-	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
-	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
-	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
-	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
-	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
-	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
-	... 28 more
-Caused by: java.lang.NullPointerException
-	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
-	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
-	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
-	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
-	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
-	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
-	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
-	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
-	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
-	... 34 more
-
-!ENTRY org.eclipse.core.resources 4 2 2011-01-01 05:51:59.956
+!ENTRY org.eclipse.core.resources 4 2 2014-11-21 18:08:47.726
 !MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
 !STACK 0
 java.lang.NullPointerException
-	at java.lang.String.<init>(String.java:168)
-	at org.eclipse.jdt.internal.compiler.problem.ProblemReporter.conditionalArgumentsIncompatibleTypes(ProblemReporter.java:1401)
-	at org.eclipse.jdt.internal.compiler.ast.ConditionalExpression.resolveType(ConditionalExpression.java:569)
-	at org.eclipse.jdt.internal.compiler.ast.BinaryExpression.resolveType(BinaryExpression.java:1787)
-	at org.eclipse.jdt.internal.compiler.ast.BinaryExpression.resolveType(BinaryExpression.java:1784)
-	at org.eclipse.jdt.internal.compiler.ast.BinaryExpression.resolveType(BinaryExpression.java:1784)
-	at org.eclipse.jdt.internal.compiler.ast.CombinedBinaryExpression.resolveType(CombinedBinaryExpression.java:337)
-	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:243)
-	at org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration.resolveStatements(AbstractMethodDeclaration.java:507)
-	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.resolveStatements(MethodDeclaration.java:259)
-	at org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration.resolve(AbstractMethodDeclaration.java:466)
-	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.resolve(TypeDeclaration.java:1162)
-	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.resolve(TypeDeclaration.java:1272)
-	at org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration.resolve(CompilationUnitDeclaration.java:561)
-	at org.eclipse.jdt.internal.compiler.Compiler.process(Compiler.java:770)
-	at org.eclipse.jdt.internal.compiler.ProcessTaskManager.run(ProcessTaskManager.java:137)
-	at java.lang.Thread.run(Thread.java:745)
 
-!ENTRY org.eclipse.core.resources 4 75 2011-01-01 05:52:03.760
+!ENTRY org.eclipse.core.resources 4 75 2014-11-21 18:08:51.683
 !MESSAGE Errors occurred during the build.
-!SUBENTRY 1 org.eclipse.jdt.core 4 75 2011-01-01 05:52:03.760
+!SUBENTRY 1 org.eclipse.jdt.core 4 75 2014-11-21 18:08:51.683
 !MESSAGE Errors running builder 'Java Builder' on project 'APSpeak'.
 !STACK 0
 java.lang.NullPointerException
-	at java.lang.String.<init>(String.java:168)
-	at org.eclipse.jdt.internal.compiler.problem.ProblemReporter.conditionalArgumentsIncompatibleTypes(ProblemReporter.java:1401)
-	at org.eclipse.jdt.internal.compiler.ast.ConditionalExpression.resolveType(ConditionalExpression.java:569)
-	at org.eclipse.jdt.internal.compiler.ast.BinaryExpression.resolveType(BinaryExpression.java:1787)
-	at org.eclipse.jdt.internal.compiler.ast.BinaryExpression.resolveType(BinaryExpression.java:1784)
-	at org.eclipse.jdt.internal.compiler.ast.BinaryExpression.resolveType(BinaryExpression.java:1784)
-	at org.eclipse.jdt.internal.compiler.ast.CombinedBinaryExpression.resolveType(CombinedBinaryExpression.java:337)
-	at org.eclipse.jdt.internal.compiler.ast.LocalDeclaration.resolve(LocalDeclaration.java:243)
-	at org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration.resolveStatements(AbstractMethodDeclaration.java:507)
-	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.resolveStatements(MethodDeclaration.java:259)
-	at org.eclipse.jdt.internal.compiler.ast.AbstractMethodDeclaration.resolve(AbstractMethodDeclaration.java:466)
-	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.resolve(TypeDeclaration.java:1162)
-	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.resolve(TypeDeclaration.java:1272)
-	at org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration.resolve(CompilationUnitDeclaration.java:561)
-	at org.eclipse.jdt.internal.compiler.Compiler.process(Compiler.java:770)
-	at org.eclipse.jdt.internal.compiler.ProcessTaskManager.run(ProcessTaskManager.java:137)
-	at java.lang.Thread.run(Thread.java:745)
 
-!ENTRY org.eclipse.ui 2 2 2011-01-01 05:52:13.190
+!ENTRY org.eclipse.equinox.registry 4 1 2014-11-21 18:08:59.112
+!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.project.FolderDecorator.
+!STACK 0
+org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	... 28 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
+	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
+	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
+	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
+	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
+	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 34 more
+
+!ENTRY org.eclipse.ui 2 2 2014-11-21 18:09:44.805
 !MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
-!SESSION 2011-01-01 05:52:35.124 -----------------------------------------------
-eclipse.buildId=M20130204-1200
-java.version=1.7.0_65
-java.vendor=Oracle Corporation
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
-Framework arguments:  -product com.android.ide.eclipse.adt.package.adtproduct
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.adtproduct
 
-!ENTRY org.eclipse.core.resources 2 10035 2011-01-01 05:52:38.284
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!ENTRY org.eclipse.core.resources 4 2 2014-11-21 18:10:08.236
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:52:46.331
-!MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Camera
+!ENTRY org.eclipse.core.resources 4 75 2014-11-21 18:10:08.395
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.jdt.core 4 75 2014-11-21 18:10:08.395
+!MESSAGE Errors running builder 'Java Builder' on project 'APSpeak'.
+!STACK 0
+java.lang.NullPointerException
 
-!ENTRY org.eclipse.jdt.core 4 4 2011-01-01 05:52:51.769
-!MESSAGE Error while creating a link for external folder :/home/pcs02/Desktop/Android/sdk/sources/android-16
+!ENTRY org.eclipse.debug.ui 4 120 2014-11-21 18:14:00.913
+!MESSAGE Error logged from Debug UI: 
 !STACK 1
-org.eclipse.core.internal.resources.ResourceException: Resource '/.org.eclipse.jdt.core.external.folders/.link4' already exists.
-	at org.eclipse.core.internal.resources.Resource.checkDoesNotExist(Resource.java:320)
-	at org.eclipse.core.internal.resources.Resource.assertLinkRequirements(Resource.java:176)
-	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:673)
-	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:647)
-	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:166)
-	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createPendingFolders(ExternalFoldersManager.java:230)
-	at org.eclipse.jdt.core.JavaCore.initializeAfterLoad(JavaCore.java:3944)
-	at org.eclipse.jdt.internal.ui.InitializeAfterLoadJob$RealJob.run(InitializeAfterLoadJob.java:36)
+org.eclipse.core.runtime.CoreException: Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.launch.LaunchShortcut.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.getDelegate(LaunchShortcutExtension.java:410)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.getLaunchConfigurations(LaunchShortcutExtension.java:505)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.getParticipatingLaunchConfigurations(LaunchingResourceManager.java:490)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.getLabel(LaunchingResourceManager.java:322)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.getLabel(LaunchingResourceManager.java:346)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.computeLabels(LaunchingResourceManager.java:240)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager$2.run(LaunchingResourceManager.java:138)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-!SUBENTRY 1 org.eclipse.core.resources 4 367 2011-01-01 05:52:51.770
-!MESSAGE Resource '/.org.eclipse.jdt.core.external.folders/.link4' already exists.
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:52:57.724
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:53:27.724
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.core.resources 4 2 2011-01-01 05:53:27.724
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(BaseBuilder.java:327)
-	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(ResourceManagerBuilder.java:92)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
+Caused by: org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	... 1 more
+Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	... 28 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
+	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
+	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
+	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
+	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
+	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 34 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2014-11-21 18:14:00.913
+!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.launch.LaunchShortcut.
+!STACK 0
+org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
 	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
 	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
@@ -548,29 +420,127 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	... 28 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
+	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
+	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
+	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
+	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
+	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 34 more
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:53:27.725
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:53:27.738
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.ui 2 2 2011-01-01 05:54:25.202
-!MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:59:13.010
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.core.resources 4 2 2011-01-01 05:59:13.029
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(BaseBuilder.java:327)
-	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(ResourceManagerBuilder.java:92)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
+!ENTRY org.eclipse.debug.ui 4 120 2014-11-21 18:14:00.933
+!MESSAGE Error logged from Debug UI: 
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.launch.LaunchShortcut.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.getDelegate(LaunchShortcutExtension.java:410)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.getLaunchConfigurations(LaunchShortcutExtension.java:505)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.getParticipatingLaunchConfigurations(LaunchingResourceManager.java:490)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.getLabel(LaunchingResourceManager.java:322)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.getLabel(LaunchingResourceManager.java:346)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager.computeLabels(LaunchingResourceManager.java:240)
+	at org.eclipse.debug.internal.ui.contextlaunching.LaunchingResourceManager$2.run(LaunchingResourceManager.java:138)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	... 1 more
+Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	... 28 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
+	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
+	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
+	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
+	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
+	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 34 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2014-11-21 18:14:00.933
+!MESSAGE Plug-in com.android.ide.eclipse.adt was unable to load class com.android.ide.eclipse.adt.internal.launch.LaunchShortcut.
+!STACK 0
+org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter$TerminatingClassNotFoundException: An error occurred while automatically activating bundle com.android.ide.eclipse.adt (2).
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:122)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:469)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:464)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:421)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:412)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(BundleLoader.java:340)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:229)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.core.internal.events.BuildManager.instantiateBuilder(BuildManager.java:894)
+	at org.eclipse.core.internal.events.BuildManager.initializeBuilder(BuildManager.java:847)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:538)
+	at org.eclipse.core.internal.events.BuildManager.getBuilder(BuildManager.java:567)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:237)
 	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
 	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
 	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
@@ -579,397 +549,43 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+Caused by: org.osgi.framework.BundleException: Exception in com.android.ide.eclipse.adt.AdtPlugin.start() of bundle com.android.ide.eclipse.adt.
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:734)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:683)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:381)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:300)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:263)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	... 28 more
+Caused by: java.lang.NullPointerException
+	at org.eclipse.jface.resource.JFaceResources.getResources(JFaceResources.java:207)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:152)
+	at org.eclipse.jface.resource.ImageRegistry.<init>(ImageRegistry.java:124)
+	at org.eclipse.ui.internal.WorkbenchImages.initializeImageRegistry(WorkbenchImages.java:641)
+	at org.eclipse.ui.internal.WorkbenchImages.getDescriptors(WorkbenchImages.java:530)
+	at org.eclipse.ui.internal.WorkbenchImages.getImageDescriptor(WorkbenchImages.java:566)
+	at org.eclipse.ui.internal.SharedImages.getImageDescriptor(SharedImages.java:47)
+	at org.eclipse.ui.plugin.AbstractUIPlugin.imageDescriptorFromPlugin(AbstractUIPlugin.java:671)
+	at com.android.ide.eclipse.adt.AdtPlugin.startEditors(AdtPlugin.java:1518)
+	at com.android.ide.eclipse.adt.AdtPlugin.start(AdtPlugin.java:265)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(BundleContextImpl.java:711)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:702)
+	... 34 more
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:59:13.029
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:59:13.061
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:59:15.136
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.core.resources 4 2 2011-01-01 05:59:15.136
+!ENTRY org.eclipse.core.resources 4 2 2014-11-21 18:14:04.989
 !MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
 !STACK 0
 java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(BaseBuilder.java:327)
-	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(ResourceManagerBuilder.java:92)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2011-01-01 05:59:15.137
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+I:
-Binding(CTRL+I,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.indent,Correct Indentation,
-		Corrects the indentation of the selected lines,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@13df14f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+I,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.active.elements,Format Active Elements,
-		Format active elements,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@72cdc0c4,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+F:
-Binding(CTRL+SHIFT+F,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.format,Format,
-		Format the selected text,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@9ad7a2c,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+F,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.document,Format,
-		Format selection,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@2f6806cf,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_DOWN:
-Binding(CTRL+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.next.member,Go to Next Member,
-		Move the caret to the next member of the compilation unit,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@5c2fe3aa,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.wst.xml.ui.nextSibling,Next Sibling,
-		Go to Next Sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@6dde8fae,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_LEFT:
-Binding(ALT+SHIFT+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.previous,Select Previous Element,
-		Expand selection to include previous sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4c0bdd2e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.previous,Select Previous Element,
-		Expand selection to include previous sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@661a67e1,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_UP:
-Binding(ALT+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.enclosing,Select Enclosing Element,
-		Expand selection to include enclosing element,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@1ee61e03,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.enclosing,Select Enclosing Element,
-		Expand selection to include enclosing element,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@2b6aca37,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+P:
-Binding(CTRL+SHIFT+P,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket,Go to Matching Bracket,
-		Moves the cursor to the matching bracket,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@15bc66ce,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+P,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.goto.matching.bracket,Matching Bracket,
-		Go to Matching Bracket,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4b82cd97,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+/:
-Binding(CTRL+SHIFT+/,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.add.block.comment,Add Block Comment,
-		Enclose the selection with a block comment,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4016988,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+/,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.add.block.comment,Add Block Comment,
-		Add Block Comment,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@32ac8862,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+O:
-Binding(CTRL+O,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.show.outline,Quick Outline,
-		Show the quick outline for the editor input,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@78b761c5,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+O,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.quick_outline,Quick Outline,
-		Show the quick outline for the editor input,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4f740a6d,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_UP:
-Binding(CTRL+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.previous.member,Go to Previous Member,
-		Move the caret to the previous member of the compilation unit,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4b58a2db,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.wst.xml.ui.previousSibling,Previous Sibling,
-		Go to Previous Sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@1b1bcdee,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_DOWN:
-Binding(ALT+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.last,Restore Last Selection,
-		Restore last selection,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@282bfe82,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.last,Restore Last Selection,
-		Restore last selection,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@36f6b40,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+C:
-Binding(CTRL+SHIFT+C,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
-		Toggle comment the selected lines,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@60521d68,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+C,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.toggle.comment,Toggle Comment,
-		Toggle Comment,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@17a8245a,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_RIGHT:
-Binding(ALT+SHIFT+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.next,Select Next Element,
-		Expand selection to include next sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@2f08c83f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.next,Select Next Element,
-		Expand selection to include next sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4fbd01e0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 15:07:28.483
-!MESSAGE A conflict occurred for CTRL+SHIFT+\:
-Binding(CTRL+SHIFT+\,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.remove.block.comment,Remove Block Comment,
-		Remove the block comment enclosing the selection,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@6992b838,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+\,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.remove.block.comment,Remove Block Comment,
-		Remove Block Comment,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@660b5b7e,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-
-!ENTRY org.eclipse.ui 4 4 2014-11-20 15:09:36.580
-!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:16:34.869
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:17:03.554
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:31:08.243
-!MESSAGE user_connections.xml: Failed to find style 'vpiTitlePageIndicatorStyle' in current theme
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:32:07.668
-!MESSAGE signup_v3.xml: Failed to find style 'vpiLinePageIndicatorStyle' in current theme
-
-!ENTRY org.eclipse.ui.browser 2 0 2014-11-20 15:53:35.269
-!MESSAGE Internal browser is not available: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]
-
-!ENTRY org.eclipse.ui 4 0 2014-11-20 15:53:59.152
-!MESSAGE Unhandled event loop exception
-!STACK 0
-org.eclipse.swt.SWTException: Widget is disposed
-	at org.eclipse.swt.SWT.error(SWT.java:4361)
-	at org.eclipse.swt.SWT.error(SWT.java:4276)
-	at org.eclipse.swt.SWT.error(SWT.java:4247)
-	at org.eclipse.swt.widgets.Widget.error(Widget.java:480)
-	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:417)
-	at org.eclipse.swt.widgets.Table.getSelection(Table.java:1608)
-	at org.eclipse.jface.viewers.TableViewer.getItemAt(TableViewer.java:192)
-	at org.eclipse.jface.viewers.ColumnViewer.getViewerRow(ColumnViewer.java:138)
-	at org.eclipse.jface.viewers.ColumnViewer.getCell(ColumnViewer.java:121)
-	at org.eclipse.jface.viewers.ColumnViewer.handleMouseDown(ColumnViewer.java:661)
-	at org.eclipse.jface.viewers.ColumnViewer.access$0(ColumnViewer.java:660)
-	at org.eclipse.jface.viewers.ColumnViewer$1.mouseDoubleClick(ColumnViewer.java:94)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:196)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3562)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3186)
-	at org.eclipse.jface.window.Window.runEventLoop(Window.java:825)
-	at org.eclipse.jface.window.Window.open(Window.java:801)
-	at org.eclipse.ui.actions.OpenWithMenu$3.handleEvent(OpenWithMenu.java:213)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3562)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3186)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:56:50.091
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.core.resources 4 2 2014-11-20 15:56:50.133
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!ENTRY org.eclipse.core.resources 4 75 2014-11-21 18:14:08.289
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.jdt.core 4 75 2014-11-21 18:14:08.289
+!MESSAGE Errors running builder 'Java Builder' on project 'APSpeak'.
 !STACK 0
 java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(BaseBuilder.java:327)
-	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(ResourceManagerBuilder.java:92)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:56:50.134
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:56:50.147
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:56:52.446
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.core.resources 4 2 2014-11-20 15:56:52.446
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(BaseBuilder.java:327)
-	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(ResourceManagerBuilder.java:92)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 15:56:52.448
-!MESSAGE Failed to load properties file for project 'Camera'
-!SESSION 2014-11-20 16:07:15.373 -----------------------------------------------
+!SESSION 2014-11-21 18:15:14.831 -----------------------------------------------
 eclipse.buildId=M20130204-1200
 java.version=1.7.0_65
 java.vendor=Oracle Corporation
@@ -977,452 +593,65 @@ BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
 Framework arguments:  -product com.android.ide.eclipse.adt.package.adtproduct
 Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.adtproduct
 
-!ENTRY org.eclipse.core.resources 2 10035 2014-11-20 16:07:23.330
-!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 16:07:30.140
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:15:28.965
 !MESSAGE projectOpenedWithWorkspace: failed to find manifest package for project Camera
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 16:07:42.811
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:15:48.986
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 16:07:43.334
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:15:49.003
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 16:07:56.305
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:15:53.935
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 16:08:31.314
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.core.resources 4 2 2014-11-20 16:08:31.322
-!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
-!STACK 0
-java.lang.NullPointerException
-	at com.android.ide.eclipse.adt.internal.build.builders.BaseBuilder.abortOnBadSetup(BaseBuilder.java:327)
-	at com.android.ide.eclipse.adt.internal.build.builders.ResourceManagerBuilder.build(ResourceManagerBuilder.java:92)
-	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
-	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
-	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
-	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
-	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
-	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
-	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 16:08:31.351
-!MESSAGE Failed to load properties file for project 'Camera'
-
-!ENTRY org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+I:
-Binding(CTRL+I,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.indent,Correct Indentation,
-		Corrects the indentation of the selected lines,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@59382191,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+I,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.active.elements,Format Active Elements,
-		Format active elements,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@1200bf0f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+SHIFT+F:
-Binding(CTRL+SHIFT+F,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.format,Format,
-		Format the selected text,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@7423e459,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+F,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.format.document,Format,
-		Format selection,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@2c496a5f,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_DOWN:
-Binding(CTRL+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.next.member,Go to Next Member,
-		Move the caret to the next member of the compilation unit,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@6064caa0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.wst.xml.ui.nextSibling,Next Sibling,
-		Go to Next Sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@451d154,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_LEFT:
-Binding(ALT+SHIFT+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.previous,Select Previous Element,
-		Expand selection to include previous sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@7932ffd0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_LEFT,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.previous,Select Previous Element,
-		Expand selection to include previous sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@632bdb3b,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_UP:
-Binding(ALT+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.enclosing,Select Enclosing Element,
-		Expand selection to include enclosing element,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@338eeda,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.enclosing,Select Enclosing Element,
-		Expand selection to include enclosing element,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@5c1c7ff1,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+SHIFT+P:
-Binding(CTRL+SHIFT+P,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.matching.bracket,Go to Matching Bracket,
-		Moves the cursor to the matching bracket,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@ec92bdd,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+P,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.goto.matching.bracket,Matching Bracket,
-		Go to Matching Bracket,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@192705a7,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+SHIFT+/:
-Binding(CTRL+SHIFT+/,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.add.block.comment,Add Block Comment,
-		Enclose the selection with a block comment,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@395ec1c0,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+/,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.add.block.comment,Add Block Comment,
-		Add Block Comment,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@4e305d73,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+O:
-Binding(CTRL+O,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.show.outline,Quick Outline,
-		Show the quick outline for the editor input,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@7c0241ac,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+O,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.quick_outline,Quick Outline,
-		Show the quick outline for the editor input,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@7825c2ce,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.639
-!MESSAGE A conflict occurred for CTRL+SHIFT+ARROW_UP:
-Binding(CTRL+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.goto.previous.member,Go to Previous Member,
-		Move the caret to the previous member of the compilation unit,
-		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@7718a001,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+ARROW_UP,
-	ParameterizedCommand(Command(org.eclipse.wst.xml.ui.previousSibling,Previous Sibling,
-		Go to Previous Sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@1483628c,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.650
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_DOWN:
-Binding(ALT+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.last,Restore Last Selection,
-		Restore last selection,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@71b0debc,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_DOWN,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.last,Restore Last Selection,
-		Restore last selection,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@2152830a,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.650
-!MESSAGE A conflict occurred for CTRL+SHIFT+C:
-Binding(CTRL+SHIFT+C,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.toggle.comment,Toggle Comment,
-		Toggle comment the selected lines,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@12ef42f4,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+C,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.toggle.comment,Toggle Comment,
-		Toggle Comment,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@27d9e90c,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.650
-!MESSAGE A conflict occurred for ALT+SHIFT+ARROW_RIGHT:
-Binding(ALT+SHIFT+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.select.next,Select Next Element,
-		Expand selection to include next sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@1a14aae2,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(ALT+SHIFT+ARROW_RIGHT,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.structure.select.next,Select Next Element,
-		Expand selection to include next sibling,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@be36242,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-!SUBENTRY 1 org.eclipse.jface 2 0 2014-11-20 16:12:24.650
-!MESSAGE A conflict occurred for CTRL+SHIFT+\:
-Binding(CTRL+SHIFT+\,
-	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.remove.block.comment,Remove Block Comment,
-		Remove the block comment enclosing the selection,
-		Category(org.eclipse.jdt.ui.category.source,Source,Java Source Actions,true),
-		org.eclipse.ui.internal.MakeHandlersGo@42dee8ce,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.jdt.ui.javaEditorScope,,,system)
-Binding(CTRL+SHIFT+\,
-	ParameterizedCommand(Command(org.eclipse.wst.sse.ui.remove.block.comment,Remove Block Comment,
-		Remove Block Comment,
-		Category(org.eclipse.ui.category.edit,Edit,null,true),
-		org.eclipse.ui.internal.MakeHandlersGo@36392a85,
-		,,true),null),
-	org.eclipse.ui.defaultAcceleratorConfiguration,
-	org.eclipse.wst.sse.ui.structuredTextEditorScope,,,system)
-
-!ENTRY org.eclipse.ui 2 2 2014-11-20 16:34:05.099
+!ENTRY org.eclipse.ui 2 2 2014-11-21 18:16:48.365
 !MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 17:25:01.757
-!MESSAGE profile.xml: android.widget.TextView cannot be cast to android.view.ViewGroup
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:17:15.394
+!MESSAGE Unable to execute dex: Multiple dex files define Lcom/google/ads/AdRequest$ErrorCode;
 !STACK 0
-java.lang.ClassCastException: android.widget.TextView cannot be cast to android.view.ViewGroup
-	at android.view.LayoutInflater.rInflate_Original(LayoutInflater.java:807)
-	at android.view.LayoutInflater_Delegate.rInflate(LayoutInflater_Delegate.java:64)
-	at android.view.LayoutInflater.rInflate(LayoutInflater.java:782)
-	at android.view.LayoutInflater.rInflate_Original(LayoutInflater.java:809)
-	at android.view.LayoutInflater_Delegate.rInflate(LayoutInflater_Delegate.java:64)
-	at android.view.LayoutInflater.rInflate(LayoutInflater.java:782)
-	at android.view.LayoutInflater.rInflate_Original(LayoutInflater.java:809)
-	at android.view.LayoutInflater_Delegate.rInflate(LayoutInflater_Delegate.java:64)
-	at android.view.LayoutInflater.rInflate(LayoutInflater.java:782)
-	at android.view.LayoutInflater.rInflate_Original(LayoutInflater.java:809)
-	at android.view.LayoutInflater_Delegate.rInflate(LayoutInflater_Delegate.java:64)
-	at android.view.LayoutInflater.rInflate(LayoutInflater.java:782)
-	at android.view.LayoutInflater.inflate(LayoutInflater.java:504)
-	at android.view.LayoutInflater.inflate(LayoutInflater.java:385)
-	at com.android.layoutlib.bridge.impl.RenderSessionImpl.inflate(RenderSessionImpl.java:401)
-	at com.android.layoutlib.bridge.Bridge.createSession(Bridge.java:329)
-	at com.android.ide.common.rendering.LayoutLibrary.createSession(LayoutLibrary.java:332)
-	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.RenderService.createRenderSession(RenderService.java:517)
-	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.renderWithBridge(GraphicalEditorPart.java:1584)
-	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.recomputeLayout(GraphicalEditorPart.java:1309)
-	at com.android.ide.eclipse.adt.internal.editors.layout.gle2.GraphicalEditorPart.activated(GraphicalEditorPart.java:1066)
-	at com.android.ide.eclipse.adt.internal.editors.layout.LayoutEditorDelegate.delegatePageChange(LayoutEditorDelegate.java:686)
-	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.pageChange(CommonXmlEditor.java:360)
-	at org.eclipse.ui.part.MultiPageEditorPart.setActivePage(MultiPageEditorPart.java:1083)
-	at org.eclipse.ui.forms.editor.FormEditor.setActivePage(FormEditor.java:607)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.selectDefaultPage(AndroidXmlEditor.java:450)
-	at com.android.ide.eclipse.adt.internal.editors.AndroidXmlEditor.addPages(AndroidXmlEditor.java:311)
-	at com.android.ide.eclipse.adt.internal.editors.common.CommonXmlEditor.addPages(CommonXmlEditor.java:285)
-	at org.eclipse.ui.forms.editor.FormEditor.createPages(FormEditor.java:138)
-	at org.eclipse.ui.part.MultiPageEditorPart.createPartControl(MultiPageEditorPart.java:358)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.createPartControl(CompatibilityPart.java:138)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor.createPartControl(CompatibilityEditor.java:96)
-	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:313)
-	at sun.reflect.GeneratedMethodAccessor31.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:861)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:841)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:113)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:321)
-	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:242)
-	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:161)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:102)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:71)
-	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:53)
-	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:141)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:894)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:629)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:731)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:702)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:696)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:681)
-	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1115)
-	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer$1.handleEvent(LazyStackRenderer.java:67)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:41)
-	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:180)
-	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:150)
-	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4299)
-	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:187)
-	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
-	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
-	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
-	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
-	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
-	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
-	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
-	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:80)
-	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:58)
-	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
-	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:171)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.showElementInWindow(ModelServiceImpl.java:422)
-	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:389)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:606)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.bringToTop(PartServiceImpl.java:332)
-	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.showPart(PartServiceImpl.java:1029)
-	at org.eclipse.ui.internal.WorkbenchPage.busyOpenEditor(WorkbenchPage.java:3047)
-	at org.eclipse.ui.internal.WorkbenchPage.access$22(WorkbenchPage.java:2969)
-	at org.eclipse.ui.internal.WorkbenchPage$8.run(WorkbenchPage.java:2951)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2947)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2911)
-	at org.eclipse.ui.internal.WorkbenchPage.openEditor(WorkbenchPage.java:2902)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:655)
-	at org.eclipse.ui.ide.IDE.openEditor(IDE.java:614)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:360)
-	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(EditorUtility.java:167)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:249)
-	at org.eclipse.jdt.ui.actions.OpenAction.run(OpenAction.java:228)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
-	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
-	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerActionGroup.handleOpen(PackageExplorerActionGroup.java:376)
-	at org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart$4.open(PackageExplorerPart.java:538)
-	at org.eclipse.ui.OpenAndLinkWithEditorHelper$InternalListener.open(OpenAndLinkWithEditorHelper.java:48)
-	at org.eclipse.jface.viewers.StructuredViewer$2.run(StructuredViewer.java:866)
-	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
-	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:49)
-	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:175)
-	at org.eclipse.jface.viewers.StructuredViewer.fireOpen(StructuredViewer.java:864)
-	at org.eclipse.jface.viewers.StructuredViewer.handleOpen(StructuredViewer.java:1152)
-	at org.eclipse.jface.viewers.StructuredViewer$6.handleOpen(StructuredViewer.java:1256)
-	at org.eclipse.jface.util.OpenStrategy.fireOpenEvent(OpenStrategy.java:275)
-	at org.eclipse.jface.util.OpenStrategy.access$2(OpenStrategy.java:269)
-	at org.eclipse.jface.util.OpenStrategy$1.handleEvent(OpenStrategy.java:309)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1276)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3562)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3186)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1053)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:942)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:86)
-	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:588)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:543)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:353)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:180)
+com.android.dex.DexException: Multiple dex files define Lcom/google/ads/AdRequest$ErrorCode;
+	at com.android.dx.merge.DexMerger.readSortableTypes(DexMerger.java:594)
+	at com.android.dx.merge.DexMerger.getSortedTypes(DexMerger.java:552)
+	at com.android.dx.merge.DexMerger.mergeClassDefs(DexMerger.java:533)
+	at com.android.dx.merge.DexMerger.mergeDexes(DexMerger.java:170)
+	at com.android.dx.merge.DexMerger.merge(DexMerger.java:188)
+	at com.android.dx.command.dexer.Main.mergeLibraryDexBuffers(Main.java:439)
+	at com.android.dx.command.dexer.Main.runMonoDex(Main.java:287)
+	at com.android.dx.command.dexer.Main.run(Main.java:230)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:606)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1438)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
+	at com.android.ide.eclipse.adt.internal.build.DexWrapper.run(DexWrapper.java:188)
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:813)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.build(PostCompilerBuilder.java:597)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:321)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:396)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:124)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.doFullIncrementalDebugBuild(ProjectHelper.java:1143)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.launch(LaunchConfigDelegate.java:155)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
 
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:25:42.247
-!MESSAGE profile.xml: Couldn't resolve resource @string/follow
 
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:25:42.249
-!MESSAGE profile.xml: Couldn't resolve resource @string/postsWithHyphen
-
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:25:42.251
-!MESSAGE profile.xml: Couldn't resolve resource @string/followingsWithHyphen
-
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:25:42.252
-!MESSAGE profile.xml: Couldn't resolve resource @string/followersWithHyphen
-
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:26:13.910
-!MESSAGE profile.xml: Couldn't resolve resource @string/follow
-
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:26:13.912
-!MESSAGE profile.xml: Couldn't resolve resource @string/postsWithHyphen
-
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:26:13.913
-!MESSAGE profile.xml: Couldn't resolve resource @string/followingsWithHyphen
-
-!ENTRY com.android.ide.eclipse.adt 2 0 2014-11-20 17:26:13.915
-!MESSAGE profile.xml: Couldn't resolve resource @string/followersWithHyphen
-
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 17:56:14.801
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:17:44.173
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY org.eclipse.core.resources 4 2 2014-11-20 17:56:14.801
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:18:03.174
+!MESSAGE Failed to load properties file for project 'Camera'
+
+!ENTRY org.eclipse.core.resources 4 2 2014-11-21 18:18:03.174
 !MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
 !STACK 0
 java.lang.NullPointerException
@@ -1441,16 +670,16 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 17:56:14.802
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:18:03.175
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 17:56:14.804
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:18:03.183
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 17:56:16.633
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:18:03.751
 !MESSAGE Failed to load properties file for project 'Camera'
 
-!ENTRY org.eclipse.core.resources 4 2 2014-11-20 17:56:16.634
+!ENTRY org.eclipse.core.resources 4 2 2014-11-21 18:18:03.751
 !MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
 !STACK 0
 java.lang.NullPointerException
@@ -1469,6 +698,48 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
 
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:18:03.754
+!MESSAGE Failed to load properties file for project 'Camera'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:19:11.682
+!MESSAGE Failed to load properties file for project 'Camera'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:19:15.384
+!MESSAGE Unable to execute dex: Multiple dex files define Lcom/google/ads/AdRequest$ErrorCode;
+!STACK 0
+com.android.dex.DexException: Multiple dex files define Lcom/google/ads/AdRequest$ErrorCode;
+	at com.android.dx.merge.DexMerger.readSortableTypes(DexMerger.java:594)
+	at com.android.dx.merge.DexMerger.getSortedTypes(DexMerger.java:552)
+	at com.android.dx.merge.DexMerger.mergeClassDefs(DexMerger.java:533)
+	at com.android.dx.merge.DexMerger.mergeDexes(DexMerger.java:170)
+	at com.android.dx.merge.DexMerger.merge(DexMerger.java:188)
+	at com.android.dx.command.dexer.Main.mergeLibraryDexBuffers(Main.java:439)
+	at com.android.dx.command.dexer.Main.runMonoDex(Main.java:287)
+	at com.android.dx.command.dexer.Main.run(Main.java:230)
+	at sun.reflect.GeneratedMethodAccessor25.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at com.android.ide.eclipse.adt.internal.build.DexWrapper.run(DexWrapper.java:188)
+	at com.android.ide.eclipse.adt.internal.build.BuildHelper.executeDx(BuildHelper.java:813)
+	at com.android.ide.eclipse.adt.internal.build.builders.PostCompilerBuilder.build(PostCompilerBuilder.java:597)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:726)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:321)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:396)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:618)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:597)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:124)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.doFullIncrementalDebugBuild(ProjectHelper.java:1143)
+	at com.android.ide.eclipse.adt.internal.launch.LaunchConfigDelegate.launch(LaunchConfigDelegate.java:155)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:855)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+<<<<<<< HEAD
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-11-20 17:56:16.635
 !MESSAGE Failed to load properties file for project 'Camera'
 
@@ -6817,3 +6088,5 @@ java.lang.NullPointerException
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-11-21 18:50:11.388
 !MESSAGE Failed to load properties file for project 'Camera'
+=======
+>>>>>>> 07975dc740e9234536fbf1e4630c14f7fcdb9dc3
