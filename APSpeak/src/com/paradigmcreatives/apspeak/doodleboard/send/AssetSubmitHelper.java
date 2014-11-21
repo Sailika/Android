@@ -35,6 +35,7 @@ import com.paradigmcreatives.apspeak.app.util.constants.ServerConstants;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants.ExitState;
 import com.paradigmcreatives.apspeak.app.util.network.NetworkManager;
 import com.paradigmcreatives.apspeak.logging.Logger;
+import com.paradigmcreatives.apspeak.network.SmacxService;
 
 /**
  * Convenience class for performing send of the doodles
@@ -56,7 +57,7 @@ public class AssetSubmitHelper {
 	// Class vars
 	private Context context = null;
 	private ExitState exitState = null;
-	//private File doodleZipFile = null;
+	// private File doodleZipFile = null;
 	private ExpressionSubmitQueueBean mExpression = null;
 
 	private String mGroupId = null;
@@ -111,7 +112,8 @@ public class AssetSubmitHelper {
 				httpClient = new DefaultHttpClient();
 				httpPost = new HttpPost(ServerConstants.SERVER_URL
 						+ ServerConstants.ASSET_SUBMIT);
-				if(mExpression != null && !TextUtils.isEmpty(mExpression.getRootAssetId())){
+				if (mExpression != null
+						&& !TextUtils.isEmpty(mExpression.getRootAssetId())) {
 					// Expression submission as a COMMENT
 					httpPost = new HttpPost(ServerConstants.SERVER_URL
 							+ ServerConstants.COMMENT_CREATE);
@@ -123,6 +125,10 @@ public class AssetSubmitHelper {
 							Constants.REQUEST_COOKIE,
 							JSONConstants.SESSIONID
 									+ AppPropertiesUtil.getSessionId(context));
+				} else {
+					httpPost.addHeader(SmacxService.HEADER_KEY,
+							SmacxService.HEADER_VALUE);
+
 				}
 
 				// 2 - Intimate the network manager for the impending network
@@ -166,7 +172,7 @@ public class AssetSubmitHelper {
 		} finally {
 			try {
 				// 1 - Delete the temporary file
-				//deleteDoodleZIPfile();
+				// deleteDoodleZIPfile();
 
 				// 2 - Unregister from the network manager
 				NetworkManager.getInstance().unRegister(httpPost);
@@ -285,6 +291,8 @@ public class AssetSubmitHelper {
 		if (!TextUtils.isEmpty(mUserId)) {
 			reqEntity.addPart(JSONConstants.USER_ID, new StringBody(mUserId));
 		}
+		reqEntity.addPart(JSONConstants.LABEL, new StringBody(JSONConstants.IDEA));
+
 		if (mCueId != null) {
 			reqEntity.addPart(JSONConstants.CUE_ID, new StringBody(mCueId));
 		}
@@ -322,10 +330,8 @@ public class AssetSubmitHelper {
 	 */
 	private void deleteDoodleZIPfile() {
 		/*
-		if (doodleZipFile != null) {
-			doodleZipFile.delete();
-		}
-		*/
+		 * if (doodleZipFile != null) { doodleZipFile.delete(); }
+		 */
 	}
 
 	public ExitState getExitState() {

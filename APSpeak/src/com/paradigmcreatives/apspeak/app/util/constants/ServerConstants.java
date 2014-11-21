@@ -9,7 +9,7 @@ package com.paradigmcreatives.apspeak.app.util.constants;
 public class ServerConstants {
 
 	// Development server urls
-	public static final String SERVER_URL = "http://smacx-node-server-dev.herokuapp.com/rv3";
+	public static final String SERVER_URL = "http://54.214.49.179/rv3";//"http://smacx-node-server-dev.herokuapp.com/rv3";
 	public static final String NODE_SERVER_URL = "http://smacx-node-server-dev.herokuapp.com/api/v1";
 
 	// Production server urls
