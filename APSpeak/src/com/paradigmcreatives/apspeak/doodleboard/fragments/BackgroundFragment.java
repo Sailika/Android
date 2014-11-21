@@ -11,14 +11,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.paradigmcreatives.apspeak.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.util.Util;
 import com.paradigmcreatives.apspeak.app.util.google.image.GoogleImageSearchHelper;
 import com.paradigmcreatives.apspeak.app.util.google.image.beans.ImageResultsBean;
@@ -33,6 +34,7 @@ import com.paradigmcreatives.apspeak.logging.Logger;
 public class BackgroundFragment extends Fragment {
 	private EditText searchBar;
 	private GridView gridView;
+	private EditText writeHere;
 	private GoogleImageSearchHelper searchHelper;
 	private DisplayImageOptions options;
 	private String TAG = "BackgroundFragment";
@@ -66,7 +68,7 @@ public class BackgroundFragment extends Fragment {
 				.showImageForEmptyUri(R.drawable.removed)
 				.showImageOnLoading(R.drawable.refresh)
 				.showImageOnFail(R.drawable.removed).build();
-
+		writeHere=(EditText)view.findViewById(R.id.tv_create_own_idea_write);
 		searchBar = (EditText) view.findViewById(R.id.search_bar);
 		gridView = (GridView) view.findViewById(R.id.grid_view);
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
