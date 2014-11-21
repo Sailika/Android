@@ -71,5 +71,14 @@
     <color name="apspeak_green">#029755</color>
     <color name="apspeak_light_yellow">#ffbd21</color>
     <color name="apspeak_dark_yellow">#ffe401</color>
+    <color name="invite_contact_btn_bg_color">#A8A96F</color>
+    <color name="invite_facebook_btn_bg_color">#355B97</color>
+    <color name="invite_whatsapp_btn_bg_color">#00AE00</color>
+    <color name="invite_email_btn_bg_color">#EFC928</color>
+    <color name="invite_twitter_btn_bg_color">#0095DB</color>
+    <color name="invite_btn_seperator">#8F9057</color>
+   
+    
+    
 
 </resources>

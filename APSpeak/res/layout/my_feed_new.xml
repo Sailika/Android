@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" >
+
+        <Button
+            android:id="@+id/invite_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/invite_contacts_btn_bg"
+            android:drawableLeft="@drawable/invite_via_contacts_icon"
+            android:drawablePadding="-40dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:text="@string/invite_via_contacts_text"
+            android:textColor="@color/white"
+            android:textAppearance="@android:style/TextAppearance"/>
+
+        <View
+            android:layout_width="0.6dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/invite_contacts"
+            android:layout_alignTop="@+id/invite_contacts"
+            android:layout_marginLeft="70dp"
+            android:background="@color/invite_btn_seperator" />
+
+        <Button
+            android:id="@+id/invite_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/invite_contacts"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/invite_facebook_btn_bg"
+            android:drawableLeft="@drawable/invite_via_facebook_icon"
+            android:drawablePadding="-40dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:text="@string/invite_via_facebook_text"
+            android:textColor="@color/white"
+            android:textAppearance="@android:style/TextAppearance"/>
+
+        <View
+            android:layout_width="0.8dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/invite_facebook"
+            android:layout_alignTop="@+id/invite_facebook"
+            android:layout_marginLeft="70dp"
+            android:background="@color/invite_btn_seperator" />
+
+        <Button
+            android:id="@+id/invite_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/invite_facebook"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/invite_email_btn_bg"
+            android:drawableLeft="@drawable/invite_via_mail_icon"
+            android:drawablePadding="-40dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:text="@string/invite_via_email_text"
+            android:textColor="@color/white"
+            android:textAppearance="@android:style/TextAppearance"/>
+
+        <View
+            android:layout_width="0.8dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/invite_email"
+            android:layout_alignTop="@+id/invite_email"
+            android:layout_marginLeft="70dp"
+            android:background="@color/invite_btn_seperator" />
+
+        <Button
+            android:id="@+id/invite_twitter"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/invite_email"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/invite_twitter_btn_bg"
+            android:drawableLeft="@drawable/invite_via_twitter_icon"
+            android:drawablePadding="-40dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:text="@string/invite_via_twitter_text"
+            android:textColor="@color/white"
+            android:textAppearance="@android:style/TextAppearance"/>
+
+        <View
+            android:layout_width="0.8dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/invite_twitter"
+            android:layout_alignTop="@+id/invite_twitter"
+            android:layout_marginLeft="70dp"
+            android:background="@color/invite_btn_seperator" />
+
+        <Button
+            android:id="@+id/invite_whatsap"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/invite_twitter"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/invite_whatsapp_btn_bg"
+            android:drawableLeft="@drawable/invite_via_whatsapp_icon"
+            android:drawablePadding="-40dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:text="@string/invite_via_whatsapp_text"
+            android:textColor="@color/white"
+            android:textAppearance="@android:style/TextAppearance"/>
+
+        <View
+            android:layout_width="0.8dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/invite_whatsap"
+            android:layout_alignTop="@+id/invite_whatsap"
+            android:layout_marginLeft="70dp"
+            android:background="@color/invite_btn_seperator" />
+    </RelativeLayout>
+
+</RelativeLayout>
