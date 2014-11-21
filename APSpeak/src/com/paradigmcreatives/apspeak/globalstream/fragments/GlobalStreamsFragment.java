@@ -203,9 +203,7 @@ NextBatchFetchListener, OnClickListener {
 			if (savedInstanceState.containsKey(SAVE_CUE)) {
 				mCue = savedInstanceState.getParcelable(SAVE_CUE);
 			}
-			if (mCue != null) {
-				feedBackMessage.setText(mCue.getCueMessage());
-			}
+			
 		}
 
 		ImageLoader.getInstance().init(
@@ -361,6 +359,7 @@ NextBatchFetchListener, OnClickListener {
 			mProgressBar.setVisibility(View.GONE);
 			mErrorMessageView = (TextView) rootView
 					.findViewById(R.id.global_streams_errorMessage);
+			mErrorMessageView.setVisibility(View.INVISIBLE);
 
 			mCollege = (TextView) rootView.findViewById(R.id.awesome);
 			mAllColleges = (TextView) rootView.findViewById(R.id.average);
@@ -458,6 +457,10 @@ NextBatchFetchListener, OnClickListener {
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
 			showGridView();
+			
+			if (mCue != null) {
+				feedBackMessage.setText(mCue.getCueMessage());
+			}
 
 		}
 	}
@@ -814,9 +817,11 @@ NextBatchFetchListener, OnClickListener {
 		if (mListAdapter != null && !mIsGridviewInUse) {
 			mListAdapter.clearAll();
 		}
+		mErrorMessageView.setVisibility(View.INVISIBLE);
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
 			isFeedback = true;
+			
 			// chaning header title
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
@@ -860,6 +865,7 @@ NextBatchFetchListener, OnClickListener {
 			break;
 
 		case R.id.allcolleges_button_layout: // Ideas tab for APSpeak
+			mErrorMessageView.setVisibility(View.VISIBLE);
 			isFeedback = false;
 			// changing header title to ideas
 			headerText.setText(getResources().getString(R.string.ideas));

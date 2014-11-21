@@ -232,6 +232,7 @@ public class GlobalStreamsAdapter extends BaseAdapter {
 							if (progresswheel != null) {
 								progresswheel.incrementProgress(0);
 								progresswheel.setVisibility(view.VISIBLE);
+								
 							}
 						}
 
