@@ -312,14 +312,17 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="retry_send_message">Unable to post due to a poor Internet connection</string>
     <string name="retry_send">Tap to retry</string>
     <string name="queued_expressions_count_message">&#160;expression(s) in Queue</string>
+
     <string name="failed_expressions_count_message">&#160;failed expression(s) in Queue</string>
     <string name="pending">Pending to submit</string>
     <string name="failed">Failed to post</string>
     <string name="deleted">Deleted Successfully</string>
     <string name="posted">Posted Successfully</string>
+    <string name="post">Post</string>
+	<string name="create_own_idea">Creating own idea</string>
+	<string name="write">Write</string>
     <string name="poll_your_opinion">Poll your opinion</string>
     <string name="please_poll_your_opinion">please poll your opinion</string>
     <string name="campaigns">Campaigns</string>
-    <string name="dashboard">Dashboard</string>
-    
+    <string name="dashboard">Dashboard</string> 
 </resources>

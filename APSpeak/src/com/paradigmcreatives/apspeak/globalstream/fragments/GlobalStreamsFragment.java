@@ -14,6 +14,7 @@ import retrofit.client.Response;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -73,10 +74,12 @@ import com.paradigmcreatives.apspeak.assets.tasks.AssetDeleteThread;
 import com.paradigmcreatives.apspeak.assets.tasks.AssetInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.UserInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.WhatsayAssetDownloadThread;
+import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
 import com.paradigmcreatives.apspeak.feedback.FeedBack;
 import com.paradigmcreatives.apspeak.feedback.FeedBackResponse;
 import com.paradigmcreatives.apspeak.feedback.FeedBackType;
 import com.paradigmcreatives.apspeak.feedback.StreamRequest;
+import com.paradigmcreatives.apspeak.globalstream.AppNewChildActivity;
 import com.paradigmcreatives.apspeak.globalstream.adapters.QueuedExpressionsAdapter;
 import com.paradigmcreatives.apspeak.globalstream.listeners.GlobalStreamsAdapter;
 import com.paradigmcreatives.apspeak.globalstream.listeners.GlobalStreamsOnClickListeners;
@@ -97,13 +100,15 @@ import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
  * 
  */
 public class GlobalStreamsFragment extends Fragment implements
-		NextBatchFetchListener, OnClickListener {
+
+NextBatchFetchListener, OnClickListener {
 
 	public static final String TAG = GlobalStreamsFragment.class
 			.getSimpleName();
+
 	private View rootView;
 	private FrameLayout mCueDetailsView;
-	private FullWidthImageView mCueDetailsBackgroundWideImage;
+	private static FullWidthImageView mCueDetailsBackgroundWideImage;
 	private Button mCreatePost;
 	// private LinearLayout mListGridSwitchLayout;
 	// private ImageView mListGridSwitchIcon;
@@ -147,13 +152,18 @@ public class GlobalStreamsFragment extends Fragment implements
 
 	// for feedback and create ideas
 	private LinearLayout feedbackOptsLayout;
-	private LinearLayout ideasMainLayout;
-	private RelativeLayout ideasClickLayout;
+	private RelativeLayout ideasMainLayout;
 
 	// for feedback click events
 	private ImageView awesomeFeedBackImg;
 	private ImageView avgFeedBackImg;
 	private ImageView badFeedBackImg;
+
+	// feedback message
+	private static TextView feedBackMessage;
+	private static TextView yourOpinionTxt;
+
+	private static LinearLayout globelFeedbackBottomLayout;
 
 	/**
 	 * Default Constructor
@@ -189,6 +199,9 @@ public class GlobalStreamsFragment extends Fragment implements
 			if (savedInstanceState.containsKey(SAVE_CUE)) {
 				mCue = savedInstanceState.getParcelable(SAVE_CUE);
 			}
+			if (mCue != null) {
+				feedBackMessage.setText(mCue.getCueMessage());
+			}
 		}
 
 		ImageLoader.getInstance().init(
@@ -200,9 +213,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		initUI(rootView);
 		final StreamRequest request = new StreamRequest();
 		request.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
-		// RestClient.getInstance().getRestClient(getActivity())
-		// .getStream(request, new StreamCallBack(getActivity(), request));
-		// // refreshQueueLayout();
+		// refreshQueueLayout();
 		// setAdapter();
 		// Fetch list from server
 		fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
@@ -256,11 +267,15 @@ public class GlobalStreamsFragment extends Fragment implements
 				FeedBackResponse response = ResponseParser.parseResponse(arg1,
 						FeedBackResponse.class);
 				if (response.getErrorCode() == HttpStatus.SC_OK) {
-					Toast.makeText(mContext,
-							mContext.getResources().getString(R.string.okay),
-							Toast.LENGTH_LONG).show();
-					// TODO: Feed back success fully posted need to navigate to
-					// another screen.
+					mCueDetailsBackgroundWideImage.setVisibility(View.GONE);
+					globelFeedbackBottomLayout.setVisibility(View.GONE);
+					feedBackMessage.setText("Thank you");
+					feedBackMessage.setTextSize(25);
+					yourOpinionTxt.setText("for providing your feedback.");
+					yourOpinionTxt.setTextColor(Color.BLACK);
+					feedBackMessage.setTextColor(mContext.getResources()
+							.getColor(R.color.apspeak_green));
+
 				}
 			} catch (IOException e) {
 				Toast.makeText(
@@ -388,10 +403,9 @@ public class GlobalStreamsFragment extends Fragment implements
 					});
 			feedbackOptsLayout = (LinearLayout) rootView
 					.findViewById(R.id.feedback_layout);
-			ideasMainLayout = (LinearLayout) rootView
+			ideasMainLayout = (RelativeLayout) rootView
 					.findViewById(R.id.create_idea_main_layout);
-			ideasClickLayout = (RelativeLayout) rootView
-					.findViewById(R.id.create_idea_layout);
+		
 			awesomeFeedBackImg = (ImageView) rootView
 					.findViewById(R.id.img_btn_awesome);
 			avgFeedBackImg = (ImageView) rootView
@@ -401,14 +415,31 @@ public class GlobalStreamsFragment extends Fragment implements
 			awesomeFeedBackImg.setOnClickListener(this);
 			avgFeedBackImg.setOnClickListener(this);
 			badFeedBackImg.setOnClickListener(this);
+			ideasMainLayout.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+                    Toast.makeText(getActivity(), "cREATE", Toast.LENGTH_LONG).show();					
+				}
+			});
 
+			feedBackMessage = (TextView) rootView
+					.findViewById(R.id.feedback_message_text);
+			yourOpinionTxt = (TextView) rootView
+					.findViewById(R.id.your_opinion_txt);
+			globelFeedbackBottomLayout = (LinearLayout) rootView
+					.findViewById(R.id.global_streams_bottom_layout);
 			mIsGridviewInUse = true;
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
-			TextView headerText = (TextView)rootView.findViewById(R.id.globel_header_text);
-			headerText.setText(getResources().getString(R.string.poll_your_opinion));
+
+			TextView headerText = (TextView) rootView
+					.findViewById(R.id.globel_header_text);
+			headerText.setText(getResources().getString(
+					R.string.poll_your_opinion));
 			showGridView();
+
 		}
 	}
 
@@ -439,6 +470,7 @@ public class GlobalStreamsFragment extends Fragment implements
 	}
 
 	public void setAdapter() {
+
 		if (isAdded() && mGridView != null && mListView != null) {
 			if (mIsGridviewInUse) {
 				if (mGridView != null) {
@@ -721,33 +753,17 @@ public class GlobalStreamsFragment extends Fragment implements
 						}
 
 						public void onAnimationEnd(Animation animation) {
-							Toast.makeText(
-									getActivity(),
-									getResources().getString(R.string.app_name),
-									Toast.LENGTH_LONG).show();/*
-															 * Intent intent =
-															 * new
-															 * Intent(getActivity
-															 * (),
-															 * ImageSelectionFragmentActivity
-															 * .class); if (mCue
-															 * != null &&
-															 * !TextUtils
-															 * .isEmpty
-															 * (mCue.getCueId
-															 * ())) {
-															 * intent.putExtra
-															 * (Constants
-															 * .CUE_ID,
-															 * mCue.getCueId());
-															 * } getActivity().
-															 * startActivityForResult
-															 * (intent,
-															 * AppNewChildActivity
-															 * .
-															 * SUBMIT_EXPRESSION
-															 * );
-															 */
+
+							Intent intent = new Intent(getActivity(),
+									ImageSelectionFragmentActivity.class);
+							if (mCue != null
+									&& !TextUtils.isEmpty(mCue.getCueId())) {
+								intent.putExtra(Constants.CUE_ID,
+										mCue.getCueId());
+							}
+							getActivity().startActivityForResult(intent,
+									AppNewChildActivity.SUBMIT_EXPRESSION);
+
 						}
 					});
 				}
@@ -777,6 +793,11 @@ public class GlobalStreamsFragment extends Fragment implements
 		}
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
+			mPullToRefreshListView.setVisibility(View.GONE);
+			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
+			feedBackMessage.setVisibility(View.VISIBLE);
+			yourOpinionTxt.setVisibility(View.VISIBLE);
+			
 			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 			ideasMainLayout.setVisibility(View.GONE);
 			feedbackOptsLayout.setVisibility(View.VISIBLE);
@@ -807,6 +828,10 @@ public class GlobalStreamsFragment extends Fragment implements
 		case R.id.allcolleges_button_layout: // Ideas tab for APSpeak
 			ideasMainLayout.setVisibility(View.VISIBLE);
 			feedbackOptsLayout.setVisibility(View.GONE);
+			mCueDetailsBackgroundWideImage.setVisibility(View.INVISIBLE);
+			feedBackMessage.setVisibility(View.INVISIBLE);
+			yourOpinionTxt.setVisibility(View.INVISIBLE);
+			
 
 			mCurrentStreamType = STREAM_TYPE.ALLCOLLEGES;
 			mCollege.setTextColor(getResources().getColor(R.color.black));

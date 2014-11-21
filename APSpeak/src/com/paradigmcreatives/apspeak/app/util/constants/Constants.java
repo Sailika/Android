@@ -40,7 +40,7 @@ public class Constants {
 	public static final String GCM_REGISTRATION_NOTIFICATION = ".REGISTRATION";
 
 	
-	    public static final int IDEAS_FETCHLIMIT = 10000;
+	    public static final int IDEAS_FETCHLIMIT = 1000;
 	// Image circle
 	public static final int HEADER_IMAGE_SIZE = 65;
 
