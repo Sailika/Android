@@ -298,7 +298,6 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="queuedExpressions">Queued Expressions</string>
 
     <!-- Error messages when no asset is found in stream -->
-    <string name="all_colleges_empty">No posts yet</string>
     <string name="my_college_empty">Be the first in your college to post</string>
     <string name="friends_empty">No posts yet from your friends</string>
     <string name="default_empty">No posts yet</string>

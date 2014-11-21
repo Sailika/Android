@@ -55,7 +55,7 @@ public class FetchGlobalStreamsTask extends Thread {
 			} else {
 				String message;
 				if (mStreamType == STREAM_TYPE.ALLCOLLEGES) {
-					message = mContext.getString(R.string.all_colleges_empty);
+					message = mContext.getString(R.string.default_empty);
 				} else if (mStreamType == STREAM_TYPE.COLLEGE) {
 					message = mContext.getString(R.string.my_college_empty);
 				} else if (mStreamType == STREAM_TYPE.FRIENDS) {
