@@ -626,7 +626,6 @@ for(int i=0;i<navMenuTitles.length;i++){
 	            }
 
 	            public void onDrawerOpened(View drawerview) {
-	                // adapter = new AccountAdapter(this, R.layout.row_acc, values);
 
 	            }
 
@@ -654,30 +653,32 @@ for(int i=0;i<navMenuTitles.length;i++){
 
 	      
 
-	        navList.setOnItemClickListener(new OnItemClickListener() {
-
-	            @Override
-	            public void onItemClick(AdapterView<?> parent, View view,
-	                    int position, long id) {
-	                if (position == 0) {
-	                    drawerLayout.closeDrawers();
-	                }
-	            }
-	        });
+//	        navList.setOnItemClickListener(new OnItemClickListener() {
+//
+//	            @Override
+//	            public void onItemClick(AdapterView<?> parent, View view,
+//	                    int position, long id) {
+//	                if (position == 0) {
+//	                    drawerLayout.closeDrawers();
+//	                }
+//	            }
+//	        });
 		
 	}
 	
 	private class DrawerItemClickListener implements ListView.OnItemClickListener {
 	    @Override
 	    public void onItemClick(AdapterView parent, View view, int position, long id) {
-	        selectItem(position);
+	  	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
+//		    drawerLayout.closeDrawer(navList);
+
+	      //  selectItem(position);
 	    }
 	}
 
-	/** Swaps fragments in the main content view */
+	/** Swap the  fragments in the main content view */
 	private void selectItem(int position) {
-	  Toast.makeText(getApplicationContext(), getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
-	    drawerLayout.closeDrawer(navList);
+	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
 	}
 
 }
