@@ -220,6 +220,8 @@ NextBatchFetchListener, OnClickListener {
 		// refreshQueueLayout();
 		// setAdapter();
 		// Fetch list from server
+		mCurrentStreamType = STREAM_TYPE.COLLEGE;
+
 		fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 		return rootView;
 	}
@@ -381,7 +383,7 @@ NextBatchFetchListener, OnClickListener {
 
 			mCreatePost.setOnClickListener(listener);
 			mPostLayout.setOnClickListener(listener);
-			mCurrentStreamType = STREAM_TYPE.ALLCOLLEGES;
+			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 
 			// Set a listener to be invoked when the list should be refreshed.
 			mPullToRefreshGridView
@@ -1455,8 +1457,8 @@ NextBatchFetchListener, OnClickListener {
 			break;
 		}
 		FeedBack feedBack = new FeedBack();
-		if (mAllCollegesList != null && mAllCollegesList.size() > 0) {
-			feedBack.setAsset_id(mAllCollegesList.get(0).getAssetId());
+		if (mCollegeList != null && mCollegeList.size() > 0) {
+			feedBack.setAsset_id(mCollegeList.get(0).getAssetId());
 		}
 		feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
 		feedBack.setFeedback(feedBackType);
