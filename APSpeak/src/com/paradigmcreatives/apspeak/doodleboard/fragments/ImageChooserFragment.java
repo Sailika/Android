@@ -43,6 +43,8 @@ public class ImageChooserFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.image_selection_layout,
 				container, false);
+		TextView headerText = (TextView)view.findViewById(R.id.globel_header_text);
+	    headerText.setText(getResources().getString(R.string.create_own_idea));
 		mCameraLayout = (LinearLayout) view
 				.findViewById(R.id.camera_button_layout);
 

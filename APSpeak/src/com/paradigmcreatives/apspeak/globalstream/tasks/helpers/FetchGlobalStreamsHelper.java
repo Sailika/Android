@@ -172,6 +172,7 @@ public class FetchGlobalStreamsHelper {
 				// Hence add my_id parameter too
 				jsonObject.put(JSONConstants.MY_ID, myId);
 			}
+			jsonObject.put(JSONConstants.LABEL, JSONConstants.IDEA);
 			jsonObject.put(JSONConstants.USER_ID, mUserId);
 			jsonObject.put(JSONConstants.TYPE, JSONConstants.PERSONAL);
 			jsonObject.put(JSONConstants.OFFSET, mOffset);
@@ -211,6 +212,7 @@ public class FetchGlobalStreamsHelper {
 		    if (!TextUtils.isEmpty(mUserId)) {
 			jsonObject = new JSONObject();
 			jsonObject.put(JSONConstants.USER_ID, mUserId);
+			jsonObject.put(JSONConstants.LABEL, JSONConstants.IDEA);
 			jsonObject.put(JSONConstants.TYPE, JSONConstants.GENERAL);
 			jsonObject.put(JSONConstants.COVERAGE, JSONConstants.FEATURED);
 			jsonObject.put(JSONConstants.OFFSET, mOffset);

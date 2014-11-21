@@ -18,6 +18,7 @@ public class JSONConstants {
 	public static final String SUCCESS = "success";
 	public static final String PLATFORM = "platform";
 	public static final String USER_ID = "user_id";
+	public static final String LABEL = "label";
 	public static final String MY_ID = "my_id";
 	public static final String RESULT = "result";
 	public static final String RESULTS = "results";
@@ -98,4 +99,6 @@ public class JSONConstants {
 	public static final String FLAGGED_USER_ID = "flagged_user_id";
 	public static final String FLAG_TYPE = "flag_type";
 	public static final String ANNOUNCEMENT_ID = "announcement_id";
+	public static final String IDEA = "Idea";
+
 }

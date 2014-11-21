@@ -44,7 +44,7 @@ public class ImageSelectionFragmentActivity extends FragmentActivity implements
 		if (getIntent().hasExtra(Constants.CUE_ID)) {
 			cueId = getIntent().getStringExtra(Constants.CUE_ID);
 		}
-		setContentView(R.layout.image_chooser);
+		setContentView(R.layout.image_chooser);		
 		showImageChooserFragment();
 	}
 

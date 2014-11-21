@@ -151,7 +151,7 @@ NextBatchFetchListener, OnClickListener {
 	private final String SAVE_CUE = "save_cue";
 
 	// for feedback and create ideas
-	private LinearLayout feedbackOptsLayout;
+	private static LinearLayout feedbackOptsLayout;
 	private RelativeLayout ideasMainLayout;
 
 	// for feedback click events
@@ -163,7 +163,11 @@ NextBatchFetchListener, OnClickListener {
 	private static TextView feedBackMessage;
 	private static TextView yourOpinionTxt;
 
-	private static LinearLayout globelFeedbackBottomLayout;
+	private boolean isFeedback = true;
+
+	private static RelativeLayout globelFeedbackBottomLayout;
+
+	private static TextView headerText;
 
 	/**
 	 * Default Constructor
@@ -268,11 +272,15 @@ NextBatchFetchListener, OnClickListener {
 						FeedBackResponse.class);
 				if (response.getErrorCode() == HttpStatus.SC_OK) {
 					mCueDetailsBackgroundWideImage.setVisibility(View.GONE);
-					globelFeedbackBottomLayout.setVisibility(View.GONE);
-					feedBackMessage.setText("Thank you");
+					feedbackOptsLayout.setVisibility(View.GONE);
+					feedBackMessage.setText(mContext.getResources().getString(
+							R.string.thank_you));
 					feedBackMessage.setTextSize(25);
-					yourOpinionTxt.setText("for providing your feedback.");
+					yourOpinionTxt.setText(mContext.getResources().getString(
+							R.string.providing_feedback));
 					yourOpinionTxt.setTextColor(Color.BLACK);
+					headerText.setText(mContext.getResources().getString(
+							R.string.thank_you));
 					feedBackMessage.setTextColor(mContext.getResources()
 							.getColor(R.color.apspeak_green));
 
@@ -365,7 +373,7 @@ NextBatchFetchListener, OnClickListener {
 
 			// mAllColleges.setTextColor(getResources().getColor(R.color.white));
 			mCollegeLayout.setBackgroundColor(getResources().getColor(
-					R.color.tab_color));
+					R.color.yellow));
 
 			mCollegeLayout.setOnClickListener(listener);
 			mAllCollegesLayout.setOnClickListener(listener);
@@ -405,7 +413,7 @@ NextBatchFetchListener, OnClickListener {
 					.findViewById(R.id.feedback_layout);
 			ideasMainLayout = (RelativeLayout) rootView
 					.findViewById(R.id.create_idea_main_layout);
-		
+
 			awesomeFeedBackImg = (ImageView) rootView
 					.findViewById(R.id.img_btn_awesome);
 			avgFeedBackImg = (ImageView) rootView
@@ -416,18 +424,27 @@ NextBatchFetchListener, OnClickListener {
 			avgFeedBackImg.setOnClickListener(this);
 			badFeedBackImg.setOnClickListener(this);
 			ideasMainLayout.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-                    Toast.makeText(getActivity(), "cREATE", Toast.LENGTH_LONG).show();					
+					Intent intent = new Intent(getActivity(),
+							ImageSelectionFragmentActivity.class);
+					if (mCue != null && !TextUtils.isEmpty(mCue.getCueId())) {
+						intent.putExtra(Constants.CUE_ID, mCue.getCueId());
+					}
+					getActivity().startActivityForResult(intent,
+							AppNewChildActivity.SUBMIT_EXPRESSION);
 				}
 			});
+
+			headerText = (TextView) rootView
+					.findViewById(R.id.globel_header_text);
 
 			feedBackMessage = (TextView) rootView
 					.findViewById(R.id.feedback_message_text);
 			yourOpinionTxt = (TextView) rootView
 					.findViewById(R.id.your_opinion_txt);
-			globelFeedbackBottomLayout = (LinearLayout) rootView
+			globelFeedbackBottomLayout = (RelativeLayout) rootView
 					.findViewById(R.id.global_streams_bottom_layout);
 			mIsGridviewInUse = true;
 			mCollege.setTextColor(getResources().getColor(R.color.black));
@@ -489,6 +506,7 @@ NextBatchFetchListener, OnClickListener {
 					mGridView.setAdapter(mGridAdapter);
 					mGridView.setOnScrollListener(mGridViewScrollListener);
 					mGridAdapter.notifyDataSetChanged();
+					mGridView.setVisibility(View.VISIBLE);
 				}
 			} else {
 				if (mListView != null) {
@@ -639,6 +657,9 @@ NextBatchFetchListener, OnClickListener {
 			}
 			// Call onRefreshComplete when the list has been refreshed.
 			if (mIsGridviewInUse) {
+				if (!isFeedback) {
+					mPullToRefreshGridView.setVisibility(View.VISIBLE);
+				}
 				mPullToRefreshGridView.onRefreshComplete();
 			} else {
 				mPullToRefreshListView.onRefreshComplete();
@@ -754,15 +775,15 @@ NextBatchFetchListener, OnClickListener {
 
 						public void onAnimationEnd(Animation animation) {
 
-							Intent intent = new Intent(getActivity(),
-									ImageSelectionFragmentActivity.class);
-							if (mCue != null
-									&& !TextUtils.isEmpty(mCue.getCueId())) {
-								intent.putExtra(Constants.CUE_ID,
-										mCue.getCueId());
-							}
-							getActivity().startActivityForResult(intent,
-									AppNewChildActivity.SUBMIT_EXPRESSION);
+							// Intent intent = new Intent(getActivity(),
+							// ImageSelectionFragmentActivity.class);
+							// if (mCue != null
+							// && !TextUtils.isEmpty(mCue.getCueId())) {
+							// intent.putExtra(Constants.CUE_ID,
+							// mCue.getCueId());
+							// }
+							// getActivity().startActivityForResult(intent,
+							// AppNewChildActivity.SUBMIT_EXPRESSION);
 
 						}
 					});
@@ -793,11 +814,19 @@ NextBatchFetchListener, OnClickListener {
 		}
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
-			mPullToRefreshListView.setVisibility(View.GONE);
+			isFeedback = true;
+			// chaning header title
+			headerText.setText(getResources().getString(
+					R.string.poll_your_opinion));
+			mPullToRefreshGridView.setVisibility(View.GONE);
+			mProgressBar.setVisibility(View.GONE);
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
 			feedBackMessage.setVisibility(View.VISIBLE);
+			feedBackMessage.setText(mCue.getCueMessage());
 			yourOpinionTxt.setVisibility(View.VISIBLE);
-			
+			yourOpinionTxt.setText(getResources().getString(
+					R.string.please_poll_your_opinion));
+			mGridView.setVisibility(View.GONE);
 			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 			ideasMainLayout.setVisibility(View.GONE);
 			feedbackOptsLayout.setVisibility(View.VISIBLE);
@@ -809,14 +838,16 @@ NextBatchFetchListener, OnClickListener {
 			feedback.setTextColor(getResources().getColor(R.color.red));
 			TextView ideas = (TextView) mAllCollegesLayout
 					.findViewById(R.id.ideas);
-			ideas.setTextColor(getResources().getColor(R.color.tab_color));
+			ideas.setTextColor(getResources().getColor(R.color.yellow));
 			// To show the full width image in feedback enable the view because
 			// its hiding in ideas tab
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
 			mCollegeLayout.setBackgroundColor(getResources().getColor(
-					R.color.tab_color));
+					R.color.yellow));
 			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
 					R.color.red));
+			globelFeedbackBottomLayout.setVisibility(View.VISIBLE);
+			fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 			// mFriendsLayout.setBackgroundColor(getResources().getColor(R.color.white));
 			// if (mCollegeList != null && mCollegeList.size() > 0) {
 			// setAdapter();
@@ -824,15 +855,19 @@ NextBatchFetchListener, OnClickListener {
 			// fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 			// }
 			// break;
+			break;
 
 		case R.id.allcolleges_button_layout: // Ideas tab for APSpeak
+			isFeedback = false;
+			// changing header title to ideas
+			headerText.setText(getResources().getString(R.string.ideas));
+
 			ideasMainLayout.setVisibility(View.VISIBLE);
+			mProgressBar.setVisibility(View.VISIBLE);
 			feedbackOptsLayout.setVisibility(View.GONE);
 			mCueDetailsBackgroundWideImage.setVisibility(View.INVISIBLE);
 			feedBackMessage.setVisibility(View.INVISIBLE);
 			yourOpinionTxt.setVisibility(View.INVISIBLE);
-			
-
 			mCurrentStreamType = STREAM_TYPE.ALLCOLLEGES;
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
@@ -842,10 +877,11 @@ NextBatchFetchListener, OnClickListener {
 
 			ideas = (TextView) mAllCollegesLayout.findViewById(R.id.ideas);
 			ideas.setTextColor(getResources().getColor(R.color.red));
+			feedback.setTextColor(getResources().getColor(R.color.yellow));
 			mCollegeLayout.setBackgroundColor(getResources().getColor(
 					R.color.red));
 			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
-					R.color.tab_color));
+					R.color.yellow));
 			mCueDetailsBackgroundWideImage.setVisibility(View.GONE);
 			if (mGridView != null) {
 				mGridView.setNumColumns(2);
@@ -857,26 +893,24 @@ NextBatchFetchListener, OnClickListener {
 			// } else {
 			// fetchNextBatch(0, Constants.IDEAS_FETCHLIMIT, false);
 			// }
-			// break;
+			break;
 
-			/*
-			 * case R.id.friends_button_layout: mCurrentStreamType =
-			 * STREAM_TYPE.FRIENDS;
-			 * mCollege.setTextColor(getResources().getColor
-			 * (R.color.tab_color));
-			 * mAllColleges.setTextColor(getResources().getColor
-			 * (R.color.tab_color));
-			 * mFriends.setTextColor(getResources().getColor(R.color.white));
-			 * mCollegeLayout
-			 * .setBackgroundColor(getResources().getColor(R.color.white));
-			 * mAllCollegesLayout
-			 * .setBackgroundColor(getResources().getColor(R.color.white));
-			 * mFriendsLayout
-			 * .setBackgroundColor(getResources().getColor(R.color.tab_color));
-			 * if (mFriendsList != null && mFriendsList.size() > 0) {
-			 * setAdapter(); } else { fetchNextBatch(0,
-			 * Constants.BATCH_FETCHLIMIT, false); } break;
-			 */default:
+		/*
+		 * case R.id.friends_button_layout: mCurrentStreamType =
+		 * STREAM_TYPE.FRIENDS; mCollege.setTextColor(getResources().getColor
+		 * (R.color.tab_color));
+		 * mAllColleges.setTextColor(getResources().getColor
+		 * (R.color.tab_color));
+		 * mFriends.setTextColor(getResources().getColor(R.color.white));
+		 * mCollegeLayout
+		 * .setBackgroundColor(getResources().getColor(R.color.white));
+		 * mAllCollegesLayout
+		 * .setBackgroundColor(getResources().getColor(R.color.white));
+		 * mFriendsLayout
+		 * .setBackgroundColor(getResources().getColor(R.color.tab_color)); if
+		 * (mFriendsList != null && mFriendsList.size() > 0) { setAdapter(); }
+		 * else { fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false); } break;
+		 */default:
 			break;
 		}
 	}
@@ -1146,8 +1180,8 @@ NextBatchFetchListener, OnClickListener {
 		if (mPullToRefreshListView != null) {
 			mPullToRefreshListView.setVisibility(View.GONE);
 		}
-		if (mPullToRefreshGridView != null) {
-			mPullToRefreshGridView.setVisibility(View.GONE);
+		if (mPullToRefreshGridView != null && !isFeedback) {
+			mPullToRefreshGridView.setVisibility(View.VISIBLE);
 		}
 		/*
 		 * if (mGridView != null) { mGridView.setVisibility(View.VISIBLE); } if
