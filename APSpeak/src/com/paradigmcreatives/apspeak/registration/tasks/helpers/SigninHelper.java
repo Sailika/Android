@@ -55,8 +55,8 @@ public class SigninHelper {
 			final HttpParams httpParams = new BasicHttpParams();
 			HttpConnectionParams.setConnectionTimeout(httpParams,
 					ServerConstants.CONNECTION_TIMEOUT);
-			httpPost = new HttpPost(ServerConstants.NODE_SERVER_URL
-					+ ServerConstants.USER_PROFILE_NETWORK_FETCH);
+			httpPost = new HttpPost(ServerConstants.SERVER_URL
+					+ ServerConstants.USER_SIGNIN);
 
 			NetworkManager.getInstance().register(httpPost);
 			httpclient = new DefaultHttpClient(httpParams);
@@ -75,32 +75,21 @@ public class SigninHelper {
 						.getValue(Constants.KEY_FACEBOOK_PROFILE_ACCESSTOKEN);
 			}
 			if (!TextUtils.isEmpty(facebookId)) {
-				JSONArray accountsArray = new JSONArray();
-				JSONObject account = new JSONObject();
-				JSONObject device = new JSONObject();
-				device.put("platform", "ANDROID");
-
 				JSONObject jObject = new JSONObject();
-				account.put("provider", "FACEBOOK");
-				account.put("uid", facebookId);
-				account.put(JSONConstants.ACCESS_TOKEN, access_token);
-				accountsArray.put(account);
-
+				jObject.put("provider", "FACEBOOK");
+				jObject.put("platform", "ANDROID");
+				jObject.put("uid", facebookId);
+				jObject.put(JSONConstants.ACCESS_TOKEN, access_token);
 				String gcmId = AppPropertiesUtil.getGCMID(context);
 				if (!TextUtils.isEmpty(gcmId)) {
-					device.put("push_id", gcmId);
-					jObject.put("handle", gcmId);
+					jObject.put("push_id", gcmId);
 				}
 				String deviceUniqueId = RegistrationUtil
 						.getDeviceUniqueId(context);
 				if (!TextUtils.isEmpty(deviceUniqueId)) {
-					device.put("device_id", deviceUniqueId);
 					jObject.put("device_id", deviceUniqueId);
-					jObject.put("handle", deviceUniqueId);
-
 				}
-				jObject.put("device", device);
-				jObject.put("accounts", accountsArray);
+
 				StringEntity stringEntity = new StringEntity(jObject.toString());
 				Logger.info(TAG, httpPost.getURI().toString() + "json string:"
 						+ jObject.toString());
