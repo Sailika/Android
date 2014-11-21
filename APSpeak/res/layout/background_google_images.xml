@@ -1,88 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/white"
-    tools:ignore="ContentDescription,NestedWeights" >
+    android:background="@color/grey"
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/tv_create_own_idea_write"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:ellipsize="start"
+        android:padding="5dp"
+        android:background="@color/white" >
+    </EditText>
+
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/white"
-        android:orientation="vertical" >
+        android:visibility="gone"
+        tools:ignore="ContentDescription,NestedWeights" >
 
-        <EditText
-            android:id="@+id/search_bar"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/input_field"
+                android:drawableLeft="@drawable/search_icon"
+                android:hint="@string/google_search"
+                android:imeOptions="actionGo|actionDone"
+                android:inputType="textUri"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black"
+                android:textSize="16sp" >
+            </EditText>
+
+            <GridView
+                android:id="@+id/grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:horizontalSpacing="2dip"
+                android:numColumns="auto_fit"
+                android:padding="2dip"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="2dip" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLargeInverse"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_field"
-            android:drawableLeft="@drawable/search_icon"
-            android:hint="@string/google_search"
-            android:imeOptions="actionGo|actionDone"
-            android:inputType="textUri"
-            android:paddingLeft="20dp"
-            android:textColor="@color/black"
-            android:textSize="16sp" >
-        </EditText>
-
-        <GridView
-            android:id="@+id/grid_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:horizontalSpacing="2dip"
-            android:numColumns="auto_fit"
-            android:padding="2dip"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="2dip" />
+            android:visibility="visible" />
+    </FrameLayout>
 
-        <!-- <LinearLayout -->
-        <!-- android:layout_width="fill_parent" -->
-        <!-- android:layout_height="0dp" -->
-        <!-- android:layout_weight="0" -->
-        <!-- android:background="@drawable/background_text_options_bg" -->
-        <!-- android:gravity="center_vertical" -->
-        <!-- android:visibility="gone" > -->
-
-
-        <!-- <ImageButton -->
-        <!-- android:id="@+id/back_button" -->
-        <!-- android:layout_width="0dp" -->
-        <!-- android:layout_height="fill_parent" -->
-        <!-- android:layout_weight="0.2" -->
-        <!-- android:background="@color/transparent" -->
-        <!-- android:src="@drawable/background_web_back_button" /> -->
-
-
-        <!-- <ImageButton -->
-        <!-- android:id="@+id/forward_button" -->
-        <!-- android:layout_width="0dp" -->
-        <!-- android:layout_height="fill_parent" -->
-        <!-- android:layout_weight="0.2" -->
-        <!-- android:background="@color/transparent" -->
-        <!-- android:src="@drawable/background_web_forward_button" /> -->
-
-
-        <!-- <ImageButton -->
-        <!-- android:id="@+id/refresh_button" -->
-        <!-- android:layout_width="0dp" -->
-        <!-- android:layout_height="fill_parent" -->
-        <!-- android:layout_weight="0.2" -->
-        <!-- android:background="@color/transparent" -->
-        <!-- android:src="@drawable/background_web_refresh_button" -->
-        <!-- android:visibility="gone" /> -->
-        <!-- </LinearLayout> -->
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLargeInverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="visible" />
-
-</FrameLayout>
+</LinearLayout>
