@@ -33,6 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
@@ -613,6 +614,7 @@ for(int i=0;i<navMenuTitles.length;i++){
                 navDrawerItems);
 
         navList.setAdapter(adapter);
+        navList.setOnItemClickListener(new DrawerItemClickListener());
 
 
 
@@ -664,4 +666,18 @@ for(int i=0;i<navMenuTitles.length;i++){
 	        });
 		
 	}
+	
+	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+	    @Override
+	    public void onItemClick(AdapterView parent, View view, int position, long id) {
+	        selectItem(position);
+	    }
+	}
+
+	/** Swaps fragments in the main content view */
+	private void selectItem(int position) {
+	  Toast.makeText(getApplicationContext(), getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
+	    drawerLayout.closeDrawer(navList);
+	}
+
 }
