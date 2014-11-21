@@ -1,25 +1,39 @@
 package com.paradigmcreatives.apspeak.home;
 
+import java.util.ArrayList;
+
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.NotificationManager;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
@@ -29,12 +43,12 @@ import com.paradigmcreatives.apspeak.cues.fragments.CuesFragment;
 import com.paradigmcreatives.apspeak.featured.fragments.FeaturedFragment;
 import com.paradigmcreatives.apspeak.feed.fragments.MyFeedFragment;
 import com.paradigmcreatives.apspeak.globalstream.AppNewChildActivity;
-import com.paradigmcreatives.apspeak.logging.Logger;
+import com.paradigmcreatives.apspeak.navdrawer.adapter.NavDrawerAdapter;
+import com.paradigmcreatives.apspeak.navdrawer.adapter.NavDrawerItem;
 import com.paradigmcreatives.apspeak.notification.NotificationsCountBroadcastReceiver;
 import com.paradigmcreatives.apspeak.registration.handlers.AddUserToGroupHandler;
 import com.paradigmcreatives.apspeak.registration.tasks.AddUserToGroupThread;
 import com.paradigmcreatives.apspeak.registration.tasks.GetUserGroupsListThread;
-import com.paradigmcreatives.apspeak.settings.FeedbackActivity;
 import com.paradigmcreatives.apspeak.user.fragments.ProfileFragment;
 
 /**
@@ -45,6 +59,21 @@ import com.paradigmcreatives.apspeak.user.fragments.ProfileFragment;
  * 
  */
 public class AppNewHomeActivity extends FragmentActivity {
+	
+
+	//Slide Menu Items
+	 private String[] navMenuTitles;
+	    private TypedArray navMenuIcons;
+	    private ArrayList<NavDrawerItem> navDrawerItems;
+	    private NavDrawerAdapter adapter;
+	    
+   private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle drawerToggle;
+    private RelativeLayout menuLayout;
+    private LinearLayout frame;
+    private TranslateAnimation anim;
+    private float moveFactor, lastTranslate = 0.0f;
+    private ListView navList;
 
 	private LinearLayout mCuesLayout;
 	private LinearLayout mFeaturedLayout;
@@ -95,7 +124,12 @@ public class AppNewHomeActivity extends FragmentActivity {
 	}
 
 	private void initUI() {
+		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        menuLayout = (RelativeLayout) findViewById(R.id.navdrawer_listLayout);
+        navList = (ListView) findViewById(R.id.navDrawer_list);
+        frame = (LinearLayout) findViewById(R.id.frame);
 		mCuesLayout = (LinearLayout) findViewById(R.id.home_cues);
+		drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
 		mFeaturedLayout = (LinearLayout) findViewById(R.id.home_featured);
 		mProfileLayout = (LinearLayout) findViewById(R.id.home_profile);
 		mNotificationsLayout = (LinearLayout) findViewById(R.id.home_notifications);
@@ -307,6 +341,12 @@ public class AppNewHomeActivity extends FragmentActivity {
 			break;
 		case R.id.header_option_feedback:
 			feedbackAction();
+
+			if (drawerLayout.isDrawerVisible(Gravity.LEFT)) {
+                return;
+            } else {
+                drawerLayout.openDrawer(Gravity.LEFT);
+            }
 			break;
 		default:
 			break;
@@ -530,16 +570,115 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 	private void feedbackAction() {
 
-		try {
-			Intent feedbackIntent = new Intent(this, FeedbackActivity.class);
-			startActivityForResult(feedbackIntent,
-					Constants.SETTINGS_OPTIONS_REQUESTCODE);
-		} catch (ActivityNotFoundException anfe) {
-			Logger.warn(TAG,
-					"Activity not found : " + anfe.getLocalizedMessage());
-		} catch (Exception e) {
-			Logger.warn(TAG, "Unknown Exception : " + e.getLocalizedMessage());
-		}
+//		try {
+//			Intent feedbackIntent = new Intent(this, FeedbackActivity.class);
+//			startActivityForResult(feedbackIntent,
+//					Constants.SETTINGS_OPTIONS_REQUESTCODE);
+//		} catch (ActivityNotFoundException anfe) {
+//			Logger.warn(TAG,
+//					"Activity not found : " + anfe.getLocalizedMessage());
+//		} catch (Exception e) {
+//			Logger.warn(TAG, "Unknown Exception : " + e.getLocalizedMessage());
+//		}
+//	      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+//	                android.R.layout.simple_list_item_1, R.array.navDrawerItems);
+//
+//	        navList.setAdapter(adapter);
+		
+		  // load slide menu items
 
+        navMenuTitles = getResources().getStringArray(R.array.navDrawerItems);
+
+        // nav drawer icons from resources
+
+        navMenuIcons = getResources()
+
+                .obtainTypedArray(R.array.navDrawerIcons);
+
+        navDrawerItems = new ArrayList<NavDrawerItem>();
+
+        // adding nav drawer items to array
+
+for(int i=0;i<navMenuTitles.length;i++){
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1)));
+}
+
+        // Recycle the typed array
+
+        navMenuIcons.recycle();
+
+        // setting the nav drawer list adapter
+
+        adapter = new NavDrawerAdapter(getApplicationContext(),
+
+                navDrawerItems);
+
+        navList.setAdapter(adapter);
+        navList.setOnItemClickListener(new DrawerItemClickListener());
+
+
+
+	        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
+	                R.drawable.ic_drawer, R.string.app_name, R.string.app_name) {
+
+	            public void onDrawerClosed(View view) {
+
+	            }
+
+	            public void onDrawerOpened(View drawerview) {
+
+	            }
+
+	            @SuppressLint("NewApi")
+	            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+	               
+	                moveFactor = (menuLayout.getWidth() * slideOffset);
+	                drawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+	                      Gravity.LEFT);
+	                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+	                  frame.setTranslationX(moveFactor);
+	                } else {
+	                  anim = new TranslateAnimation(lastTranslate, moveFactor,
+	                          0.0f, 0.0f);
+	                  anim.setDuration(0);
+	                  anim.setFillAfter(true);
+	                  frame.startAnimation(anim);
+	                  lastTranslate = moveFactor;
+	                }
+	            }
+	        };
+
+	        drawerLayout.setDrawerListener(drawerToggle);
+
+	      
+
+//	        navList.setOnItemClickListener(new OnItemClickListener() {
+//
+//	            @Override
+//	            public void onItemClick(AdapterView<?> parent, View view,
+//	                    int position, long id) {
+//	                if (position == 0) {
+//	                    drawerLayout.closeDrawers();
+//	                }
+//	            }
+//	        });
+		
 	}
+	
+	private class DrawerItemClickListener implements ListView.OnItemClickListener {
+	    @Override
+	    public void onItemClick(AdapterView parent, View view, int position, long id) {
+	  	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
+//		    drawerLayout.closeDrawer(navList);
+
+	      //  selectItem(position);
+	    }
+	}
+
+	/** Swap the  fragments in the main content view */
+	private void selectItem(int position) {
+	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
+	}
+
 }
