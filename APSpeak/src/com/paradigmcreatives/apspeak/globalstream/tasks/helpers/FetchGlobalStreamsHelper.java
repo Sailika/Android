@@ -182,6 +182,8 @@ public class FetchGlobalStreamsHelper {
 		    if (!TextUtils.isEmpty(mUserId) && !TextUtils.isEmpty(mGroupId) && !TextUtils.isEmpty(mCueId)) {
 			jsonObject = new JSONObject();
 			jsonObject.put(JSONConstants.USER_ID, mUserId);
+			jsonObject.put(JSONConstants.LABEL, JSONConstants.IDEA);
+
 			jsonObject.put(JSONConstants.GROUP_ID, mGroupId);
 			jsonObject.put(JSONConstants.CUE_ID, mCueId);
 			jsonObject.put(JSONConstants.TYPE, JSONConstants.GENERAL);
@@ -191,6 +193,8 @@ public class FetchGlobalStreamsHelper {
 		} else if (mStreamType == STREAM_TYPE.ALLCOLLEGES) {
 		    if (!TextUtils.isEmpty(mUserId) && !TextUtils.isEmpty(mCueId)) {
 			jsonObject = new JSONObject();
+			jsonObject.put(JSONConstants.LABEL, JSONConstants.IDEA);
+
 			jsonObject.put(JSONConstants.USER_ID, mUserId);
 			jsonObject.put(JSONConstants.CUE_ID, mCueId);
 			jsonObject.put(JSONConstants.TYPE, JSONConstants.GENERAL);
@@ -201,6 +205,8 @@ public class FetchGlobalStreamsHelper {
 		} else if (mStreamType == STREAM_TYPE.FRIENDS) {
 		    if (!TextUtils.isEmpty(mUserId) && !TextUtils.isEmpty(mCueId)) {
 			jsonObject = new JSONObject();
+			jsonObject.put(JSONConstants.LABEL, JSONConstants.IDEA);
+
 			jsonObject.put(JSONConstants.USER_ID, mUserId);
 			jsonObject.put(JSONConstants.CUE_ID, mCueId);
 			jsonObject.put(JSONConstants.TYPE, JSONConstants.GENERAL);
