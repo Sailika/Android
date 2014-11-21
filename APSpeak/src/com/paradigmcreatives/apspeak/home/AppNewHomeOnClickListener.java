@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.paradigmcreatives.apspeak.home.AppNewHomeActivity;
+
 /**
  * Listener class to handle onClicks from AppNewHomeActivity
  * 
