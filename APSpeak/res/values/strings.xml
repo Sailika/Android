@@ -114,6 +114,18 @@
         <item>Impact</item>
         <item>Snell</item>
     </string-array>
+    <string-array name="navDrawerItems">
+        <item >About Us</item>
+        <item >Terms &amp; Conditions</item>
+        <item >Privacy Policy</item>
+        <item >Settings</item>
+    </string-array>
+    <string-array name="navDrawerIcons">
+        <item >@drawable/menu_about_us_icon</item>
+        <item >@drawable/menu_terms_and_conditions_icon</item>
+        <item >@drawable/menu_privacy_policy_icon</item>
+        <item >@drawable/menu_settings_icon</item>
+    </string-array>
     <string-array name="text_style_ttf">
         <item>bangers.ttf</item>
         <item>bebas.ttf</item>
@@ -327,4 +339,11 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="dashboard">Dashboard</string> 
     <string name="thank_you">Thank you</string>
     <string name="providing_feedback">for providing your feedback.</string>
+    <!-- Sign In -->
+    <string name="ap_powered"></string>
+    <string name="ap_govt"></string>
+    <string name="forgot_password"></string>
+    <string name="sign_in"></string>
+    <string name="password"></string>
+    <string name="sign_in_via_fb"></string>
 </resources>
