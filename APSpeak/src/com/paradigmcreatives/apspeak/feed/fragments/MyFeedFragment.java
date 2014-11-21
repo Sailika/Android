@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,7 +16,6 @@ import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -27,7 +25,6 @@ import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.announcements.handlers.GetAnnouncementContentHandler;
 import com.paradigmcreatives.apspeak.announcements.tasks.GetAnnouncementContentThread;
 import com.paradigmcreatives.apspeak.app.model.MyFeedBean;
-import com.paradigmcreatives.apspeak.app.model.StreamAsset;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.Util;
 import com.paradigmcreatives.apspeak.feed.adapters.MyFeedAdapter;
@@ -35,7 +32,6 @@ import com.paradigmcreatives.apspeak.feed.handlers.MyFeedHandler;
 import com.paradigmcreatives.apspeak.feed.listeners.MyFeedListClickListener;
 import com.paradigmcreatives.apspeak.feed.tasks.MyFeedThread;
 import com.paradigmcreatives.apspeak.home.AppNewHomeActivity;
-import com.paradigmcreatives.apspeak.logging.Logger;
 
 public class MyFeedFragment extends Fragment {
 

@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.app.invite.fragments.InviteFriendsFragment;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants;
 import com.paradigmcreatives.apspeak.cues.fragments.CuesFragment;
@@ -101,7 +102,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private CuesFragment mCuesFragment;
 	private FeaturedFragment mFeaturedFragment;
 	private ProfileFragment mProfileFragment;
-	private MyFeedFragment mMyFeedFragment;
+	//private MyFeedFragment mMyFeedFragment;
+	private InviteFriendsFragment mMyFeedFragment;
 	private Fragment currentFragment;
 	private boolean mShowAnnouncement = false;
 	private String mAnnouncementId;
@@ -303,16 +305,24 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 		case R.id.home_notifications_icon_layout:
 			if (mMyFeedFragment == null) {
-				mMyFeedFragment = new MyFeedFragment(
+				mMyFeedFragment = new InviteFriendsFragment(
 						AppPropertiesUtil.getUserID(this), "0", "200",
 						mAnnouncementId, mAnnouncementMessage);
+				
+				//commented the code for ApSpeak
+				
+/*				mMyFeedFragment = new MyFeedFragment(
+						AppPropertiesUtil.getUserID(this), "0", "200",
+						mAnnouncementId, mAnnouncementMessage);*/
 				mShowAnnouncement = false;
 				FragmentTransaction ft = mFragmentManager.beginTransaction();
 				ft.replace(R.id.home_notifications, mMyFeedFragment);
 				ft.commit();
 				currentFragment = mMyFeedFragment;
 			} else {
-				mMyFeedFragment.reloadFeed();
+				//commented the code for ApSpeak
+				
+				//mMyFeedFragment.reloadFeed();
 			}
 			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
