@@ -3,7 +3,7 @@
     android:id="@+id/home_header_layout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="@color/red" >
+    android:background="@drawable/header_bg" >
 
     <RelativeLayout
         android:id="@+id/home_header_logo_layout"

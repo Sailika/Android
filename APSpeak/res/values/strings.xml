@@ -310,7 +310,6 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="queuedExpressions">Queued Expressions</string>
 
     <!-- Error messages when no asset is found in stream -->
-    <string name="all_colleges_empty">No posts yet</string>
     <string name="my_college_empty">Be the first in your college to post</string>
     <string name="friends_empty">No posts yet from your friends</string>
     <string name="default_empty">No posts yet</string>
@@ -339,10 +338,19 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="dashboard">Dashboard</string> 
     <string name="thank_you">Thank you</string>
     <string name="providing_feedback">for providing your feedback.</string>
+
     <string name="invite_via_contacts_text">Invite via contacts</string>
     <string name="invite_via_facebook_text">Invite via facebook</string>
     <string name="invite_via_email_text">Invite via email</string>
     <string name="invite_via_twitter_text">Invite via twitter</string>
     <string name="invite_via_whatsapp_text">Invite via whatsapp</string>
    
+   <!-- Sign In -->
+    <string name="ap_powered"></string>
+    <string name="ap_govt"></string>
+    <string name="forgot_password"></string>
+    <string name="sign_in"></string>
+    <string name="password"></string>
+    <string name="sign_in_via_fb"></string>
+
 </resources>

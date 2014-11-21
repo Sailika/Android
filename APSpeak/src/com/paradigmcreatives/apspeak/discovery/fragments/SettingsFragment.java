@@ -165,8 +165,7 @@ public class SettingsFragment extends Fragment {
 					.inflate(R.layout.colleges_list, null);
 			groupsListView.setBackgroundColor(getResources().getColor(
 					R.color.white));
-			mGroupsListView = (ListView) groupsListView
-					.findViewById(R.id.colleges);
+			mGroupsListView = (ListView) groupsListView.findViewById(R.id.colleges);
 			EditText searchField = (EditText) groupsListView
 					.findViewById(R.id.search_field);
 			mGroupsListView.setCacheColorHint(Color.TRANSPARENT);

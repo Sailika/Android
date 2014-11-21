@@ -18,14 +18,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
-        android:background="@color/red"
-        android:orientation="vertical"
-        android:paddingTop="10dp" >
+        android:background="@drawable/header_bg"
+        android:orientation="vertical" >
 
-    <!--  <View
+        <!--
+          <View
             android:layout_width="fill_parent"
             android:layout_height="0.5dp"
-            android:background="#989898" /> -->  
+            android:background="#989898" />
+        -->
 
         <View
             android:layout_width="fill_parent"
@@ -50,9 +51,9 @@
             <LinearLayout
                 android:id="@+id/college_button_layout"
                 android:layout_width="0dp"
-                android:background="@color/yellow"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5" >
+                android:layout_weight="0.5"
+                android:background="@color/yellow" >
 
                 <TextView
                     android:id="@+id/feedback"
@@ -179,7 +180,7 @@
             android:textColor="@color/black" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/global_streams_content_layout"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
@@ -201,7 +202,7 @@
             android:scrollbars="none"
             android:stretchMode="columnWidth"
             android:verticalSpacing="2dp"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/globalstreams_list_view"
@@ -212,43 +213,48 @@
             android:stretchMode="columnWidth"
             android:visibility="gone" />
 
-        <ProgressBar
-            android:id="@+id/global_streams_progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+        
 
         <TextView
             android:id="@+id/global_streams_errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
             android:textColor="@color/black"
             android:visibility="invisible" />
+        
+        <ProgressBar
+            android:id="@+id/global_streams_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/feedback_message_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_centerInParent="true"
             android:text="@string/app_name"
             android:textColor="@color/black"
             android:visibility="visible" />
 
         <TextView
+            android:layout_below="@id/feedback_message_text"
             android:id="@+id/your_opinion_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:gravity="center"
-            android:paddingTop="10dp"
+            android:paddingTop="30dp"
             android:text="@string/please_poll_your_opinion"
             android:textColor="@color/apspeak_red"
             android:visibility="visible" />
-    </LinearLayout>
+        
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/global_streams_bottom_layout"

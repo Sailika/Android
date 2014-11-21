@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.paradigmcreatives.apspeak.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -217,7 +218,7 @@ public class CuesNewAdapter extends BaseAdapter {
 	 */
 	public void setAssetImage(final StreamAsset asset,
 			final ImageView assetImage, final ImageView roundedFrame,
-			final View viewLayout, final ProgressWheel progresswheel) {
+			final View viewLayout,  final ProgressWheel progresswheel) {
 		if (assetImage == null) {
 			return;
 		}
@@ -235,6 +236,12 @@ public class CuesNewAdapter extends BaseAdapter {
 							if (progresswheel != null) {
 								progresswheel.incrementProgress(0);
 								progresswheel.setVisibility(view.VISIBLE);
+								
+								RelativeLayout layout = new RelativeLayout(null);
+								RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(100,100);
+								params.addRule(RelativeLayout.CENTER_IN_PARENT);
+								layout.addView(progresswheel,params);
+							
 							}
 						}
 
