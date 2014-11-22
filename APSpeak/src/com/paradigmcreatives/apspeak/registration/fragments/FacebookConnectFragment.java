@@ -464,6 +464,7 @@ public class FacebookConnectFragment extends FragmentImplOpenGraphRequest {
 	public void setGroup(GroupBean group) {
 		if (group != null) {
 			mSelectedGroup = group;
+			fbLoginButton.setVisibility(View.VISIBLE);
 			// Save the group id in shared preferences
 			AppPropertiesUtil.setGroupID(getActivity(),
 					mSelectedGroup.getGroupId());

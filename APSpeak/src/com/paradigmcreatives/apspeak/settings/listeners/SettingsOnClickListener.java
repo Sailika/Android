@@ -2,6 +2,7 @@ package com.paradigmcreatives.apspeak.settings.listeners;
 
 import java.io.File;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import com.facebook.Session;
 import com.google.android.gcm.GCMRegistrar;
 import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.ShutDownListener;
 import com.paradigmcreatives.apspeak.app.analytics.GoogleAnalyticsHelper;
 import com.paradigmcreatives.apspeak.app.database.WhatSayDBHandler;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
@@ -74,7 +76,7 @@ public class SettingsOnClickListener implements OnClickListener {
 						GoogleAnalyticsConstants.SETTINGS_SCREEN,
 						GoogleAnalyticsConstants.ACTION_BUTTON,
 						GoogleAnalyticsConstants.SETTINGS_LOGOUT_BUTTON);
-				showLogoutDialog();
+				//showLogoutDialog();
 				break;
 			case R.id.change_college_text:
 				if (fragment != null) {
@@ -89,34 +91,31 @@ public class SettingsOnClickListener implements OnClickListener {
 	 * Performs logout from the application. Clears Facebook session, deletes
 	 * app data which includes database, sd card files, shared preference file
 	 */
-	private void performLogout() {
+	public static void performLogout(Context context) {
 		// Unregister from GCM
-		GCMRegistrar.unregister(fragment.getActivity().getApplicationContext());
+		GCMRegistrar.unregister(context);
 		// Close and clear Facebook Session
-		callFacebookLogout(fragment.getActivity());
+		callFacebookLogout(context);
 		// Clear files from SD card which includes app Database
-		cleanDevice();
+		cleanDevice(context);
 	}
 
 	/**
 	 * Cleans the device and db
 	 */
-	private void cleanDevice() {
-		if (fragment != null) {
-			Util.deleteFile(new File(AppPropertiesUtil.getAppDirectory(fragment
-					.getActivity())));
+	private static void cleanDevice(Context context) {
+		if (context != null) {
+			Util.deleteFile(new File(AppPropertiesUtil.getAppDirectory(context)));
 
-			if ((new WhatSayDBHandler(fragment.getActivity()))
-					.deleteDB(fragment.getActivity())) {
+			if ((new WhatSayDBHandler(context)).deleteDB(context)) {
 				Logger.info(TAG, "Deleted entire Whatsay data on mobile");
 			} else {
 				Logger.warn(TAG, "Failed to delete Whatsay data");
 			}
 
 			// Clear shared preferences file
-			SharedPreferences prefs = fragment.getActivity()
-					.getSharedPreferences(Constants.KEY_APP_PREFERENCE_NAME,
-							Context.MODE_PRIVATE);
+			SharedPreferences prefs = context.getSharedPreferences(
+					Constants.KEY_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.clear();
 			editor.commit();
@@ -144,15 +143,16 @@ public class SettingsOnClickListener implements OnClickListener {
 	/**
 	 * Launches Login Activity and kills the current activity
 	 */
-	private void launchLoginScreen() {
-		if (fragment != null) {
+	private static void launchLoginScreen(Context context) {
+		if (context != null) {
 			// Launch LoginActivity
-			Intent loginActivity = new Intent(fragment.getActivity(),
-					LoginActivity.class);
+			Intent loginActivity = new Intent(context, LoginActivity.class);
 			loginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 					| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			fragment.startActivity(loginActivity);
-			fragment.getActivity().finish();
+			context.startActivity(loginActivity);
+			if (context instanceof Activity) {
+				((Activity) context).finish();
+			}
 		}
 	}
 
@@ -222,11 +222,11 @@ public class SettingsOnClickListener implements OnClickListener {
 
 	}
 
-	private void showLogoutDialog() {
-		LayoutInflater inflater = (LayoutInflater) fragment.getActivity()
+	public static void showLogoutDialog(final Context context,final ShutDownListener listener) {
+		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View eulaDialog = inflater.inflate(R.layout.logout_dialog, null);
-		final Dialog dialog = new Dialog(fragment.getActivity(),
+		final Dialog dialog = new Dialog(context,
 				android.R.style.Theme_Translucent_NoTitleBar);
 		Button yesButton = (Button) eulaDialog.findViewById(R.id.yes_button);
 		Button noButton = (Button) eulaDialog.findViewById(R.id.no_button);
@@ -235,6 +235,7 @@ public class SettingsOnClickListener implements OnClickListener {
 			public void onClick(View v) {
 
 				dialog.dismiss();
+				listener.completed();
 
 			}
 
@@ -243,10 +244,10 @@ public class SettingsOnClickListener implements OnClickListener {
 		yesButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				listener.completed();
 				dialog.dismiss();
-				performLogout();
-				launchLoginScreen();
+				performLogout(context);
+				launchLoginScreen(context);
 
 			}
 

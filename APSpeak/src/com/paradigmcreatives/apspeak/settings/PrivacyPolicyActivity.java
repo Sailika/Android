@@ -1,9 +1,10 @@
 package com.paradigmcreatives.apspeak.settings;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -12,21 +13,27 @@ import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants;
 
-public class PrivacyPolicyActivity extends Activity {
+public class PrivacyPolicyActivity extends Fragment {
 	private ProgressBar progressBar;
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.privacy_layout);
-		progressBar = (ProgressBar) findViewById(R.id.progressBar);
-		WebView webView = (WebView) findViewById(R.id.webview);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.privacy_layout, null);
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
+		progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+		WebView webView = (WebView) view.findViewById(R.id.webview);
 		progressBar.bringToFront();
 		webView.loadUrl("http://www.whatsayapp.com/privacy.html");
 		webView.setWebViewClient(new WebViewClient() {
 
 			public void onPageFinished(WebView view, String url) {
 				if (progressBar != null
-						&& (progressBar.getVisibility() == View.VISIBLE)){
+						&& (progressBar.getVisibility() == View.VISIBLE)) {
 					progressBar.setVisibility(View.GONE);
 				}
 			}
@@ -34,18 +41,10 @@ public class PrivacyPolicyActivity extends Activity {
 
 	}
 
-
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
-		AppEventsLogger.activateApp(getApplicationContext(), Constants.FACEBOOK_APPID);
-	}
-	
-	@Override
-	public void onBackPressed() {
-		Intent intent = new Intent();
-		setResult(Activity.RESULT_OK, intent);
-		finish();
+		AppEventsLogger.activateApp(getActivity(), Constants.FACEBOOK_APPID);
 	}
 
 }

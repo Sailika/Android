@@ -22,7 +22,8 @@
         <RelativeLayout
             android:id="@+id/group_selection_layout"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+           
             android:layout_below="@id/animationImages"
             android:layout_marginLeft="60dp"
             android:layout_marginRight="60dp"
@@ -33,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:clickable="true"
+                android:clickable="true"               
                 android:drawableRight="@drawable/down_arrow"
                 android:gravity="start"
                 android:padding="10dp"

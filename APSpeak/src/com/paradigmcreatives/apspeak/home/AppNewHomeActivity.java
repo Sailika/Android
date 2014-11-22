@@ -21,7 +21,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
@@ -36,6 +35,7 @@ import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.ShutDownListener;
 import com.paradigmcreatives.apspeak.app.invite.fragments.InviteFriendsFragment;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.Util;
@@ -50,6 +50,10 @@ import com.paradigmcreatives.apspeak.notification.NotificationsCountBroadcastRec
 import com.paradigmcreatives.apspeak.registration.handlers.AddUserToGroupHandler;
 import com.paradigmcreatives.apspeak.registration.tasks.AddUserToGroupThread;
 import com.paradigmcreatives.apspeak.registration.tasks.GetUserGroupsListThread;
+import com.paradigmcreatives.apspeak.settings.AboutUsActivity;
+import com.paradigmcreatives.apspeak.settings.FeedbackActivity;
+import com.paradigmcreatives.apspeak.settings.PrivacyPolicyActivity;
+import com.paradigmcreatives.apspeak.settings.listeners.SettingsOnClickListener;
 import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 import com.paradigmcreatives.apspeak.user.fragments.ProfileFragment;
 
@@ -61,21 +65,20 @@ import com.paradigmcreatives.apspeak.user.fragments.ProfileFragment;
  * 
  */
 public class AppNewHomeActivity extends FragmentActivity {
-	
 
-	//Slide Menu Items
-	 private String[] navMenuTitles;
-	    private TypedArray navMenuIcons;
-	    private ArrayList<NavDrawerItem> navDrawerItems;
-	    private NavDrawerAdapter adapter;
-	    
-   private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle drawerToggle;
-    private RelativeLayout menuLayout;
-    private LinearLayout frame;
-    private TranslateAnimation anim;
-    private float moveFactor, lastTranslate = 0.0f;
-    private ListView navList;
+	// Slide Menu Items
+	private String[] navMenuTitles;
+	private TypedArray navMenuIcons;
+	private ArrayList<NavDrawerItem> navDrawerItems;
+	private NavDrawerAdapter adapter;
+
+	private DrawerLayout drawerLayout;
+	private ActionBarDrawerToggle drawerToggle;
+	private RelativeLayout menuLayout;
+	private LinearLayout frame;
+	private TranslateAnimation anim;
+	private float moveFactor, lastTranslate = 0.0f;
+	private ListView navList;
 
 	private LinearLayout mCuesLayout;
 	private LinearLayout mFeaturedLayout;
@@ -106,13 +109,20 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private CuesFragment mCuesFragment;
 	private FeaturedFragment mFeaturedFragment;
 	private ProfileFragment mProfileFragment;
-	//private MyFeedFragment mMyFeedFragment;
+	// private MyFeedFragment mMyFeedFragment;
 	private InviteFriendsFragment mMyFeedFragment;
 	private Fragment currentFragment;
 	private boolean mShowAnnouncement = false;
 	private String mAnnouncementId;
 	private String mAnnouncementMessage;
 	private String TAG = "AppNewHomeActivity";
+	private static final int ABOUT_US = 1;
+	private static final int TERMS_AND_CONDITION = 2;
+	private static final int PRIVACY_POLACY = 3;
+	private static final int CHANGE_CITY = 4;
+	private static final int GIVE_US_FEEDBACK = 5;
+	private static final int LOGOUT = 6;
+	private static final int HOME = 0;
 
 	private NotificationsCountBroadcastReceiver mNotificationsCountBroadcastReceiver;
 
@@ -131,11 +141,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 	private void initUI() {
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        menuLayout = (RelativeLayout) findViewById(R.id.navdrawer_listLayout);
-        navList = (ListView) findViewById(R.id.navDrawer_list);
-        frame = (LinearLayout) findViewById(R.id.frame);
+		menuLayout = (RelativeLayout) findViewById(R.id.navdrawer_listLayout);
+		navList = (ListView) findViewById(R.id.navDrawer_list);
+		frame = (LinearLayout) findViewById(R.id.frame);
 		mCuesLayout = (LinearLayout) findViewById(R.id.home_cues);
-		drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
+		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mFeaturedLayout = (LinearLayout) findViewById(R.id.home_featured);
 		mProfileLayout = (LinearLayout) findViewById(R.id.home_profile);
 		mNotificationsLayout = (LinearLayout) findViewById(R.id.home_notifications);
@@ -159,21 +169,19 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mFeaturedIcon = (ImageView) findViewById(R.id.home_featured_icon);
 		mProfileIcon = (ImageView) findViewById(R.id.home_profile_icon);
 		mNotificationsIcon = (ImageView) findViewById(R.id.home_notifications_icon);
-		
+
 		mNotificationsCount = (TextView) findViewById(R.id.home_notifications_count);
 		mProfileName = (TextView) findViewById(R.id.header_txt_profile);
-		mDashBoardIconTxt = (TextView)findViewById(R.id.home_cues_text);
-		mProfileIconTxt = (TextView)findViewById(R.id.home_profile_text);
-		mInviteFriendsIconTxt = (TextView)findViewById(R.id.home_notifications_text);
-		
-		
+		mDashBoardIconTxt = (TextView) findViewById(R.id.home_cues_text);
+		mProfileIconTxt = (TextView) findViewById(R.id.home_profile_text);
+		mInviteFriendsIconTxt = (TextView) findViewById(R.id.home_notifications_text);
+
 		TypeFontAssets fontAssets = new TypeFontAssets(getApplicationContext());
-		
+
 		mDashBoardIconTxt.setTypeface(fontAssets.regularFont);
 		mProfileIconTxt.setTypeface(fontAssets.regularFont);
 		mInviteFriendsIconTxt.setTypeface(fontAssets.regularFont);
-		
-		
+
 		showHideNotificationsCount();
 		final FrameLayout welcomeFrame = (FrameLayout) findViewById(R.id.welcome_screen);
 		ImageView welcomeClose = (ImageView) findViewById(R.id.welcome_close_view);
@@ -222,9 +230,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mFragmentManager = getSupportFragmentManager();
 		}
 		switch (viewId) {
-		
+
 		case R.id.header_option_back:
-			
+
 			onBackPressed();
 			break;
 		case R.id.header_option_invite:
@@ -236,31 +244,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			break;
 
 		case R.id.home_cues_icon_layout:
-			if (mCuesFragment == null) {
-				mCuesFragment = new CuesFragment();
-				FragmentTransaction fragmentTransaction = mFragmentManager
-						.beginTransaction();
-				fragmentTransaction.replace(R.id.home_cues, mCuesFragment);
-				fragmentTransaction.commit();
-				currentFragment = mCuesFragment;
-			}
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon_selected);
-			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.my_profile_icon);
-			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
-			showHideNotificationsCount();
-
-			mInviteIcon.setVisibility(View.VISIBLE);
-			mSettingsIcon.setVisibility(View.INVISIBLE);
-			mFeedbackIcon.setVisibility(View.VISIBLE);
-			mCuesLayout.setVisibility(View.VISIBLE);
-			mFeaturedLayout.setVisibility(View.INVISIBLE);
-			mProfileLayout.setVisibility(View.INVISIBLE);
-			mNotificationsLayout.setVisibility(View.INVISIBLE);
-			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
-			mProfileName.setText(getResources().getString(R.string.campaigns));
-			mProfileName.setVisibility(View.VISIBLE);
-			mHeaderLogo.setVisibility(View.GONE);
+			loadDashBoard();
 			break;
 
 		case R.id.home_featured_icon_layout:
@@ -292,17 +276,17 @@ public class AppNewHomeActivity extends FragmentActivity {
 			break;
 
 		case R.id.home_profile_icon_layout:
-			
-			if (mProfileFragment == null) {
-				mProfileFragment = new ProfileFragment();
+
+			//if (mProfileFragment == null) {
+				mProfileFragment = new ProfileFragment(AppPropertiesUtil.getUserID(AppNewHomeActivity.this));
 				FragmentTransaction fragmentTransaction = mFragmentManager
 						.beginTransaction();
 				fragmentTransaction
-						.replace(R.id.home_profile, mProfileFragment);
+						.replace(R.id.home_cues, mProfileFragment);
 				fragmentTransaction.commit();
 
 				currentFragment = mProfileFragment;
-			}
+			//}
 			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
 			mProfileIcon.setImageResource(R.drawable.my_profile_icon_selected);
@@ -311,9 +295,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.GONE);
 			mFeedbackIcon.setVisibility(View.VISIBLE);
-			mCuesLayout.setVisibility(View.INVISIBLE);
+			mCuesLayout.setVisibility(View.VISIBLE);
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
-			mProfileLayout.setVisibility(View.VISIBLE);
+			mProfileLayout.setVisibility(View.GONE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			mHeaderOptionsBack.setVisibility(View.GONE);
@@ -323,48 +307,52 @@ public class AppNewHomeActivity extends FragmentActivity {
 			break;
 
 		case R.id.home_notifications_icon_layout:
-			if (mMyFeedFragment == null) {
+		//	if (mMyFeedFragment == null) {
 				mMyFeedFragment = new InviteFriendsFragment(
 						AppPropertiesUtil.getUserID(this), "0", "200",
 						mAnnouncementId, mAnnouncementMessage);
-				
-				//commented the code for ApSpeak
-				
-/*				mMyFeedFragment = new MyFeedFragment(
-						AppPropertiesUtil.getUserID(this), "0", "200",
-						mAnnouncementId, mAnnouncementMessage);*/
+
+				// commented the code for ApSpeak
+
+				/*
+				 * mMyFeedFragment = new MyFeedFragment(
+				 * AppPropertiesUtil.getUserID(this), "0", "200",
+				 * mAnnouncementId, mAnnouncementMessage);
+				 */
 				mShowAnnouncement = false;
 				FragmentTransaction ft = mFragmentManager.beginTransaction();
-				ft.replace(R.id.home_notifications, mMyFeedFragment);
+				ft.replace(R.id.home_cues, mMyFeedFragment);
 				ft.commit();
 				currentFragment = mMyFeedFragment;
-			} else {
-				//commented the code for ApSpeak
-				
-				//mMyFeedFragment.reloadFeed();
-			}
+		/*	} else {
+				// commented the code for ApSpeak
+
+				// mMyFeedFragment.reloadFeed();
+			}*/
 			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
 			mProfileIcon.setImageResource(R.drawable.my_profile_icon);
-			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon_selected);
+			mNotificationsIcon
+					.setImageResource(R.drawable.invite_friends_icon_selected);
 			// Reset notifications count value
 			AppPropertiesUtil.setNotificationsCount(AppNewHomeActivity.this, 0);
 			showHideNotificationsCount();
 			// Clear notifications from Notification bar
 			NotificationManager manager = (NotificationManager) AppNewHomeActivity.this
 					.getSystemService(Context.NOTIFICATION_SERVICE);
-			if(manager != null){
+			if (manager != null) {
 				manager.cancelAll();
 			}
 
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.INVISIBLE);
-			mCuesLayout.setVisibility(View.INVISIBLE);
+			mCuesLayout.setVisibility(View.VISIBLE);
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.INVISIBLE);
-			mNotificationsLayout.setVisibility(View.VISIBLE);
-			mHeaderOptionsBack.setVisibility(View.VISIBLE);
-			mProfileName.setText(getResources().getString(R.string.invite_friends_heading));
+			mNotificationsLayout.setVisibility(View.GONE);
+			mHeaderOptionsBack.setVisibility(View.GONE);
+			mProfileName.setText(getResources().getString(
+					R.string.invite_friends_heading));
 			mProfileName.setVisibility(View.VISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			mFeedbackIcon.setVisibility(View.VISIBLE);
@@ -373,10 +361,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 			feedbackAction();
 
 			if (drawerLayout.isDrawerVisible(Gravity.LEFT)) {
-                return;
-            } else {
-                drawerLayout.openDrawer(Gravity.LEFT);
-            }
+				return;
+			} else {
+				drawerLayout.openDrawer(Gravity.LEFT);
+			}
 			break;
 		case R.id.invite_contacts:
 			inviteViaMessaging();
@@ -393,37 +381,69 @@ public class AppNewHomeActivity extends FragmentActivity {
 		case R.id.invite_whatsap:
 			inviteViaWhatsapp();
 			break;
-		
+
 		}
+	}
+
+	private void loadDashBoard() {
+		mCuesFragment = new CuesFragment();
+		FragmentTransaction fragmentTransaction = mFragmentManager
+				.beginTransaction();
+		fragmentTransaction.replace(R.id.home_cues, mCuesFragment);
+		fragmentTransaction.commit();
+		currentFragment = mCuesFragment;
+
+		mCuesIcon.setImageResource(R.drawable.dashboard_icon_selected);
+		mFeaturedIcon.setImageResource(R.drawable.featured);
+		mProfileIcon.setImageResource(R.drawable.my_profile_icon);
+		mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
+		showHideNotificationsCount();
+
+		mInviteIcon.setVisibility(View.VISIBLE);
+		mSettingsIcon.setVisibility(View.INVISIBLE);
+		mFeedbackIcon.setVisibility(View.VISIBLE);
+		mCuesLayout.setVisibility(View.VISIBLE);
+		mFeaturedLayout.setVisibility(View.INVISIBLE);
+		mProfileLayout.setVisibility(View.INVISIBLE);
+		mNotificationsLayout.setVisibility(View.INVISIBLE);
+		mHeaderOptionsBack.setVisibility(View.INVISIBLE);
+		mProfileName.setText(getResources().getString(R.string.campaigns));
+		mProfileName.setVisibility(View.VISIBLE);
+		mHeaderLogo.setVisibility(View.GONE);
 	}
 
 	private void inviteViaFacbebook() {
 		// TODO Auto-generated method stub
-		Util.shareTextOnFacebookViaIntent(this, getString(R.string.invitation_message),
-			    getString(R.string.invite_friends_heading));
+		Util.shareTextOnFacebookViaIntent(this,
+				getString(R.string.invitation_message),
+				getString(R.string.invite_friends_heading));
 	}
 
 	private void inviteViaWhatsapp() {
 		// TODO Auto-generated method stub
-		
-		  WhatsAppManager.launchWhatsAppWithText(this, getResources().getString(R.string.invitation_message));
-		
+
+		WhatsAppManager.launchWhatsAppWithText(this,
+				getResources().getString(R.string.invitation_message));
+
 	}
 
 	private void inviteViaTwitter() {
 		// TODO Auto-generated method stub
-		Util.launchAppWithTwitterText(this, getResources().getString(R.string.invitation_message));
+		Util.launchAppWithTwitterText(this,
+				getResources().getString(R.string.invitation_message));
 	}
+
 	private void inviteViaEmail() {
 		// TODO Auto-generated method stub
-		 Intent emailIntent = Util.getPreFormattedEmailIntent(getString(R.string.invitation_message),
-				    getString(R.string.app_name), "");
-			   startActivity(emailIntent);
+		Intent emailIntent = Util.getPreFormattedEmailIntent(
+				getString(R.string.invitation_message),
+				getString(R.string.app_name), "");
+		startActivity(emailIntent);
 	}
 
 	private void inviteViaMessaging() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -524,7 +544,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 				AppNewChildActivity.class);
 		inviteIntent.putExtra(Constants.LAUNCH_INVITE_FBFRIENDS_SCREEN, true);
 		startActivity(inviteIntent);
-		}
+	}
 
 	/**
 	 * Launches Settings Fragment
@@ -643,121 +663,183 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 	private void feedbackAction() {
 
-//		try {
-//			Intent feedbackIntent = new Intent(this, FeedbackActivity.class);
-//			startActivityForResult(feedbackIntent,
-//					Constants.SETTINGS_OPTIONS_REQUESTCODE);
-//		} catch (ActivityNotFoundException anfe) {
-//			Logger.warn(TAG,
-//					"Activity not found : " + anfe.getLocalizedMessage());
-//		} catch (Exception e) {
-//			Logger.warn(TAG, "Unknown Exception : " + e.getLocalizedMessage());
-//		}
-//	      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-//	                android.R.layout.simple_list_item_1, R.array.navDrawerItems);
-//
-//	        navList.setAdapter(adapter);
-		
-		  // load slide menu items
-		
-		
+		// try {
+		// Intent feedbackIntent = new Intent(this, FeedbackActivity.class);
+		// startActivityForResult(feedbackIntent,
+		// Constants.SETTINGS_OPTIONS_REQUESTCODE);
+		// } catch (ActivityNotFoundException anfe) {
+		// Logger.warn(TAG,
+		// "Activity not found : " + anfe.getLocalizedMessage());
+		// } catch (Exception e) {
+		// Logger.warn(TAG, "Unknown Exception : " + e.getLocalizedMessage());
+		// }
+		// ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+		// android.R.layout.simple_list_item_1, R.array.navDrawerItems);
+		//
+		// navList.setAdapter(adapter);
+
+		// load slide menu items
+
 		TypeFontAssets fontAssets = new TypeFontAssets(getApplicationContext());
 
-        navMenuTitles = getResources().getStringArray(R.array.navDrawerItems);
-        
+		navMenuTitles = getResources().getStringArray(R.array.navDrawerItems);
 
-        // nav drawer icons from resources
+		// nav drawer icons from resources
 
-        navMenuIcons = getResources()
+		navMenuIcons = getResources()
 
-                .obtainTypedArray(R.array.navDrawerIcons);
+		.obtainTypedArray(R.array.navDrawerIcons);
 
-        navDrawerItems = new ArrayList<NavDrawerItem>();
+		navDrawerItems = new ArrayList<NavDrawerItem>();
 
-        // adding nav drawer items to array
+		// adding nav drawer items to array
 
-for(int i=0;i<navMenuTitles.length;i++){
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1)));
-}
+		for (int i = 0; i < navMenuTitles.length; i++) {
+			navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons
+					.getResourceId(i, -1)));
+		}
 
-        // Recycle the typed array
+		// Recycle the typed array
 
-        navMenuIcons.recycle();
+		navMenuIcons.recycle();
 
-        // setting the nav drawer list adapter
+		// setting the nav drawer list adapter
 
-        adapter = new NavDrawerAdapter(getApplicationContext(),
+		adapter = new NavDrawerAdapter(getApplicationContext(),
 
-                navDrawerItems);
+		navDrawerItems);
 
-        navList.setAdapter(adapter);
-        navList.setOnItemClickListener(new DrawerItemClickListener());
+		navList.setAdapter(adapter);
+		navList.setOnItemClickListener(new DrawerItemClickListener());
 
+		drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
+				R.drawable.ic_drawer, R.string.app_name, R.string.app_name) {
 
+			public void onDrawerClosed(View view) {
 
-	        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-	                R.drawable.ic_drawer, R.string.app_name, R.string.app_name) {
+			}
 
-	            public void onDrawerClosed(View view) {
+			public void onDrawerOpened(View drawerview) {
 
-	            }
+			}
 
-	            public void onDrawerOpened(View drawerview) {
+			@SuppressLint("NewApi")
+			public void onDrawerSlide(View drawerView, float slideOffset) {
 
-	            }
+				moveFactor = (menuLayout.getWidth() * slideOffset);
+				drawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
+						Gravity.LEFT);
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+					frame.setTranslationX(moveFactor);
+				} else {
+					anim = new TranslateAnimation(lastTranslate, moveFactor,
+							0.0f, 0.0f);
+					anim.setDuration(0);
+					anim.setFillAfter(true);
+					frame.startAnimation(anim);
+					lastTranslate = moveFactor;
+				}
+			}
+		};
 
-	            @SuppressLint("NewApi")
-	            public void onDrawerSlide(View drawerView, float slideOffset) {
+		drawerLayout.setDrawerListener(drawerToggle);
 
-	               
-	                moveFactor = (menuLayout.getWidth() * slideOffset);
-	                drawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
-	                      Gravity.LEFT);
-	                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-	                  frame.setTranslationX(moveFactor);
-	                } else {
-	                  anim = new TranslateAnimation(lastTranslate, moveFactor,
-	                          0.0f, 0.0f);
-	                  anim.setDuration(0);
-	                  anim.setFillAfter(true);
-	                  frame.startAnimation(anim);
-	                  lastTranslate = moveFactor;
-	                }
-	            }
-	        };
+		// navList.setOnItemClickListener(new OnItemClickListener() {
+		//
+		// @Override
+		// public void onItemClick(AdapterView<?> parent, View view,
+		// int position, long id) {
+		// if (position == 0) {
+		// drawerLayout.closeDrawers();
+		// }
+		// }
+		// });
 
-	        drawerLayout.setDrawerListener(drawerToggle);
-
-	      
-
-//	        navList.setOnItemClickListener(new OnItemClickListener() {
-//
-//	            @Override
-//	            public void onItemClick(AdapterView<?> parent, View view,
-//	                    int position, long id) {
-//	                if (position == 0) {
-//	                    drawerLayout.closeDrawers();
-//	                }
-//	            }
-//	        });
-		
-	}
-	
-	private class DrawerItemClickListener implements ListView.OnItemClickListener {
-	    @Override
-	    public void onItemClick(AdapterView parent, View view, int position, long id) {
-	  	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
-//		    drawerLayout.closeDrawer(navList);
-
-	      //  selectItem(position);
-	    }
 	}
 
-	/** Swap the  fragments in the main content view */
-	private void selectItem(int position) {
-	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
-	}
-	
-	
+	private class DrawerItemClickListener implements
+			ListView.OnItemClickListener {
 
+		@Override
+		public void onItemClick(AdapterView parent, View view, int position,
+				long id) {
+			Fragment fragment;
+			switch (position) {
+			case ABOUT_US:
+				mProfileName.setText(getResources()
+						.getString(R.string.about_us));
+				mFragmentManager.beginTransaction()
+						.replace(R.id.home_cues, new AboutUsActivity())
+						.commit();
+				drawerLayout.closeDrawers();
+
+				break;
+			case TERMS_AND_CONDITION:
+				/*
+				 * mProfileName.setText(getResources().getString(
+				 * R.string.terms_conditions));
+				 */
+				Toast.makeText(view.getContext(),
+						getResources().getString(R.string.need_to_implement),
+						Toast.LENGTH_LONG).show();
+				drawerLayout.closeDrawers();
+
+				break;
+			case PRIVACY_POLACY:
+				mProfileName.setText(getResources().getString(
+						R.string.privacy_policy));
+
+				mFragmentManager.beginTransaction()
+						.replace(R.id.home_cues, new PrivacyPolicyActivity())
+						.commit();
+				drawerLayout.closeDrawers();
+				break;
+			case CHANGE_CITY:
+				drawerLayout.closeDrawers();
+
+				Toast.makeText(view.getContext(),
+						getResources().getString(R.string.need_to_implement),
+						Toast.LENGTH_LONG).show();
+				/*
+				 * if (Util.isOnline(getApplicationContext())) {
+				 * GetGroupsListHandler handler = new
+				 * GetGroupsListHandler(view.getContext()); GetGroupsListThread
+				 * thread = new GetGroupsListThread(handler); thread.start(); }
+				 * else { Toast.makeText(getActivity(),
+				 * getResources().getString(R.string.no_network),
+				 * Toast.LENGTH_SHORT).show(); }
+				 */
+				break;
+			case GIVE_US_FEEDBACK:
+				mProfileName.setText(getResources()
+						.getString(R.string.feedback));
+
+				mFragmentManager.beginTransaction()
+						.replace(R.id.home_cues, new FeedbackActivity())
+						.commit();
+				drawerLayout.closeDrawers();
+				break;
+			case LOGOUT:
+				SettingsOnClickListener.showLogoutDialog(
+						AppNewHomeActivity.this, new ShutDownListener() {
+
+							@Override
+							public void completed() {
+								drawerLayout.closeDrawers();
+							}
+						});
+				break;
+			case HOME:
+				mProfileName.setText(getResources().getString(
+						R.string.campaigns));
+				loadDashBoard();
+				drawerLayout.closeDrawers();
+
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
 }

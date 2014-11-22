@@ -485,6 +485,7 @@ public class FacebookConnectAnimationFragment extends
 	public void setGroup(GroupBean group) {
 		if (group != null) {
 			mSelectedGroup = group;
+			fbLoginButton.setVisibility(View.VISIBLE);
 			// Save the group id in shared preferences
 
 			removeGroupsListView();
