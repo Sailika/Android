@@ -338,11 +338,22 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="dashboard">Dashboard</string> 
     <string name="thank_you">Thank you</string>
     <string name="providing_feedback">for providing your feedback.</string>
-    <!-- Sign In -->
+
+    <string name="invite_via_contacts_text">Invite via contacts</string>
+    <string name="invite_via_facebook_text">Invite via facebook</string>
+    <string name="invite_via_email_text">Invite via email</string>
+    <string name="invite_via_twitter_text">Invite via twitter</string>
+    <string name="invite_via_whatsapp_text">Invite via whatsapp</string>
+   
+   <!-- Sign In -->
     <string name="ap_powered"></string>
     <string name="ap_govt"></string>
     <string name="forgot_password"></string>
     <string name="sign_in"></string>
     <string name="password"></string>
     <string name="sign_in_via_fb"></string>
+    <string name="invite_friends_heading">Invite friends</string>
+    <string name="my_profile">My profile</string>
+    <string name="invitation_message">This APSpeak app lets you add a personal touch to your messages. Thought you would love it. Check it out</string>
+
 </resources>

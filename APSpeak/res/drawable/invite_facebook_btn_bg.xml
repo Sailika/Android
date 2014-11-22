@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+  <gradient
+            android:endColor="@color/invite_facebook_btn_bg_color"
+            android:centerColor="@color/invite_facebook_btn_bg_color"
+            android:startColor="@color/invite_facebook_btn_bg_color"
+            android:angle="180" />
+ <stroke android:width="2dp" android:color="@color/invite_facebook_btn_bg_color"/>
+ <corners android:radius="3dp" />
+
+
+</shape>

@@ -24,8 +24,6 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -37,11 +35,13 @@ import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.app.invite.fragments.InviteFriendsFragment;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
+import com.paradigmcreatives.apspeak.app.util.Util;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants;
+import com.paradigmcreatives.apspeak.app.util.whatsapp.WhatsAppManager;
 import com.paradigmcreatives.apspeak.cues.fragments.CuesFragment;
 import com.paradigmcreatives.apspeak.featured.fragments.FeaturedFragment;
-import com.paradigmcreatives.apspeak.feed.fragments.MyFeedFragment;
 import com.paradigmcreatives.apspeak.globalstream.AppNewChildActivity;
 import com.paradigmcreatives.apspeak.navdrawer.adapter.NavDrawerAdapter;
 import com.paradigmcreatives.apspeak.navdrawer.adapter.NavDrawerItem;
@@ -101,7 +101,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private CuesFragment mCuesFragment;
 	private FeaturedFragment mFeaturedFragment;
 	private ProfileFragment mProfileFragment;
-	private MyFeedFragment mMyFeedFragment;
+	//private MyFeedFragment mMyFeedFragment;
+	private InviteFriendsFragment mMyFeedFragment;
 	private Fragment currentFragment;
 	private boolean mShowAnnouncement = false;
 	private String mAnnouncementId;
@@ -239,6 +240,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
+			mProfileName.setText(getResources().getString(R.string.campaigns));
 			mProfileName.setVisibility(View.VISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			break;
@@ -297,22 +299,31 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			mHeaderOptionsBack.setVisibility(View.VISIBLE);
+			mProfileName.setText(getResources().getString(R.string.my_profile));
 			mProfileName.setVisibility(View.VISIBLE);
 
 			break;
 
 		case R.id.home_notifications_icon_layout:
 			if (mMyFeedFragment == null) {
-				mMyFeedFragment = new MyFeedFragment(
+				mMyFeedFragment = new InviteFriendsFragment(
 						AppPropertiesUtil.getUserID(this), "0", "200",
 						mAnnouncementId, mAnnouncementMessage);
+				
+				//commented the code for ApSpeak
+				
+/*				mMyFeedFragment = new MyFeedFragment(
+						AppPropertiesUtil.getUserID(this), "0", "200",
+						mAnnouncementId, mAnnouncementMessage);*/
 				mShowAnnouncement = false;
 				FragmentTransaction ft = mFragmentManager.beginTransaction();
 				ft.replace(R.id.home_notifications, mMyFeedFragment);
 				ft.commit();
 				currentFragment = mMyFeedFragment;
 			} else {
-				mMyFeedFragment.reloadFeed();
+				//commented the code for ApSpeak
+				
+				//mMyFeedFragment.reloadFeed();
 			}
 			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
@@ -335,7 +346,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.VISIBLE);
 			mHeaderOptionsBack.setVisibility(View.VISIBLE);
-			mProfileName.setVisibility(View.INVISIBLE);
+			mProfileName.setText(getResources().getString(R.string.invite_friends_heading));
+			mProfileName.setVisibility(View.VISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			mFeedbackIcon.setVisibility(View.INVISIBLE);
 			break;
@@ -348,9 +360,52 @@ public class AppNewHomeActivity extends FragmentActivity {
                 drawerLayout.openDrawer(Gravity.LEFT);
             }
 			break;
-		default:
+		case R.id.invite_contacts:
+			inviteViaMessaging();
 			break;
+		case R.id.invite_email:
+			inviteViaEmail();
+			break;
+		case R.id.invite_facebook:
+			inviteViaFacbebook();
+			break;
+		case R.id.invite_twitter:
+			inviteViaTwitter();
+			break;
+		case R.id.invite_whatsap:
+			inviteViaWhatsapp();
+			break;
+		
 		}
+	}
+
+	private void inviteViaFacbebook() {
+		// TODO Auto-generated method stub
+		Util.shareTextOnFacebookViaIntent(this, getString(R.string.invitation_message),
+			    getString(R.string.invite_friends_heading));
+	}
+
+	private void inviteViaWhatsapp() {
+		// TODO Auto-generated method stub
+		
+		  WhatsAppManager.launchWhatsAppWithText(this, getResources().getString(R.string.invitation_message));
+		
+	}
+
+	private void inviteViaTwitter() {
+		// TODO Auto-generated method stub
+		Util.launchAppWithTwitterText(this, getResources().getString(R.string.invitation_message));
+	}
+	private void inviteViaEmail() {
+		// TODO Auto-generated method stub
+		 Intent emailIntent = Util.getPreFormattedEmailIntent(getString(R.string.invitation_message),
+				    getString(R.string.app_name), "");
+			   startActivity(emailIntent);
+	}
+
+	private void inviteViaMessaging() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -451,7 +506,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 				AppNewChildActivity.class);
 		inviteIntent.putExtra(Constants.LAUNCH_INVITE_FBFRIENDS_SCREEN, true);
 		startActivity(inviteIntent);
-	}
+		}
 
 	/**
 	 * Launches Settings Fragment
@@ -680,5 +735,7 @@ for(int i=0;i<navMenuTitles.length;i++){
 	private void selectItem(int position) {
 	  Toast.makeText(AppNewHomeActivity.this, getResources().getString(R.string.app_name) , Toast.LENGTH_SHORT).show();
 	}
+	
+	
 
 }

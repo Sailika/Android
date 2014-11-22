@@ -76,7 +76,7 @@ public class NavDrawerAdapter extends BaseAdapter{
 
         txtTitle.setText(navDrawerItems.get(position).getTitle());  
         Typeface myTypeface = Typeface.createFromAsset(context.getAssets(),
-				"Roboto-Regular.ttf");
+				"Roboto-Light.ttf");
 		
 		txtTitle.setTypeface(myTypeface);
 
