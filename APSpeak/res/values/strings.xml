@@ -349,8 +349,9 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="ap_powered"></string>
     <string name="ap_govt"></string>
     <string name="forgot_password"></string>
-    <string name="sign_in"></string>
-    <string name="password"></string>
+    <string name="hint_sign_in">Userame|Mobile no.</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
     <string name="sign_in_via_fb"></string>
     <string name="invite_friends_heading">Invite friends</string>
     <string name="my_profile">My profile</string>
