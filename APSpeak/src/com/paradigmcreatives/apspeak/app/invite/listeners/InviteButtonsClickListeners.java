@@ -1,22 +1,16 @@
-package com.paradigmcreatives.apspeak.home;
+package com.paradigmcreatives.apspeak.app.invite.listeners;
+
+import com.paradigmcreatives.apspeak.home.AppNewHomeActivity;
 
 import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.paradigmcreatives.apspeak.home.AppNewHomeActivity;
-
-/**
- * Listener class to handle onClicks from AppNewHomeActivity
- * 
- * @author Dileep | neuv
- * 
- */
-public class AppNewHomeOnClickListener implements OnClickListener {
+public class InviteButtonsClickListeners implements OnClickListener{
 
 	private Activity mActivity;
 
-	public AppNewHomeOnClickListener(Activity activity) {
+	public InviteButtonsClickListeners(Activity activity) {
 		super();
 		this.mActivity = activity;
 	}
@@ -30,4 +24,5 @@ public class AppNewHomeOnClickListener implements OnClickListener {
 			}
 		}
 	}
+
 }
