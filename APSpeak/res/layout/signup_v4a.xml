@@ -5,25 +5,6 @@
     android:layout_height="fill_parent"
     android:background="@drawable/splash_screen_bg" >
 
-    <!--
-         <ImageView 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        android:alpha="0.4"/>
-    -->
-
-
-    <!--
-         <ImageView
-        android:id="@+id/animationImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/animationImages"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/ap_speak_logo" />
-    -->
 
     <RelativeLayout
         android:id="@+id/signup_relativelayout"
@@ -72,13 +53,13 @@
                 android:text="@string/sign_in_via_fb"
                 android:textColor="@color/white" />
 
-            <Button
-                android:id="@+id/facebook_btn"
+            <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sign_in_via_fb_txt"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/apspeak_fb" />
+                android:layout_marginTop="100dp"
+                layout="@layout/facebookbtn"
+                android:visibility="visible" />
         </RelativeLayout>
 
         <LinearLayout
@@ -147,8 +128,6 @@
                     android:id="@+id/powered_footer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_toRightOf="@id/footer"
                     android:text="@string/ap_powered"
                     android:textColor="@color/apspeak_light_yellow"
                     android:textSize="12sp" />
@@ -156,17 +135,5 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <include
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/group_selection_layout"
-        android:layout_marginTop="100dp"
-        layout="@layout/facebookbtn"
-        android:visibility="gone" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </RelativeLayout>
-
+  
 </FrameLayout>

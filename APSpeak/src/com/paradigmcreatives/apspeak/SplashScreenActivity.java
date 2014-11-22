@@ -4,15 +4,12 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.Window;
-import android.widget.ImageView;
 
 import com.facebook.AppEventsLogger;
-import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants;
 import com.paradigmcreatives.apspeak.app.util.dialogs.WhatsayDialogsUtil;

@@ -120,7 +120,7 @@ public class FacebookConnectAnimationFragment extends
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
-		View view = inflater.inflate(R.layout.signup_v4, container, false);
+		View view = inflater.inflate(R.layout.signup_v4a, container, false);
 		initView(view);
 		Session session = Session.getActiveSession();
 		if (session != null && session.isOpened()) {

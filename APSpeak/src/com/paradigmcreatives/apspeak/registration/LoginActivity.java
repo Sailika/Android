@@ -34,7 +34,6 @@ public class LoginActivity extends FragmentActivity {
 	private String mTagToUse;
 	private boolean mResetBackStack;
 	private boolean mAddToBackStack;
-	private String mCurrentFragmentTag = null;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -78,7 +77,6 @@ public class LoginActivity extends FragmentActivity {
 					facebookConnectFragment,
 					Constants.FACEBOOK_CONNECT_FRAGMENT_TAG);
 			fragmentTransaction.commit();
-			mCurrentFragmentTag = Constants.FACEBOOK_CONNECT_FRAGMENT_TAG;
 		}
 
 		fragments.put(Constants.FACEBOOK_CONNECT_FRAGMENT_TAG,
@@ -129,7 +127,6 @@ public class LoginActivity extends FragmentActivity {
 					fragmentTransaction.addToBackStack(null);
 				}
 				fragmentTransaction.commit();
-				mCurrentFragmentTag = tag;
 				return true;
 			} else {
 				return false;
@@ -207,7 +204,6 @@ public class LoginActivity extends FragmentActivity {
 					fragmentTransaction.addToBackStack(null);
 				}
 				fragmentTransaction.commit();
-				mCurrentFragmentTag = mTagToUse;
 			}
 			// Reset the values
 			mFragmentRequested = false;

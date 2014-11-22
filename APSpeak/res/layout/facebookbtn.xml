@@ -10,19 +10,19 @@
         android:id="@+id/authButton"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_gravity="center"
-        android:background="@null"
+        android:background="@drawable/apspeak_fb"
         android:visibility="visible" />
 
     <Button
         android:id="@+id/fbconnect"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_gravity="center"
         android:clickable="false"
         android:visibility="gone" />
 
