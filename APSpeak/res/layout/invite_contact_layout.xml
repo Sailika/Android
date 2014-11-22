@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+        
+     <include 
+         android:id="@+id/header"
+         layout="@layout/header_layout" />
+
+    <EditText
+        android:id="@+id/search_text"
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/input_field"
+        android:drawableLeft="@drawable/search_icon"
+        android:drawablePadding="10dip"
+        android:ems="10"
+        android:hint="@string/search_friends"
+        android:imeOptions="actionDone"
+        android:paddingLeft="10dip" >
+
+    </EditText>
+
+    
+
+    <ListView
+        android:id="@+id/invite_contact_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_text" >
+    </ListView>
+
+    <ProgressBar
+        android:id="@+id/contact_progress_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/invite_contact_list"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:indeterminate="true" />
+
+</RelativeLayout>

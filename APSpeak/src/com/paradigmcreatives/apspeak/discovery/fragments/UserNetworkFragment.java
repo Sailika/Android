@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -74,6 +75,7 @@ public class UserNetworkFragment extends Fragment implements
 	private TextView next;
 	private TextView done;
 	private TextView invite;
+	private ImageView backBtn;
 
 	private RelativeLayout mSearchLayout;
 	private EditText mSearchField;
@@ -193,7 +195,10 @@ public class UserNetworkFragment extends Fragment implements
 				.findViewById(R.id.network_friends_list);
 		next = (TextView) view.findViewById(R.id.network_next_text);
 		done = (TextView) view.findViewById(R.id.network_done_text);
-		invite = (TextView) view.findViewById(R.id.network_invite_text);
+		invite = (TextView) view.findViewById(R.id.home_notifications_count);
+		backBtn=(ImageView) view.findViewById(R.id.home_back);
+		invite.setText(getResources().getString(R.string.send));
+		invite.setTextColor(getResources().getColor(R.color.yellow));
 		friendsHeader = (TextView) view.findViewById(R.id.network_friends_text);
 
 		WhatsayNetworkOnClickListenerImpl listener = new WhatsayNetworkOnClickListenerImpl(
@@ -201,6 +206,7 @@ public class UserNetworkFragment extends Fragment implements
 		next.setOnClickListener(listener);
 		done.setOnClickListener(listener);
 		invite.setOnClickListener(listener);
+		backBtn.setOnClickListener(listener);
 
 		Activity activity = getActivity();
 		if (activity instanceof UserProfileActivity || !showHeader) {

@@ -355,5 +355,5 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="invite_friends_heading">Invite friends</string>
     <string name="my_profile">My profile</string>
     <string name="invitation_message">This APSpeak app lets you add a personal touch to your messages. Thought you would love it. Check it out</string>
-
+    <string name="invite_btn">Invite</string>
 </resources>
