@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/sign_in_via_fb_txt"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 layout="@layout/facebookbtn"
                 android:visibility="visible" />
         </RelativeLayout>
@@ -83,22 +83,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="@string/sign_in" />
+                android:hint="@string/hint_sign_in" 
+                android:textColor="@color/apspeak_light_red"
+                android:background="@color/apspeak_edit_text_color"
+                android:padding="10dp"
+                />
 
             <EditText
+                android:layout_marginTop="10dp"
                 android:id="@+id/apspeak_signin_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password" />
+                android:hint="@string/password" 
+                android:textColor="@color/apspeak_light_red"
+                android:background="@color/apspeak_edit_text_color"
+                android:padding="10dp"/>
 
             <Button
                 android:id="@+id/apspeak_signin_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/apspeak_light_yellow"
-                android:padding="5dp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/sign_in"
-                android:textColor="@color/apspeak_red" />
+                android:textColor="@color/apspeak_red"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/frgt_pwd"

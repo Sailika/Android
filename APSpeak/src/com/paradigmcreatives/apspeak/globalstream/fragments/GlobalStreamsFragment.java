@@ -93,6 +93,7 @@ import com.paradigmcreatives.apspeak.stream.handlers.GetStreamHandler;
 import com.paradigmcreatives.apspeak.stream.listeners.ListOnScrollListenerImpl;
 import com.paradigmcreatives.apspeak.stream.listeners.NextBatchFetchListener;
 import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 
 /**
  * Fragment used to show different streams based on the cue passed
@@ -101,7 +102,7 @@ import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
  * 
  */
 public class GlobalStreamsFragment extends Fragment implements
-		NextBatchFetchListener, OnClickListener {
+NextBatchFetchListener, OnClickListener {
 
 	public static final String TAG = GlobalStreamsFragment.class
 			.getSimpleName();
@@ -118,6 +119,8 @@ public class GlobalStreamsFragment extends Fragment implements
 	private TextView mCollege;
 	private TextView mAllColleges;
 	private TextView mFriends;
+	private TextView feedback;
+	private TextView ideas;
 	private LinearLayout mCollegeLayout;
 	private LinearLayout mAllCollegesLayout;
 	// private LinearLayout mFriendsLayout;
@@ -249,13 +252,13 @@ public class GlobalStreamsFragment extends Fragment implements
 				if (retryCount <= MAX_RETRY_COUNT) {
 					retryCount++;
 					RestClient.getInstance().getRestClient(mContext)
-							.postFeedBack(request, this);
+					.postFeedBack(request, this);
 				} else {
 					Toast.makeText(
 							mContext,
 							mContext.getResources().getString(
 									R.string.server_failure), Toast.LENGTH_LONG)
-							.show();
+									.show();
 				}
 			} else {
 				Toast.makeText(
@@ -291,7 +294,7 @@ public class GlobalStreamsFragment extends Fragment implements
 						mContext,
 						mContext.getResources().getString(
 								R.string.server_failure), Toast.LENGTH_LONG)
-						.show();
+								.show();
 			}
 		}
 
@@ -334,13 +337,13 @@ public class GlobalStreamsFragment extends Fragment implements
 					.findViewById(R.id.globalstreams_list_view);
 			mPullToRefreshListView.setScrollingWhileRefreshingEnabled(true);
 			mPullToRefreshListView
-					.setOnRefreshListener(new OnRefreshListener<ListView>() {
-						@Override
-						public void onRefresh(
-								PullToRefreshBase<ListView> refreshView) {
-							fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, true);
-						}
-					});
+			.setOnRefreshListener(new OnRefreshListener<ListView>() {
+				@Override
+				public void onRefresh(
+						PullToRefreshBase<ListView> refreshView) {
+					fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, true);
+				}
+			});
 			mListView = mPullToRefreshListView.getRefreshableView();
 			mPullToRefreshListView.setVisibility(View.GONE);
 
@@ -350,8 +353,8 @@ public class GlobalStreamsFragment extends Fragment implements
 
 			mPullToRefreshGridView.setScrollingWhileRefreshingEnabled(true);
 			mPullToRefreshGridView
-					.setMode(mPullToRefreshGridView.getMode() == Mode.BOTH ? Mode.PULL_FROM_START
-							: Mode.BOTH);
+			.setMode(mPullToRefreshGridView.getMode() == Mode.BOTH ? Mode.PULL_FROM_START
+					: Mode.BOTH);
 			mGridView = mPullToRefreshGridView.getRefreshableView();
 			mPullToRefreshGridView.setVisibility(View.GONE);
 
@@ -387,30 +390,30 @@ public class GlobalStreamsFragment extends Fragment implements
 
 			// Set a listener to be invoked when the list should be refreshed.
 			mPullToRefreshGridView
-					.setOnRefreshListener(new OnRefreshListener2<GridView>() {
+			.setOnRefreshListener(new OnRefreshListener2<GridView>() {
 
-						@Override
-						public void onPullDownToRefresh(
-								PullToRefreshBase<GridView> refreshView) {
-							// Fetch list from server
-							fetchNextBatch(0, Constants.IDEAS_FETCHLIMIT, true);
-						}
+				@Override
+				public void onPullDownToRefresh(
+						PullToRefreshBase<GridView> refreshView) {
+					// Fetch list from server
+					fetchNextBatch(0, Constants.IDEAS_FETCHLIMIT, true);
+				}
 
-						@Override
-						public void onPullUpToRefresh(
-								PullToRefreshBase<GridView> refreshView) {
-							// Fetch next batch from server
-							if (mGridView != null) {
-								BaseAdapter adapter = (BaseAdapter) mGridView
-										.getAdapter();
-								if (adapter != null) {
-									int count = adapter.getCount();
-									fetchNextBatch(count,
-											Constants.IDEAS_FETCHLIMIT, true);
-								}
-							}
+				@Override
+				public void onPullUpToRefresh(
+						PullToRefreshBase<GridView> refreshView) {
+					// Fetch next batch from server
+					if (mGridView != null) {
+						BaseAdapter adapter = (BaseAdapter) mGridView
+								.getAdapter();
+						if (adapter != null) {
+							int count = adapter.getCount();
+							fetchNextBatch(count,
+									Constants.IDEAS_FETCHLIMIT, true);
 						}
-					});
+					}
+				}
+			});
 			feedbackOptsLayout = (LinearLayout) rootView
 					.findViewById(R.id.feedback_layout);
 			ideasMainLayout = (RelativeLayout) rootView
@@ -432,10 +435,8 @@ public class GlobalStreamsFragment extends Fragment implements
 			headerText = (TextView) rootView
 					.findViewById(R.id.globel_header_text);
 
-			feedBackMessage = (TextView) rootView
-					.findViewById(R.id.feedback_message_text);
-			yourOpinionTxt = (TextView) rootView
-					.findViewById(R.id.your_opinion_txt);
+			
+			
 			globelFeedbackBottomLayout = (RelativeLayout) rootView
 					.findViewById(R.id.global_streams_bottom_layout);
 			mIsGridviewInUse = true;
@@ -448,7 +449,38 @@ public class GlobalStreamsFragment extends Fragment implements
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
 			showGridView();
+			
+			
+			/***
+			 * Set Font Style Here
+			 */
 
+			TypeFontAssets fontAssets = new TypeFontAssets(getActivity());
+
+			feedback = (TextView) mCollegeLayout.findViewById(R.id.feedback);
+			ideas = (TextView) mAllCollegesLayout.findViewById(R.id.ideas);
+			
+			mCollege = (TextView) rootView.findViewById(R.id.awesome);
+			mAllColleges = (TextView) rootView.findViewById(R.id.average);
+			mFriends = (TextView) rootView.findViewById(R.id.bad);
+			
+			
+			feedBackMessage = (TextView) rootView.findViewById(R.id.feedback_message_text);
+			yourOpinionTxt = (TextView) rootView.findViewById(R.id.your_opinion_txt);
+
+			feedback.setTypeface(fontAssets.regularFont);
+			feedback.setTextSize(20);
+			ideas.setTypeface(fontAssets.regularFont);
+			ideas.setTextSize(20);
+
+			mCollege.setTypeface(fontAssets.lightFont);
+			mAllColleges.setTypeface(fontAssets.lightFont);
+			mFriends.setTypeface(fontAssets.lightFont);
+			
+			feedBackMessage.setTypeface(fontAssets.regularFont);
+			yourOpinionTxt.setTypeface(fontAssets.lightFont);
+			
+			
 			if (mCue != null) {
 				feedBackMessage.setText(mCue.getCueMessage());
 			}
@@ -734,9 +766,9 @@ public class GlobalStreamsFragment extends Fragment implements
 					mErrorMessageView.setText(message);
 				} else {
 					mErrorMessageView
-							.setText(R.string.stream_load_errormessage);
+					.setText(R.string.stream_load_errormessage);
 				}
-				mErrorMessageView.setVisibility(View.VISIBLE);
+				mErrorMessageView.setVisibility(View.INVISIBLE);
 			}
 		}
 	}
@@ -811,6 +843,8 @@ public class GlobalStreamsFragment extends Fragment implements
 		mErrorMessageView.setVisibility(View.INVISIBLE);
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
+
+
 			isFeedback = true;
 			// chaning header title
 			headerText.setText(getResources().getString(
@@ -829,12 +863,14 @@ public class GlobalStreamsFragment extends Fragment implements
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
-			TextView feedback = (TextView) mCollegeLayout
-					.findViewById(R.id.feedback);
+			
+			
+
 			feedback.setTextColor(getResources().getColor(R.color.red));
-			TextView ideas = (TextView) mAllCollegesLayout
-					.findViewById(R.id.ideas);
+
 			ideas.setTextColor(getResources().getColor(R.color.yellow));
+			
+			
 			// To show the full width image in feedback enable the view because
 			// its hiding in ideas tab
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
@@ -870,12 +906,12 @@ public class GlobalStreamsFragment extends Fragment implements
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
-			feedback = (TextView) mCollegeLayout.findViewById(R.id.feedback);
-			feedback.setTextColor(getResources().getColor(R.color.tab_color));
+			
 
-			ideas = (TextView) mAllCollegesLayout.findViewById(R.id.ideas);
 			ideas.setTextColor(getResources().getColor(R.color.red));
 			feedback.setTextColor(getResources().getColor(R.color.yellow));
+			
+			
 			mCollegeLayout.setBackgroundColor(Color.TRANSPARENT);
 			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
 					R.color.yellow));
@@ -892,23 +928,23 @@ public class GlobalStreamsFragment extends Fragment implements
 			// }
 			break;
 
-		/*
-		 * case R.id.friends_button_layout: mCurrentStreamType =
-		 * STREAM_TYPE.FRIENDS; mCollege.setTextColor(getResources().getColor
-		 * (R.color.tab_color));
-		 * mAllColleges.setTextColor(getResources().getColor
-		 * (R.color.tab_color));
-		 * mFriends.setTextColor(getResources().getColor(R.color.white));
-		 * mCollegeLayout
-		 * .setBackgroundColor(getResources().getColor(R.color.white));
-		 * mAllCollegesLayout
-		 * .setBackgroundColor(getResources().getColor(R.color.white));
-		 * mFriendsLayout
-		 * .setBackgroundColor(getResources().getColor(R.color.tab_color)); if
-		 * (mFriendsList != null && mFriendsList.size() > 0) { setAdapter(); }
-		 * else { fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false); } break;
-		 */default:
-			break;
+			/*
+			 * case R.id.friends_button_layout: mCurrentStreamType =
+			 * STREAM_TYPE.FRIENDS; mCollege.setTextColor(getResources().getColor
+			 * (R.color.tab_color));
+			 * mAllColleges.setTextColor(getResources().getColor
+			 * (R.color.tab_color));
+			 * mFriends.setTextColor(getResources().getColor(R.color.white));
+			 * mCollegeLayout
+			 * .setBackgroundColor(getResources().getColor(R.color.white));
+			 * mAllCollegesLayout
+			 * .setBackgroundColor(getResources().getColor(R.color.white));
+			 * mFriendsLayout
+			 * .setBackgroundColor(getResources().getColor(R.color.tab_color)); if
+			 * (mFriendsList != null && mFriendsList.size() > 0) { setAdapter(); }
+			 * else { fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false); } break;
+			 */default:
+				 break;
 		}
 	}
 
@@ -928,48 +964,48 @@ public class GlobalStreamsFragment extends Fragment implements
 			ImageLoader.getInstance().displayImage(imageURL, imageView,
 					options, new ImageLoadingListener() {
 
-						@Override
-						public void onLoadingStarted(String imageUri, View view) {
+				@Override
+				public void onLoadingStarted(String imageUri, View view) {
 
-							if (progresswheel != null) {
-								progresswheel.incrementProgress(0);
-								progresswheel.setVisibility(View.VISIBLE);
-							}
-						}
+					if (progresswheel != null) {
+						progresswheel.incrementProgress(0);
+						progresswheel.setVisibility(View.VISIBLE);
+					}
+				}
 
-						@Override
-						public void onLoadingFailed(String imageUri, View view,
-								FailReason failReason) {
-							// TODO Auto-generated method stub
-							if (progresswheel != null)
-								progresswheel.setVisibility(View.GONE);
-						}
+				@Override
+				public void onLoadingFailed(String imageUri, View view,
+						FailReason failReason) {
+					// TODO Auto-generated method stub
+					if (progresswheel != null)
+						progresswheel.setVisibility(View.GONE);
+				}
 
-						@Override
-						public void onLoadingComplete(String imageUri,
-								View view, Bitmap loadedImage) {
-							if (progresswheel != null)
-								progresswheel.setVisibility(View.GONE);
-							imageView.setVisibility(View.VISIBLE);
-						}
+				@Override
+				public void onLoadingComplete(String imageUri,
+						View view, Bitmap loadedImage) {
+					if (progresswheel != null)
+						progresswheel.setVisibility(View.GONE);
+					imageView.setVisibility(View.VISIBLE);
+				}
 
-						@Override
-						public void onLoadingCancelled(String imageUri,
-								View view) {
-							// TODO Auto-generated method stub
-							if (progresswheel != null)
-								progresswheel.setVisibility(View.GONE);
-						}
-					}, new ImageLoadingProgressListener() {
+				@Override
+				public void onLoadingCancelled(String imageUri,
+						View view) {
+					// TODO Auto-generated method stub
+					if (progresswheel != null)
+						progresswheel.setVisibility(View.GONE);
+				}
+			}, new ImageLoadingProgressListener() {
 
-						@Override
-						public void onProgressUpdate(String imageUri,
-								View view, int current, int total) {
-							if (progresswheel != null)
-								progresswheel.incrementProgress((current * 360)
-										/ total);
-						}
-					});
+				@Override
+				public void onProgressUpdate(String imageUri,
+						View view, int current, int total) {
+					if (progresswheel != null)
+						progresswheel.incrementProgress((current * 360)
+								/ total);
+				}
+			});
 
 		}
 	}
@@ -997,9 +1033,9 @@ public class GlobalStreamsFragment extends Fragment implements
 							&& bmpDrawable.getMinimumWidth() > 0
 							&& bmpDrawable.getMinimumHeight() > 0) {
 						mCueDetailsBackgroundWideImage
-								.setImageDrawable(bmpDrawable);
+						.setImageDrawable(bmpDrawable);
 						mCueDetailsBackgroundWideImage
-								.setVisibility(View.VISIBLE);
+						.setVisibility(View.VISIBLE);
 					}
 				} catch (Exception e) {
 					Logger.logStackTrace(e);
@@ -1047,16 +1083,16 @@ public class GlobalStreamsFragment extends Fragment implements
 						if (count == failedExpressionsCount) {
 							// All the expressions are with FAILED status
 							mQueueMessage
-									.setText(count
-											+ getResources()
-													.getString(
-															R.string.failed_expressions_count_message));
+							.setText(count
+									+ getResources()
+									.getString(
+											R.string.failed_expressions_count_message));
 						} else {
 							mQueueMessage
-									.setText(count
-											+ getResources()
-													.getString(
-															R.string.queued_expressions_count_message));
+							.setText(count
+									+ getResources()
+									.getString(
+											R.string.queued_expressions_count_message));
 						}
 					}
 					// Show expression thumbnail
@@ -1078,13 +1114,13 @@ public class GlobalStreamsFragment extends Fragment implements
 														.decodeFile(file
 																.getAbsolutePath());
 												mQueueIcon
-														.setImageBitmap(expressionBitmap);
+												.setImageBitmap(expressionBitmap);
 											} catch (Exception e) {
 
 											}
 										} else {
 											mQueueIcon
-													.setImageResource(R.drawable.queue_icon);
+											.setImageResource(R.drawable.queue_icon);
 										}
 									}
 								}
@@ -1136,7 +1172,7 @@ public class GlobalStreamsFragment extends Fragment implements
 						mQueuedExpressionsAdapter = new QueuedExpressionsAdapter(
 								this, queuedExpressions);
 						mQueuedExpressionsListView
-								.setAdapter(mQueuedExpressionsAdapter);
+						.setAdapter(mQueuedExpressionsAdapter);
 						mQueuedExpressionsAdapter.notifyDataSetChanged();
 					}
 				}
@@ -1146,7 +1182,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		// Trigger submission of queued expressions to Whatsay server
 
 		AutoSendManager.getInstance(getActivity().getApplicationContext())
-				.startSending();
+		.startSending();
 	}
 
 	/**
@@ -1279,7 +1315,7 @@ public class GlobalStreamsFragment extends Fragment implements
 					if (!TextUtils.isEmpty(assetId)) {
 						if (mProgressBar != null
 								&& (mProgressBar.getVisibility() == View.INVISIBLE || mProgressBar
-										.getVisibility() == View.GONE)) {
+								.getVisibility() == View.GONE)) {
 							mProgressBar.setVisibility(View.GONE);
 						}
 						AssetDeleteHandler handler = new AssetDeleteHandler(
@@ -1346,7 +1382,7 @@ public class GlobalStreamsFragment extends Fragment implements
 									this.getActivity().getApplicationContext(),
 									getResources().getString(
 											R.string.delete_success),
-									Toast.LENGTH_LONG).show();
+											Toast.LENGTH_LONG).show();
 						}
 					}
 				}
@@ -1371,7 +1407,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		if (getActivity() != null) {
 			View queuedExpressionsListView = (View) LayoutInflater.from(
 					getActivity()).inflate(R.layout.failedexpressions_list,
-					null);
+							null);
 			mQueuedExpressionsListView = (ListView) queuedExpressionsListView
 					.findViewById(R.id.failedExpressionsListView);
 			mQueuedExpressionsListView.setCacheColorHint(Color.TRANSPARENT);
@@ -1390,7 +1426,7 @@ public class GlobalStreamsFragment extends Fragment implements
 					mQueuedExpressionsAdapter = new QueuedExpressionsAdapter(
 							GlobalStreamsFragment.this, queuedExpressions);
 					mQueuedExpressionsListView
-							.setAdapter(mQueuedExpressionsAdapter);
+					.setAdapter(mQueuedExpressionsAdapter);
 					addQueuedExpressionsListView(queuedExpressionsListView);
 				}
 			}
@@ -1419,17 +1455,17 @@ public class GlobalStreamsFragment extends Fragment implements
 			mQueuedExpressionsDialog.getWindow().setBackgroundDrawable(
 					new ColorDrawable(android.graphics.Color.TRANSPARENT));
 			mQueuedExpressionsDialog
-					.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			.requestWindowFeature(Window.FEATURE_NO_TITLE);
 			mQueuedExpressionsDialog.setContentView(queuedExpressionsListView);
 			mQueuedExpressionsDialog
-					.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			.setOnDismissListener(new DialogInterface.OnDismissListener() {
 
-						@Override
-						public void onDismiss(DialogInterface dialog) {
-							mQueuedExpressionsListView = null;
-							refreshQueueLayout();
-						}
-					});
+				@Override
+				public void onDismiss(DialogInterface dialog) {
+					mQueuedExpressionsListView = null;
+					refreshQueueLayout();
+				}
+			});
 			mQueuedExpressionsDialog.show();
 		}
 	}
@@ -1469,10 +1505,10 @@ public class GlobalStreamsFragment extends Fragment implements
 		feedBack.setFeedback(feedBackType);
 
 		RestClient
-				.getInstance()
-				.getRestClient(getActivity())
-				.postFeedBack(feedBack,
-						new FeedBackCallBack(getActivity(), feedBack));
+		.getInstance()
+		.getRestClient(getActivity())
+		.postFeedBack(feedBack,
+				new FeedBackCallBack(getActivity(), feedBack));
 
 	}
 }

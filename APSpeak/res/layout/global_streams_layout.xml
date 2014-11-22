@@ -202,7 +202,7 @@
             android:scrollbars="none"
             android:stretchMode="columnWidth"
             android:verticalSpacing="2dp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/globalstreams_list_view"
@@ -211,7 +211,7 @@
             android:layout_gravity="center"
             android:listSelector="@color/grey"
             android:stretchMode="columnWidth"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         
 
@@ -219,7 +219,6 @@
             android:id="@+id/global_streams_errorMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="center_vertical"
             android:textColor="@color/black"
             android:visibility="invisible" />
@@ -230,7 +229,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_centerInParent="true"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/feedback_message_text"
@@ -240,7 +239,7 @@
             android:layout_centerInParent="true"
             android:text="@string/app_name"
             android:textColor="@color/black"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
         <TextView
             android:layout_below="@id/feedback_message_text"
@@ -252,7 +251,7 @@
             android:paddingTop="30dp"
             android:text="@string/please_poll_your_opinion"
             android:textColor="@color/apspeak_red"
-            android:visibility="visible" />
+            android:visibility="invisible" />
         
     </RelativeLayout>
 
@@ -379,7 +378,8 @@
                 android:gravity="center"
                 android:paddingTop="5dp"
                 android:text="@string/create_idea"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light" 
+                android:paddingBottom="10dp"/>
         </RelativeLayout>
     </RelativeLayout>
 

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
 import com.paradigmcreatives.apspeak.doodleboard.listeners.ImageSelectionOnClickListener;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 
 public class ImageChooserFragment extends Fragment {
 	private Fragment fragment;
@@ -23,6 +24,7 @@ public class ImageChooserFragment extends Fragment {
 	private TextView mCameraText;
 	private TextView mGalleryText;
 	private TextView mBackgroundText;
+	private TextView mPostTxt;
 	private FrameLayout childFrame;
 	private ImageButton textIcon_camera,textIcon_gallery,imageIcon;
 	private ImageSelectionFragmentActivity activity;
@@ -52,9 +54,25 @@ public class ImageChooserFragment extends Fragment {
 				.findViewById(R.id.gallery_button_layout);
 		mWriteLayout = (LinearLayout) view
 				.findViewById(R.id.write_button_layout);
+		
+		/***
+		 * Change Style Here
+		 */
 		mCameraText = (TextView) view.findViewById(R.id.camera_text);
 		mGalleryText = (TextView) view.findViewById(R.id.gallery_text);
 		mBackgroundText = (TextView) view.findViewById(R.id.write_text);
+		mPostTxt = (TextView)view.findViewById(R.id.posts);
+		
+		TypeFontAssets fontAssets = new TypeFontAssets(getActivity());
+		
+		mCameraText.setTypeface(fontAssets.regularFont);
+		mGalleryText.setTypeface(fontAssets.regularFont);
+		mBackgroundText.setTypeface(fontAssets.regularFont);
+		mPostTxt.setTypeface(fontAssets.regularFont);
+		
+		
+		
+		
 		childFrame = (FrameLayout) view.findViewById(R.id.child_frame);
 		
 		textIcon_camera=(ImageButton)view.findViewById(R.id.img_selection_text_icon1);
