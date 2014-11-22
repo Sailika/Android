@@ -203,7 +203,7 @@ NextBatchFetchListener, OnClickListener {
 			if (savedInstanceState.containsKey(SAVE_CUE)) {
 				mCue = savedInstanceState.getParcelable(SAVE_CUE);
 			}
-
+			
 		}
 
 		ImageLoader.getInstance().init(
@@ -457,7 +457,7 @@ NextBatchFetchListener, OnClickListener {
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
 			showGridView();
-
+			
 			if (mCue != null) {
 				feedBackMessage.setText(mCue.getCueMessage());
 			}
@@ -820,7 +820,7 @@ NextBatchFetchListener, OnClickListener {
 		mErrorMessageView.setVisibility(View.INVISIBLE);
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
-			isFeedback = true;
+			isFeedback = true;			
 			// chaning header title
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
@@ -851,7 +851,7 @@ NextBatchFetchListener, OnClickListener {
 					R.color.yellow));
 			mAllCollegesLayout.setBackgroundColor(Color.TRANSPARENT);
 			globelFeedbackBottomLayout.setVisibility(View.VISIBLE);
-
+			
 			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 			fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 			// mFriendsLayout.setBackgroundColor(getResources().getColor(R.color.white));
@@ -1448,13 +1448,13 @@ NextBatchFetchListener, OnClickListener {
 
 		FeedBackType feedBackType = FeedBackType.GOOD;
 		switch (v.getId()) {
-		case R.id.icon_awesome_layout:
+		case R.id.img_btn_awesome:
 			feedBackType = FeedBackType.GOOD;
 			break;
-		case R.id.icon_average_layout:
+		case R.id.img_btn_average:
 			feedBackType = FeedBackType.AVERAGE;
 			break;
-		case R.id.icon_bad_layout:
+		case R.id.img_btn_bad:
 			feedBackType = FeedBackType.BAD;
 			break;
 		default:
