@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.app.invite.activity.InviteContactsActivity;
 import com.paradigmcreatives.apspeak.app.invite.fragments.InviteFriendsFragment;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.Util;
@@ -379,13 +380,15 @@ public class AppNewHomeActivity extends FragmentActivity {
             }
 			break;
 		case R.id.invite_contacts:
-			inviteViaMessaging();
+			Intent intent = new Intent(this, InviteContactsActivity.class);
+			startActivity(intent);
+			//inviteViaMessaging();
 			break;
 		case R.id.invite_email:
 			inviteViaEmail();
 			break;
 		case R.id.invite_facebook:
-			inviteViaFacbebook();
+			launchInviteFBFriendsFragment();
 			break;
 		case R.id.invite_twitter:
 			inviteViaTwitter();
@@ -423,7 +426,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 	private void inviteViaMessaging() {
 		// TODO Auto-generated method stub
-		
+		Util.inviteViaMessagingIntent(this, getString(R.string.invitation_message),
+			    getString(R.string.invite_friends_heading));
 	}
 
 	@Override

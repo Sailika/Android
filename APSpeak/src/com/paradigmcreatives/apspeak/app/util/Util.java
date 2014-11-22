@@ -900,15 +900,9 @@ public class Util {
 	    Intent intent = new Intent(Intent.ACTION_SEND);
 	    intent.setType("text/plain");
 	    intent.setPackage(Constants.FACEBOOK_APP_PACKAGE);
+		intent.putExtra(android.content.Intent.EXTRA_TEXT, text);
 
-	    intent.putExtra(Intent.EXTRA_TEXT, text);
-	    intent.putExtra(Intent.EXTRA_SUBJECT, text);
 	    context.startActivity(Intent.createChooser(intent, title));
-
-	    // Close if its preview activity
-	    if (context instanceof AppNewHomeActivity) {
-		((Activity) context).finish();
-	    }
 	} else {
 	    Logger.warn(TAG, "Context is null or text or title is empty. Text - " + text + " Title - " + title);
 	}
@@ -952,13 +946,23 @@ public class Util {
 				    intent.setPackage(Constants.TWITTER_APP_PACKAGE);
 
 				    intent.putExtra(Intent.EXTRA_TEXT, text );
-				    context.startActivity(Intent.createChooser(intent, "Invite Via"));
+				    context.startActivity(Intent.createChooser(intent, "Invite Via Twitter"));
 				
 			    } else {
 				Logger.warn(TAG, "Values in app intent are null");
 			    }
 			} else {
 			    Logger.warn(TAG, "Context is null");
+			}
+		    }
+	 public static void inviteViaMessagingIntent(Context context, String text, String title) {
+			if (context != null && !TextUtils.isEmpty(text) && !TextUtils.isEmpty(title)) {
+				Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+			    sendIntent.putExtra("sms_body", text); 
+			    sendIntent.setType("vnd.android-dir/mms-sms");
+			    context.startActivity(sendIntent);
+			} else {
+			    Logger.warn(TAG, "Context is null or text or title is empty. Text - " + text + " Title - " + title);
 			}
 		    }
 

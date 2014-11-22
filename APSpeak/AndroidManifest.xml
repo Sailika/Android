@@ -23,23 +23,27 @@
     <permission
         android:name="com.paradigmcreatives.apspeak.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-<!--     <permission
+    <!--
+         <permission
         android:name="android.permission.FLASHLIGHT"
         android:permissionGroup="android.permission-group.HARDWARE_CONTROLS"
-        android:protectionLevel="normal" /> -->
+        android:protectionLevel="normal" />
+    -->
 
     <uses-permission android:name="com.paradigmcreatives.apspeak.permission.C2D_MESSAGE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Permission Required by GCM Ends Here -->
-
+    
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:name="com.paradigmcreatives.apspeak.WhatsayApplication"
@@ -176,6 +180,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.paradigmcreatives.apspeak.app.invite.activity.InviteContactsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        
 
         <service android:name="com.paradigmcreatives.apspeak.GCMIntentService" />
 
@@ -195,13 +205,11 @@
         <receiver android:name="com.paradigmcreatives.apspeak.registration.receivers.GCMRegistrationReceiver" />
         <receiver android:name="com.paradigmcreatives.apspeak.notification.IncomingNotificationReceiver" />
         <receiver android:name="com.paradigmcreatives.apspeak.app.alert.AlertReceiver" />
-        
         <receiver android:name="com.paradigmcreatives.apspeak.app.util.connectivity.ConnectivityChangeReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-        
     </application>
 
 </manifest>
