@@ -77,8 +77,8 @@
     <color name="invite_email_btn_bg_color">#EFC928</color>
     <color name="invite_twitter_btn_bg_color">#0095DB</color>
     <color name="invite_btn_seperator">#8F9057</color>
-   
-    
+   <color name="apspeak_light_red">#b7575b</color>
+   <color name="apspeak_edit_text_color">#FFDADC</color>
     
 
 </resources>

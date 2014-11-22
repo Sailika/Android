@@ -14,4 +14,6 @@
     <dimen name="usernametextsize">16dp</dimen>
     <dimen name="continueimagesize">44dp</dimen>
     
+    <dimen name="abouUsPageSize">34px</dimen>
+    
 </resources>

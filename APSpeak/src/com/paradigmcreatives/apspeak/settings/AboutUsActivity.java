@@ -3,6 +3,7 @@ package com.paradigmcreatives.apspeak.settings;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.widget.TextView;
 
 import com.facebook.AppEventsLogger;
@@ -24,7 +25,7 @@ public class AboutUsActivity extends Activity {
 		
 		TypeFontAssets fontAssets = new TypeFontAssets(getApplicationContext());
 		
-		aboutUsTxt.setTypeface(fontAssets.boldFont);
+		aboutUsTxt.setTypeface(fontAssets.lightFont);
 		
 
 	}
