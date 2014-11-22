@@ -743,7 +743,7 @@ NextBatchFetchListener, OnClickListener {
 					mErrorMessageView
 							.setText(R.string.stream_load_errormessage);
 				}
-				mErrorMessageView.setVisibility(View.VISIBLE);
+				mErrorMessageView.setVisibility(View.INVISIBLE);
 			}
 		}
 	}
