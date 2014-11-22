@@ -8,6 +8,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.announcements.handlers.GetAnnouncementContentHandler;
 import com.paradigmcreatives.apspeak.announcements.tasks.GetAnnouncementContentThread;
+import com.paradigmcreatives.apspeak.app.invite.listeners.InviteButtonsClickListeners;
 import com.paradigmcreatives.apspeak.app.model.MyFeedBean;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.Util;
@@ -28,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -51,6 +53,7 @@ public class InviteFriendsFragment extends Fragment {
 	private LinearLayout mAnnouncementLayout;
 	private ProgressBar mAnnouncementProgressBar;
 	private WebView mAnnouncementWebView;
+	private Button contactsBtn, emailBtn, twitterBtn, facebookBtn, whatsappBtn;
 	
 	private final String SAVE_FEED = "feed";
 	private final String SAVE_USERID = "userid";
@@ -130,6 +133,18 @@ public class InviteFriendsFragment extends Fragment {
 
 	private void initUI(View rootView) {
 
+		contactsBtn = (Button) rootView.findViewById(R.id.invite_contacts);
+		emailBtn = (Button) rootView.findViewById(R.id.invite_email);
+		facebookBtn = (Button) rootView.findViewById(R.id.invite_facebook);
+		twitterBtn = (Button) rootView.findViewById(R.id.invite_twitter);
+		whatsappBtn = (Button) rootView.findViewById(R.id.invite_whatsap);
+		InviteButtonsClickListeners inviteBtnListener = new InviteButtonsClickListeners(this.getActivity());
+		contactsBtn.setOnClickListener(inviteBtnListener);
+		emailBtn.setOnClickListener(inviteBtnListener);
+		facebookBtn.setOnClickListener(inviteBtnListener);
+		twitterBtn.setOnClickListener(inviteBtnListener);
+		whatsappBtn.setOnClickListener(inviteBtnListener);
+		
 		
 	}
 
