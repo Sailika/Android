@@ -18,14 +18,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
-        android:background="@color/red"
-        android:orientation="vertical"
-        android:paddingTop="10dp" >
+        android:background="@drawable/header_bg"
+        android:orientation="vertical" >
 
-    <!--  <View
+        <!--
+          <View
             android:layout_width="fill_parent"
             android:layout_height="0.5dp"
-            android:background="#989898" /> -->  
+            android:background="#989898" />
+        -->
 
         <View
             android:layout_width="fill_parent"
@@ -50,9 +51,9 @@
             <LinearLayout
                 android:id="@+id/college_button_layout"
                 android:layout_width="0dp"
-                android:background="@color/yellow"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5" >
+                android:layout_weight="0.5"
+                android:background="@color/yellow" >
 
                 <TextView
                     android:id="@+id/feedback"

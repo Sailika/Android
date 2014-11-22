@@ -338,4 +338,11 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="dashboard">Dashboard</string> 
     <string name="thank_you">Thank you</string>
     <string name="providing_feedback">for providing your feedback.</string>
+    <!-- Sign In -->
+    <string name="ap_powered"></string>
+    <string name="ap_govt"></string>
+    <string name="forgot_password"></string>
+    <string name="sign_in"></string>
+    <string name="password"></string>
+    <string name="sign_in_via_fb"></string>
 </resources>
