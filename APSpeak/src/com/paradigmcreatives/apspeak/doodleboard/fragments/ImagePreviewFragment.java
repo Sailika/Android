@@ -1,38 +1,30 @@
 package com.paradigmcreatives.apspeak.doodleboard.fragments;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.Animation.AnimationListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.paradigmcreatives.apspeak.R;
-import com.paradigmcreatives.apspeak.app.database.expressionsdb.ExpressionsSubmitQueueDAO;
-import com.paradigmcreatives.apspeak.app.model.ExpressionSubmitQueueBean;
-import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
-import com.paradigmcreatives.apspeak.app.util.constants.Constants;
 import com.paradigmcreatives.apspeak.doodleboard.DoodleView;
 import com.paradigmcreatives.apspeak.doodleboard.DoodleView.PlayState;
 import com.paradigmcreatives.apspeak.doodleboard.background.text.TextHelper;
 import com.paradigmcreatives.apspeak.doodleboard.handlers.SaveAndSubmitAssetHandler;
 import com.paradigmcreatives.apspeak.doodleboard.listeners.CanvasActivityListeners;
-import com.paradigmcreatives.apspeak.doodleboard.send.AssetSubmitHelper;
 import com.paradigmcreatives.apspeak.doodleboard.tasks.SaveAndSubmitAssetTask;
 import com.paradigmcreatives.apspeak.doodleboard.tasks.SaveAndSubmitAssetTask.TYPE;
 

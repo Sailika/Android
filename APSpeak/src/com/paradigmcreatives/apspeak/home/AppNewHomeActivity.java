@@ -162,7 +162,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 		if (AppPropertiesUtil.isWelcomeScreenShownBefore(this)) {
 			welcomeFrame.setVisibility(View.GONE);
 		} else {
-			welcomeFrame.setVisibility(View.VISIBLE);
+			welcomeFrame.setVisibility(View.GONE);
 			AppPropertiesUtil.setWelcomeScreenShownBeforeToTrue(this);
 		}
 		welcomeClose.setOnClickListener(new OnClickListener() {

@@ -19,7 +19,7 @@
                 android:id="@+id/home_header_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/apspeak_red" >
+                android:background="@drawable/header_bg" >
 
                 <RelativeLayout
                     android:id="@+id/home_header_logo_layout"
@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:src="@drawable/whatsay_header_logo"
-                        android:visibility="gone" />
+                        android:visibility="gone"/>
 
                     <TextView
                         android:id="@+id/header_txt_profile"
