@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.widget.TextView;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
@@ -30,12 +31,13 @@ public class AppNewChildActivity extends FragmentActivity {
 	public static final int SUBMIT_EXPRESSION = 99;
 	private Fragment fragment;
 	private AutoSendStatusBroadcastReceiver mAutoSendBroadcastReceiver;
+	private TextView globelTxtView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newchild_activity_layout);
-
+		globelTxtView = (TextView) findViewById(R.id.globel_header_text);
 		createFragmentBasedOnIntentValues();
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		if (fragment != null && fragmentManager != null) {
@@ -60,6 +62,8 @@ public class AppNewChildActivity extends FragmentActivity {
 			} else if (data
 					.containsKey(Constants.LAUNCH_INVITE_FBFRIENDS_SCREEN)
 					&& data.getBoolean(Constants.LAUNCH_INVITE_FBFRIENDS_SCREEN)) {
+				globelTxtView.setText(getResources().getString(
+						R.string.invite_friends_heading));
 				fragment = new UserNetworkFragment(
 						UserNetwork.FACEBOOK_FRIENDS,
 						AppPropertiesUtil.getUserID(this), false, false);
@@ -75,26 +79,29 @@ public class AppNewChildActivity extends FragmentActivity {
 	@Override
 	protected void onStart() {
 		super.onStart();
-		AppEventsLogger.activateApp(getApplicationContext(), Constants.FACEBOOK_APPID);
+		AppEventsLogger.activateApp(getApplicationContext(),
+				Constants.FACEBOOK_APPID);
 		mAutoSendBroadcastReceiver = new AutoSendStatusBroadcastReceiver(this);
-		registerReceiver(mAutoSendBroadcastReceiver, new IntentFilter(Constants.AUTOSEND_STATUS_BRAODCAST_ACTION));
+		registerReceiver(mAutoSendBroadcastReceiver, new IntentFilter(
+				Constants.AUTOSEND_STATUS_BRAODCAST_ACTION));
 	}
-	
+
 	@Override
 	protected void onStop() {
-		if(mAutoSendBroadcastReceiver != null){
+		if (mAutoSendBroadcastReceiver != null) {
 			unregisterReceiver(mAutoSendBroadcastReceiver);
 		}
 		super.onStop();
 	}
-	
+
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
 			case SUBMIT_EXPRESSION:
-				if(fragment != null && fragment instanceof GlobalStreamsFragment){
+				if (fragment != null
+						&& fragment instanceof GlobalStreamsFragment) {
 					((GlobalStreamsFragment) fragment).refreshQueueLayout();
 				}
 				break;
@@ -112,12 +119,13 @@ public class AppNewChildActivity extends FragmentActivity {
 	}
 
 	/**
-	 * Refreshes queue layout in GlobalStreamsFragment, that represents the number of expressions
-	 * that are available in DB for auto-submit to Whatsay server
+	 * Refreshes queue layout in GlobalStreamsFragment, that represents the
+	 * number of expressions that are available in DB for auto-submit to Whatsay
+	 * server
 	 */
-	public void refreshQueueLayout(){
-		if(fragment != null && fragment instanceof GlobalStreamsFragment){
-			((GlobalStreamsFragment)fragment).refreshQueueLayout();
+	public void refreshQueueLayout() {
+		if (fragment != null && fragment instanceof GlobalStreamsFragment) {
+			((GlobalStreamsFragment) fragment).refreshQueueLayout();
 		}
 	}
 }

@@ -219,11 +219,15 @@ public class AppPropertiesUtil {
 	 *         null
 	 */
 	public static String getUserID(Context context) {
-		SharedPreferences appPref = context.getSharedPreferences(
-				Constants.KEY_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
+		if (context != null) {
+			SharedPreferences appPref = context.getSharedPreferences(
+					Constants.KEY_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
 
-		String userId = appPref.getString(Constants.KEY_USER_ID, null);
-		return userId;
+			String userId = appPref.getString(Constants.KEY_USER_ID, null);
+			return userId;
+		} else {
+			return null;
+		}
 
 	}
 
@@ -643,7 +647,8 @@ public class AppPropertiesUtil {
 	}
 
 	/**
-	 * Sets the notification id that is lastly assigned/used to latest Notification.
+	 * Sets the notification id that is lastly assigned/used to latest
+	 * Notification.
 	 * 
 	 * @param context
 	 * @param notificationsCount
@@ -655,33 +660,34 @@ public class AppPropertiesUtil {
 					Constants.KEY_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = appPref.edit();
 			if (editor != null) {
-				editor.putInt(Constants.KEY_NOTIFICATION_ID,
-						notificationId);
+				editor.putInt(Constants.KEY_NOTIFICATION_ID, notificationId);
 				editor.commit();
 			}
 		}
 	}
 
 	/**
-	 * Gets lastly assigned/used notification id.  Caller has to increment the
-	 * returned value, assign it to the new/latest notification and store the incremented
-	 * value in shared preferences by calling the function setLastUsedNotificationId()
+	 * Gets lastly assigned/used notification id. Caller has to increment the
+	 * returned value, assign it to the new/latest notification and store the
+	 * incremented value in shared preferences by calling the function
+	 * setLastUsedNotificationId()
 	 * 
 	 * @param context
 	 * @return
 	 */
 	public static synchronized int getLastUsedNotificationId(Context context) {
 		/*
-		 * Notification id 1 is assigned for WHATSAY_ASSET_LOVED.  Hence if there is no key present in shared preferences 
-		 * then return the value 1, so that caller will increment, assign the value to new/latest notification and stores the 
-		 * incremented value in shared preferences by calling the function setLastUsedNotificationId()
+		 * Notification id 1 is assigned for WHATSAY_ASSET_LOVED. Hence if there
+		 * is no key present in shared preferences then return the value 1, so
+		 * that caller will increment, assign the value to new/latest
+		 * notification and stores the incremented value in shared preferences
+		 * by calling the function setLastUsedNotificationId()
 		 */
 		int notificationId = 1;
 		if (context != null) {
 			SharedPreferences appPref = context.getSharedPreferences(
 					Constants.KEY_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
-			notificationId = appPref.getInt(
-					Constants.KEY_NOTIFICATION_ID, 1);
+			notificationId = appPref.getInt(Constants.KEY_NOTIFICATION_ID, 1);
 		}
 		return notificationId;
 	}
@@ -763,8 +769,7 @@ public class AppPropertiesUtil {
 		if (context != null) {
 			SharedPreferences appPref = context.getSharedPreferences(
 					Constants.KEY_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
-			isShown = appPref.getBoolean(
-					Constants.KEY_TEXT_HELPOVERLAY, false);
+			isShown = appPref.getBoolean(Constants.KEY_TEXT_HELPOVERLAY, false);
 		}
 		return isShown;
 	}
@@ -819,6 +824,5 @@ public class AppPropertiesUtil {
 		editor.putBoolean(Constants.KEY_ASSETDETAILS_HELPOVERLAY, isShown);
 		return editor.commit();
 	}
-
 
 }

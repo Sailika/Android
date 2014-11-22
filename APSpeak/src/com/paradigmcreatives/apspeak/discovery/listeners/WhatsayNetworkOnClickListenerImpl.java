@@ -114,9 +114,12 @@ public class WhatsayNetworkOnClickListenerImpl implements OnClickListener {
 				}
 			}
 			break;
-		case R.id.network_invite_text:
+		case R.id.home_notifications_count:
 			fragment.inviteFriends();
 			break;
+		case R.id.home_back:
+			fragment.getActivity().finish();
+			
 		default:
 			break;
 		}

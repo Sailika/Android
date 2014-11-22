@@ -36,6 +36,7 @@ import android.widget.Toast;
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.ShutDownListener;
+import com.paradigmcreatives.apspeak.app.invite.activity.InviteContactsActivity;
 import com.paradigmcreatives.apspeak.app.invite.fragments.InviteFriendsFragment;
 import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
 import com.paradigmcreatives.apspeak.app.util.Util;
@@ -367,13 +368,15 @@ public class AppNewHomeActivity extends FragmentActivity {
 			}
 			break;
 		case R.id.invite_contacts:
-			inviteViaMessaging();
+			Intent intent = new Intent(this, InviteContactsActivity.class);
+			startActivity(intent);
+			//inviteViaMessaging();
 			break;
 		case R.id.invite_email:
 			inviteViaEmail();
 			break;
 		case R.id.invite_facebook:
-			inviteViaFacbebook();
+			launchInviteFBFriendsFragment();
 			break;
 		case R.id.invite_twitter:
 			inviteViaTwitter();
@@ -399,7 +402,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
 		showHideNotificationsCount();
 
-		mInviteIcon.setVisibility(View.VISIBLE);
+		mInviteIcon.setVisibility(View.GONE);
 		mSettingsIcon.setVisibility(View.INVISIBLE);
 		mFeedbackIcon.setVisibility(View.VISIBLE);
 		mCuesLayout.setVisibility(View.VISIBLE);
@@ -434,7 +437,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 	}
 
 	private void inviteViaEmail() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubst
 		Intent emailIntent = Util.getPreFormattedEmailIntent(
 				getString(R.string.invitation_message),
 				getString(R.string.app_name), "");
@@ -442,8 +445,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 	}
 
 	private void inviteViaMessaging() {
-		// TODO Auto-generated method stub
 
+		Util.inviteViaMessagingIntent(this, getString(R.string.invitation_message),
+			    getString(R.string.invite_friends_heading));
 	}
 
 	@Override

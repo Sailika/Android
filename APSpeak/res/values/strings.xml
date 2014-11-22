@@ -361,5 +361,6 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="details">Details</string>
     <string name="empty">Empty post not allowed.</string>
     <string name="need_to_implement">Feature is not enabled yet, comming soon!</string>
+    <string name="invite_btn">Invite</string>
 
 </resources>

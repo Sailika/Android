@@ -63,7 +63,7 @@ public class GetGroupsListHandler extends Handler {
 				} else if (fragment instanceof ProfileFragment) {
 					if (msg.obj != null) {
 						((ProfileFragment) fragment)
-								.onSuccessfulUserGroupFetch((ArrayList<GroupBean>) msg.obj);
+								.onSuccessfulUserGroupFetch(fragment,(ArrayList<GroupBean>) msg.obj);
 					}
 				} else if (fragment instanceof SettingsFragment) {
 					try {

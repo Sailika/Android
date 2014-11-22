@@ -356,7 +356,8 @@ public class ProfileFragment extends Fragment {
 	 * 
 	 * @param group
 	 */
-	public void onSuccessfulUserGroupFetch(ArrayList<GroupBean> groupsList) {
+	public void onSuccessfulUserGroupFetch(Fragment fragment,
+			ArrayList<GroupBean> groupsList) {
 		if (groupsList != null && groupsList.size() > 0) {
 			GroupBean group = groupsList.get(0);
 			if (groupNameTextView != null && group != null
@@ -365,11 +366,15 @@ public class ProfileFragment extends Fragment {
 
 				// Store current logged in user's group name in
 				// SharedPreferences
-				String appUserId = AppPropertiesUtil.getUserID(getActivity());
-				if (!TextUtils.isEmpty(appUserId) && !TextUtils.isEmpty(userID)
-						&& appUserId.equals(userID)) {
-					AppPropertiesUtil.setUserGroupName(getActivity(),
-							group.getGroupName());
+				if (fragment != null && fragment.getActivity() != null) {
+					String appUserId = AppPropertiesUtil.getUserID(fragment
+							.getActivity());
+					if (!TextUtils.isEmpty(appUserId)
+							&& !TextUtils.isEmpty(userID)
+							&& appUserId.equals(userID)) {
+						AppPropertiesUtil.setUserGroupName(getActivity(),
+								group.getGroupName());
+					}
 				}
 			}
 		}
