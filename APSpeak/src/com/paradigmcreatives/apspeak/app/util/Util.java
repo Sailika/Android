@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -25,6 +26,7 @@ import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.MailTo;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -38,6 +40,7 @@ import com.paradigmcreatives.apspeak.app.model.ASSET_TYPE;
 import com.paradigmcreatives.apspeak.app.model.GENDER;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants;
 import com.paradigmcreatives.apspeak.app.util.images.ImageUtil;
+import com.paradigmcreatives.apspeak.home.AppNewHomeActivity;
 import com.paradigmcreatives.apspeak.logging.Logger;
 import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
 
@@ -861,6 +864,56 @@ public class Util {
 		}
 		return null;
 	}
+	 /**
+     * This method helps in composing email
+     * 
+     * @param smsBody
+     *            : Content of the message
+     * @param targetNumber
+     * @return: An instance of email intent
+     */
+    public static Intent getPreFormattedEmailIntent(String emailBody, String emailTitle, String recipientEmail) {
+
+	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+	if ((TextUtils.isEmpty(emailBody)) || (TextUtils.isEmpty(emailTitle))) {
+	    return null;
+	}
+
+	emailIntent.setType("text/plain");
+
+	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] { recipientEmail });
+
+	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, emailTitle);
+
+	emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, emailBody); 
+	return emailIntent;
+
+    }
+    /**
+     * Opens the share text intent with the Facebook package
+     * 
+     * @param context
+     * @param appLink
+     */
+    public static void shareTextOnFacebookViaIntent(Context context, String text, String title) {
+	if (context != null && !TextUtils.isEmpty(text) && !TextUtils.isEmpty(title)) {
+	    Intent intent = new Intent(Intent.ACTION_SEND);
+	    intent.setType("text/plain");
+	    intent.setPackage(Constants.FACEBOOK_APP_PACKAGE);
+
+	    intent.putExtra(Intent.EXTRA_TEXT, text);
+	    intent.putExtra(Intent.EXTRA_SUBJECT, text);
+	    context.startActivity(Intent.createChooser(intent, title));
+
+	    // Close if its preview activity
+	    if (context instanceof AppNewHomeActivity) {
+		((Activity) context).finish();
+	    }
+	} else {
+	    Logger.warn(TAG, "Context is null or text or title is empty. Text - " + text + " Title - " + title);
+	}
+    }
+
 
 	/**
 	 * This method helps in composing email
@@ -891,5 +944,22 @@ public class Util {
 		return emailIntent;
 
 	}
+	 public static void launchAppWithTwitterText(Context context, String text) {
+			if (context != null) {
+			    if (!TextUtils.isEmpty(text)) {
+				    Intent intent = new Intent(Intent.ACTION_SEND);
+				    intent.setType("text/plain");
+				    intent.setPackage(Constants.TWITTER_APP_PACKAGE);
+
+				    intent.putExtra(Intent.EXTRA_TEXT, text );
+				    context.startActivity(Intent.createChooser(intent, "Invite Via"));
+				
+			    } else {
+				Logger.warn(TAG, "Values in app intent are null");
+			    }
+			} else {
+			    Logger.warn(TAG, "Context is null");
+			}
+		    }
 
 }
