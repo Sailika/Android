@@ -22,6 +22,7 @@ import com.paradigmcreatives.apspeak.share.adapters.ShareAppsInfoAdapter;
 import com.paradigmcreatives.apspeak.share.adapters.ShareWhatsayImageAdapter;
 import com.paradigmcreatives.apspeak.share.listeners.ShareAppItemOnClickListener;
 import com.paradigmcreatives.apspeak.share.listeners.ShareImageAppItemOnClickImpl;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 
 /**
  * This Class contains methods to display various dialogs.
@@ -39,6 +40,9 @@ public class WhatsayDialogsUtil {
 	 * @return
 	 */
 	public static Dialog exitDialog(Context mContext, String title) {
+		
+		TypeFontAssets typeFontAssets = new TypeFontAssets(mContext);
+		
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View emptyCanvasDialog = inflater.inflate(R.layout.empty_canvas_dialog,
@@ -52,10 +56,8 @@ public class WhatsayDialogsUtil {
 				.findViewById(R.id.empty_doodle_title);
 		Typeface myTypeface = Typeface.createFromAsset(mContext.getAssets(),
 				"Roboto-Regular.ttf");
-		Typeface myTypefaceBold = Typeface.createFromAsset(
-				mContext.getAssets(), "Roboto-Bold.ttf");
 		dialogTitle.setText(title);
-		dialogTitle.setTypeface(myTypefaceBold);
+		dialogTitle.setTypeface(typeFontAssets.boldFont);
 		okButton.setTypeface(myTypeface);
 		okButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
