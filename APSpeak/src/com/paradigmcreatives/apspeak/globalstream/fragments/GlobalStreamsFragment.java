@@ -74,6 +74,7 @@ import com.paradigmcreatives.apspeak.assets.tasks.AssetDeleteThread;
 import com.paradigmcreatives.apspeak.assets.tasks.AssetInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.UserInappropriateThread;
 import com.paradigmcreatives.apspeak.assets.tasks.WhatsayAssetDownloadThread;
+import com.paradigmcreatives.apspeak.autosend.AutoSendManager;
 import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
 import com.paradigmcreatives.apspeak.feedback.FeedBack;
 import com.paradigmcreatives.apspeak.feedback.FeedBackResponse;
@@ -100,8 +101,7 @@ import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
  * 
  */
 public class GlobalStreamsFragment extends Fragment implements
-
-NextBatchFetchListener, OnClickListener {
+		NextBatchFetchListener, OnClickListener {
 
 	public static final String TAG = GlobalStreamsFragment.class
 			.getSimpleName();
@@ -153,6 +153,7 @@ NextBatchFetchListener, OnClickListener {
 	// for feedback and create ideas
 	private static LinearLayout feedbackOptsLayout;
 	private RelativeLayout ideasMainLayout;
+	private ImageView createIdeaImage;
 
 	// for feedback click events
 	private ImageView awesomeFeedBackImg;
@@ -203,7 +204,7 @@ NextBatchFetchListener, OnClickListener {
 			if (savedInstanceState.containsKey(SAVE_CUE)) {
 				mCue = savedInstanceState.getParcelable(SAVE_CUE);
 			}
-			
+
 		}
 
 		ImageLoader.getInstance().init(
@@ -414,6 +415,8 @@ NextBatchFetchListener, OnClickListener {
 					.findViewById(R.id.feedback_layout);
 			ideasMainLayout = (RelativeLayout) rootView
 					.findViewById(R.id.create_idea_main_layout);
+			createIdeaImage = (ImageView) rootView
+					.findViewById(R.id.create_idea_image);
 
 			awesomeFeedBackImg = (ImageView) rootView
 					.findViewById(R.id.img_btn_awesome);
@@ -424,20 +427,8 @@ NextBatchFetchListener, OnClickListener {
 			awesomeFeedBackImg.setOnClickListener(this);
 			avgFeedBackImg.setOnClickListener(this);
 			badFeedBackImg.setOnClickListener(this);
-			ideasMainLayout.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					Intent intent = new Intent(getActivity(),
-							ImageSelectionFragmentActivity.class);
-					if (mCue != null && !TextUtils.isEmpty(mCue.getCueId())) {
-						intent.putExtra(Constants.CUE_ID, mCue.getCueId());
-					}
-					getActivity().startActivityForResult(intent,
-							AppNewChildActivity.SUBMIT_EXPRESSION);
-				}
-			});
-
+			ideasMainLayout.setOnClickListener(this);
+			createIdeaImage.setOnClickListener(this);
 			headerText = (TextView) rootView
 					.findViewById(R.id.globel_header_text);
 
@@ -457,7 +448,7 @@ NextBatchFetchListener, OnClickListener {
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
 			showGridView();
-			
+
 			if (mCue != null) {
 				feedBackMessage.setText(mCue.getCueMessage());
 			}
@@ -821,7 +812,6 @@ NextBatchFetchListener, OnClickListener {
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
 			isFeedback = true;
-			
 			// chaning header title
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
@@ -834,7 +824,6 @@ NextBatchFetchListener, OnClickListener {
 			yourOpinionTxt.setText(getResources().getString(
 					R.string.please_poll_your_opinion));
 			mGridView.setVisibility(View.GONE);
-			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 			ideasMainLayout.setVisibility(View.GONE);
 			feedbackOptsLayout.setVisibility(View.VISIBLE);
 			mCollege.setTextColor(getResources().getColor(R.color.black));
@@ -851,9 +840,10 @@ NextBatchFetchListener, OnClickListener {
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
 			mCollegeLayout.setBackgroundColor(getResources().getColor(
 					R.color.yellow));
-			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
-					R.color.red));
+			mAllCollegesLayout.setBackgroundColor(Color.TRANSPARENT);
 			globelFeedbackBottomLayout.setVisibility(View.VISIBLE);
+
+			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 			fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 			// mFriendsLayout.setBackgroundColor(getResources().getColor(R.color.white));
 			// if (mCollegeList != null && mCollegeList.size() > 0) {
@@ -886,8 +876,7 @@ NextBatchFetchListener, OnClickListener {
 			ideas = (TextView) mAllCollegesLayout.findViewById(R.id.ideas);
 			ideas.setTextColor(getResources().getColor(R.color.red));
 			feedback.setTextColor(getResources().getColor(R.color.yellow));
-			mCollegeLayout.setBackgroundColor(getResources().getColor(
-					R.color.red));
+			mCollegeLayout.setBackgroundColor(Color.TRANSPARENT);
 			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
 					R.color.yellow));
 			mCueDetailsBackgroundWideImage.setVisibility(View.GONE);
@@ -1155,10 +1144,10 @@ NextBatchFetchListener, OnClickListener {
 		}
 
 		// Trigger submission of queued expressions to Whatsay server
-		/*
-		 * AutoSendManager.getInstance(getActivity().getApplicationContext())
-		 * .startSending();
-		 */}
+
+		AutoSendManager.getInstance(getActivity().getApplicationContext())
+				.startSending();
+	}
 
 	/**
 	 * Shows stream content in ListView by hiding current GridView
@@ -1450,14 +1439,24 @@ NextBatchFetchListener, OnClickListener {
 
 		FeedBackType feedBackType = FeedBackType.GOOD;
 		switch (v.getId()) {
-		case R.id.icon_awesome_layout:
+		case R.id.img_btn_awesome:
 			feedBackType = FeedBackType.GOOD;
 			break;
-		case R.id.icon_average_layout:
+		case R.id.img_btn_average:
 			feedBackType = FeedBackType.AVERAGE;
 			break;
-		case R.id.icon_bad_layout:
+		case R.id.img_btn_bad:
 			feedBackType = FeedBackType.BAD;
+			break;
+		case R.id.create_idea_main_layout:
+		case R.id.create_idea_image:
+			Intent intent = new Intent(getActivity(),
+					ImageSelectionFragmentActivity.class);
+			if (mCue != null && !TextUtils.isEmpty(mCue.getCueId())) {
+				intent.putExtra(Constants.CUE_ID, mCue.getCueId());
+			}
+			getActivity().startActivityForResult(intent,
+					AppNewChildActivity.SUBMIT_EXPRESSION);
 			break;
 		default:
 			break;
@@ -1476,5 +1475,4 @@ NextBatchFetchListener, OnClickListener {
 						new FeedBackCallBack(getActivity(), feedBack));
 
 	}
-
 }
