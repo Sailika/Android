@@ -1,11 +1,5 @@
 package com.paradigmcreatives.apspeak.doodleboard.fragments;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Paint.Style;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -14,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -24,13 +18,12 @@ import android.widget.Toast;
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.doodleboard.DoodleView;
 import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
-import com.paradigmcreatives.apspeak.doodleboard.DoodleView.PlayState;
 import com.paradigmcreatives.apspeak.doodleboard.handlers.SaveAndSubmitAssetHandler;
 import com.paradigmcreatives.apspeak.doodleboard.listeners.CanvasActivityListeners;
 import com.paradigmcreatives.apspeak.doodleboard.listeners.ImageSelectionOnClickListener;
 import com.paradigmcreatives.apspeak.doodleboard.tasks.SaveAndSubmitAssetTask;
 import com.paradigmcreatives.apspeak.doodleboard.tasks.SaveAndSubmitAssetTask.TYPE;
-import com.paradigmcreatives.apspeak.logging.Logger;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 
 public class ImageChooserFragment extends Fragment implements OnClickListener {
 	private Fragment fragment;
@@ -40,7 +33,8 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 	private TextView mCameraText;
 	private TextView mGalleryText;
 	private TextView mBackgroundText;
-	private ImageButton textIcon_camera, textIcon_gallery, imageIcon;
+	private TextView mPostTxt;
+	private ImageButton textIcon_camera,textIcon_gallery,imageIcon;
 	private ImageSelectionFragmentActivity activity;
 	private String cueID;
 	private ImageView postWriteIdeaImg;
@@ -73,6 +67,10 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.gallery_button_layout);
 		mWriteLayout = (LinearLayout) view
 				.findViewById(R.id.write_button_layout);
+		
+		/***
+		 * Change Style Here
+		 */
 		mCameraText = (TextView) view.findViewById(R.id.camera_text);
 		mGalleryText = (TextView) view.findViewById(R.id.gallery_text);
 		mBackgroundText = (TextView) view.findViewById(R.id.write_text);
@@ -83,6 +81,16 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.img_selection_text_icon2);
 		imageIcon = (ImageButton) view
 				.findViewById(R.id.img_selection_camera_icon1);
+
+		mPostTxt = (TextView)view.findViewById(R.id.posts);
+		
+		TypeFontAssets fontAssets = new TypeFontAssets(getActivity());
+		
+		mCameraText.setTypeface(fontAssets.regularFont);
+		mGalleryText.setTypeface(fontAssets.regularFont);
+		mBackgroundText.setTypeface(fontAssets.regularFont);
+		mPostTxt.setTypeface(fontAssets.regularFont);		
+		
 
 		/*
 		 * mMainChildFrameLayout = (FrameLayout) findViewById(R.id.child_frame);

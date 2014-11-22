@@ -63,6 +63,7 @@ import com.paradigmcreatives.apspeak.registration.listeners.SearchTextWatcherImp
 import com.paradigmcreatives.apspeak.registration.tasks.AddUserToGroupThread;
 import com.paradigmcreatives.apspeak.registration.tasks.GetGroupsListThread;
 import com.paradigmcreatives.apspeak.registration.tasks.ProfileBuildupThread;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 
 /**
  * This fragment contains the UI for the Facebook Login. It also shows the
@@ -102,6 +103,9 @@ public class FacebookConnectAnimationFragment extends
 	private GroupBean mSelectedGroup = null;
 	private boolean isAnimationsAlreadyPerformed = false;
 	private String mGroupSearchText = "";
+	private EditText apSpeakUName;
+	private EditText apSpeakPwd;
+	private Button apSpeakSignIn;
 
 	private Session.StatusCallback callback = new Session.StatusCallback() {
 		@Override
@@ -220,9 +224,26 @@ public class FacebookConnectAnimationFragment extends
 	 *            View to initialize
 	 */
 	private void initView(View view) {
+		
+		TypeFontAssets fontAssets = new TypeFontAssets(getActivity());
+		
+		
 		mSignupLayout = (RelativeLayout) view
 				.findViewById(R.id.signup_relativelayout);
 		mGroupSelectionButton = (Button) view.findViewById(R.id.chooseCollege);
+		apSpeakUName = (EditText)view.findViewById(R.id.apspeak_signin_name);
+		apSpeakPwd = (EditText)view.findViewById(R.id.apspeak_signin_pwd);
+		apSpeakSignIn = (Button)view.findViewById(R.id.apspeak_signin_btn);
+		
+		
+		mGroupSelectionButton.setTypeface(fontAssets.lightFont);
+		apSpeakPwd.setTypeface(fontAssets.lightFont);
+		apSpeakUName.setTypeface(fontAssets.lightFont);
+		apSpeakSignIn.setTypeface(fontAssets.regularFont);
+		
+		
+		
+		
 		// General click listener for the components in this Fragment
 		FBConnectClickListeners clickListeners = new FBConnectClickListeners(
 				this, getActivity());

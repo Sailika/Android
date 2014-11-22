@@ -21,6 +21,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
@@ -49,6 +50,7 @@ import com.paradigmcreatives.apspeak.notification.NotificationsCountBroadcastRec
 import com.paradigmcreatives.apspeak.registration.handlers.AddUserToGroupHandler;
 import com.paradigmcreatives.apspeak.registration.tasks.AddUserToGroupThread;
 import com.paradigmcreatives.apspeak.registration.tasks.GetUserGroupsListThread;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 import com.paradigmcreatives.apspeak.user.fragments.ProfileFragment;
 
 /**
@@ -96,6 +98,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private ImageView mHeaderLogo;
 	private TextView mNotificationsCount;
 	private TextView mProfileName;
+	private TextView mDashBoardIconTxt;
+	private TextView mProfileIconTxt;
+	private TextView mInviteFriendsIconTxt;
 
 	private FragmentManager mFragmentManager;
 	private CuesFragment mCuesFragment;
@@ -154,8 +159,21 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mFeaturedIcon = (ImageView) findViewById(R.id.home_featured_icon);
 		mProfileIcon = (ImageView) findViewById(R.id.home_profile_icon);
 		mNotificationsIcon = (ImageView) findViewById(R.id.home_notifications_icon);
+		
 		mNotificationsCount = (TextView) findViewById(R.id.home_notifications_count);
 		mProfileName = (TextView) findViewById(R.id.header_txt_profile);
+		mDashBoardIconTxt = (TextView)findViewById(R.id.home_cues_text);
+		mProfileIconTxt = (TextView)findViewById(R.id.home_profile_text);
+		mInviteFriendsIconTxt = (TextView)findViewById(R.id.home_notifications_text);
+		
+		
+		TypeFontAssets fontAssets = new TypeFontAssets(getApplicationContext());
+		
+		mDashBoardIconTxt.setTypeface(fontAssets.regularFont);
+		mProfileIconTxt.setTypeface(fontAssets.regularFont);
+		mInviteFriendsIconTxt.setTypeface(fontAssets.regularFont);
+		
+		
 		showHideNotificationsCount();
 		final FrameLayout welcomeFrame = (FrameLayout) findViewById(R.id.welcome_screen);
 		ImageView welcomeClose = (ImageView) findViewById(R.id.welcome_close_view);
@@ -274,6 +292,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			break;
 
 		case R.id.home_profile_icon_layout:
+			
 			if (mProfileFragment == null) {
 				mProfileFragment = new ProfileFragment();
 				FragmentTransaction fragmentTransaction = mFragmentManager
@@ -289,16 +308,15 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileIcon.setImageResource(R.drawable.my_profile_icon_selected);
 			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
 			showHideNotificationsCount();
-
 			mInviteIcon.setVisibility(View.INVISIBLE);
-			mSettingsIcon.setVisibility(View.VISIBLE);
-			mFeedbackIcon.setVisibility(View.INVISIBLE);
+			mSettingsIcon.setVisibility(View.GONE);
+			mFeedbackIcon.setVisibility(View.VISIBLE);
 			mCuesLayout.setVisibility(View.INVISIBLE);
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
 			mProfileLayout.setVisibility(View.VISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
-			mHeaderOptionsBack.setVisibility(View.VISIBLE);
+			mHeaderOptionsBack.setVisibility(View.GONE);
 			mProfileName.setText(getResources().getString(R.string.my_profile));
 			mProfileName.setVisibility(View.VISIBLE);
 
@@ -349,7 +367,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileName.setText(getResources().getString(R.string.invite_friends_heading));
 			mProfileName.setVisibility(View.VISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
-			mFeedbackIcon.setVisibility(View.INVISIBLE);
+			mFeedbackIcon.setVisibility(View.VISIBLE);
 			break;
 		case R.id.header_option_feedback:
 			feedbackAction();
@@ -641,8 +659,12 @@ public class AppNewHomeActivity extends FragmentActivity {
 //	        navList.setAdapter(adapter);
 		
 		  // load slide menu items
+		
+		
+		TypeFontAssets fontAssets = new TypeFontAssets(getApplicationContext());
 
         navMenuTitles = getResources().getStringArray(R.array.navDrawerItems);
+        
 
         // nav drawer icons from resources
 

@@ -93,6 +93,7 @@ import com.paradigmcreatives.apspeak.stream.handlers.GetStreamHandler;
 import com.paradigmcreatives.apspeak.stream.listeners.ListOnScrollListenerImpl;
 import com.paradigmcreatives.apspeak.stream.listeners.NextBatchFetchListener;
 import com.paradigmcreatives.apspeak.stream.tasks.GetStreamThread.STREAM_TYPE;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 
 /**
  * Fragment used to show different streams based on the cue passed
@@ -118,6 +119,8 @@ public class GlobalStreamsFragment extends Fragment implements
 	private TextView mCollege;
 	private TextView mAllColleges;
 	private TextView mFriends;
+	private TextView feedback;
+	private TextView ideas;
 	private LinearLayout mCollegeLayout;
 	private LinearLayout mAllCollegesLayout;
 	// private LinearLayout mFriendsLayout;
@@ -432,10 +435,6 @@ public class GlobalStreamsFragment extends Fragment implements
 			headerText = (TextView) rootView
 					.findViewById(R.id.globel_header_text);
 
-			feedBackMessage = (TextView) rootView
-					.findViewById(R.id.feedback_message_text);
-			yourOpinionTxt = (TextView) rootView
-					.findViewById(R.id.your_opinion_txt);
 			globelFeedbackBottomLayout = (RelativeLayout) rootView
 					.findViewById(R.id.global_streams_bottom_layout);
 			mIsGridviewInUse = true;
@@ -448,6 +447,36 @@ public class GlobalStreamsFragment extends Fragment implements
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
 			showGridView();
+
+			/***
+			 * Set Font Style Here
+			 */
+
+			TypeFontAssets fontAssets = new TypeFontAssets(getActivity());
+
+			feedback = (TextView) mCollegeLayout.findViewById(R.id.feedback);
+			ideas = (TextView) mAllCollegesLayout.findViewById(R.id.ideas);
+
+			mCollege = (TextView) rootView.findViewById(R.id.awesome);
+			mAllColleges = (TextView) rootView.findViewById(R.id.average);
+			mFriends = (TextView) rootView.findViewById(R.id.bad);
+
+			feedBackMessage = (TextView) rootView
+					.findViewById(R.id.feedback_message_text);
+			yourOpinionTxt = (TextView) rootView
+					.findViewById(R.id.your_opinion_txt);
+
+			feedback.setTypeface(fontAssets.regularFont);
+			// feedback.setTextSize(20);
+			ideas.setTypeface(fontAssets.regularFont);
+			// ideas.setTextSize(20);
+
+			mCollege.setTypeface(fontAssets.lightFont);
+			mAllColleges.setTypeface(fontAssets.lightFont);
+			mFriends.setTypeface(fontAssets.lightFont);
+
+			feedBackMessage.setTypeface(fontAssets.regularFont);
+			yourOpinionTxt.setTypeface(fontAssets.lightFont);
 
 			if (mCue != null) {
 				feedBackMessage.setText(mCue.getCueMessage());
@@ -736,7 +765,7 @@ public class GlobalStreamsFragment extends Fragment implements
 					mErrorMessageView
 							.setText(R.string.stream_load_errormessage);
 				}
-				mErrorMessageView.setVisibility(View.VISIBLE);
+				mErrorMessageView.setVisibility(View.INVISIBLE);
 			}
 		}
 	}
@@ -811,6 +840,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		mErrorMessageView.setVisibility(View.INVISIBLE);
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
+
 			isFeedback = true;
 			mQueueIcon.setVisibility(View.GONE);
 			mQueueMessage.setVisibility(View.GONE);
@@ -831,12 +861,11 @@ public class GlobalStreamsFragment extends Fragment implements
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
-			TextView feedback = (TextView) mCollegeLayout
-					.findViewById(R.id.feedback);
+
 			feedback.setTextColor(getResources().getColor(R.color.red));
-			TextView ideas = (TextView) mAllCollegesLayout
-					.findViewById(R.id.ideas);
+
 			ideas.setTextColor(getResources().getColor(R.color.yellow));
+
 			// To show the full width image in feedback enable the view because
 			// its hiding in ideas tab
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
@@ -874,12 +903,10 @@ public class GlobalStreamsFragment extends Fragment implements
 			mCollege.setTextColor(getResources().getColor(R.color.black));
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
-			feedback = (TextView) mCollegeLayout.findViewById(R.id.feedback);
-			feedback.setTextColor(getResources().getColor(R.color.tab_color));
 
-			ideas = (TextView) mAllCollegesLayout.findViewById(R.id.ideas);
 			ideas.setTextColor(getResources().getColor(R.color.red));
 			feedback.setTextColor(getResources().getColor(R.color.yellow));
+
 			mCollegeLayout.setBackgroundColor(Color.TRANSPARENT);
 			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
 					R.color.yellow));
