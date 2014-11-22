@@ -34,7 +34,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:src="@drawable/whatsay_header_logo"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/header_txt_profile"
@@ -51,7 +51,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:padding="10dp"
-                        android:src="@drawable/notification_icon" />
+                        android:src="@drawable/notification_icon"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/header_option_feedback"
@@ -270,14 +271,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:paddingLeft="20dp"
-            android:gravity="start"
             android:background="@drawable/list_divider"
             android:contentDescription="@string/app_name"
+            android:gravity="start"
             android:padding="10dp"
+            android:paddingLeft="20dp"
             android:src="@drawable/menu_ap_speak_logo" />
-
-        
 
         <ListView
             android:id="@+id/navDrawer_list"

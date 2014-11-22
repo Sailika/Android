@@ -65,7 +65,7 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".navdrawer.AppHomeActivity"
+            android:name="com.paradigmcreatives.apspeak.navdrawer.AppHomeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />

@@ -812,6 +812,8 @@ public class GlobalStreamsFragment extends Fragment implements
 		switch (viewId) {
 		case R.id.college_button_layout:// Feedback for APSpeak
 			isFeedback = true;
+			mQueueIcon.setVisibility(View.GONE);
+			mQueueMessage.setVisibility(View.GONE);
 			// chaning header title
 			headerText.setText(getResources().getString(
 					R.string.poll_your_opinion));
@@ -859,6 +861,8 @@ public class GlobalStreamsFragment extends Fragment implements
 			isFeedback = false;
 			// changing header title to ideas
 			headerText.setText(getResources().getString(R.string.ideas));
+			mQueueIcon.setVisibility(View.VISIBLE);
+			mQueueMessage.setVisibility(View.VISIBLE);
 
 			ideasMainLayout.setVisibility(View.VISIBLE);
 			mProgressBar.setVisibility(View.VISIBLE);

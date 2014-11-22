@@ -232,7 +232,7 @@ public class ImagePreviewFragment extends Fragment {
 
 	}
 
-	public void startSubmit() {
+	public void startSubmit() {	
 		if (doodleView != null) {
 			doodleView.stopLayerSelectionAndRedraw();
 			SaveAndSubmitAssetHandler handler = new SaveAndSubmitAssetHandler(
@@ -241,7 +241,7 @@ public class ImagePreviewFragment extends Fragment {
 					getActivity(), handler, doodleView, cueId, TYPE.SAVE_AND_SUBMIT);
 			Thread t = new Thread(task);
 			t.start();
-		} else {
+		} else {			
 			// TODO
 		}
 	}

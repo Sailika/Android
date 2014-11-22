@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
@@ -37,6 +38,7 @@ public class AppChildActivity extends FragmentActivity {
 
 	private Fragment fragment;
 	private ImageView mShareIcon;
+	private TextView headerTxt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,8 @@ public class AppChildActivity extends FragmentActivity {
 
 	public void initUI() {
 		mShareIcon = (ImageView) findViewById(R.id.share_image);
+		headerTxt = (TextView)findViewById(R.id.globel_header_text);
+		headerTxt.setText(getResources().getString(R.string.details));
 		mShareIcon.setOnClickListener(new View.OnClickListener() {
 
 			@Override

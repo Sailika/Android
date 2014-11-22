@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -25,7 +24,9 @@ import com.paradigmcreatives.apspeak.app.util.google.image.GoogleImageSearchHelp
 import com.paradigmcreatives.apspeak.app.util.google.image.beans.ImageResultsBean;
 import com.paradigmcreatives.apspeak.cues.handlers.GetCueBackgroundsHandler;
 import com.paradigmcreatives.apspeak.cues.tasks.GetCueBackgroundsThread;
+import com.paradigmcreatives.apspeak.doodleboard.DoodleView;
 import com.paradigmcreatives.apspeak.doodleboard.ImageSelectionFragmentActivity;
+import com.paradigmcreatives.apspeak.doodleboard.DoodleView.PlayState;
 import com.paradigmcreatives.apspeak.doodleboard.background.googleimages.GoogleImageAdapter;
 import com.paradigmcreatives.apspeak.doodleboard.background.googleimages.listeners.GoogleImageItemClickListenerImpl;
 import com.paradigmcreatives.apspeak.doodleboard.background.googleimages.listeners.GoogleImagesEditorListener;
@@ -44,6 +45,15 @@ public class BackgroundFragment extends Fragment {
 	private String cueId;
 	private ImageSelectionFragmentActivity activity;
 	private ProgressBar progressBar;
+	private DoodleView doodleView;
+
+	public EditText getEditText() {
+		return writeHere;
+	}
+
+	public String getWriteText() {
+		return writeHere.getText().toString();
+	}
 
 	public BackgroundFragment(ImageSelectionFragmentActivity activity,
 			String cueId) {
@@ -68,7 +78,11 @@ public class BackgroundFragment extends Fragment {
 				.showImageForEmptyUri(R.drawable.removed)
 				.showImageOnLoading(R.drawable.refresh)
 				.showImageOnFail(R.drawable.removed).build();
-		writeHere=(EditText)view.findViewById(R.id.tv_create_own_idea_write);
+		writeHere = (EditText) view.findViewById(R.id.tv_create_own_idea_write);
+		writeHere.buildDrawingCache();
+		writeHere.setDrawingCacheEnabled(true);
+		doodleView = (DoodleView) view.findViewById(R.id.doodle_view);
+
 		searchBar = (EditText) view.findViewById(R.id.search_bar);
 		gridView = (GridView) view.findViewById(R.id.grid_view);
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
@@ -247,5 +261,12 @@ public class BackgroundFragment extends Fragment {
 					cueBackgroundsList);
 			gridView.setAdapter(adapter);
 		}
+	}
+
+	public DoodleView getDoodleView() {
+		Bitmap bmp = Bitmap.createBitmap(getEditText().getDrawingCache());
+		doodleView.setBackgroundBitmap(bmp);
+		doodleView.setPlayState(PlayState.LAYERS);
+		return doodleView;
 	}
 }

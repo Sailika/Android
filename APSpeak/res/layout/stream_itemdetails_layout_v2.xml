@@ -134,6 +134,15 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/asset_other_details_text_size" />
 
+                    <ImageView
+                        android:id="@+id/share_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/asset_loves"
+                        android:padding="10dp"
+                        android:src="@drawable/share"
+                        android:visibility="visible" />
+
                     <TextView
                         android:id="@+id/asset_reposts"
                         android:layout_width="wrap_content"

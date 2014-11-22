@@ -177,7 +177,8 @@
             android:layout_weight="0.33"
             android:orientation="vertical"
             android:paddingTop="5dp" >
-
+             
+            
             <ImageButton
                 android:id="@+id/ib_image_selection_post"
                 android:layout_width="wrap_content"
@@ -211,5 +212,5 @@
                 android:layout_height="match_parent" />
         </FrameLayout>
     -->
-
+ 
 </LinearLayout>

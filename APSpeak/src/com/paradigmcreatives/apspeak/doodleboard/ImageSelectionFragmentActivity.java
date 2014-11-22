@@ -33,6 +33,8 @@ public class ImageSelectionFragmentActivity extends FragmentActivity implements
 	public static final String GALLERY_TAG = "GALLERY_TAG";
 	public static final String BACKGROUND_TAG = "BACKGROUND_TAG";
 	public static final String CANVAS_TAG = "CANVAS_TAG";
+	public static final String PREVIEW_TAG = "PREVIEW_TAG";
+
 	private final static String IMAGE_CHOOSER_FRAGMENT_TAG = "imageChooserFragment";
 	private ImageChooserFragment imageChooserFragment;
 	private String cueId;

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/white" >
 
-    <!-- 
+    <!--
     <RelativeLayout
         android:id="@+id/header_layout"
         android:layout_width="fill_parent"
@@ -29,7 +29,7 @@
             android:padding="10dp"
             android:src="@drawable/share" />
     </RelativeLayout>
-     -->
+    -->
 
     <ListView
         android:id="@+id/assetdetails_listview"
@@ -78,6 +78,8 @@
             android:clickable="true"
             android:src="@drawable/like" />
 
+       
+
         <ImageView
             android:id="@+id/assetbottom_action_comment"
             android:layout_width="0dp"
@@ -89,4 +91,5 @@
             android:clickable="true"
             android:src="@drawable/comment" />
     </LinearLayout>
+
 </RelativeLayout>

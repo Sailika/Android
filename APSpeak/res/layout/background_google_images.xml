@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/grey"
     android:orientation="vertical" >
 
+    <com.paradigmcreatives.apspeak.doodleboard.DoodleView
+        android:id="@+id/doodle_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
     <EditText
         android:id="@+id/tv_create_own_idea_write"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top"
+        android:layout_height="match_parent"
         android:layout_marginBottom="25dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="25dp"
-        android:ellipsize="start"
-        android:padding="5dp"
-        android:background="@color/white" >
+        android:cursorVisible="true"
+        android:background="@color/white"
+        android:gravity="top"
+        android:padding="5dp" >
     </EditText>
 
     <FrameLayout
@@ -71,4 +76,4 @@
             android:visibility="visible" />
     </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>
