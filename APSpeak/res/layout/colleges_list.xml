@@ -16,13 +16,13 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/chooseCollege"
-            android:textColor="@color/black"
+            android:textColor="@color/apspeak_dark_yellow"
             android:textStyle="bold"
             android:textSize="18sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:gravity="center"
-            android:background="@color/white"/>
+            android:background="@color/apspeak_red"/>
 
         <RelativeLayout
             android:layout_width="fill_parent"

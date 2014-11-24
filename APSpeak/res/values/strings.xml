@@ -121,6 +121,7 @@
         <!-- <item>Privacy Policy</item> -->
         <item>Change your city</item>
         <item>Give us feedback</item>
+        <item>Help</item>
         <item>Logout</item>
     </string-array>
     <string-array name="navDrawerIcons">

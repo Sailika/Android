@@ -35,6 +35,7 @@ import com.paradigmcreatives.apspeak.app.util.constants.GoogleAnalyticsConstants
 import com.paradigmcreatives.apspeak.app.util.images.ImageUtil;
 import com.paradigmcreatives.apspeak.discovery.fragments.UserNetworkFragment.UserNetwork;
 import com.paradigmcreatives.apspeak.logging.Logger;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 import com.paradigmcreatives.apspeak.user.UserProfileActivity;
 
 /**
@@ -51,13 +52,12 @@ public class UserNetworkAdapter extends BaseAdapter implements Filterable {
 	private Collection<Friend> friends;
 	private Collection<Friend> filteredFriends;
 	private String userId;
-	private Typeface robotoRegular = null;
-	private Typeface robotoBold = null;
 	private DisplayImageOptions options = null;
 	private Fragment fragment = null;
 	private UserNetwork network = null;
 	private boolean showHeader = true;
 	private String searchText = "";
+	private TypeFontAssets fontAssets;
 
 	public UserNetworkAdapter(Activity activity,
 			Collection<Friend> listOfFriends, boolean isFollowingList,
@@ -72,10 +72,6 @@ public class UserNetworkAdapter extends BaseAdapter implements Filterable {
 			this.filteredFriends = null;
 		}
 
-		robotoRegular = Typeface.createFromAsset(activity.getAssets(),
-				"Roboto-Regular.ttf");
-		robotoBold = Typeface.createFromAsset(activity.getAssets(),
-				"Roboto-Bold.ttf");
 		options = new DisplayImageOptions.Builder().cacheInMemory(true)
 				.cacheOnDisc(true).displayer(new FadeInBitmapDisplayer(250))
 				.build();
@@ -83,7 +79,9 @@ public class UserNetworkAdapter extends BaseAdapter implements Filterable {
 		this.userId = userId;
 		this.network = network;
 		this.showHeader = showHeaderFlag;
-
+		
+		fontAssets = new TypeFontAssets(activity);
+		
 		resetFollowStatusIfRequired();
 		ImageLoader.getInstance().init(
 				ImageLoaderConfiguration.createDefault(fragment.getActivity()));
@@ -159,8 +157,8 @@ public class UserNetworkAdapter extends BaseAdapter implements Filterable {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
-		viewHolder.friendName.setTypeface(robotoBold);
-		viewHolder.friendLocation.setTypeface(robotoRegular);
+		viewHolder.friendName.setTypeface(fontAssets.boldFont);
+		viewHolder.friendLocation.setTypeface(fontAssets.regularFont);
 
 		if (viewHolder != null) {
 			Friend friend = getItem(position);

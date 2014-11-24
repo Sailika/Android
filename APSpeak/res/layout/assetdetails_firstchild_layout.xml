@@ -171,11 +171,10 @@
                         android:layout_marginLeft="@dimen/asset_share_pic_dimension"
                         android:layout_toRightOf="@id/asset_comments"
                         android:drawableLeft="@drawable/share_icon"
-                        android:text="@string/zero"
                         android:textColor="@color/black"
                         android:textSize="@dimen/asset_other_details_text_size" />
 
-                    <TextView
+                    <!-- <TextView
                         android:id="@+id/asset_share_comments"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -187,8 +186,8 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/asset_other_details_text_size"
                         android:visibility="gone" />
-
-                    <ImageView
+ -->
+                    <!-- <ImageView
                         android:id="@+id/asset_options"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -196,7 +195,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/asset_owner_pic_left_margin"
-                        android:background="@drawable/options" />
+                        android:background="@drawable/options" /> -->
                 </RelativeLayout>
 
                 <View
@@ -213,9 +212,10 @@
                 android:id="@+id/asset_people_liked_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/apspeak_green"
                 android:visibility="gone" >
 
-                <TextView
+               <!--  <TextView
                     android:id="@+id/asset_people_liked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,14 +223,13 @@
                     android:layout_marginLeft="@dimen/asset_margin_left"
                     android:layout_marginTop="@dimen/asset_margin_top"
                     android:text="@string/people_who_loved_it"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/asset_details_header_text_size" />
+                    android:textColor="@color/apspeak_dark_yellow\"
+                    android:textSize="@dimen/asset_details_header_text_size" /> -->
 
                 <GridView
                     android:id="@+id/asset_people_liked_grid_view"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:layout_below="@id/asset_people_liked"
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/asset_details_likedusers_grid_margin_bottom"
                     android:layout_marginLeft="@dimen/asset_margin_left"

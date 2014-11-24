@@ -3,6 +3,10 @@ package com.paradigmcreatives.apspeak.settings;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import com.facebook.AppEventsLogger;
@@ -15,42 +19,29 @@ import com.paradigmcreatives.apspeak.app.util.constants.Constants;
  * @author Vineela
  * 
  */
-public class HelpActivity extends Activity {
+public class HelpActivity extends Fragment {
+
+	private View view;
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.help_layout);
-		WebView helpWebView = (WebView) findViewById(R.id.webview);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		super.onCreateView(inflater, container, savedInstanceState);
+
+		view =  inflater.inflate(R.layout.help_layout, null);
+		
+		WebView helpWebView = (WebView)view.findViewById(R.id.webview);
 
 		helpWebView.loadUrl("https://whatsayapp.com/help-android.html");
-
+		
+		return view;
+		
 	}
 
 	@Override
-	protected void onStart() {
-		super.onStart();
-		// Rest of the code should come here
-
-	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-		// Rest of the code should come here
-
-	}
-
-	@Override
-	protected void onResume() {
+	public void onResume() {
 		super.onResume();
-		AppEventsLogger.activateApp(getApplicationContext(), Constants.FACEBOOK_APPID);
-	}
-
-	@Override
-	public void onBackPressed() {
-		Intent intent = new Intent();
-		setResult(Activity.RESULT_OK, intent);
-		finish();
+		AppEventsLogger.activateApp(getActivity(), Constants.FACEBOOK_APPID);
 	}
 
 }

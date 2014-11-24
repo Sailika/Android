@@ -2,38 +2,25 @@ package com.paradigmcreatives.apspeak.app.invite.fragments;
 
 import java.util.ArrayList;
 
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.paradigmcreatives.apspeak.R;
-import com.paradigmcreatives.apspeak.announcements.handlers.GetAnnouncementContentHandler;
-import com.paradigmcreatives.apspeak.announcements.tasks.GetAnnouncementContentThread;
-import com.paradigmcreatives.apspeak.app.invite.listeners.InviteButtonsClickListeners;
-import com.paradigmcreatives.apspeak.app.model.MyFeedBean;
-import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
-import com.paradigmcreatives.apspeak.app.util.Util;
-import com.paradigmcreatives.apspeak.feed.adapters.MyFeedAdapter;
-import com.paradigmcreatives.apspeak.feed.handlers.MyFeedHandler;
-import com.paradigmcreatives.apspeak.feed.listeners.MyFeedListClickListener;
-import com.paradigmcreatives.apspeak.feed.tasks.MyFeedThread;
-import com.paradigmcreatives.apspeak.home.AppNewHomeActivity;
-
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.app.invite.listeners.InviteButtonsClickListeners;
+import com.paradigmcreatives.apspeak.app.model.MyFeedBean;
+import com.paradigmcreatives.apspeak.app.util.AppPropertiesUtil;
+import com.paradigmcreatives.apspeak.feed.adapters.MyFeedAdapter;
 
 public class InviteFriendsFragment extends Fragment {
 	

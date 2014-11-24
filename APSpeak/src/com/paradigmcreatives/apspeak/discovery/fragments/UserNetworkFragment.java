@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -54,7 +53,7 @@ import com.paradigmcreatives.apspeak.user.UserProfileActivity;
  * 
  */
 public class UserNetworkFragment extends Fragment implements
-		NextBatchFetchListener {
+NextBatchFetchListener {
 
 	public enum UserNetwork {
 		FRIENDS, FOLLOWERS, FOLLOWING, GENERAL, LOVED_USERS, REPOSTED_USERS, SUGGESTED_FRIENDS, FACEBOOK_FRIENDS
@@ -167,9 +166,9 @@ public class UserNetworkFragment extends Fragment implements
 		}
 		initView(view);
 		this.getActivity()
-				.getWindow()
-				.setSoftInputMode(
-						WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+		.getWindow()
+		.setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 		return view;
 	}
 
@@ -217,8 +216,8 @@ public class UserNetworkFragment extends Fragment implements
 		friendsNetworkListView.setAdapter(networkAdapter);
 		friendsNetworkListView.setOnScrollListener(mScrollListener);
 		friendsNetworkListView
-				.setOnItemClickListener(new UserNetworkListClickListener(
-						getActivity(), this, this.network));
+		.setOnItemClickListener(new UserNetworkListClickListener(
+				getActivity(), this, this.network));
 
 		initSearchLayout(view);
 		String friendsListString = getJsonStringFromFile(Constants.FRIENDS_LIST_FILENAME);
@@ -294,7 +293,7 @@ public class UserNetworkFragment extends Fragment implements
 					&& friendsList.containsKey(UserNetwork.FACEBOOK_FRIENDS)
 					&& friendsNetworkList != null
 					&& friendsNetworkList
-							.containsKey(UserNetwork.FACEBOOK_FRIENDS)) {
+					.containsKey(UserNetwork.FACEBOOK_FRIENDS)) {
 				friendsList.get(UserNetwork.FACEBOOK_FRIENDS).addAll(
 						friendsNetworkList.get(UserNetwork.FACEBOOK_FRIENDS));
 			}
@@ -304,7 +303,7 @@ public class UserNetworkFragment extends Fragment implements
 			if (networkAdapter != null
 					&& friendsNetworkList != null
 					&& friendsNetworkList
-							.containsKey(UserNetwork.FACEBOOK_FRIENDS)) {
+					.containsKey(UserNetwork.FACEBOOK_FRIENDS)) {
 				if (mScrollListener != null) {
 					mScrollListener.setShouldLoadMoreFlag(true);
 				}
@@ -452,7 +451,7 @@ public class UserNetworkFragment extends Fragment implements
 			} else if (network == UserNetwork.SUGGESTED_FRIENDS) {
 				if (friendsList.containsKey(UserNetwork.SUGGESTED_FRIENDS)
 						&& friendsList.get(UserNetwork.SUGGESTED_FRIENDS)
-								.size() > 0) {
+						.size() > 0) {
 					friendsHeader.setText(getResources().getString(
 							R.string.discover));
 					next.setVisibility(View.GONE);
@@ -552,6 +551,7 @@ public class UserNetworkFragment extends Fragment implements
 			File destFile = new File(filesDir, destFileName);
 
 			BufferedReader br = new BufferedReader(new FileReader(destFile));
+			
 			String line;
 			while ((line = br.readLine()) != null) {
 				text.append(line);

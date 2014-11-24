@@ -5,7 +5,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:layout_margin="20dp"
     tools:ignore="ContentDescription" >
 
     <LinearLayout
@@ -17,13 +16,13 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/queuedExpressions"
-            android:textColor="@color/black"
+            android:textColor="@color/apspeak_dark_yellow"
             android:textStyle="bold"
             android:textSize="18sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:gravity="center"
-            android:background="@color/white"/>
+            android:background="@color/apspeak_red"/>
 
         <FrameLayout
             android:layout_width="fill_parent"
