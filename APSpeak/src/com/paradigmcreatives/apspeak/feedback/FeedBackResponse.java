@@ -2,14 +2,14 @@ package com.paradigmcreatives.apspeak.feedback;
 
 public class FeedBackResponse {
 	private int errorCode;
-	private String errorMessage;
+	private String message;
 
 	public String getErrorMessage() {
-		return errorMessage;
+		return message;
 	}
 
 	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+		this.message = errorMessage;
 	}
 
 	public int getErrorCode() {

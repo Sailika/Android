@@ -55,7 +55,7 @@ public class SigninHelper {
 			final HttpParams httpParams = new BasicHttpParams();
 			HttpConnectionParams.setConnectionTimeout(httpParams,
 					ServerConstants.CONNECTION_TIMEOUT);
-			httpPost = new HttpPost(ServerConstants.SERVER_URL
+			httpPost = new HttpPost(ServerConstants.NODE_SERVER_URL
 					+ ServerConstants.USER_SIGNIN);
 
 			NetworkManager.getInstance().register(httpPost);
@@ -76,19 +76,29 @@ public class SigninHelper {
 			}
 			if (!TextUtils.isEmpty(facebookId)) {
 				JSONObject jObject = new JSONObject();
-				jObject.put("provider", "FACEBOOK");
-				jObject.put("platform", "ANDROID");
-				jObject.put("uid", facebookId);
-				jObject.put(JSONConstants.ACCESS_TOKEN, access_token);
+				JSONArray accounts = new JSONArray();
+				JSONObject facebookObj = new JSONObject();
+				facebookObj.put("uid", facebookId);
+				facebookObj.put("provider", "FACEBOOK");
+				facebookObj.put(JSONConstants.ACCESS_TOKEN, access_token);
+				accounts.put(facebookObj);
+				JSONObject device = new JSONObject();
+
+				device.put("platform", "ANDROID");
 				String gcmId = AppPropertiesUtil.getGCMID(context);
 				if (!TextUtils.isEmpty(gcmId)) {
-					jObject.put("push_id", gcmId);
+					device.put("push_id", gcmId);
+					jObject.put("handle", gcmId);
 				}
 				String deviceUniqueId = RegistrationUtil
 						.getDeviceUniqueId(context);
 				if (!TextUtils.isEmpty(deviceUniqueId)) {
+					device.put("device_id", deviceUniqueId);
 					jObject.put("device_id", deviceUniqueId);
+
 				}
+				jObject.put("device", device);
+				jObject.put("accounts", accounts);
 
 				StringEntity stringEntity = new StringEntity(jObject.toString());
 				Logger.info(TAG, httpPost.getURI().toString() + "json string:"
@@ -199,7 +209,7 @@ public class SigninHelper {
 					String user_id = response.getString(USERID);
 					// TODO: NEED TO REMOVE HARDCODED ID
 					
-					user_id = "d1df7483-c6f5-440b-974a-c37f75b9fe68";
+					//user_id = "d1df7483-c6f5-440b-974a-c37f75b9fe68";
 					if (!TextUtils.isEmpty(user_id)) {
 						AppPropertiesUtil.setUserID(context, user_id);
 						signinBean.setUserID(user_id);

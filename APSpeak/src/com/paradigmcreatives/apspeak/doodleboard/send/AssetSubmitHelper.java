@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -18,10 +19,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import retrofit.http.Headers;
 import android.content.Context;
+import android.content.Entity;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.model.ExpressionSubmitQueueBean;
@@ -110,7 +114,7 @@ public class AssetSubmitHelper {
 
 				// 1 - Initialize the HTTP related objects
 				httpClient = new DefaultHttpClient();
-				httpPost = new HttpPost(ServerConstants.SERVER_URL
+				httpPost = new HttpPost(ServerConstants.NODE_SERVER_URL
 						+ ServerConstants.ASSET_SUBMIT);
 				if (mExpression != null
 						&& !TextUtils.isEmpty(mExpression.getRootAssetId())) {
@@ -130,14 +134,21 @@ public class AssetSubmitHelper {
 							SmacxService.HEADER_VALUE);
 
 				}
+				httpPost.addHeader("Content-Type","image/jpeg" );
 
 				// 2 - Intimate the network manager for the impending network
 				// operation
 				NetworkManager.getInstance().register(httpPost);
 
 				// 3 - Call the server
-				httpPost.setEntity(createRequestEntity());
+				MultipartEntity entity = createRequestEntity();
+				httpPost.setEntity(entity);
+				for (Header header : httpPost.getAllHeaders()) {
+					Log.i(TAG, header.getName()+" "+header.getValue());
+
+				}
 				httpResponse = httpClient.execute(httpPost);
+
 
 				// 4 - Parse the response
 				result = parseSendResponse(httpResponse);
@@ -288,8 +299,8 @@ public class AssetSubmitHelper {
 		if (mGroupId != null) {
 			reqEntity.addPart(JSONConstants.GROUP_ID, new StringBody(mGroupId));
 		}
-		if (!TextUtils.isEmpty(mUserId)) {
-			reqEntity.addPart(JSONConstants.USER_ID, new StringBody(mUserId));
+		if (!TextUtils.isEmpty(AppPropertiesUtil.getUserID(context))) {
+			reqEntity.addPart(JSONConstants.USER_ID, new StringBody(AppPropertiesUtil.getUserID(context)));
 		}
 		reqEntity.addPart(JSONConstants.LABEL, new StringBody(JSONConstants.IDEA));
 

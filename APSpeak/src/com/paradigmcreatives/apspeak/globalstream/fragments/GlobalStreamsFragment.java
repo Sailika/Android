@@ -1481,7 +1481,7 @@ public class GlobalStreamsFragment extends Fragment implements
 	@Override
 	public void onClick(View v) {
 
-		FeedBackType feedBackType = FeedBackType.GOOD;
+		FeedBackType feedBackType = FeedBackType.NOT;
 		switch (v.getId()) {
 		case R.id.img_btn_awesome:
 			feedBackType = FeedBackType.GOOD;
@@ -1505,20 +1505,23 @@ public class GlobalStreamsFragment extends Fragment implements
 		default:
 			break;
 		}
-		FeedBack feedBack = new FeedBack();
-		if (mCollegeList != null && mCollegeList.size() > 0) {
-			feedBack.setAsset_id(mCollegeList.get(0).getAssetId());
+		// Should not send feedback request when creating an idea.
+		if (feedBackType != FeedBackType.NOT) {
+			FeedBack feedBack = new FeedBack();
+			if (mCollegeList != null && mCollegeList.size() > 0) {
+				feedBack.setAsset_id(mCollegeList.get(0).getAssetId());
+			}
+			feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
+			feedBack.setFeedback(feedBackType);
+			Toast.makeText(getActivity(),
+					getResources().getString(R.string.wait_for_poll),
+					Toast.LENGTH_LONG).show();
+			RestClient
+					.getInstance()
+					.getRestClient(getActivity())
+					.postFeedBack(feedBack,
+							new FeedBackCallBack(getActivity(), feedBack));
 		}
-		feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
-		feedBack.setFeedback(feedBackType);
-		Toast.makeText(getActivity(),
-				getResources().getString(R.string.wait_for_poll),
-				Toast.LENGTH_LONG).show();
-		RestClient
-				.getInstance()
-				.getRestClient(getActivity())
-				.postFeedBack(feedBack,
-						new FeedBackCallBack(getActivity(), feedBack));
 
 	}
 }

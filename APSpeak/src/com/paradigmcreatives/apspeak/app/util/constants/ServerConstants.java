@@ -22,10 +22,11 @@ public class ServerConstants {
 	public static final int CONNECTION_TIMEOUT = 60000;
 
 	// suffixes
-	//public static final String REGISTER_USER = "/profile/user";
+	public static final String REGISTER_USER = "/profile/user";
 
-	 public static final String REGISTER_USER = "/user/register";
-	public static final String USER_SIGNIN = "/user/signin";
+	// public static final String REGISTER_USER = "/user/register";
+	// public static final String USER_SIGNIN = "/user/signin";
+	public static final String USER_SIGNIN = REGISTER_USER;
 	public static final String FOLLOWING = "/following/";
 	public static final String FOLLOWERS = "/followers/";
 	public static final String INVITE_FB_LIST = "/user/friends/";
@@ -43,7 +44,12 @@ public class ServerConstants {
 	public static final String DELETE_ASSET_RELATIONSHIP = "/asset/delete/relationship";
 	public static final String CREATE_ASSET_RELATIONSHIP = "/asset/create/relationship";
 	public static final String ASSET = "/asset/";
-	public static final String ASSET_SUBMIT = "/userstream/submit";
+	
+	// this is for whatsay
+	//public static final String ASSET_SUBMIT = "/userstream/submit";
+	// for APSpeak
+	public static final String ASSET_SUBMIT = "/asset/put";
+
 	public static final String USER_PROFILE_HANDLE = "/user/profile/handle/check/";
 	public static final String SETTINGS = "/settings";
 	public static final String REQUIRE_FOLLOW_PERMISSION = "/requireFollowPermission/";

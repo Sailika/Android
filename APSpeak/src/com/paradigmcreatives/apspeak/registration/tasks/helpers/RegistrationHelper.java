@@ -56,7 +56,7 @@ public class RegistrationHelper {
 	    try {
 		final HttpParams httpParams = new BasicHttpParams();
 		HttpConnectionParams.setConnectionTimeout(httpParams, ServerConstants.CONNECTION_TIMEOUT);
-		httpPost = new HttpPost(ServerConstants.SERVER_URL + ServerConstants.REGISTER_USER);
+		httpPost = new HttpPost(ServerConstants.NODE_SERVER_URL + ServerConstants.REGISTER_USER);
 		NetworkManager.getInstance().register(httpPost);
 		httpclient = new DefaultHttpClient(httpParams);
 
