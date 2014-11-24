@@ -22,7 +22,8 @@
             android:paddingLeft="30dp"
             android:text="@string/invite_via_contacts_text"
             android:textColor="@color/white"
-            android:textAppearance="@android:style/TextAppearance"/>
+            android:textAppearance="@android:style/TextAppearance"
+            android:visibility="gone"/>
 
         <View
             android:layout_width="0.6dp"
@@ -30,7 +31,8 @@
             android:layout_alignBottom="@+id/invite_contacts"
             android:layout_alignTop="@+id/invite_contacts"
             android:layout_marginLeft="70dp"
-            android:background="@color/invite_btn_seperator" />
+            android:background="@color/invite_btn_seperator" 
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/invite_facebook"
@@ -44,7 +46,8 @@
             android:paddingLeft="30dp"
             android:text="@string/invite_via_facebook_text"
             android:textColor="@color/white"
-            android:textAppearance="@android:style/TextAppearance"/>
+            android:textAppearance="@android:style/TextAppearance"
+           />
 
         <View
             android:layout_width="0.8dp"
@@ -66,7 +69,8 @@
             android:paddingLeft="30dp"
             android:text="@string/invite_via_email_text"
             android:textColor="@color/white"
-            android:textAppearance="@android:style/TextAppearance"/>
+            android:textAppearance="@android:style/TextAppearance"
+            android:visibility="gone"/>
 
         <View
             android:layout_width="0.8dp"
@@ -74,7 +78,8 @@
             android:layout_alignBottom="@+id/invite_email"
             android:layout_alignTop="@+id/invite_email"
             android:layout_marginLeft="70dp"
-            android:background="@color/invite_btn_seperator" />
+            android:background="@color/invite_btn_seperator"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/invite_twitter"
@@ -88,7 +93,8 @@
             android:paddingLeft="30dp"
             android:text="@string/invite_via_twitter_text"
             android:textColor="@color/white"
-            android:textAppearance="@android:style/TextAppearance"/>
+            android:textAppearance="@android:style/TextAppearance"
+            android:visibility="gone"/>
 
         <View
             android:layout_width="0.8dp"
@@ -96,7 +102,8 @@
             android:layout_alignBottom="@+id/invite_twitter"
             android:layout_alignTop="@+id/invite_twitter"
             android:layout_marginLeft="70dp"
-            android:background="@color/invite_btn_seperator" />
+            android:background="@color/invite_btn_seperator" 
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/invite_whatsap"
@@ -111,7 +118,8 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/invite_via_whatsapp_text"
             android:textColor="@color/white"
-            android:textAppearance="@android:style/TextAppearance"/>
+            android:textAppearance="@android:style/TextAppearance"
+            android:visibility="gone"/>
 
         <View
             android:layout_width="0.8dp"
@@ -119,7 +127,8 @@
             android:layout_alignBottom="@+id/invite_whatsap"
             android:layout_alignTop="@+id/invite_whatsap"
             android:layout_marginLeft="70dp"
-            android:background="@color/invite_btn_seperator" />
+            android:background="@color/invite_btn_seperator"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </RelativeLayout>
