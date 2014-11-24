@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.facebook.Session;
+import com.facebook.android.Facebook;
 import com.google.android.gcm.GCMRegistrar;
 import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.ShutDownListener;
