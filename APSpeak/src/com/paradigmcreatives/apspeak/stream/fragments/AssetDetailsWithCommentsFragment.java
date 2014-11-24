@@ -98,6 +98,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 	private Dialog assetDetailsOverlayDialog;
 	private RelativeLayout assetDetailsOverlayLayout;
 	private ImageView helpOverlayClose;
+	//private TextView mShareView;
 
 	/**
 	 * Default Constructor
@@ -227,7 +228,6 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 					.findViewById(R.id.assetbottom_action_love);
 			assetCommentAction = (ImageView) rootView
 					.findViewById(R.id.assetbottom_action_comment);
-			// mShareView = (ImageView) rootView.findViewById(R.id.share_image);
 			StreamAssetUtil assetUtil = new StreamAssetUtil(this, options);
 			assetUtil.setAssetLikeIcon(mFirstChildAsset, assetLoveAction);
 			assetUtil.setAssetCommentIcon(mFirstChildAsset, assetCommentAction);
@@ -236,7 +236,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 					this, mFirstChildAsset);
 			assetLoveAction.setOnClickListener(listener);
 			assetCommentAction.setOnClickListener(listener);
-			// mShareView.setOnClickListener(listener);
+		    //mShareView.setOnClickListener(listener);
 		}
 	}
 
@@ -248,6 +248,8 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		// Asset main layout
 		viewHolder.assetOwnerPic = (ImageView) view
 				.findViewById(R.id.asset_owner_pic);
+		viewHolder.shareTxt = (TextView) view.findViewById(R.id.share_image);
+
 		viewHolder.assetOwnerName = (TextView) view
 				.findViewById(R.id.asset_owner_name);
 		viewHolder.assetOwnerGroupName = (TextView) view
@@ -304,6 +306,8 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		viewHolder.assetOwnerName.setOnClickListener(listener);
 		viewHolder.optionsImage.setOnClickListener(listener);
 		viewHolder.assetLoves.setOnClickListener(listener);
+		viewHolder.shareTxt.setOnClickListener(listener);
+
 		Drawable drawable = viewHolder.assetImage.getDrawable();
 		if (drawable != null) {
 			mFirstChildAsset.setAssetSnapBitmap(((BitmapDrawable) drawable)

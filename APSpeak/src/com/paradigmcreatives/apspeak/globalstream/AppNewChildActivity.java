@@ -57,6 +57,8 @@ public class AppNewChildActivity extends FragmentActivity {
 					&& data.containsKey(Constants.CUE_OBJECT)) {
 				Campaigns cue = data.getParcelable(Constants.CUE_OBJECT);
 				if (cue != null) {
+					globelTxtView.setText(getResources().getString(
+							R.string.poll_your_opinion));
 					fragment = new GlobalStreamsFragment(cue);
 				}
 			} else if (data
@@ -84,6 +86,11 @@ public class AppNewChildActivity extends FragmentActivity {
 		mAutoSendBroadcastReceiver = new AutoSendStatusBroadcastReceiver(this);
 		registerReceiver(mAutoSendBroadcastReceiver, new IntentFilter(
 				Constants.AUTOSEND_STATUS_BRAODCAST_ACTION));
+	}
+	@Override
+	public void setTitle(int titleId) {
+		super.setTitle(titleId);
+		globelTxtView.setText(titleId);
 	}
 
 	@Override

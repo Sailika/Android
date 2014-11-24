@@ -67,10 +67,11 @@
             android:id="@+id/options_bottom"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/camera_background"
+            android:background="@color/apspeak_light_yellow"
             android:orientation="horizontal"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
+            
             android:weightSum="1" >
 
             <ImageView
@@ -88,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/camera_capture" />
+                android:src="@drawable/capture_icon" />
 
             <ImageView
                 android:id="@+id/explore_launch"

@@ -15,5 +15,5 @@
     <dimen name="continueimagesize">44dp</dimen>
     
     <dimen name="abouUsPageSize">34px</dimen>
-    
+    <dimen name="asset_share_pic_dimension">50dp</dimen>
 </resources>

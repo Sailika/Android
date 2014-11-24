@@ -197,6 +197,9 @@ public class SigninHelper {
 			try {
 				if (response.has(USERID)) {
 					String user_id = response.getString(USERID);
+					// TODO: NEED TO REMOVE HARDCODED ID
+					
+					user_id = "d1df7483-c6f5-440b-974a-c37f75b9fe68";
 					if (!TextUtils.isEmpty(user_id)) {
 						AppPropertiesUtil.setUserID(context, user_id);
 						signinBean.setUserID(user_id);

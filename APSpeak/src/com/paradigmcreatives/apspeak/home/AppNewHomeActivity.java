@@ -101,7 +101,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private ImageView mHeaderOptionsBack;
 	private ImageView mHeaderLogo;
 	private TextView mNotificationsCount;
-	private TextView mProfileName;
+	private TextView globelHeaderText;
 	private TextView mDashBoardIconTxt;
 	private TextView mProfileIconTxt;
 	private TextView mInviteFriendsIconTxt;
@@ -119,10 +119,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private String TAG = "AppNewHomeActivity";
 	private static final int ABOUT_US = 1;
 	private static final int TERMS_AND_CONDITION = 2;
-	private static final int PRIVACY_POLACY = 3;
-	private static final int CHANGE_CITY = 4;
-	private static final int GIVE_US_FEEDBACK = 5;
-	private static final int LOGOUT = 6;
+	private static final int PRIVACY_POLACY = 10;
+	private static final int CHANGE_CITY = 3;
+	private static final int GIVE_US_FEEDBACK = 4;
+	private static final int LOGOUT = 5;
 	private static final int HOME = 0;
 
 	private NotificationsCountBroadcastReceiver mNotificationsCountBroadcastReceiver;
@@ -172,7 +172,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mNotificationsIcon = (ImageView) findViewById(R.id.home_notifications_icon);
 
 		mNotificationsCount = (TextView) findViewById(R.id.home_notifications_count);
-		mProfileName = (TextView) findViewById(R.id.header_txt_profile);
+		globelHeaderText = (TextView) findViewById(R.id.header_txt_profile);
 		mDashBoardIconTxt = (TextView) findViewById(R.id.home_cues_text);
 		mProfileIconTxt = (TextView) findViewById(R.id.home_profile_text);
 		mInviteFriendsIconTxt = (TextView) findViewById(R.id.home_notifications_text);
@@ -272,7 +272,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderOptionsBack.setVisibility(View.INVISIBLE);
-			mProfileName.setVisibility(View.INVISIBLE);
+			globelHeaderText.setVisibility(View.INVISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			break;
 
@@ -302,8 +302,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsLayout.setVisibility(View.INVISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			mHeaderOptionsBack.setVisibility(View.GONE);
-			mProfileName.setText(getResources().getString(R.string.my_profile));
-			mProfileName.setVisibility(View.VISIBLE);
+			globelHeaderText.setText(getResources().getString(R.string.my_profile));
+			globelHeaderText.setVisibility(View.VISIBLE);
 
 			break;
 
@@ -352,9 +352,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileLayout.setVisibility(View.INVISIBLE);
 			mNotificationsLayout.setVisibility(View.GONE);
 			mHeaderOptionsBack.setVisibility(View.GONE);
-			mProfileName.setText(getResources().getString(
+			globelHeaderText.setText(getResources().getString(
 					R.string.invite_friends_heading));
-			mProfileName.setVisibility(View.VISIBLE);
+			globelHeaderText.setVisibility(View.VISIBLE);
 			mHeaderLogo.setVisibility(View.GONE);
 			mFeedbackIcon.setVisibility(View.VISIBLE);
 			break;
@@ -410,8 +410,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mProfileLayout.setVisibility(View.INVISIBLE);
 		mNotificationsLayout.setVisibility(View.INVISIBLE);
 		mHeaderOptionsBack.setVisibility(View.INVISIBLE);
-		mProfileName.setText(getResources().getString(R.string.campaigns));
-		mProfileName.setVisibility(View.VISIBLE);
+		globelHeaderText.setText(getResources().getString(R.string.campaigns));
+		globelHeaderText.setVisibility(View.VISIBLE);
 		mHeaderLogo.setVisibility(View.GONE);
 	}
 
@@ -770,7 +770,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			Fragment fragment;
 			switch (position) {
 			case ABOUT_US:
-				mProfileName.setText(getResources()
+				globelHeaderText.setText(getResources()
 						.getString(R.string.about_us));
 				mFragmentManager.beginTransaction()
 						.replace(R.id.home_cues, new AboutUsActivity())
@@ -790,7 +790,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 				break;
 			case PRIVACY_POLACY:
-				mProfileName.setText(getResources().getString(
+				globelHeaderText.setText(getResources().getString(
 						R.string.privacy_policy));
 
 				mFragmentManager.beginTransaction()
@@ -815,7 +815,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 				 */
 				break;
 			case GIVE_US_FEEDBACK:
-				mProfileName.setText(getResources()
+				globelHeaderText.setText(getResources()
 						.getString(R.string.feedback));
 
 				mFragmentManager.beginTransaction()
@@ -834,7 +834,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 						});
 				break;
 			case HOME:
-				mProfileName.setText(getResources().getString(
+				globelHeaderText.setText(getResources().getString(
 						R.string.campaigns));
 				loadDashBoard();
 				drawerLayout.closeDrawers();

@@ -4,29 +4,13 @@
     android:layout_height="fill_parent"
     android:background="@color/white"
     android:orientation="vertical" >
-
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
-        <include layout="@layout/header_layout" />
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/global_streams_up_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/header"
         android:background="@drawable/header_bg"
         android:orientation="vertical" >
 
-        <!--
-          <View
-            android:layout_width="fill_parent"
-            android:layout_height="0.5dp"
-            android:background="#989898" />
-        -->
 
         <View
             android:layout_width="fill_parent"
@@ -204,7 +188,7 @@
             android:scrollbars="none"
             android:stretchMode="columnWidth"
             android:verticalSpacing="2dp"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <com.handmark.pulltorefresh.library.PullToRefreshListView
             android:id="@+id/globalstreams_list_view"

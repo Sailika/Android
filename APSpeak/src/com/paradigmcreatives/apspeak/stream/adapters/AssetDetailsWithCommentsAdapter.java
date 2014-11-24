@@ -287,6 +287,7 @@ public class AssetDetailsWithCommentsAdapter extends BaseAdapter {
 		public GridView assetLovedUsersGrid;
 		public TextView assetLovedUsersSeeAll;
 		public ProgressWheel progreswheel;
+		public TextView shareTxt;
 
 		
 		

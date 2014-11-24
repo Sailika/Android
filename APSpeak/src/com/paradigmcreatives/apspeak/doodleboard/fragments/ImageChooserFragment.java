@@ -34,11 +34,13 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 	private TextView mGalleryText;
 	private TextView mBackgroundText;
 	private TextView mPostTxt;
-	private ImageButton textIcon_camera,textIcon_gallery,imageIcon;
+	private ImageButton textIcon_camera, textIcon_gallery, imageIcon;
 	private ImageSelectionFragmentActivity activity;
 	private String cueID;
 	private ImageView postWriteIdeaImg;
 	private boolean isWrite;
+	private LinearLayout yellowStripLayout;
+	private LinearLayout postLayout;
 
 	public ImageChooserFragment() {
 		super();
@@ -62,12 +64,16 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.camera_button_layout);
 		postWriteIdeaImg = (ImageView) view
 				.findViewById(R.id.ib_image_selection_post);
+		yellowStripLayout = (LinearLayout) view
+				.findViewById(R.id.ll_img_selection_text);
+		postLayout = (LinearLayout) view
+				.findViewById(R.id.ll_img_selection_post);
 
 		mGalleryLayout = (LinearLayout) view
 				.findViewById(R.id.gallery_button_layout);
 		mWriteLayout = (LinearLayout) view
 				.findViewById(R.id.write_button_layout);
-		
+
 		/***
 		 * Change Style Here
 		 */
@@ -82,15 +88,14 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 		imageIcon = (ImageButton) view
 				.findViewById(R.id.img_selection_camera_icon1);
 
-		mPostTxt = (TextView)view.findViewById(R.id.posts);
-		
+		mPostTxt = (TextView) view.findViewById(R.id.posts);
+
 		TypeFontAssets fontAssets = new TypeFontAssets(getActivity());
-		
+
 		mCameraText.setTypeface(fontAssets.regularFont);
 		mGalleryText.setTypeface(fontAssets.regularFont);
 		mBackgroundText.setTypeface(fontAssets.regularFont);
-		mPostTxt.setTypeface(fontAssets.regularFont);		
-		
+		mPostTxt.setTypeface(fontAssets.regularFont);
 
 		/*
 		 * mMainChildFrameLayout = (FrameLayout) findViewById(R.id.child_frame);
@@ -123,6 +128,8 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 	 * Show the camera fragment and start the camera
 	 */
 	public void showCameraFragment() {
+		yellowStripLayout.setVisibility(View.GONE);
+		postLayout.setVisibility(View.GONE);
 		isWrite = false;
 		mCameraText.setTextColor(getResources().getColor(R.color.white));
 		mCameraLayout.setBackgroundColor(getResources().getColor(
@@ -150,6 +157,8 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 	}
 
 	public void showGallery() {
+		yellowStripLayout.setVisibility(View.GONE);
+		postLayout.setVisibility(View.GONE);
 		isWrite = false;
 		mGalleryText.setTextColor(getResources().getColor(R.color.white));
 		mGalleryLayout.setBackgroundColor(getResources().getColor(
@@ -180,6 +189,8 @@ public class ImageChooserFragment extends Fragment implements OnClickListener {
 	}
 
 	public Fragment showBackgroundFragment() {
+		yellowStripLayout.setVisibility(View.GONE);
+		postLayout.setVisibility(View.VISIBLE);
 		isWrite = true;
 		mBackgroundText.setTextColor(getResources().getColor(R.color.white));
 		mWriteLayout.setBackgroundColor(getResources().getColor(

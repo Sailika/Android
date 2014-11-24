@@ -118,7 +118,7 @@
         <item>Home</item>
         <item>About Us</item>
         <item>Terms &amp; Conditions</item>
-        <item>Privacy Policy</item>
+        <!-- <item>Privacy Policy</item> -->
         <item>Change your city</item>
         <item>Give us feedback</item>
         <item>Logout</item>
@@ -362,5 +362,6 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="empty">Empty post not allowed.</string>
     <string name="need_to_implement">Feature is not enabled yet, comming soon!</string>
     <string name="invite_btn">Invite</string>
+    <string name="wait_for_poll">Please wait, while polling your opinion</string>
 
 </resources>

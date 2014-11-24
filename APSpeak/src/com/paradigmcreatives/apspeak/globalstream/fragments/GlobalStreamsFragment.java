@@ -171,7 +171,7 @@ public class GlobalStreamsFragment extends Fragment implements
 
 	private static RelativeLayout globelFeedbackBottomLayout;
 
-	private static TextView headerText;
+	// private static TextView headerText;
 
 	/**
 	 * Default Constructor
@@ -274,19 +274,29 @@ public class GlobalStreamsFragment extends Fragment implements
 			try {
 				FeedBackResponse response = ResponseParser.parseResponse(arg1,
 						FeedBackResponse.class);
-				if (response.getErrorCode() == HttpStatus.SC_OK) {
+				if (response.getErrorCode() == HttpStatus.SC_OK
+						&& response.getErrorMessage() == null) {
 					mCueDetailsBackgroundWideImage.setVisibility(View.GONE);
 					feedbackOptsLayout.setVisibility(View.GONE);
 					feedBackMessage.setText(mContext.getResources().getString(
 							R.string.thank_you));
+					feedBackMessage.setVisibility(View.VISIBLE);
 					feedBackMessage.setTextSize(25);
 					yourOpinionTxt.setText(mContext.getResources().getString(
 							R.string.providing_feedback));
 					yourOpinionTxt.setTextColor(Color.BLACK);
-					headerText.setText(mContext.getResources().getString(
-							R.string.thank_you));
+					if (mContext instanceof AppNewChildActivity) {
+						AppNewChildActivity activity = (AppNewChildActivity) mContext;
+						activity.setTitle(R.string.thank_you);
+					}
+					// headerText.setText(mContext.getResources().getString(
+					// R.string.thank_you));
 					feedBackMessage.setTextColor(mContext.getResources()
 							.getColor(R.color.apspeak_green));
+
+				} else {
+					Toast.makeText(mContext, response.getErrorMessage(),
+							Toast.LENGTH_LONG).show();
 
 				}
 			} catch (IOException e) {
@@ -432,8 +442,8 @@ public class GlobalStreamsFragment extends Fragment implements
 			badFeedBackImg.setOnClickListener(this);
 			ideasMainLayout.setOnClickListener(this);
 			createIdeaImage.setOnClickListener(this);
-			headerText = (TextView) rootView
-					.findViewById(R.id.globel_header_text);
+			// headerText = (TextView) rootView
+			// .findViewById(R.id.globel_header_text);
 
 			globelFeedbackBottomLayout = (RelativeLayout) rootView
 					.findViewById(R.id.global_streams_bottom_layout);
@@ -442,10 +452,6 @@ public class GlobalStreamsFragment extends Fragment implements
 			mAllColleges.setTextColor(getResources().getColor(R.color.black));
 			mFriends.setTextColor(getResources().getColor(R.color.black));
 
-			TextView headerText = (TextView) rootView
-					.findViewById(R.id.globel_header_text);
-			headerText.setText(getResources().getString(
-					R.string.poll_your_opinion));
 			showGridView();
 
 			/***
@@ -844,9 +850,12 @@ public class GlobalStreamsFragment extends Fragment implements
 			isFeedback = true;
 			mQueueIcon.setVisibility(View.GONE);
 			mQueueMessage.setVisibility(View.GONE);
+			if (getActivity() instanceof AppNewChildActivity) {
+				getActivity().setTitle(R.string.poll_your_opinion);
+			}
 			// chaning header title
-			headerText.setText(getResources().getString(
-					R.string.poll_your_opinion));
+			// headerText.setText(getResources().getString(
+			// R.string.poll_your_opinion));
 			mPullToRefreshGridView.setVisibility(View.GONE);
 			mProgressBar.setVisibility(View.GONE);
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
@@ -887,9 +896,13 @@ public class GlobalStreamsFragment extends Fragment implements
 
 		case R.id.allcolleges_button_layout: // Ideas tab for APSpeak
 			mErrorMessageView.setVisibility(View.VISIBLE);
+			mPullToRefreshGridView.setVisibility(View.VISIBLE);
 			isFeedback = false;
+			if (getActivity() instanceof AppNewChildActivity) {
+				getActivity().setTitle(R.string.ideas);
+			}
 			// changing header title to ideas
-			headerText.setText(getResources().getString(R.string.ideas));
+			// headerText.setText(getResources().getString(R.string.ideas));
 			mQueueIcon.setVisibility(View.VISIBLE);
 			mQueueMessage.setVisibility(View.VISIBLE);
 
@@ -1498,7 +1511,9 @@ public class GlobalStreamsFragment extends Fragment implements
 		}
 		feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
 		feedBack.setFeedback(feedBackType);
-
+		Toast.makeText(getActivity(),
+				getResources().getString(R.string.wait_for_poll),
+				Toast.LENGTH_LONG).show();
 		RestClient
 				.getInstance()
 				.getRestClient(getActivity())

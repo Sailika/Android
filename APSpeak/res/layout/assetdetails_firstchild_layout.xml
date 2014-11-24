@@ -37,34 +37,34 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/asset_owner_pic_left_margin"
                         android:src="@drawable/userpic" />
-                    
-                    <LinearLayout 
+
+                    <LinearLayout
                         android:id="@+id/asset_texts_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
                         android:layout_toRightOf="@id/asset_owner_pic"
                         android:orientation="vertical" >
-                    <TextView
-                        android:id="@+id/asset_owner_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/anonymous"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/asset_owner_text_size" />
 
-                    <TextView
-                        android:id="@+id/asset_owner_group_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="@string/anonymous"
-                        android:textColor="@color/blue"
-                        android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/asset_owner_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/anonymous"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/asset_owner_text_size" />
+
+                        <TextView
+                            android:id="@+id/asset_owner_group_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/anonymous"
+                            android:textColor="@color/blue"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
-                    
                     <TextView
                         android:id="@+id/asset_created_date"
                         android:layout_width="wrap_content"
@@ -162,10 +162,37 @@
                         android:textSize="@dimen/asset_other_details_text_size"
                         android:visibility="gone" />
 
+                    <TextView
+                        android:id="@+id/share_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/asset_share_pic_dimension"
+                        android:layout_toRightOf="@id/asset_comments"
+                        android:drawableLeft="@drawable/share_icon"
+                        android:text="@string/zero"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/asset_other_details_text_size" />
+
+                    <TextView
+                        android:id="@+id/asset_share_comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:layout_toRightOf="@id/share_image"
+                        android:drawableLeft="@drawable/comments"
+                        android:text="@string/zero"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/asset_other_details_text_size"
+                        android:visibility="gone" />
+
                     <ImageView
                         android:id="@+id/asset_options"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/asset_owner_pic_left_margin"
