@@ -56,6 +56,8 @@ public class AppNewChildActivity extends FragmentActivity {
 					&& data.getBoolean(Constants.LAUNCH_GLOBALSTREAM_SCREEN)
 					&& data.containsKey(Constants.CUE_OBJECT)) {
 				Campaigns cue = data.getParcelable(Constants.CUE_OBJECT);
+				globelTxtView.setText(getResources().getString(
+						R.string.invite_friends_heading));
 				if (cue != null) {
 					fragment = new GlobalStreamsFragment(cue);
 				}

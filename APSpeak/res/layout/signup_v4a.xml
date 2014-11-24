@@ -14,8 +14,8 @@
             android:id="@+id/animationImages"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+			android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ap_speak_logo" />
 
@@ -23,7 +23,6 @@
             android:id="@+id/group_selection_layout"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-           
             android:layout_below="@id/animationImages"
             android:layout_marginLeft="60dp"
             android:layout_marginRight="60dp"
