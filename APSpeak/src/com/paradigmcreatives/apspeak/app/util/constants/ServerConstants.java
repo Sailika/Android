@@ -9,18 +9,22 @@ package com.paradigmcreatives.apspeak.app.util.constants;
 public class ServerConstants {
 
 	// Development server urls
-	public static final String SERVER_URL = "http://54.214.49.179/rv3";//"http://smacx-node-server-dev.herokuapp.com/rv3";
+	public static final String SERVER_URL = "http://54.214.49.179/rv3";// "http://smacx-node-server-dev.herokuapp.com/rv3";
 	public static final String NODE_SERVER_URL = "http://smacx-node-server-dev.herokuapp.com/api/v1";
 
 	// Production server urls
-	//public static final String SERVER_URL = "https://rest.whatsayapp.com/rv3";
-	//public static final String NODE_SERVER_URL = "http://node.whatsayapp.com/api/v1";
+	// public static final String SERVER_URL =
+	// "https://rest.whatsayapp.com/rv3";
+	// public static final String NODE_SERVER_URL =
+	// "http://node.whatsayapp.com/api/v1";
 
 	// Timeout
 	public static final int CONNECTION_TIMEOUT = 60000;
 
 	// suffixes
-	public static final String REGISTER_USER = "/user/register";
+	//public static final String REGISTER_USER = "/profile/user";
+
+	 public static final String REGISTER_USER = "/user/register";
 	public static final String USER_SIGNIN = "/user/signin";
 	public static final String FOLLOWING = "/following/";
 	public static final String FOLLOWERS = "/followers/";

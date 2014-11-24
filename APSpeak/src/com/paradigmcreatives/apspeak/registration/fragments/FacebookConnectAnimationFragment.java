@@ -130,6 +130,8 @@ public class FacebookConnectAnimationFragment extends
 		if (session != null && session.isOpened()) {
 			Logger.info(TAG, "Already logged in");
 			onSessionStateChange(session, session.getState(), null);
+		}else{
+			
 		}
 		GoogleAnalyticsHelper.sendScreenViewToGA(getActivity(),
 				GoogleAnalyticsConstants.FACEBOOK_LOGIN_SCREEN);

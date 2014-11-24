@@ -10,17 +10,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp" 
-        android:visibility="visible">
+        android:paddingTop="5dp"
+        android:visibility="visible" >
 
         <ImageView
             android:id="@+id/home_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginBottom="2dp"
             android:paddingLeft="10dp"
-            android:visibility="gone"
-            android:layout_centerVertical="true"
             android:src="@drawable/back_button"
             android:visibility="gone" />
 
@@ -37,8 +36,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" 
-            android:visibility="gone">
+            android:layout_alignParentRight="true"
+            android:visibility="gone" >
 
             <ImageView
                 android:id="@+id/home_notifications_icon"
@@ -47,8 +46,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="2dp"
                 android:paddingRight="10dp"
-                android:visibility="gone"
-                android:src="@drawable/notification_icon" />
+                android:src="@drawable/notification_icon"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/home_notifications_count"
