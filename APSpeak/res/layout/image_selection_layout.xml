@@ -186,14 +186,14 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/post_icon"
                 android:gravity="center"
-                android:paddingTop="5dp" />
+                android:paddingTop="4dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ib_image_selection_post"
                 android:gravity="center"
-                android:paddingTop="2dp"
+                android:paddingTop="1dp"
                 android:text="@string/post"
                 android:id="@+id/posts"
                 android:textColor="@android:color/background_light" />

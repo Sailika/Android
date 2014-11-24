@@ -33,6 +33,7 @@ import com.paradigmcreatives.apspeak.app.util.images.ImageUtil;
 import com.paradigmcreatives.apspeak.registration.handlers.GetGroupsListHandler;
 import com.paradigmcreatives.apspeak.registration.tasks.GetUserGroupsListThread;
 import com.paradigmcreatives.apspeak.stream.fragments.UserStreamFragment;
+import com.paradigmcreatives.apspeak.textstyles.TypeFontAssets;
 import com.paradigmcreatives.apspeak.user.UserProfileActivity;
 import com.paradigmcreatives.apspeak.user.tasks.GetFriendCompactProfileThread;
 
@@ -59,6 +60,7 @@ public class ProfileFragment extends Fragment {
 	private Typeface robotoRegular = null;
 	private Typeface robotoBold = null;
 	private boolean checkFollowStatus = true;
+	private TypeFontAssets fontAssets;
 	/*
 	 * Disabled Follow/UnFollow feature private FrameLayout followLayout = null;
 	 * private ProgressBar followCheck = null; private TextView followText =
@@ -100,6 +102,8 @@ public class ProfileFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.profile, container, false);
 
+		fontAssets = new TypeFontAssets(getActivity());
+		
 		this.options = new DisplayImageOptions.Builder().cacheInMemory(true)
 				.cacheOnDisc(true).displayer(new FadeInBitmapDisplayer(250))
 				.build();
@@ -157,15 +161,12 @@ public class ProfileFragment extends Fragment {
 	}
 
 	private void initializAllViews(View view) {
-		robotoRegular = Typeface.createFromAsset(getActivity().getAssets(),
-				"Roboto-Regular.ttf");
-		robotoBold = Typeface.createFromAsset(getActivity().getAssets(),
-				"Roboto-Bold.ttf");
+		
 
 		name = (TextView) view.findViewById(R.id.user_name);
 		groupNameTextView = (TextView) view.findViewById(R.id.group_name);
-		name.setTypeface(robotoBold);
-		groupNameTextView.setTypeface(robotoRegular);
+		name.setTypeface(fontAssets.boldFont);
+		groupNameTextView.setTypeface(fontAssets.regularFont);
 
 		/*
 		 * Disabled Follow/UnFollow feature followLayout = (FrameLayout)
