@@ -67,6 +67,8 @@
     <color name="home_bottom_text">#929292</color>
     <color name="choosecollege_button_background">#58ADDC</color>
     <!-- APSpeak color codes -->
+     <color name="apspeak_header">#e7493d</color>
+      <color name="apspeak_footer">#dddddd</color>
     <color name="apspeak_red">#d4151c</color>
     <color name="apspeak_green">#029755</color>
     <color name="apspeak_light_yellow">#ffbd21</color>
