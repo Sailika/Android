@@ -260,7 +260,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 				fragmentTransaction.commit();
 				currentFragment = mFeaturedFragment;
 			}
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
+			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured_select);
 			mProfileIcon.setImageResource(R.drawable.me);
 			mNotificationsIcon.setImageResource(R.drawable.myfeed);
@@ -290,10 +290,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 			currentFragment = mProfileFragment;
 			//}
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
+			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.my_profile_icon_selected);
-			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
+			mProfileIcon.setImageResource(R.drawable.mmy_profile_icon_selected);
+			mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 			showHideNotificationsCount();
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.GONE);
@@ -332,11 +332,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 				// mMyFeedFragment.reloadFeed();
 			}*/
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
+			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.my_profile_icon);
+			mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
 			mNotificationsIcon
-			.setImageResource(R.drawable.invite_friends_icon_selected);
+			.setImageResource(R.drawable.minvite_selected);
 			// Reset notifications count value
 			AppPropertiesUtil.setNotificationsCount(AppNewHomeActivity.this, 0);
 			showHideNotificationsCount();
@@ -398,10 +398,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 		fragmentTransaction.commit();
 		currentFragment = mCuesFragment;
 
-		mCuesIcon.setImageResource(R.drawable.dashboard_icon_selected);
+		mCuesIcon.setImageResource(R.drawable.mdashboard_icon_selected);
 		mFeaturedIcon.setImageResource(R.drawable.featured);
-		mProfileIcon.setImageResource(R.drawable.my_profile_icon);
-		mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
+		mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
+		mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 		showHideNotificationsCount();
 
 		mInviteIcon.setVisibility(View.GONE);
@@ -772,13 +772,15 @@ public class AppNewHomeActivity extends FragmentActivity {
 			Fragment fragment;
 			switch (position) {
 			case ABOUT_US:
-				globelHeaderText.setText(getResources()
-						.getString(R.string.about_us));
-				mFragmentManager.beginTransaction()
-				.replace(R.id.home_cues, new AboutUsActivity())
-				.commit();
+//				globelHeaderText.setText(getResources()
+//						.getString(R.string.about_us));
+//				mFragmentManager.beginTransaction()
+//				.replace(R.id.home_cues, new AboutUsActivity())
+//				.commit();
+				Toast.makeText(view.getContext(),
+						getResources().getString(R.string.need_to_implement),
+						Toast.LENGTH_LONG).show();
 				drawerLayout.closeDrawers();
-
 				break;
 			case TERMS_AND_CONDITION:
 				/*
@@ -792,17 +794,19 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 				break;
 			case PRIVACY_POLACY:
-				globelHeaderText.setText(getResources().getString(
-						R.string.privacy_policy));
-
-				mFragmentManager.beginTransaction()
-				.replace(R.id.home_cues, new PrivacyPolicyActivity())
-				.commit();
+//				globelHeaderText.setText(getResources().getString(
+//						R.string.privacy_policy));
+//
+//				mFragmentManager.beginTransaction()
+//				.replace(R.id.home_cues, new PrivacyPolicyActivity())
+//				.commit();
+				Toast.makeText(view.getContext(),
+						getResources().getString(R.string.need_to_implement),
+						Toast.LENGTH_LONG).show();
 				drawerLayout.closeDrawers();
 				break;
 			case CHANGE_CITY:
 				drawerLayout.closeDrawers();
-
 				Toast.makeText(view.getContext(),
 						getResources().getString(R.string.need_to_implement),
 						Toast.LENGTH_LONG).show();
@@ -817,12 +821,15 @@ public class AppNewHomeActivity extends FragmentActivity {
 				 */
 				break;
 			case GIVE_US_FEEDBACK:
-				globelHeaderText.setText(getResources()
-						.getString(R.string.feedback));
-
-				mFragmentManager.beginTransaction()
-				.replace(R.id.home_cues, new FeedbackActivity())
-				.commit();
+//				globelHeaderText.setText(getResources()
+//						.getString(R.string.feedback));
+//
+//				mFragmentManager.beginTransaction()
+//				.replace(R.id.home_cues, new FeedbackActivity())
+//				.commit();
+				Toast.makeText(view.getContext(),
+						getResources().getString(R.string.need_to_implement),
+						Toast.LENGTH_LONG).show();
 				drawerLayout.closeDrawers();
 				break;
 			case LOGOUT:
@@ -837,10 +844,13 @@ public class AppNewHomeActivity extends FragmentActivity {
 				break;
 				
 			case HELP:
-				globelHeaderText.setText(getResources().getString(R.string.help));
-				mFragmentManager.beginTransaction().
-				replace(R.id.home_cues, new HelpActivity())
-				.commit();
+//				globelHeaderText.setText(getResources().getString(R.string.help));
+//				mFragmentManager.beginTransaction().
+//				replace(R.id.home_cues, new HelpActivity())
+//				.commit();
+				Toast.makeText(view.getContext(),
+						getResources().getString(R.string.need_to_implement),
+						Toast.LENGTH_LONG).show();
 				drawerLayout.closeDrawers();
 				break;
 				

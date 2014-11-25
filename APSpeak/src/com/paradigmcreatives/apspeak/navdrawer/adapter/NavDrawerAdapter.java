@@ -67,12 +67,12 @@ public class NavDrawerAdapter extends BaseAdapter{
 
        
 
-        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
+       // ImageView imgIcon = (ImageView) convertView.findViewById(R.id.icon);
 
         TextView txtTitle = (TextView) convertView.findViewById(R.id.title);
 
 
-        imgIcon.setImageResource(navDrawerItems.get(position).getIcon());    
+       // imgIcon.setImageResource(navDrawerItems.get(position).getIcon());    
 
         txtTitle.setText(navDrawerItems.get(position).getTitle());  
         Typeface myTypeface = Typeface.createFromAsset(context.getAssets(),
