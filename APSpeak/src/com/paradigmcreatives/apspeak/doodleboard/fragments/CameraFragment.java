@@ -1,7 +1,11 @@
 package com.paradigmcreatives.apspeak.doodleboard.fragments;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Parameters;
@@ -77,6 +81,7 @@ public class CameraFragment extends Fragment {
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
 		CameraOptionsOnClickListener listener = new CameraOptionsOnClickListener(
 				this);
+		changeColor(mCapture);
 		mCapture.setClickable(true);
 		mCapture.setOnClickListener(listener);
 		mFlipCamera.setOnClickListener(new CameraFlipListener());
@@ -346,5 +351,11 @@ public class CameraFragment extends Fragment {
 		if(mCapture != null){
 			mCapture.setClickable(enableDisable);
 		}
+	}
+	private void changeColor(ImageView captureIcon) {
+		Drawable myIcon = getResources().getDrawable(R.drawable.capture_icon);
+		ColorFilter filter = new LightingColorFilter(Color.RED, Color.RED);
+		captureIcon.setColorFilter(filter);
+		captureIcon.setImageDrawable(myIcon);
 	}
 }

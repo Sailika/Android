@@ -67,7 +67,7 @@
             android:id="@+id/options_bottom"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@color/apspeak_light_yellow"
+            android:background="@color/footer_color"
             android:orientation="horizontal"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"

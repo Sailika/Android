@@ -8,7 +8,7 @@
         android:id="@+id/header_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/header_bg"
+        android:background="@color/header_color"
         android:paddingBottom="10dp"
         android:paddingTop="10dp" >
 
