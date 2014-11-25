@@ -87,6 +87,8 @@
                 <FrameLayout
                     android:id="@+id/asset_image_layout"
                     android:layout_width="fill_parent"
+                    android:background="@android:color/black"
+                  
                     android:layout_height="wrap_content"
                     android:layout_below="@id/asset_header_layout" >
 
@@ -135,7 +137,8 @@
                     android:id="@+id/asset_bottom_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="@dimen/asset_bottom_layout_height"
-                    android:layout_below="@id/asset_image_layout" >
+                    android:layout_below="@id/asset_image_layout"
+                >
 
                     <TextView
                         android:id="@+id/asset_loves"
@@ -174,7 +177,8 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/asset_other_details_text_size" />
 
-                    <!-- <TextView
+                    <!--
+                         <TextView
                         android:id="@+id/asset_share_comments"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -186,8 +190,9 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/asset_other_details_text_size"
                         android:visibility="gone" />
- -->
-                    <!-- <ImageView
+                    -->
+                    <!--
+                         <ImageView
                         android:id="@+id/asset_options"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -195,7 +200,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/asset_owner_pic_left_margin"
-                        android:background="@drawable/options" /> -->
+                        android:background="@drawable/options" />
+                    -->
                 </RelativeLayout>
 
                 <View
@@ -212,10 +218,10 @@
                 android:id="@+id/asset_people_liked_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/apspeak_green"
-                android:visibility="gone" >
+                android:background="@color/grey_light" >
 
-               <!--  <TextView
+                <!--
+                     <TextView
                     android:id="@+id/asset_people_liked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -224,7 +230,9 @@
                     android:layout_marginTop="@dimen/asset_margin_top"
                     android:text="@string/people_who_loved_it"
                     android:textColor="@color/apspeak_dark_yellow\"
-                    android:textSize="@dimen/asset_details_header_text_size" /> -->
+                    android:textSize="@dimen/asset_details_header_text_size" />
+                     
+                -->
 
                 <GridView
                     android:id="@+id/asset_people_liked_grid_view"
@@ -234,7 +242,7 @@
                     android:layout_marginBottom="@dimen/asset_details_likedusers_grid_margin_bottom"
                     android:layout_marginLeft="@dimen/asset_margin_left"
                     android:layout_marginTop="@dimen/asset_margin_top"
-                    android:listSelector="@color/grey"
+                   android:listSelector="@android:color/transparent"
                     android:numColumns="5"
                     android:stretchMode="columnWidth"
                     android:verticalSpacing="5dp" />

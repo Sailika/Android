@@ -17,6 +17,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,9 +31,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.paradigmcreatives.apspeak.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.model.ASSOCIATION_TYPE;
 import com.paradigmcreatives.apspeak.app.model.Friend;
 import com.paradigmcreatives.apspeak.app.model.StreamAsset;
@@ -53,8 +54,8 @@ import com.paradigmcreatives.apspeak.discovery.fragments.UserNetworkFragment.Use
 import com.paradigmcreatives.apspeak.discovery.listeners.UserNetworkListClickListener;
 import com.paradigmcreatives.apspeak.doodleboard.send.AssetSubmitHelper;
 import com.paradigmcreatives.apspeak.stream.adapters.AssetDetailsWithCommentsAdapter;
-import com.paradigmcreatives.apspeak.stream.adapters.AssetLikedPeopleAdapter;
 import com.paradigmcreatives.apspeak.stream.adapters.AssetDetailsWithCommentsAdapter.ViewHolder;
+import com.paradigmcreatives.apspeak.stream.adapters.AssetLikedPeopleAdapter;
 import com.paradigmcreatives.apspeak.stream.handlers.GetAssetLikesHandler;
 import com.paradigmcreatives.apspeak.stream.handlers.GetStreamHandler;
 import com.paradigmcreatives.apspeak.stream.listeners.UserStreamClickListener;
@@ -271,6 +272,10 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 				.findViewById(R.id.asset_people_liked_layout);
 		viewHolder.assetLovedUsersGrid = (GridView) view
 				.findViewById(R.id.asset_people_liked_grid_view);
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 167e07e70dce920f5354022c481729b8ad63eef3
 		//		viewHolder.optionsImage = (ImageView) view
 		//				.findViewById(R.id.asset_options);
 		viewHolder.assetLovedUsersSeeAll = (TextView) view
@@ -325,7 +330,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		viewHolder.assetImage.setOnTouchListener(touchListener);
 
 		mFirstChildViewHolder = viewHolder;
-		// loadPeopleWhoLikedAsset(mAssetLikedUsersList);
+		 loadPeopleWhoLikedAsset(mAssetLikedUsersList);
 		return view;
 	}
 
@@ -361,10 +366,11 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 						assetUtil.setAssetLikeIcon(mFirstChildAsset,
 								assetLoveAction);
 					}
-
+//Toast.makeText(getActivity(), usersList.toString(), Toast.LENGTH_LONG).show();
 					if (usersList != null && usersList.size() > 0) {
 						// Set VISIBLE to Liked Users layout
 						if (mFirstChildViewHolder.assetLovedUsersLayout != null) {
+							
 							mFirstChildViewHolder.assetLovedUsersLayout
 							.setVisibility(View.VISIBLE);
 						}
@@ -374,6 +380,10 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 						if (mFirstChildViewHolder.assetLovedUsersGrid != null) {
 							mFirstChildViewHolder.assetLovedUsersGrid
 							.setAdapter(adapter);
+<<<<<<< HEAD
+=======
+							
+>>>>>>> 167e07e70dce920f5354022c481729b8ad63eef3
 							mFirstChildViewHolder.assetLovedUsersGrid
 							.setOnItemClickListener(new UserNetworkListClickListener(
 									getActivity(), this,
@@ -767,7 +777,8 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 				StreamAssetUtil assetUtil = new StreamAssetUtil(this, options);
 				assetUtil.setAssetLikeIcon(mFirstChildAsset, assetLoveAction);
 			}
-			// loadPeopleWhoLikedAsset(mAssetLikedUsersList);
+		//phani
+			 loadPeopleWhoLikedAsset(mAssetLikedUsersList);
 		}
 	}
 
