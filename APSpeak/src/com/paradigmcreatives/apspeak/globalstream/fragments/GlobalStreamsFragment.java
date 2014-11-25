@@ -448,9 +448,9 @@ public class GlobalStreamsFragment extends Fragment implements
 			globelFeedbackBottomLayout = (RelativeLayout) rootView
 					.findViewById(R.id.global_streams_bottom_layout);
 			mIsGridviewInUse = true;
-			mCollege.setTextColor(getResources().getColor(R.color.black));
-			mAllColleges.setTextColor(getResources().getColor(R.color.black));
-			mFriends.setTextColor(getResources().getColor(R.color.black));
+			mCollege.setTextColor(getResources().getColor(R.color.green));
+			mAllColleges.setTextColor(getResources().getColor(R.color.yellow));
+			mFriends.setTextColor(getResources().getColor(R.color.red));
 
 			showGridView();
 
@@ -867,9 +867,9 @@ public class GlobalStreamsFragment extends Fragment implements
 			mGridView.setVisibility(View.GONE);
 			ideasMainLayout.setVisibility(View.GONE);
 			feedbackOptsLayout.setVisibility(View.VISIBLE);
-			mCollege.setTextColor(getResources().getColor(R.color.black));
-			mAllColleges.setTextColor(getResources().getColor(R.color.black));
-			mFriends.setTextColor(getResources().getColor(R.color.black));
+			mCollege.setTextColor(getResources().getColor(R.color.green));
+			mAllColleges.setTextColor(getResources().getColor(R.color.yellow));
+			mFriends.setTextColor(getResources().getColor(R.color.red));
 
 			feedback.setTextColor(getResources().getColor(R.color.red));
 
@@ -915,9 +915,9 @@ public class GlobalStreamsFragment extends Fragment implements
 			feedBackMessage.setVisibility(View.INVISIBLE);
 			yourOpinionTxt.setVisibility(View.INVISIBLE);
 			mCurrentStreamType = STREAM_TYPE.ALLCOLLEGES;
-			mCollege.setTextColor(getResources().getColor(R.color.black));
-			mAllColleges.setTextColor(getResources().getColor(R.color.black));
-			mFriends.setTextColor(getResources().getColor(R.color.black));
+			mCollege.setTextColor(getResources().getColor(R.color.green));
+			mAllColleges.setTextColor(getResources().getColor(R.color.yellow));
+			mFriends.setTextColor(getResources().getColor(R.color.red));
 
 			ideas.setTextColor(getResources().getColor(R.color.red));
 			feedback.setTextColor(getResources().getColor(R.color.white));
