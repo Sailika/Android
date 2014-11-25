@@ -264,7 +264,7 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:background="@color/apspeak_green" >
+        android:background="@color/footer_color" >
 
         <ImageView
             android:id="@+id/icon"
@@ -284,7 +284,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/icon"
             android:layout_margin="10dp"
-            android:background="@color/apspeak_green"
+            android:background="@color/footer_color"
             android:divider="@android:drawable/divider_horizontal_textfield"
             android:dividerHeight="1dp" />
     </RelativeLayout>
