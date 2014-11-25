@@ -269,7 +269,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			showHideNotificationsCount();
 
 			mInviteIcon.setVisibility(View.INVISIBLE);
-			mSettingsIcon.setVisibility(View.VISIBLE);
+			mSettingsIcon.setVisibility(View.INVISIBLE);
 			mFeedbackIcon.setVisibility(View.INVISIBLE);
 			mCuesLayout.setVisibility(View.INVISIBLE);
 			mFeaturedLayout.setVisibility(View.VISIBLE);
@@ -298,8 +298,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 			showHideNotificationsCount();
 
-			mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.white));
-			mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.white));
+			mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
+			mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
 			mProfileIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.INVISIBLE);
@@ -352,8 +352,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 				manager.cancelAll();
 			}
 			mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
-			mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.white));
-			mProfileIconTxt.setTextColor(getResources().getColor(R.color.white));
+			mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
+			mProfileIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.INVISIBLE);
 			mCuesLayout.setVisibility(View.VISIBLE);
@@ -410,8 +410,8 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
 		mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 		showHideNotificationsCount();
-		mProfileIconTxt.setTextColor(getResources().getColor(R.color.white));
-		mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.white));
+		mProfileIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
+		mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
 		mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
 		mInviteIcon.setVisibility(View.GONE);
 		mSettingsIcon.setVisibility(View.VISIBLE);
