@@ -87,7 +87,6 @@
                 <FrameLayout
                     android:id="@+id/asset_image_layout"
                     android:layout_width="fill_parent"
-                    android:background="@android:color/black"                  
                     android:layout_height="wrap_content"
                     android:layout_below="@id/asset_header_layout" >
 
@@ -217,7 +216,7 @@
                 android:id="@+id/asset_people_liked_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/grey_light" >
+             >
 
                 <!--
                      <TextView
@@ -240,7 +239,6 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/asset_details_likedusers_grid_margin_bottom"
                     android:layout_marginLeft="@dimen/asset_margin_left"
-                    android:layout_marginTop="@dimen/asset_margin_top"
                    android:listSelector="@android:color/transparent"
                     android:numColumns="5"
                     android:stretchMode="columnWidth"
