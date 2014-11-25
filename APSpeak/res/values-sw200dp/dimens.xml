@@ -11,6 +11,7 @@
     <dimen name="asset_other_details_text_size">10dp</dimen>
     <dimen name="asset_owner_name_topmargin">16dp</dimen>
 	<dimen name="asset_pic_dimension">335dp</dimen>
+	<dimen name="feedback_pic_dimension">250dp</dimen>
 	<dimen name="asset_margin_top">8dp</dimen>
 	<dimen name="asset_margin_left">10dp</dimen>
 	<dimen name="asset_margin_right">5dp</dimen>
