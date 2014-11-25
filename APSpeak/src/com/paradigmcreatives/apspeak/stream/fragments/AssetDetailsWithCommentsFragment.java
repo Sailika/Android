@@ -17,6 +17,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,9 +31,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.paradigmcreatives.apspeak.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.paradigmcreatives.apspeak.R;
 import com.paradigmcreatives.apspeak.app.model.ASSOCIATION_TYPE;
 import com.paradigmcreatives.apspeak.app.model.Friend;
 import com.paradigmcreatives.apspeak.app.model.StreamAsset;
@@ -53,8 +54,8 @@ import com.paradigmcreatives.apspeak.discovery.fragments.UserNetworkFragment.Use
 import com.paradigmcreatives.apspeak.discovery.listeners.UserNetworkListClickListener;
 import com.paradigmcreatives.apspeak.doodleboard.send.AssetSubmitHelper;
 import com.paradigmcreatives.apspeak.stream.adapters.AssetDetailsWithCommentsAdapter;
-import com.paradigmcreatives.apspeak.stream.adapters.AssetLikedPeopleAdapter;
 import com.paradigmcreatives.apspeak.stream.adapters.AssetDetailsWithCommentsAdapter.ViewHolder;
+import com.paradigmcreatives.apspeak.stream.adapters.AssetLikedPeopleAdapter;
 import com.paradigmcreatives.apspeak.stream.handlers.GetAssetLikesHandler;
 import com.paradigmcreatives.apspeak.stream.handlers.GetStreamHandler;
 import com.paradigmcreatives.apspeak.stream.listeners.UserStreamClickListener;
@@ -163,10 +164,10 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		progressDialog = new ProgressDialog(getActivity(),
 				ProgressDialog.THEME_HOLO_LIGHT);
 		progressDialog
-				.setTitle(getString(R.string.asset_details_progress_title));
+		.setTitle(getString(R.string.asset_details_progress_title));
 		// progressDialog.setMessage("Getting asset details. Please give us a moment");
 		progressDialog
-				.setMessage(getString(R.string.asset_details_progress_text));
+		.setMessage(getString(R.string.asset_details_progress_text));
 		progressDialog.setCancelable(false);
 
 		initUI(rootView);
@@ -236,7 +237,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 					this, mFirstChildAsset);
 			assetLoveAction.setOnClickListener(listener);
 			assetCommentAction.setOnClickListener(listener);
-		    //mShareView.setOnClickListener(listener);
+			//mShareView.setOnClickListener(listener);
 		}
 	}
 
@@ -262,8 +263,8 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		viewHolder.assetLoves = (TextView) view.findViewById(R.id.asset_loves);
 		viewHolder.assetComments = (TextView) view
 				.findViewById(R.id.asset_comments);
-		viewHolder.optionsImage = (ImageView) view
-				.findViewById(R.id.asset_options);
+		//		viewHolder.optionsImage = (ImageView) view
+		//				.findViewById(R.id.asset_options);
 		viewHolder.progreswheel = (ProgressWheel) view
 				.findViewById(R.id.progressBarwheelone);
 		// Asset liked people layout
@@ -271,8 +272,9 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 				.findViewById(R.id.asset_people_liked_layout);
 		viewHolder.assetLovedUsersGrid = (GridView) view
 				.findViewById(R.id.asset_people_liked_grid_view);
-		viewHolder.optionsImage = (ImageView) view
-				.findViewById(R.id.asset_options);
+		
+		//		viewHolder.optionsImage = (ImageView) view
+		//				.findViewById(R.id.asset_options);
 		viewHolder.assetLovedUsersSeeAll = (TextView) view
 				.findViewById(R.id.asset_see_all);
 		viewHolder.assetLovedUsersSeeAll.setTypeface(mRobotoBold);
@@ -280,9 +282,10 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		viewHolder.assetOwnerName.setTypeface(mRobotoBold);
 		viewHolder.assetCreatedTimestamp.setTypeface(mRobotoBold);
 		viewHolder.assetLoves.setTypeface(mRobotoRegular);
-		TextView assetPeopleLiked = (TextView) view
+		
+/*		TextView assetPeopleLiked = (TextView) view
 				.findViewById(R.id.asset_people_liked);
-		assetPeopleLiked.setTypeface(mRobotoBold);
+		assetPeopleLiked.setTypeface(mRobotoBold);*/
 
 		options = new DisplayImageOptions.Builder().cacheInMemory(true)
 				.cacheOnDisc(true).displayer(new FadeInBitmapDisplayer(250))
@@ -304,7 +307,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		listener.setAssetAnimationIconHolder(viewHolder.assetLoveAnimationImage);
 		viewHolder.assetOwnerPic.setOnClickListener(listener);
 		viewHolder.assetOwnerName.setOnClickListener(listener);
-		viewHolder.optionsImage.setOnClickListener(listener);
+		//	viewHolder.optionsImage.setOnClickListener(listener);
 		viewHolder.assetLoves.setOnClickListener(listener);
 		viewHolder.shareTxt.setOnClickListener(listener);
 
@@ -316,7 +319,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		UserStreamGestureListener gestureListener = new UserStreamGestureListener(
 				this, mFirstChildAsset);
 		gestureListener
-				.setAssetAnimationIconHolder(viewHolder.assetLoveAnimationImage);
+		.setAssetAnimationIconHolder(viewHolder.assetLoveAnimationImage);
 		GestureDetector gd = new GestureDetector(getActivity()
 				.getApplicationContext(), gestureListener);
 		UserStreamOnTouchListener touchListener = new UserStreamOnTouchListener(
@@ -324,7 +327,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 		viewHolder.assetImage.setOnTouchListener(touchListener);
 
 		mFirstChildViewHolder = viewHolder;
-		// loadPeopleWhoLikedAsset(mAssetLikedUsersList);
+		 loadPeopleWhoLikedAsset(mAssetLikedUsersList);
 		return view;
 	}
 
@@ -360,43 +363,45 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 						assetUtil.setAssetLikeIcon(mFirstChildAsset,
 								assetLoveAction);
 					}
-
+//Toast.makeText(getActivity(), usersList.toString(), Toast.LENGTH_LONG).show();
 					if (usersList != null && usersList.size() > 0) {
 						// Set VISIBLE to Liked Users layout
 						if (mFirstChildViewHolder.assetLovedUsersLayout != null) {
+							
 							mFirstChildViewHolder.assetLovedUsersLayout
-									.setVisibility(View.VISIBLE);
+							.setVisibility(View.VISIBLE);
 						}
 						// Set adapter to gridview
 						AssetLikedPeopleAdapter adapter = new AssetLikedPeopleAdapter(
 								getActivity(), usersList);
 						if (mFirstChildViewHolder.assetLovedUsersGrid != null) {
 							mFirstChildViewHolder.assetLovedUsersGrid
-									.setAdapter(adapter);
+							.setAdapter(adapter);
+							
 							mFirstChildViewHolder.assetLovedUsersGrid
-									.setOnItemClickListener(new UserNetworkListClickListener(
-											getActivity(), this,
-											UserNetwork.LOVED_USERS));
+							.setOnItemClickListener(new UserNetworkListClickListener(
+									getActivity(), this,
+									UserNetwork.LOVED_USERS));
 							adapter.notifyDataSetChanged();
 						}
 
 						if (users.size() > 5
 								&& mFirstChildViewHolder.assetLovedUsersSeeAll != null) {
 							mFirstChildViewHolder.assetLovedUsersSeeAll
-									.setVisibility(View.VISIBLE);
+							.setVisibility(View.VISIBLE);
 							UserStreamClickListener listener = new UserStreamClickListener(
 									this, mFirstChildAsset);
 							mFirstChildViewHolder.assetLovedUsersSeeAll
-									.setOnClickListener(listener);
+							.setOnClickListener(listener);
 						} else {
 							mFirstChildViewHolder.assetLovedUsersSeeAll
-									.setVisibility(View.GONE);
+							.setVisibility(View.GONE);
 						}
 					} else {
 						// Hide People Liked Asset layout
 						if (mFirstChildViewHolder.assetLovedUsersLayout != null) {
 							mFirstChildViewHolder.assetLovedUsersLayout
-									.setVisibility(View.GONE);
+							.setVisibility(View.GONE);
 						}
 					}
 				}
@@ -760,13 +765,14 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 
 				// Update whether current user liked or not
 				mFirstChildAsset
-						.setAssetIsLoved(isUserLiked(mAssetLikedUsersList));
+				.setAssetIsLoved(isUserLiked(mAssetLikedUsersList));
 
 				// Update asset love action
 				StreamAssetUtil assetUtil = new StreamAssetUtil(this, options);
 				assetUtil.setAssetLikeIcon(mFirstChildAsset, assetLoveAction);
 			}
-			// loadPeopleWhoLikedAsset(mAssetLikedUsersList);
+		//phani
+			 loadPeopleWhoLikedAsset(mAssetLikedUsersList);
 		}
 	}
 
@@ -795,7 +801,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 							.size());
 					// Update whether current user commented or not
 					mFirstChildAsset
-							.setAssetIsCommented(isUserCommented(mCommentsList));
+					.setAssetIsCommented(isUserCommented(mCommentsList));
 					// Update asset comment action
 					StreamAssetUtil assetUtil = new StreamAssetUtil(this,
 							options);
@@ -896,14 +902,14 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 					if (!TextUtils.isEmpty(assetId)) {
 						if (progressBar != null
 								&& (progressBar.getVisibility() == View.INVISIBLE || progressBar
-										.getVisibility() == View.GONE)) {
+								.getVisibility() == View.GONE)) {
 							progressBar.setVisibility(View.VISIBLE);
 						}
 						AssetDeleteHandler handler = new AssetDeleteHandler(
 								AssetDetailsWithCommentsFragment.this);
 						AssetDeleteThread thread = new AssetDeleteThread(
 								AssetDetailsWithCommentsFragment.this
-										.getActivity(), assetId, handler);
+								.getActivity(), assetId, handler);
 						thread.start();
 					}
 				} else {
@@ -926,7 +932,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 						}
 						AssetInappropriateThread thread = new AssetInappropriateThread(
 								AssetDetailsWithCommentsFragment.this
-										.getActivity(), assetId, uId,
+								.getActivity(), assetId, uId,
 								new InappropriateFlagHandler(
 										AssetDetailsWithCommentsFragment.this));
 						thread.start();
@@ -952,7 +958,7 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 						}
 						UserInappropriateThread thread = new UserInappropriateThread(
 								AssetDetailsWithCommentsFragment.this
-										.getActivity(), uId, assetUserId,
+								.getActivity(), uId, assetUserId,
 								new InappropriateFlagHandler(
 										AssetDetailsWithCommentsFragment.this));
 						thread.start();
