@@ -4,6 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@color/white"
     android:orientation="vertical" >
+
     <LinearLayout
         android:id="@+id/global_streams_up_layout"
         android:layout_width="fill_parent"
@@ -11,14 +12,13 @@
         android:background="@color/apspeak_header"
         android:orientation="vertical" >
 
-
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@color/yellow" />
+            android:background="@color/white" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -30,14 +30,14 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="fill_parent"
-                android:background="@color/yellow" />
+                android:background="@color/white" />
 
             <LinearLayout
                 android:id="@+id/college_button_layout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:background="@color/yellow" >
+                android:background="@color/white" >
 
                 <TextView
                     android:id="@+id/feedback"
@@ -52,7 +52,7 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="fill_parent"
-                android:background="@color/yellow" />
+                android:background="@color/white" />
 
             <LinearLayout
                 android:id="@+id/allcolleges_button_layout"
@@ -67,13 +67,13 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/ideas"
-                    android:textColor="@color/yellow" />
+                    android:textColor="@color/white" />
             </LinearLayout>
 
             <View
                 android:layout_width="1dp"
                 android:layout_height="fill_parent"
-                android:background="@color/yellow" />
+                android:background="@color/white" />
         </LinearLayout>
 
         <View
@@ -82,7 +82,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@color/yellow" />
+            android:background="@color/white" />
     </LinearLayout>
 
     <FrameLayout
@@ -236,7 +236,6 @@
             android:text="@string/please_poll_your_opinion"
             android:textColor="@color/apspeak_red"
             android:visibility="visible" />
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -269,7 +268,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/awesome_expression"
+                    android:background="@drawable/good"
                     android:gravity="center" />
 
                 <TextView
@@ -279,8 +278,8 @@
                     android:layout_below="@+id/img_btn_awesome"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="@string/awesome"
-                    android:textColor="@color/tab_color" />
+                    android:text="@string/good"
+                    android:textColor="@color/green" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -295,7 +294,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/good_expression"
+                    android:background="@drawable/average"
                     android:gravity="center" />
 
                 <TextView
@@ -306,7 +305,7 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/average"
-                    android:textColor="@color/tab_color" />
+                    android:textColor="@color/yellow" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -321,7 +320,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/bad_expression"
+                    android:background="@drawable/bad"
                     android:gravity="center" />
 
                 <TextView
@@ -332,39 +331,39 @@
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/bad"
-                    android:textColor="@color/tab_color" />
+                    android:textColor="@color/red" />
             </RelativeLayout>
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/create_idea_main_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/apspeak_green"
-            android:orientation="vertical"
-            android:visibility="gone" >
+            android:background="@color/apspeak_footer"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="gone"
+           >
 
             <ImageButton
                 android:id="@+id/create_idea_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/create_your_idea_icon"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/post_your_idea_icon"
                 android:gravity="center" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/create_idea_image"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
                 android:gravity="center"
-                android:paddingTop="5dp"
                 android:text="@string/create_idea"
-                android:textColor="@android:color/background_light" 
-                android:paddingBottom="10dp"/>
-        </RelativeLayout>
+                android:textColor="@color/red" />
+        </LinearLayout>
     </RelativeLayout>
 
 </RelativeLayout>

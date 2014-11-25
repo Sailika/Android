@@ -155,7 +155,7 @@ public class GlobalStreamsFragment extends Fragment implements
 
 	// for feedback and create ideas
 	private static LinearLayout feedbackOptsLayout;
-	private RelativeLayout ideasMainLayout;
+	private LinearLayout ideasMainLayout;
 	private ImageView createIdeaImage;
 
 	// for feedback click events
@@ -388,7 +388,7 @@ public class GlobalStreamsFragment extends Fragment implements
 
 			// mAllColleges.setTextColor(getResources().getColor(R.color.white));
 			mCollegeLayout.setBackgroundColor(getResources().getColor(
-					R.color.yellow));
+					R.color.white));
 
 			mCollegeLayout.setOnClickListener(listener);
 			mAllCollegesLayout.setOnClickListener(listener);
@@ -426,7 +426,7 @@ public class GlobalStreamsFragment extends Fragment implements
 					});
 			feedbackOptsLayout = (LinearLayout) rootView
 					.findViewById(R.id.feedback_layout);
-			ideasMainLayout = (RelativeLayout) rootView
+			ideasMainLayout = (LinearLayout) rootView
 					.findViewById(R.id.create_idea_main_layout);
 			createIdeaImage = (ImageView) rootView
 					.findViewById(R.id.create_idea_image);
@@ -873,13 +873,13 @@ public class GlobalStreamsFragment extends Fragment implements
 
 			feedback.setTextColor(getResources().getColor(R.color.red));
 
-			ideas.setTextColor(getResources().getColor(R.color.yellow));
+			ideas.setTextColor(getResources().getColor(R.color.white));
 
 			// To show the full width image in feedback enable the view because
 			// its hiding in ideas tab
 			mCueDetailsBackgroundWideImage.setVisibility(View.VISIBLE);
 			mCollegeLayout.setBackgroundColor(getResources().getColor(
-					R.color.yellow));
+					R.color.white));
 			mAllCollegesLayout.setBackgroundColor(Color.TRANSPARENT);
 			globelFeedbackBottomLayout.setVisibility(View.VISIBLE);
 
@@ -899,7 +899,7 @@ public class GlobalStreamsFragment extends Fragment implements
 			mPullToRefreshGridView.setVisibility(View.VISIBLE);
 			isFeedback = false;
 			if (getActivity() instanceof AppNewChildActivity) {
-				getActivity().setTitle(R.string.ideas);
+				getActivity().setTitle(R.string.campaign_ideas);
 			}
 			// changing header title to ideas
 			// headerText.setText(getResources().getString(R.string.ideas));
@@ -918,11 +918,11 @@ public class GlobalStreamsFragment extends Fragment implements
 			mFriends.setTextColor(getResources().getColor(R.color.black));
 
 			ideas.setTextColor(getResources().getColor(R.color.red));
-			feedback.setTextColor(getResources().getColor(R.color.yellow));
+			feedback.setTextColor(getResources().getColor(R.color.white));
 
 			mCollegeLayout.setBackgroundColor(Color.TRANSPARENT);
 			mAllCollegesLayout.setBackgroundColor(getResources().getColor(
-					R.color.yellow));
+					R.color.white));
 			mCueDetailsBackgroundWideImage.setVisibility(View.GONE);
 			if (mGridView != null) {
 				mGridView.setNumColumns(2);

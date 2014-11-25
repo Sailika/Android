@@ -230,10 +230,12 @@
     <string name="err_max_text_size">Max font size reached</string>
     <string name="feed_back">Feedback</string>
     <string name="ideas">Ideas</string>
+    <string name="campaign_ideas">Campaign Ideas</string>
     <string name="awesome">Awesome</string>
+    <string name="good">Good</string>
     <string name="average">Average</string>
     <string name="bad">Bad</string>
-    <string name="create_idea">Create your idea</string>
+    <string name="create_idea">Post your idea</string>
     <string name="about_us_text">Whatsay is brought to you by Neuv LLC.\n\n
   
 At Neuv, our focus is on solving the problem of content creation and consumption on smart and connected devices.\n\n
