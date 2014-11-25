@@ -272,10 +272,6 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 				.findViewById(R.id.asset_people_liked_layout);
 		viewHolder.assetLovedUsersGrid = (GridView) view
 				.findViewById(R.id.asset_people_liked_grid_view);
-<<<<<<< HEAD
-=======
-		
->>>>>>> 167e07e70dce920f5354022c481729b8ad63eef3
 		//		viewHolder.optionsImage = (ImageView) view
 		//				.findViewById(R.id.asset_options);
 		viewHolder.assetLovedUsersSeeAll = (TextView) view
@@ -380,10 +376,6 @@ public class AssetDetailsWithCommentsFragment extends Fragment {
 						if (mFirstChildViewHolder.assetLovedUsersGrid != null) {
 							mFirstChildViewHolder.assetLovedUsersGrid
 							.setAdapter(adapter);
-<<<<<<< HEAD
-=======
-							
->>>>>>> 167e07e70dce920f5354022c481729b8ad63eef3
 							mFirstChildViewHolder.assetLovedUsersGrid
 							.setOnItemClickListener(new UserNetworkListClickListener(
 									getActivity(), this,
