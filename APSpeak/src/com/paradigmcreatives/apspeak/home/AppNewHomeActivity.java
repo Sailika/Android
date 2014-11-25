@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -35,6 +36,7 @@ import android.widget.Toast;
 
 import com.facebook.AppEventsLogger;
 import com.paradigmcreatives.apspeak.R;
+import com.paradigmcreatives.apspeak.R.color;
 import com.paradigmcreatives.apspeak.ShutDownListener;
 import com.paradigmcreatives.apspeak.app.invite.activity.InviteContactsActivity;
 import com.paradigmcreatives.apspeak.app.invite.fragments.InviteFriendsFragment;
@@ -100,7 +102,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 	private ImageView mProfileIcon;
 	private ImageView mNotificationsIcon;
 	private ImageView mHeaderOptionsBack;
-	private ImageView mHeaderLogo;
+	private ImageView mHeaderLogo;	
 	private TextView mNotificationsCount;
 	private TextView globelHeaderText;
 	private TextView mDashBoardIconTxt;
@@ -267,7 +269,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			showHideNotificationsCount();
 
 			mInviteIcon.setVisibility(View.INVISIBLE);
-			mSettingsIcon.setVisibility(View.INVISIBLE);
+			mSettingsIcon.setVisibility(View.VISIBLE);
 			mFeedbackIcon.setVisibility(View.INVISIBLE);
 			mCuesLayout.setVisibility(View.INVISIBLE);
 			mFeaturedLayout.setVisibility(View.VISIBLE);
@@ -295,8 +297,12 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mProfileIcon.setImageResource(R.drawable.mmy_profile_icon_selected);
 			mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 			showHideNotificationsCount();
+
+			mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.white));
+			mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.white));
+			mProfileIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
 			mInviteIcon.setVisibility(View.INVISIBLE);
-			mSettingsIcon.setVisibility(View.GONE);
+			mSettingsIcon.setVisibility(View.INVISIBLE);
 			mFeedbackIcon.setVisibility(View.VISIBLE);
 			mCuesLayout.setVisibility(View.VISIBLE);
 			mFeaturedLayout.setVisibility(View.INVISIBLE);
@@ -335,8 +341,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
 			mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
-			mNotificationsIcon
-			.setImageResource(R.drawable.minvite_selected);
+			mNotificationsIcon.setImageResource(R.drawable.minvite_selected);
 			// Reset notifications count value
 			AppPropertiesUtil.setNotificationsCount(AppNewHomeActivity.this, 0);
 			showHideNotificationsCount();
@@ -346,7 +351,9 @@ public class AppNewHomeActivity extends FragmentActivity {
 			if (manager != null) {
 				manager.cancelAll();
 			}
-
+			mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
+			mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.white));
+			mProfileIconTxt.setTextColor(getResources().getColor(R.color.white));
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.INVISIBLE);
 			mCuesLayout.setVisibility(View.VISIBLE);
@@ -403,9 +410,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
 		mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 		showHideNotificationsCount();
-
+		mProfileIconTxt.setTextColor(getResources().getColor(R.color.white));
+		mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.white));
+		mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
 		mInviteIcon.setVisibility(View.GONE);
-		mSettingsIcon.setVisibility(View.INVISIBLE);
+		mSettingsIcon.setVisibility(View.VISIBLE);
 		mFeedbackIcon.setVisibility(View.VISIBLE);
 		mCuesLayout.setVisibility(View.VISIBLE);
 		mFeaturedLayout.setVisibility(View.INVISIBLE);
@@ -772,11 +781,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 			Fragment fragment;
 			switch (position) {
 			case ABOUT_US:
-//				globelHeaderText.setText(getResources()
-//						.getString(R.string.about_us));
-//				mFragmentManager.beginTransaction()
-//				.replace(R.id.home_cues, new AboutUsActivity())
-//				.commit();
+				//				globelHeaderText.setText(getResources()
+				//						.getString(R.string.about_us));
+				//				mFragmentManager.beginTransaction()
+				//				.replace(R.id.home_cues, new AboutUsActivity())
+				//				.commit();
 				Toast.makeText(view.getContext(),
 						getResources().getString(R.string.need_to_implement),
 						Toast.LENGTH_LONG).show();
@@ -794,12 +803,12 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 				break;
 			case PRIVACY_POLACY:
-//				globelHeaderText.setText(getResources().getString(
-//						R.string.privacy_policy));
-//
-//				mFragmentManager.beginTransaction()
-//				.replace(R.id.home_cues, new PrivacyPolicyActivity())
-//				.commit();
+				//				globelHeaderText.setText(getResources().getString(
+				//						R.string.privacy_policy));
+				//
+				//				mFragmentManager.beginTransaction()
+				//				.replace(R.id.home_cues, new PrivacyPolicyActivity())
+				//				.commit();
 				Toast.makeText(view.getContext(),
 						getResources().getString(R.string.need_to_implement),
 						Toast.LENGTH_LONG).show();
@@ -821,12 +830,12 @@ public class AppNewHomeActivity extends FragmentActivity {
 				 */
 				break;
 			case GIVE_US_FEEDBACK:
-//				globelHeaderText.setText(getResources()
-//						.getString(R.string.feedback));
-//
-//				mFragmentManager.beginTransaction()
-//				.replace(R.id.home_cues, new FeedbackActivity())
-//				.commit();
+				//				globelHeaderText.setText(getResources()
+				//						.getString(R.string.feedback));
+				//
+				//				mFragmentManager.beginTransaction()
+				//				.replace(R.id.home_cues, new FeedbackActivity())
+				//				.commit();
 				Toast.makeText(view.getContext(),
 						getResources().getString(R.string.need_to_implement),
 						Toast.LENGTH_LONG).show();
@@ -842,18 +851,18 @@ public class AppNewHomeActivity extends FragmentActivity {
 							}
 						});
 				break;
-				
+
 			case HELP:
-//				globelHeaderText.setText(getResources().getString(R.string.help));
-//				mFragmentManager.beginTransaction().
-//				replace(R.id.home_cues, new HelpActivity())
-//				.commit();
+				//				globelHeaderText.setText(getResources().getString(R.string.help));
+				//				mFragmentManager.beginTransaction().
+				//				replace(R.id.home_cues, new HelpActivity())
+				//				.commit();
 				Toast.makeText(view.getContext(),
 						getResources().getString(R.string.need_to_implement),
 						Toast.LENGTH_LONG).show();
 				drawerLayout.closeDrawers();
 				break;
-				
+
 			case HOME:
 				globelHeaderText.setText(getResources().getString(
 						R.string.campaigns));
