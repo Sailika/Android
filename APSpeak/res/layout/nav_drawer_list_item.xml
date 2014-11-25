@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:id="@+id/nav_drawer_list_item"
     android:layout_height="wrap_content"
-    android:background="@color/apspeak_green"
+    android:background="@color/footer_color"
     android:padding="5dp" >
 
     <ImageView
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/icon"
-        android:textColor="@color/white"
+        android:textColor="@color/header_color"
         android:padding="5dp"
       />
 

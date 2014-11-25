@@ -79,6 +79,8 @@
     <color name="invite_btn_seperator">#8F9057</color>
    <color name="apspeak_light_red">#b7575b</color>
    <color name="apspeak_edit_text_color">#FFDADC</color>
+   <color name="header_color">#e7493d</color>
+   <color name="footer_color">#dddddd</color>
     
 
 </resources>
