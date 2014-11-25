@@ -414,7 +414,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 		mInviteFriendsIconTxt.setTextColor(getResources().getColor(R.color.apspeak_footer_textColor));
 		mDashBoardIconTxt.setTextColor(getResources().getColor(R.color.apspeak_header));
 		mInviteIcon.setVisibility(View.GONE);
-		mSettingsIcon.setVisibility(View.VISIBLE);
+		mSettingsIcon.setVisibility(View.INVISIBLE);
 		mFeedbackIcon.setVisibility(View.VISIBLE);
 		mCuesLayout.setVisibility(View.VISIBLE);
 		mFeaturedLayout.setVisibility(View.INVISIBLE);
