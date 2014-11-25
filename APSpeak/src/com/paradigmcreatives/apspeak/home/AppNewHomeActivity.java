@@ -260,7 +260,7 @@ public class AppNewHomeActivity extends FragmentActivity {
 				fragmentTransaction.commit();
 				currentFragment = mFeaturedFragment;
 			}
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
+			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured_select);
 			mProfileIcon.setImageResource(R.drawable.me);
 			mNotificationsIcon.setImageResource(R.drawable.myfeed);
@@ -290,10 +290,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 			currentFragment = mProfileFragment;
 			//}
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
+			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.my_profile_icon_selected);
-			mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
+			mProfileIcon.setImageResource(R.drawable.mmy_profile_icon_selected);
+			mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 			showHideNotificationsCount();
 			mInviteIcon.setVisibility(View.INVISIBLE);
 			mSettingsIcon.setVisibility(View.GONE);
@@ -332,11 +332,11 @@ public class AppNewHomeActivity extends FragmentActivity {
 
 				// mMyFeedFragment.reloadFeed();
 			}*/
-			mCuesIcon.setImageResource(R.drawable.dashboard_icon);
+			mCuesIcon.setImageResource(R.drawable.mdashboard_icon);
 			mFeaturedIcon.setImageResource(R.drawable.featured);
-			mProfileIcon.setImageResource(R.drawable.my_profile_icon);
+			mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
 			mNotificationsIcon
-			.setImageResource(R.drawable.invite_friends_icon_selected);
+			.setImageResource(R.drawable.minvite_selected);
 			// Reset notifications count value
 			AppPropertiesUtil.setNotificationsCount(AppNewHomeActivity.this, 0);
 			showHideNotificationsCount();
@@ -398,10 +398,10 @@ public class AppNewHomeActivity extends FragmentActivity {
 		fragmentTransaction.commit();
 		currentFragment = mCuesFragment;
 
-		mCuesIcon.setImageResource(R.drawable.dashboard_icon_selected);
+		mCuesIcon.setImageResource(R.drawable.mdashboard_icon_selected);
 		mFeaturedIcon.setImageResource(R.drawable.featured);
-		mProfileIcon.setImageResource(R.drawable.my_profile_icon);
-		mNotificationsIcon.setImageResource(R.drawable.invite_friends_icon);
+		mProfileIcon.setImageResource(R.drawable.mmy_profile_icon);
+		mNotificationsIcon.setImageResource(R.drawable.minvite_friends_icon);
 		showHideNotificationsCount();
 
 		mInviteIcon.setVisibility(View.GONE);

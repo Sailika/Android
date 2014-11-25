@@ -19,7 +19,7 @@
                 android:id="@+id/home_header_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/header_bg" >
+                android:background="@color/apspeak_header" >
 
                 <RelativeLayout
                     android:id="@+id/home_header_logo_layout"
@@ -41,7 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:textColor="@color/apspeak_dark_yellow"
+                        android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -119,7 +119,7 @@
                 android:id="@+id/home_bottom_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/apspeak_green"
+                android:background="@color/apspeak_footer"
                 android:orientation="horizontal" >
 
                 <LinearLayout
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/dashboard_icon_selected" />
+                        android:src="@drawable/mdashboard_icon_selected" />
 
                     <TextView
                         android:id="@+id/home_cues_text"
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="2dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/my_profile_icon" />
+                        android:src="@drawable/mmy_profile_icon" />
 
                     <TextView
                         android:id="@+id/home_profile_text"
@@ -215,7 +215,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="2dp"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/invite_friends_icon" />
+                            android:src="@drawable/minvite_friends_icon" />
 
                         <TextView
                             android:id="@+id/home_notifications_count"
