@@ -87,8 +87,7 @@
                 <FrameLayout
                     android:id="@+id/asset_image_layout"
                     android:layout_width="fill_parent"
-                    android:background="@android:color/black"
-                  
+                    android:background="@android:color/black"                  
                     android:layout_height="wrap_content"
                     android:layout_below="@id/asset_header_layout" >
 
