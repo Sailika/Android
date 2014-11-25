@@ -83,6 +83,6 @@
    <color name="apspeak_edit_text_color">#FFDADC</color>
    <color name="header_color">#e7493d</color>
    <color name="footer_color">#dddddd</color>
-    
+   <color name="apspeak_footer_textColor">#777777</color>
 
 </resources>
