@@ -121,6 +121,7 @@
         <!-- <item>Privacy Policy</item> -->
         <item>Change your city</item>
         <item>Give us feedback</item>
+        <item>Help</item>
         <item>Logout</item>
     </string-array>
     <string-array name="navDrawerIcons">
@@ -365,5 +366,5 @@ We would love to hear your feedback on what you like and on how we can make what
     <string name="need_to_implement">Feature is not enabled yet, comming soon!</string>
     <string name="invite_btn">Invite</string>
     <string name="wait_for_poll">Please wait, while polling your opinion</string>
-
+    <string name="loading">Please wait, while loading</string>
 </resources>

@@ -3,7 +3,7 @@
     android:id="@+id/signup_v4_mainlayout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/splash_screen_bg" >
+    android:background="@color/apspeak_header" >
 
     <RelativeLayout
         android:id="@+id/signup_relativelayout"
@@ -17,7 +17,7 @@
 			android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ap_speak_logo" />
+            android:src="@drawable/logo_login" />
 
         <RelativeLayout
             android:id="@+id/group_selection_layout"

@@ -18,6 +18,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import retrofit.mime.TypedFile;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -35,6 +36,7 @@ import com.paradigmcreatives.apspeak.app.util.constants.ServerConstants;
 import com.paradigmcreatives.apspeak.app.util.constants.Constants.ExitState;
 import com.paradigmcreatives.apspeak.app.util.network.NetworkManager;
 import com.paradigmcreatives.apspeak.logging.Logger;
+import com.paradigmcreatives.apspeak.network.RestClient;
 import com.paradigmcreatives.apspeak.network.SmacxService;
 
 /**
@@ -110,12 +112,12 @@ public class AssetSubmitHelper {
 
 				// 1 - Initialize the HTTP related objects
 				httpClient = new DefaultHttpClient();
-				httpPost = new HttpPost(ServerConstants.SERVER_URL
+				httpPost = new HttpPost(ServerConstants.NODE_SERVER_URL
 						+ ServerConstants.ASSET_SUBMIT);
 				if (mExpression != null
 						&& !TextUtils.isEmpty(mExpression.getRootAssetId())) {
 					// Expression submission as a COMMENT
-					httpPost = new HttpPost(ServerConstants.SERVER_URL
+					httpPost = new HttpPost(ServerConstants.NODE_SERVER_URL
 							+ ServerConstants.COMMENT_CREATE);
 				}
 
@@ -139,6 +141,7 @@ public class AssetSubmitHelper {
 				httpPost.setEntity(createRequestEntity());
 				httpResponse = httpClient.execute(httpPost);
 
+				//result = sendIdea();
 				// 4 - Parse the response
 				result = parseSendResponse(httpResponse);
 
@@ -166,9 +169,8 @@ public class AssetSubmitHelper {
 			result = new SubmitResultBean(null, "Illegal state", -1, false);
 			Logger.warn(TAG, "Error during send. " + e.getMessage());
 		} catch (JSONException e) {
-			result = new SubmitResultBean(null, "Exception while parsing JSON",
-					-1, false);
-			Logger.warn(TAG, "Error during send. " + e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
 			try {
 				// 1 - Delete the temporary file
@@ -185,7 +187,7 @@ public class AssetSubmitHelper {
 		}
 
 		return result;
-	}
+	}	
 
 	/**
 	 * Parses the server's response of send service
@@ -291,7 +293,8 @@ public class AssetSubmitHelper {
 		if (!TextUtils.isEmpty(mUserId)) {
 			reqEntity.addPart(JSONConstants.USER_ID, new StringBody(mUserId));
 		}
-		reqEntity.addPart(JSONConstants.LABEL, new StringBody(JSONConstants.IDEA));
+		reqEntity.addPart(JSONConstants.LABEL, new StringBody(
+				JSONConstants.IDEA));
 
 		if (mCueId != null) {
 			reqEntity.addPart(JSONConstants.CUE_ID, new StringBody(mCueId));
@@ -308,7 +311,7 @@ public class AssetSubmitHelper {
 			reqEntity.addPart(JSONConstants.TYPE, new StringBody("IMAGE"));
 			if (!TextUtils.isEmpty(mFilePath)) {
 				File doodleZipFile = new File(mFilePath);
-				FileBody binary = new FileBody(doodleZipFile);
+				FileBody binary = new FileBody(doodleZipFile, "image/jpeg");
 				reqEntity.addPart(JSONConstants.CONTENT, binary);
 			}
 		}

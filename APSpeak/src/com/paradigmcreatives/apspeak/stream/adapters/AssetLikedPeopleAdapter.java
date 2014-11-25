@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,20 +77,26 @@ public class AssetLikedPeopleAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder = null;
+		
 		if (convertView == null) {
+			
 			viewHolder = new ViewHolder();
+			
 			convertView = LayoutInflater.from(activity).inflate(R.layout.stream_itemdetails_people_griditem, null);
 			viewHolder.assetOwnerPic = (ImageView) convertView.findViewById(R.id.loved_user_pic);
 			viewHolder.assetOwnerName = (TextView) convertView.findViewById(R.id.loved_user_name);
+			
 			convertView.setFocusable(false);
 			convertView.setClickable(false);
 			convertView.setTag(viewHolder);
 
 		} else {
+			
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
 		if (viewHolder != null) {
+			
 			Friend lovedUser = getItem(position);
 			setAssetOwnerPic(lovedUser.getProfilePicURL(), viewHolder.assetOwnerPic);
 			setOwnerName(lovedUser.getName(), viewHolder.assetOwnerName);
@@ -104,11 +111,15 @@ public class AssetLikedPeopleAdapter extends BaseAdapter {
 	 * @param ownerImage
 	 */
 	public void setAssetOwnerPic(String profilePicUrl, ImageView ownerImage) {
+		
 		if (ownerImage == null) {
 			return;
 		}
+		
 		ownerImage.setImageResource(R.drawable.userpic);
+		
 		if (!TextUtils.isEmpty(profilePicUrl)) {
+			
 			ImageLoader.getInstance().displayImage(profilePicUrl, ownerImage, options, new ImageLoadingListener() {
 
 				@Override
@@ -128,7 +139,7 @@ public class AssetLikedPeopleAdapter extends BaseAdapter {
 						Constants.BUBBLE_IMAGE_SIZE, Constants.HEADER_IMAGE_SIZE);
 					((ImageView) view).setImageBitmap(loadedImage);
 				    }catch(Exception e){
-					
+				    	Log.e(this.toString(), ""+imageUri);
 				    }
 				}
 

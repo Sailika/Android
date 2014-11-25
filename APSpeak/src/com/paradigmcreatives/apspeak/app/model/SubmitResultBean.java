@@ -12,7 +12,8 @@ public class SubmitResultBean {
 	 * @param error
 	 * @param success
 	 */
-	public SubmitResultBean(String assetID, String error, int code, boolean success) {
+	public SubmitResultBean(String assetID, String error, int code,
+			boolean success) {
 		this.assetID = assetID;
 		this.error = error;
 		this.errorStatusCode = code;
@@ -77,6 +78,12 @@ public class SubmitResultBean {
 	 */
 	public void setSuccess(boolean success) {
 		this.success = success;
+	}
+
+	@Override
+	public String toString() {
+		return "Asset Id =" + getAssetID() + ",  Error =" + getError()
+				+ ", Error Code" + getErrorCode() + ", Success=" + isSuccess();
 	}
 
 }

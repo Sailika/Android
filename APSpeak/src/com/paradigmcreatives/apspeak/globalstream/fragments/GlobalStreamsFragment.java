@@ -223,7 +223,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		// setAdapter();
 		// Fetch list from server
 		mCurrentStreamType = STREAM_TYPE.COLLEGE;
-
+         mProgressBar.setVisibility(View.VISIBLE);
 		fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
 		return rootView;
 	}
@@ -885,6 +885,7 @@ public class GlobalStreamsFragment extends Fragment implements
 
 			mCurrentStreamType = STREAM_TYPE.COLLEGE;
 			fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false);
+			mProgressBar.setVisibility(View.VISIBLE);
 			// mFriendsLayout.setBackgroundColor(getResources().getColor(R.color.white));
 			// if (mCollegeList != null && mCollegeList.size() > 0) {
 			// setAdapter();
@@ -897,6 +898,7 @@ public class GlobalStreamsFragment extends Fragment implements
 		case R.id.allcolleges_button_layout: // Ideas tab for APSpeak
 			mErrorMessageView.setVisibility(View.VISIBLE);
 			mPullToRefreshGridView.setVisibility(View.VISIBLE);
+
 			isFeedback = false;
 			if (getActivity() instanceof AppNewChildActivity) {
 				getActivity().setTitle(R.string.campaign_ideas);
@@ -927,6 +929,8 @@ public class GlobalStreamsFragment extends Fragment implements
 			if (mGridView != null) {
 				mGridView.setNumColumns(2);
 				fetchNextBatch(0, Constants.IDEAS_FETCHLIMIT, false);
+				mProgressBar.setVisibility(View.VISIBLE);
+
 			}
 			// mFriendsLayout.setBackgroundColor(getResources().getColor(R.color.white));
 			// if (mAllCollegesList != null && mAllCollegesList.size() > 0) {
@@ -935,23 +939,7 @@ public class GlobalStreamsFragment extends Fragment implements
 			// fetchNextBatch(0, Constants.IDEAS_FETCHLIMIT, false);
 			// }
 			break;
-
-		/*
-		 * case R.id.friends_button_layout: mCurrentStreamType =
-		 * STREAM_TYPE.FRIENDS; mCollege.setTextColor(getResources().getColor
-		 * (R.color.tab_color));
-		 * mAllColleges.setTextColor(getResources().getColor
-		 * (R.color.tab_color));
-		 * mFriends.setTextColor(getResources().getColor(R.color.white));
-		 * mCollegeLayout
-		 * .setBackgroundColor(getResources().getColor(R.color.white));
-		 * mAllCollegesLayout
-		 * .setBackgroundColor(getResources().getColor(R.color.white));
-		 * mFriendsLayout
-		 * .setBackgroundColor(getResources().getColor(R.color.tab_color)); if
-		 * (mFriendsList != null && mFriendsList.size() > 0) { setAdapter(); }
-		 * else { fetchNextBatch(0, Constants.BATCH_FETCHLIMIT, false); } break;
-		 */default:
+		default:
 			break;
 		}
 	}
@@ -1480,8 +1468,14 @@ public class GlobalStreamsFragment extends Fragment implements
 
 	@Override
 	public void onClick(View v) {
-
-		FeedBackType feedBackType = FeedBackType.GOOD;
+		if (mProgressBar != null
+				&& mProgressBar.getVisibility() == View.VISIBLE) {
+			Toast.makeText(getActivity(),
+					getResources().getString(R.string.loading),
+					Toast.LENGTH_LONG).show();
+			return;
+		}
+		FeedBackType feedBackType = FeedBackType.NOT;
 		switch (v.getId()) {
 		case R.id.img_btn_awesome:
 			feedBackType = FeedBackType.GOOD;
@@ -1505,20 +1499,23 @@ public class GlobalStreamsFragment extends Fragment implements
 		default:
 			break;
 		}
-		FeedBack feedBack = new FeedBack();
-		if (mCollegeList != null && mCollegeList.size() > 0) {
-			feedBack.setAsset_id(mCollegeList.get(0).getAssetId());
+		// Should not send feedback request when creating an idea.
+		if (feedBackType != FeedBackType.NOT) {
+			FeedBack feedBack = new FeedBack();
+			if (mCollegeList != null && mCollegeList.size() > 0) {
+				feedBack.setAsset_id(mCollegeList.get(0).getAssetId());
+			}
+			feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
+			feedBack.setFeedback(feedBackType);
+			Toast.makeText(getActivity(),
+					getResources().getString(R.string.wait_for_poll),
+					Toast.LENGTH_LONG).show();
+			RestClient
+					.getInstance()
+					.getRestClient(getActivity())
+					.postFeedBack(feedBack,
+							new FeedBackCallBack(getActivity(), feedBack));
 		}
-		feedBack.setUser_id(AppPropertiesUtil.getUserID(getActivity()));
-		feedBack.setFeedback(feedBackType);
-		Toast.makeText(getActivity(),
-				getResources().getString(R.string.wait_for_poll),
-				Toast.LENGTH_LONG).show();
-		RestClient
-				.getInstance()
-				.getRestClient(getActivity())
-				.postFeedBack(feedBack,
-						new FeedBackCallBack(getActivity(), feedBack));
 
 	}
 }

@@ -81,7 +81,7 @@ public class SaveAndSubmitAssetTask implements Runnable {
 				} else {
 					handler.onSubmitError("Ooops!! Empty Response", -1);
 				}
-				Logger.info(TAG, "Submitted: " + res);
+				Logger.info(TAG, "Submitted: " + res.toString());
 			}
 		} else {
 			Logger.warn(TAG, "Empty doodle view");
