@@ -51,8 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:padding="10dp"
-                        
-                        android:src="@drawable/notification_icon"
+                        android:src="@drawable/mnotification_icon"
                         android:visibility="gone" />
 
                     <ImageView
@@ -77,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:padding="10dp"
-                        android:src="@drawable/settings_general"
+                        android:src="@drawable/mnotification_icon"
                         android:visibility="invisible" />
                 </RelativeLayout>
             </FrameLayout>
@@ -145,7 +144,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:text="@string/dashboard"
-                        android:textColor="@android:color/background_light" />
+                        android:textColor="@android:color/background_light"
+                         />
                 </LinearLayout>
 
                 <LinearLayout
