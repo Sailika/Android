@@ -1,2 +1,2 @@
-sailika_AndroidTraining2014
+Samples
 ===========================
